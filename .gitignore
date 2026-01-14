@@ -1,6 +1,6 @@
 .idea
 projectFilesBackup
-extension.zip
+*.zip
 dist
 node_modules
 
