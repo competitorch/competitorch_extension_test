@@ -23,7 +23,7 @@
 			"19": "icons/icon19.png",
 			"38": "icons/icon38.png"
 		},
-		"default_title": "Web Scraper"
+		"default_title": "Competitorch Extension"
 	},
 	"options_ui": {
 		"page": "options/options.html",

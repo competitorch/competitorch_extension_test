@@ -6642,7 +6642,7 @@
 				f = n(1),
 				h = n.n(f),
 				d =
-					(n(124),
+					(n(125),
 					n(74),
 					n(39),
 					n(126),
@@ -6658,7 +6658,7 @@
 					n(164)),
 				p = n.n(d),
 				v = n(65),
-				g = n(219),
+				g = n(220),
 				m = (function () {
 					return l()(
 						function e(t) {
@@ -6992,10 +6992,10 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(8),
-			i = n(70),
+			i = n(71),
 			o = n(22),
-			a = n(80),
-			s = n(71),
+			a = n(81),
+			s = n(70),
 			u = n(138),
 			c = r.Symbol,
 			l = i('wks'),
@@ -7030,9 +7030,9 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(101),
+		var r = n(104),
 			i = n(28),
-			o = n(188);
+			o = n(189);
 		r || i(Object.prototype, 'toString', o, { unsafe: !0 });
 	},
 	function (e, t, n) {
@@ -7058,7 +7058,7 @@
 		var r,
 			i,
 			o,
-			a = n(211),
+			a = n(212),
 			s = n(19),
 			u = n(8),
 			c = n(15),
@@ -7070,10 +7070,10 @@
 			v = n(28),
 			g = n(58),
 			m = n(50),
-			y = n(106),
+			y = n(107),
 			b = n(84),
 			w = n(17),
-			x = n(80),
+			x = n(81),
 			k = n(35),
 			_ = k.enforce,
 			S = k.get,
@@ -7267,7 +7267,7 @@
 	function (e, t, n) {
 		var r = n(289),
 			i = n(290),
-			o = n(226),
+			o = n(227),
 			a = n(291);
 		(e.exports = function (e, t) {
 			return r(e) || i(e, t) || o(e, t) || a();
@@ -7321,7 +7321,7 @@
 		'use strict';
 		var r = n(19),
 			i = n(147),
-			o = n(150),
+			o = n(151),
 			a = n(24),
 			s = n(100),
 			u = TypeError,
@@ -7454,9 +7454,9 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(8),
-			i = n(190),
-			o = n(191),
-			a = n(259),
+			i = n(195),
+			o = n(196),
+			a = n(260),
 			s = n(45),
 			u = function (e) {
 				if (e && e.forEach !== a)
@@ -7477,7 +7477,7 @@
 		'use strict';
 		var r = n(46),
 			i = n(9),
-			o = n(114),
+			o = n(113),
 			a = n(30),
 			s = n(29),
 			u = n(123),
@@ -7543,7 +7543,7 @@
 		var r = n(10),
 			i = n(38).map;
 		r(
-			{ target: 'Array', proto: !0, forced: !n(105)('map') },
+			{ target: 'Array', proto: !0, forced: !n(106)('map') },
 			{
 				map: function (e) {
 					return i(this, e, arguments.length > 1 ? arguments[1] : void 0);
@@ -7553,7 +7553,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(41),
+		var r = n(42),
 			i = TypeError;
 		e.exports = function (e) {
 			if (r(e)) throw new i("Can't call method on " + e);
@@ -7562,16 +7562,16 @@
 	},
 	function (e, t, n) {
 		'use strict';
+		var r = n(113),
+			i = n(40);
 		e.exports = function (e) {
-			return null == e;
+			return r(i(e));
 		};
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(114),
-			i = n(40);
 		e.exports = function (e) {
-			return r(i(e));
+			return null == e;
 		};
 	},
 	function (e, t, n) {
@@ -7599,7 +7599,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(118),
+		var r = n(116),
 			i = n(34),
 			o = n(76),
 			a = r(r.bind);
@@ -7690,12 +7690,12 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		n(232), n(241), n(242), n(243), n(244), n(245);
+		n(233), n(241), n(242), n(243), n(244), n(245);
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(42),
-			i = n(125),
+		var r = n(41),
+			i = n(124),
 			o = n(92),
 			a = n(35),
 			s = n(31).f,
@@ -7739,7 +7739,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(101),
+		var r = n(104),
 			i = n(15),
 			o = n(43),
 			a = n(17)('toStringTag'),
@@ -7791,7 +7791,7 @@
 				s = n(4),
 				u = n.n(s),
 				c =
-					(n(124),
+					(n(125),
 					n(67),
 					n(171),
 					n(74),
@@ -7814,7 +7814,7 @@
 					n(180),
 					n(181),
 					n(182),
-					n(222)),
+					n(223)),
 				l = n(60),
 				f = n(136),
 				h = n(137);
@@ -8158,7 +8158,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(233);
+		var r = n(232);
 		e.exports = function (e) {
 			var t = +e;
 			return t != t || 0 === t ? 0 : r(t);
@@ -8168,11 +8168,11 @@
 		'use strict';
 		var r,
 			i = n(24),
-			o = n(195),
+			o = n(188),
 			a = n(140),
 			s = n(87),
 			u = n(176),
-			c = n(99),
+			c = n(101),
 			l = n(103),
 			f = l('IE_PROTO'),
 			h = function () {},
@@ -8270,7 +8270,7 @@
 			h = n.n(f),
 			d = n(66),
 			p = n.n(d),
-			v = (n(124), n(74), n(20), n(36), n(16)),
+			v = (n(125), n(74), n(20), n(36), n(16)),
 			g = n(2),
 			m = n.n(g),
 			y = n(1),
@@ -8376,7 +8376,7 @@
 				);
 				var n;
 			})(v.a),
-			k = (n(107), n(39), n(0));
+			k = (n(99), n(39), n(0));
 		function _(e, t, n) {
 			return (
 				(t = l()(t)),
@@ -10104,7 +10104,7 @@
 				);
 				var n;
 			})(v.a),
-			ee = (n(217), n(94), n(65)),
+			ee = (n(218), n(94), n(65)),
 			te = n(109);
 		function ne(e, t, n) {
 			return (
@@ -11079,7 +11079,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(34),
-			i = n(41);
+			i = n(42);
 		e.exports = function (e, t) {
 			var n = e[t];
 			return i(n) ? void 0 : r(n);
@@ -11107,7 +11107,7 @@
 			o = n(24),
 			a = n(26),
 			s = n(7),
-			u = n(205),
+			u = n(208),
 			c = RegExp.prototype,
 			l = c.toString,
 			f = s(function () {
@@ -11211,7 +11211,7 @@
 		var r = n(10),
 			i = n(38).filter;
 		r(
-			{ target: 'Array', proto: !0, forced: !n(105)('filter') },
+			{ target: 'Array', proto: !0, forced: !n(106)('filter') },
 			{
 				filter: function (e) {
 					return i(this, e, arguments.length > 1 ? arguments[1] : void 0);
@@ -11228,7 +11228,7 @@
 			s = n(7),
 			u = n(24),
 			c = n(15),
-			l = n(41),
+			l = n(42),
 			f = n(55),
 			h = n(62),
 			d = n(26),
@@ -11322,13 +11322,6 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(102);
-		e.exports = function (e, t) {
-			return r[e] || (r[e] = t || {});
-		};
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = n(75),
 			i = n(7),
 			o = n(8).String;
@@ -11338,6 +11331,13 @@
 				var e = Symbol('symbol detection');
 				return !o(e) || !(Object(e) instanceof Symbol) || (!Symbol.sham && r && r < 41);
 			});
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(102);
+		e.exports = function (e, t) {
+			return r[e] || (r[e] = t || {});
+		};
 	},
 	function (e, t, n) {
 		'use strict';
@@ -11365,9 +11365,9 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(10),
-			i = n(118),
+			i = n(116),
 			o = n(95).indexOf,
-			a = n(129),
+			a = n(130),
 			s = i([].indexOf),
 			u = !!s && 1 / s([1], 1, -0) < 0;
 		r(
@@ -11415,9 +11415,9 @@
 		'use strict';
 		var r = n(19),
 			i = n(18),
-			o = n(113),
+			o = n(112),
 			a = n(63),
-			s = n(42),
+			s = n(41),
 			u = n(100),
 			c = n(22),
 			l = n(147),
@@ -11435,8 +11435,8 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(8),
-			i = n(190),
-			o = n(191),
+			i = n(195),
+			o = n(196),
 			a = n(49),
 			s = n(45),
 			u = n(57),
@@ -11465,16 +11465,6 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(9),
-			i = 0,
-			o = Math.random(),
-			a = r((1).toString);
-		e.exports = function (e) {
-			return 'Symbol(' + (void 0 === e ? '' : e) + ')_' + a(++i + o, 36);
-		};
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = n(33),
 			i = n(15),
 			o = n(50),
@@ -11488,6 +11478,16 @@
 					var t = r('Symbol');
 					return i(t) && o(t.prototype, s(e));
 			  };
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(9),
+			i = 0,
+			o = Math.random(),
+			a = r((1).toString);
+		e.exports = function (e) {
+			return 'Symbol(' + (void 0 === e ? '' : e) + ')_' + a(++i + o, 36);
+		};
 	},
 	function (e, t, n) {
 		'use strict';
@@ -11538,7 +11538,7 @@
 			i = n(77),
 			o = n(15),
 			a = n(111),
-			s = n(112),
+			s = n(114),
 			u = n(17),
 			c = n(166),
 			l = n(37),
@@ -11685,7 +11685,7 @@
 		'use strict';
 		var r = n(51),
 			i = n(61),
-			o = n(41),
+			o = n(42),
 			a = n(92),
 			s = n(17)('iterator');
 		e.exports = function (e) {
@@ -11700,7 +11700,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(42),
+		var r = n(41),
 			i = n(83),
 			o = n(29),
 			a = function (e) {
@@ -11744,7 +11744,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(10),
-			i = n(193);
+			i = n(198);
 		r(
 			{
 				target: 'Array',
@@ -11762,18 +11762,28 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(8),
-			i = n(21),
-			o = r.document,
-			a = i(o) && i(o.createElement);
-		e.exports = function (e) {
-			return a ? o.createElement(e) : {};
-		};
+		var r = n(10),
+			i = n(38).find,
+			o = n(124),
+			a = !0;
+		'find' in [] &&
+			Array(1).find(function () {
+				a = !1;
+			}),
+			r(
+				{ target: 'Array', proto: !0, forced: a },
+				{
+					find: function (e) {
+						return i(this, e, arguments.length > 1 ? arguments[1] : void 0);
+					},
+				}
+			),
+			o('find');
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(151),
-			i = n(81);
+		var r = n(150),
+			i = n(80);
 		e.exports = function (e) {
 			var t = r(e, 'string');
 			return i(t) ? t : t + '';
@@ -11781,8 +11791,13 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = {};
-		(r[n(17)('toStringTag')] = 'z'), (e.exports = '[object z]' === String(r));
+		var r = n(8),
+			i = n(21),
+			o = r.document,
+			a = i(o) && i(o.createElement);
+		e.exports = function (e) {
+			return a ? o.createElement(e) : {};
+		};
 	},
 	function (e, t, n) {
 		'use strict';
@@ -11800,12 +11815,17 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(70),
-			i = n(80),
+		var r = n(71),
+			i = n(81),
 			o = r('keys');
 		e.exports = function (e) {
 			return o[e] || (o[e] = i(e));
 		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = {};
+		(r[n(17)('toStringTag')] = 'z'), (e.exports = '[object z]' === String(r));
 	},
 	function (e, t, n) {
 		'use strict';
@@ -11855,35 +11875,15 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(10),
-			i = n(38).find,
-			o = n(125),
-			a = !0;
-		'find' in [] &&
-			Array(1).find(function () {
-				a = !1;
-			}),
-			r(
-				{ target: 'Array', proto: !0, forced: a },
-				{
-					find: function (e) {
-						return i(this, e, arguments.length > 1 ? arguments[1] : void 0);
-					},
-				}
-			),
-			o('find');
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(10),
 			i = n(89),
 			o = n(117),
 			a = n(21),
 			s = n(83),
 			u = n(29),
-			c = n(42),
+			c = n(41),
 			l = n(90),
 			f = n(17),
-			h = n(105),
+			h = n(106),
 			d = n(52),
 			p = h('slice'),
 			v = f('species'),
@@ -12090,18 +12090,6 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(9),
-			i = n(15),
-			o = n(102),
-			a = r(Function.toString);
-		i(o.inspectSource) ||
-			(o.inspectSource = function (e) {
-				return a(e);
-			}),
-			(e.exports = o.inspectSource);
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = {}.propertyIsEnumerable,
 			i = Object.getOwnPropertyDescriptor,
 			o = i && !r.call({ 1: 2 }, 1);
@@ -12129,26 +12117,26 @@
 	},
 	function (e, t, n) {
 		'use strict';
+		var r = n(9),
+			i = n(15),
+			o = n(102),
+			a = r(Function.toString);
+		i(o.inspectSource) ||
+			(o.inspectSource = function (e) {
+				return a(e);
+			}),
+			(e.exports = o.inspectSource);
+	},
+	function (e, t, n) {
+		'use strict';
 		t.f = Object.getOwnPropertySymbols;
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(33),
-			i = n(58),
-			o = n(17),
-			a = n(19),
-			s = o('species');
+		var r = n(43),
+			i = n(9);
 		e.exports = function (e) {
-			var t = r(e);
-			a &&
-				t &&
-				!t[s] &&
-				i(t, s, {
-					configurable: !0,
-					get: function () {
-						return this;
-					},
-				});
+			if ('Function' === r(e)) return i(e);
 		};
 	},
 	function (e, t, n) {
@@ -12158,7 +12146,7 @@
 			o = n(15),
 			a = n(51),
 			s = n(33),
-			u = n(112),
+			u = n(114),
 			c = function () {},
 			l = s('Reflect', 'construct'),
 			f = /^\s*(?:class|function)\b/,
@@ -12205,10 +12193,22 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(43),
-			i = n(9);
+		var r = n(33),
+			i = n(58),
+			o = n(17),
+			a = n(19),
+			s = o('species');
 		e.exports = function (e) {
-			if ('Function' === r(e)) return i(e);
+			var t = r(e);
+			a &&
+				t &&
+				!t[s] &&
+				i(t, s, {
+					configurable: !0,
+					get: function () {
+						return this;
+					},
+				});
 		};
 	},
 	function (e, t, n) {
@@ -12336,10 +12336,22 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(260);
+		var r = n(259);
 		e.exports = function (e, t) {
 			return new (r(e))(0 === t ? 0 : t);
 		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(17),
+			i = n(56),
+			o = n(31).f,
+			a = r('unscopables'),
+			s = Array.prototype;
+		void 0 === s[a] && o(s, a, { configurable: !0, value: i(null) }),
+			(e.exports = function (e) {
+				s[a][e] = !0;
+			});
 	},
 	function (e, t, n) {
 		'use strict';
@@ -12352,7 +12364,7 @@
 			c = n(157),
 			l = n(90),
 			f = n(123),
-			h = n(105),
+			h = n(106),
 			d = n(17),
 			p = n(75),
 			v = d('isConcatSpreadable'),
@@ -12391,18 +12403,6 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(17),
-			i = n(56),
-			o = n(31).f,
-			a = r('unscopables'),
-			s = Array.prototype;
-		void 0 === s[a] && o(s, a, { configurable: !0, value: i(null) }),
-			(e.exports = function (e) {
-				s[a][e] = !0;
-			});
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = n(10),
 			i = n(30),
 			o = n(83),
@@ -12412,8 +12412,8 @@
 			c = n(157),
 			l = n(123),
 			f = n(90),
-			h = n(200),
-			d = n(105)('splice'),
+			h = n(204),
+			d = n(106)('splice'),
 			p = Math.max,
 			v = Math.min;
 		r(
@@ -12458,9 +12458,19 @@
 	},
 	function (e, t, n) {
 		'use strict';
+		var r = n(175),
+			i = n(140);
+		e.exports =
+			Object.keys ||
+			function (e) {
+				return r(e, i);
+			};
+	},
+	function (e, t, n) {
+		'use strict';
 		var r = n(24),
 			i = n(141),
-			o = n(41),
+			o = n(42),
 			a = n(17)('species');
 		e.exports = function (e, t) {
 			var n,
@@ -12497,16 +12507,6 @@
 				})
 			);
 		};
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(175),
-			i = n(140);
-		e.exports =
-			Object.keys ||
-			function (e) {
-				return r(e, i);
-			};
 	},
 	function (e, t, n) {
 		'use strict';
@@ -12612,7 +12612,7 @@
 		var r = n(18),
 			i = n(131),
 			o = n(24),
-			a = n(41),
+			a = n(42),
 			s = n(62),
 			u = n(26),
 			c = n(40),
@@ -12811,7 +12811,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(71);
+		var r = n(70);
 		e.exports = r && !Symbol.sham && 'symbol' == typeof Symbol.iterator;
 	},
 	function (e, t, n) {
@@ -12881,8 +12881,8 @@
 				o = n.n(i),
 				a = n(4),
 				s = n.n(a),
-				u = (n(107), n(74), n(126), n(20), n(220)),
-				c = n(221),
+				u = (n(99), n(74), n(126), n(20), n(221)),
+				c = n(222),
 				l = (function () {
 					return s()(
 						function t(n) {
@@ -13115,14 +13115,14 @@
 			w = n.n(b),
 			x =
 				(n(67),
-				n(107),
-				n(228),
+				n(99),
+				n(229),
 				n(97),
 				n(171),
 				n(49),
 				n(39),
-				n(229),
 				n(230),
+				n(231),
 				n(334),
 				n(20),
 				n(32),
@@ -13683,7 +13683,7 @@
 		'use strict';
 		var r = n(19),
 			i = n(7),
-			o = n(99);
+			o = n(101);
 		e.exports =
 			!r &&
 			!i(function () {
@@ -13705,7 +13705,7 @@
 			a = n(22),
 			s = n(19),
 			u = n(88).CONFIGURABLE,
-			c = n(112),
+			c = n(114),
 			l = n(35),
 			f = l.enforce,
 			h = l.get,
@@ -13755,19 +13755,19 @@
 			c = n(56),
 			l = n(82).f,
 			f = n(50),
-			h = n(204),
+			h = n(193),
 			d = n(26),
-			p = n(205),
+			p = n(208),
 			v = n(154),
 			g = n(276),
 			m = n(28),
 			y = n(7),
 			b = n(22),
 			w = n(35).enforce,
-			x = n(116),
+			x = n(118),
 			k = n(17),
-			_ = n(196),
-			S = n(197),
+			_ = n(200),
+			S = n(201),
 			A = k('match'),
 			E = i.RegExp,
 			O = E.prototype,
@@ -13911,23 +13911,9 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(19),
-			i = n(7);
-		e.exports =
-			r &&
-			i(function () {
-				return (
-					42 !==
-					Object.defineProperty(function () {}, 'prototype', { value: 42, writable: !1 })
-						.prototype
-				);
-			});
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = n(18),
 			i = n(21),
-			o = n(81),
+			o = n(80),
 			a = n(61),
 			s = n(186),
 			u = n(17),
@@ -13945,8 +13931,22 @@
 		};
 	},
 	function (e, t, n) {
+		'use strict';
+		var r = n(19),
+			i = n(7);
+		e.exports =
+			r &&
+			i(function () {
+				return (
+					42 !==
+					Object.defineProperty(function () {}, 'prototype', { value: 42, writable: !1 })
+						.prototype
+				);
+			});
+	},
+	function (e, t, n) {
 		var r = n(96).default,
-			i = n(192);
+			i = n(197);
 		(e.exports = function (e) {
 			var t = i(e, 'string');
 			return 'symbol' == r(t) ? t : t + '';
@@ -13961,13 +13961,13 @@
 			o = n(18),
 			a = n(9),
 			s = n(26),
-			u = n(194),
+			u = n(199),
 			c = n(154),
-			l = n(70),
+			l = n(71),
 			f = n(56),
 			h = n(35).get,
-			d = n(196),
-			p = n(197),
+			d = n(200),
+			p = n(201),
 			v = l('native-string-replace', String.prototype.replace),
 			g = RegExp.prototype.exec,
 			m = g,
@@ -14121,15 +14121,15 @@
 			o = n(37),
 			a = n(88),
 			s = n(15),
-			u = n(198),
-			c = n(106),
+			u = n(202),
+			c = n(107),
 			l = n(84),
 			f = n(57),
 			h = n(45),
 			d = n(28),
 			p = n(17),
 			v = n(92),
-			g = n(199),
+			g = n(203),
 			m = a.PROPER,
 			y = a.CONFIGURABLE,
 			b = g.IteratorPrototype,
@@ -14219,7 +14219,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(23),
-			i = n(127),
+			i = n(128),
 			o = r.aTypedArrayConstructor,
 			a = r.getTypedArrayConstructor;
 		e.exports = function (e) {
@@ -14230,7 +14230,7 @@
 		'use strict';
 		var r = n(34),
 			i = n(30),
-			o = n(114),
+			o = n(113),
 			a = n(29),
 			s = TypeError,
 			u = 'Reduce of empty array with no initial value',
@@ -15529,10 +15529,10 @@
 			h = n(7),
 			d = n(176),
 			p = n(52),
-			v = n(99),
+			v = n(101),
 			g = n(142),
 			m = n(168),
-			y = n(104),
+			y = n(105),
 			b = s.setImmediate,
 			w = s.clearImmediate,
 			x = s.process,
@@ -15646,7 +15646,7 @@
 		var r = n(10),
 			i = n(95).includes,
 			o = n(7),
-			a = n(125);
+			a = n(124);
 		r(
 			{
 				target: 'Array',
@@ -15667,10 +15667,10 @@
 		'use strict';
 		var r = n(10),
 			i = n(9),
-			o = n(206),
+			o = n(192),
 			a = n(40),
 			s = n(26),
-			u = n(207),
+			u = n(194),
 			c = i(''.indexOf);
 		r(
 			{ target: 'String', proto: !0, forced: !u('includes') },
@@ -15690,7 +15690,7 @@
 			i = n.n(r),
 			o = n(1),
 			a = n.n(o),
-			s = (n(107), n(20), n(48), n(231), n(36), n(14)),
+			s = (n(99), n(20), n(48), n(191), n(36), n(14)),
 			u = {
 				dummy: () => Promise.resolve('dummy'),
 				getActiveTabId: () =>
@@ -15788,7 +15788,7 @@
 		'use strict';
 		var r = n(9),
 			i = n(22),
-			o = n(42),
+			o = n(41),
 			a = n(95).indexOf,
 			s = n(87),
 			u = r([].push);
@@ -15876,7 +15876,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		n(209);
+		n(210);
 	},
 	,
 	function (e, t, n) {
@@ -15960,7 +15960,25 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(101),
+		var r = n(19),
+			i = n(151),
+			o = n(31),
+			a = n(24),
+			s = n(41),
+			u = n(127);
+		t.f =
+			r && !i
+				? Object.defineProperties
+				: function (e, t) {
+						a(e);
+						for (var n, r = s(t), i = u(t), c = i.length, l = 0; c > l; )
+							o.f(e, (n = i[l++]), r[n]);
+						return e;
+				  };
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(104),
 			i = n(51);
 		e.exports = r
 			? {}.toString
@@ -15977,6 +15995,73 @@
 			if ((r(e), i(t) && t.constructor === e)) return t;
 			var n = o.f(e);
 			return (0, n.resolve)(t), n.promise;
+		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r,
+			i = n(10),
+			o = n(116),
+			a = n(78).f,
+			s = n(62),
+			u = n(26),
+			c = n(192),
+			l = n(40),
+			f = n(194),
+			h = n(37),
+			d = o(''.slice),
+			p = Math.min,
+			v = f('startsWith');
+		i(
+			{
+				target: 'String',
+				proto: !0,
+				forced:
+					!!(h || v || ((r = a(String.prototype, 'startsWith')), !r || r.writable)) && !v,
+			},
+			{
+				startsWith: function (e) {
+					var t = u(l(this));
+					c(e);
+					var n = s(p(arguments.length > 1 ? arguments[1] : void 0, t.length)),
+						r = u(e);
+					return d(t, n, n + r.length) === r;
+				},
+			}
+		);
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(193),
+			i = TypeError;
+		e.exports = function (e) {
+			if (r(e)) throw new i("The method doesn't accept regular expressions");
+			return e;
+		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(21),
+			i = n(43),
+			o = n(17)('match');
+		e.exports = function (e) {
+			var t;
+			return r(e) && (void 0 !== (t = e[o]) ? !!t : 'RegExp' === i(e));
+		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(17)('match');
+		e.exports = function (e) {
+			var t = /./;
+			try {
+				'/./'[e](t);
+			} catch (n) {
+				try {
+					return (t[r] = !1), '/./'[e](t);
+				} catch (e) {}
+			}
+			return !1;
 		};
 	},
 	function (e, t, n) {
@@ -16017,7 +16102,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(99)('span').classList,
+		var r = n(101)('span').classList,
 			i = r && r.constructor && r.constructor.prototype;
 		e.exports = i === Object.prototype ? void 0 : i;
 	},
@@ -16094,24 +16179,6 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(19),
-			i = n(150),
-			o = n(31),
-			a = n(24),
-			s = n(42),
-			u = n(130);
-		t.f =
-			r && !i
-				? Object.defineProperties
-				: function (e, t) {
-						a(e);
-						for (var n, r = s(t), i = u(t), c = i.length, l = 0; c > l; )
-							o.f(e, (n = i[l++]), r[n]);
-						return e;
-				  };
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = n(7),
 			i = n(8).RegExp;
 		e.exports = r(function () {
@@ -16130,7 +16197,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(199).IteratorPrototype,
+		var r = n(203).IteratorPrototype,
 			i = n(56),
 			o = n(63),
 			a = n(57),
@@ -16152,7 +16219,7 @@
 			s = n(15),
 			u = n(21),
 			c = n(56),
-			l = n(106),
+			l = n(107),
 			f = n(28),
 			h = n(17),
 			d = n(37),
@@ -16184,7 +16251,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(43),
-			i = n(42),
+			i = n(41),
 			o = n(82).f,
 			a = n(52),
 			s =
@@ -16210,53 +16277,19 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(71);
+		var r = n(70);
 		e.exports = r && !!Symbol.for && !!Symbol.keyFor;
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(21),
-			i = n(43),
-			o = n(17)('match');
-		e.exports = function (e) {
-			var t;
-			return r(e) && (void 0 !== (t = e[o]) ? !!t : 'RegExp' === i(e));
-		};
 	},
 	function (e, t, n) {
 		'use strict';
 		var r = n(18),
 			i = n(22),
 			o = n(50),
-			a = n(194),
+			a = n(199),
 			s = RegExp.prototype;
 		e.exports = function (e) {
 			var t = e.flags;
 			return void 0 !== t || 'flags' in s || i(e, 'flags') || !o(s, e) ? t : r(a, e);
-		};
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(204),
-			i = TypeError;
-		e.exports = function (e) {
-			if (r(e)) throw new i("The method doesn't accept regular expressions");
-			return e;
-		};
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(17)('match');
-		e.exports = function (e) {
-			var t = /./;
-			try {
-				'/./'[e](t);
-			} catch (n) {
-				try {
-					return (t[r] = !1), '/./'[e](t);
-				} catch (e) {}
-			}
-			return !1;
 		};
 	},
 	function (e, t, n) {
@@ -16309,12 +16342,12 @@
 			s = n(18),
 			u = n(9),
 			c = n(19),
-			l = n(208),
+			l = n(209),
 			f = n(28),
 			h = n(58),
 			d = n(159),
 			p = n(57),
-			v = n(198),
+			v = n(202),
 			g = n(35),
 			m = n(72),
 			y = n(15),
@@ -16331,7 +16364,7 @@
 			j = n(133),
 			C = n(142),
 			R = n(17),
-			D = n(210),
+			D = n(211),
 			P = R('iterator'),
 			L = g.set,
 			I = g.getterFor('URLSearchParams'),
@@ -16773,7 +16806,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(151),
+		var r = n(150),
 			i = TypeError;
 		e.exports = function (e) {
 			var t = r(e, 'number');
@@ -16794,10 +16827,10 @@
 		'use strict';
 		var r = n(10),
 			i = n(162).left,
-			o = n(129),
+			o = n(130),
 			a = n(75);
 		r(
-			{ target: 'Array', proto: !0, forced: (!n(104) && a > 79 && a < 83) || !o('reduce') },
+			{ target: 'Array', proto: !0, forced: (!n(105) && a > 79 && a < 83) || !o('reduce') },
 			{
 				reduce: function (e) {
 					var t = arguments.length;
@@ -16815,9 +16848,9 @@
 			s = n(22),
 			u = n(31).f,
 			c = n(82),
-			l = n(201),
+			l = n(205),
 			f = n(341),
-			h = n(80),
+			h = n(81),
 			d = n(343),
 			p = !1,
 			v = h('meta'),
@@ -17387,7 +17420,7 @@
 			});
 	},
 	function (e, t, n) {
-		var r = n(227);
+		var r = n(228);
 		(e.exports = function (e, t) {
 			if (e) {
 				if ('string' == typeof e) return r(e, t);
@@ -17449,7 +17482,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		n(125)('flatMap');
+		n(124)('flatMap');
 	},
 	function (e, t, n) {
 		'use strict';
@@ -17466,36 +17499,14 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r,
-			i = n(10),
-			o = n(118),
-			a = n(78).f,
-			s = n(62),
-			u = n(26),
-			c = n(206),
-			l = n(40),
-			f = n(207),
-			h = n(37),
-			d = o(''.slice),
-			p = Math.min,
-			v = f('startsWith');
-		i(
-			{
-				target: 'String',
-				proto: !0,
-				forced:
-					!!(h || v || ((r = a(String.prototype, 'startsWith')), !r || r.writable)) && !v,
-			},
-			{
-				startsWith: function (e) {
-					var t = u(l(this));
-					c(e);
-					var n = s(p(arguments.length > 1 ? arguments[1] : void 0, t.length)),
-						r = u(e);
-					return d(t, n, n + r.length) === r;
-				},
-			}
-		);
+		var r = Math.ceil,
+			i = Math.floor;
+		e.exports =
+			Math.trunc ||
+			function (e) {
+				var t = +e;
+				return (t > 0 ? i : r)(t);
+			};
 	},
 	function (e, t, n) {
 		'use strict';
@@ -17504,22 +17515,22 @@
 			o,
 			a = n(10),
 			s = n(37),
-			u = n(104),
+			u = n(105),
 			c = n(8),
 			l = n(18),
 			f = n(28),
 			h = n(84),
 			d = n(57),
-			p = n(116),
+			p = n(118),
 			v = n(34),
 			g = n(15),
 			m = n(21),
 			y = n(72),
-			b = n(127),
+			b = n(128),
 			w = n(167).set,
 			x = n(237),
 			k = n(240),
-			_ = n(128),
+			_ = n(129),
 			S = n(169),
 			A = n(35),
 			E = n(77),
@@ -17716,17 +17727,6 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = Math.ceil,
-			i = Math.floor;
-		e.exports =
-			Math.trunc ||
-			function (e) {
-				var t = +e;
-				return (t > 0 ? i : r)(t);
-			};
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = n(9),
 			i = n(34);
 		e.exports = function (e, t, n) {
@@ -17767,7 +17767,7 @@
 			d = n(168),
 			p = n(238),
 			v = n(239),
-			g = n(104),
+			g = n(105),
 			m = u.MutationObserver || u.WebKitMutationObserver,
 			y = u.document,
 			b = u.process,
@@ -17836,7 +17836,7 @@
 			i = n(18),
 			o = n(34),
 			a = n(86),
-			s = n(128),
+			s = n(129),
 			u = n(91);
 		r(
 			{ target: 'Promise', stat: !0, forced: n(170) },
@@ -17897,7 +17897,7 @@
 			i = n(18),
 			o = n(34),
 			a = n(86),
-			s = n(128),
+			s = n(129),
 			u = n(91);
 		r(
 			{ target: 'Promise', stat: !0, forced: n(170) },
@@ -17938,7 +17938,7 @@
 			o = n(37),
 			a = n(77),
 			s = n(85).CONSTRUCTOR,
-			u = n(189),
+			u = n(190),
 			c = i('Promise'),
 			l = o && !s;
 		r(
@@ -17955,7 +17955,7 @@
 		var r = n(10),
 			i = n(19),
 			o = n(174),
-			a = n(42),
+			a = n(41),
 			s = n(78),
 			u = n(90);
 		r(
@@ -17975,11 +17975,11 @@
 			i = n(9),
 			o = n(18),
 			a = n(7),
-			s = n(130),
+			s = n(127),
 			u = n(115),
-			c = n(113),
+			c = n(112),
 			l = n(30),
-			f = n(114),
+			f = n(113),
 			h = Object.assign,
 			d = Object.defineProperty,
 			p = i([].concat);
@@ -18036,9 +18036,9 @@
 			i = n(9),
 			o = n(131),
 			a = n(24),
-			s = n(41),
+			s = n(42),
 			u = n(40),
-			c = n(127),
+			c = n(128),
 			l = n(155),
 			f = n(62),
 			h = n(26),
@@ -18122,10 +18122,10 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(73),
-			i = n(42),
+			i = n(41),
 			o = n(55),
 			a = n(29),
-			s = n(129),
+			s = n(130),
 			u = Math.min,
 			c = [].lastIndexOf,
 			l = !!c && 1 / [1].lastIndexOf(1, -0) < 0,
@@ -18162,11 +18162,11 @@
 			o = n(9),
 			a = n(111),
 			s = n(28),
-			u = n(218),
+			u = n(219),
 			c = n(91),
 			l = n(72),
 			f = n(15),
-			h = n(41),
+			h = n(42),
 			d = n(21),
 			p = n(7),
 			v = n(120),
@@ -18262,13 +18262,13 @@
 			o = n(159),
 			a = n(46),
 			s = n(72),
-			u = n(41),
+			u = n(42),
 			c = n(91),
 			l = n(158),
 			f = n(133),
-			h = n(116),
+			h = n(118),
 			d = n(19),
-			p = n(218).fastKey,
+			p = n(219).fastKey,
 			v = n(35),
 			g = v.set,
 			m = v.getterFor;
@@ -19583,16 +19583,6 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(38).forEach,
-			i = n(129)('forEach');
-		e.exports = i
-			? [].forEach
-			: function (e) {
-					return r(this, e, arguments.length > 1 ? arguments[1] : void 0);
-			  };
-	},
-	function (e, t, n) {
-		'use strict';
 		var r = n(89),
 			i = n(117),
 			o = n(21),
@@ -19608,6 +19598,16 @@
 				void 0 === t ? s : t
 			);
 		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(38).forEach,
+			i = n(130)('forEach');
+		e.exports = i
+			? [].forEach
+			: function (e) {
+					return r(this, e, arguments.length > 1 ? arguments[1] : void 0);
+			  };
 	},
 	function (e, t, n) {
 		var r = n(96).default;
@@ -20113,32 +20113,32 @@
 			a = n(9),
 			s = n(37),
 			u = n(19),
-			c = n(71),
+			c = n(70),
 			l = n(7),
 			f = n(22),
 			h = n(50),
 			d = n(24),
-			p = n(42),
+			p = n(41),
 			v = n(100),
 			g = n(26),
 			m = n(63),
 			y = n(56),
-			b = n(130),
+			b = n(127),
 			w = n(82),
-			x = n(201),
+			x = n(205),
 			k = n(115),
 			_ = n(78),
 			S = n(31),
-			A = n(195),
-			E = n(113),
+			A = n(188),
+			E = n(112),
 			O = n(28),
 			T = n(58),
-			j = n(70),
+			j = n(71),
 			C = n(103),
 			R = n(87),
-			D = n(80),
+			D = n(81),
 			P = n(17),
-			L = n(202),
+			L = n(206),
 			I = n(267),
 			M = n(269),
 			N = n(57),
@@ -20329,7 +20329,7 @@
 		'use strict';
 		var r = n(268),
 			i = n(22),
-			o = n(202),
+			o = n(206),
 			a = n(31).f;
 		e.exports = function (e) {
 			var t = r.Symbol || (r.Symbol = {});
@@ -20370,8 +20370,8 @@
 			i = n(33),
 			o = n(22),
 			a = n(26),
-			s = n(70),
-			u = n(203),
+			s = n(71),
+			u = n(207),
 			c = s('string-to-symbol-registry'),
 			l = s('symbol-to-string-registry');
 		r(
@@ -20390,10 +20390,10 @@
 		'use strict';
 		var r = n(10),
 			i = n(22),
-			o = n(81),
+			o = n(80),
 			a = n(59),
-			s = n(70),
-			u = n(203),
+			s = n(71),
+			u = n(207),
 			c = s('symbol-to-string-registry');
 		r(
 			{ target: 'Symbol', stat: !0, forced: !u },
@@ -20414,10 +20414,10 @@
 			s = n(9),
 			u = n(7),
 			c = n(15),
-			l = n(81),
+			l = n(80),
 			f = n(52),
 			h = n(273),
-			d = n(71),
+			d = n(70),
 			p = String,
 			v = i('JSON', 'stringify'),
 			g = s(/./.exec),
@@ -20496,7 +20496,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(10),
-			i = n(71),
+			i = n(70),
 			o = n(7),
 			a = n(115),
 			s = n(30);
@@ -20578,7 +20578,7 @@
 		var r,
 			i = n(10),
 			o = n(19),
-			a = n(208),
+			a = n(209),
 			s = n(8),
 			u = n(46),
 			c = n(9),
@@ -20587,14 +20587,14 @@
 			h = n(72),
 			d = n(22),
 			p = n(247),
-			v = n(193),
+			v = n(198),
 			g = n(52),
 			m = n(156).codeAt,
 			y = n(280),
 			b = n(26),
 			w = n(57),
 			x = n(142),
-			k = n(209),
+			k = n(210),
 			_ = n(35),
 			S = _.set,
 			A = _.getterFor('URL'),
@@ -21565,7 +21565,7 @@
 		var r = n(18),
 			i = n(131),
 			o = n(24),
-			a = n(41),
+			a = n(42),
 			s = n(40),
 			u = n(283),
 			c = n(26),
@@ -21759,25 +21759,25 @@
 			h = n(45),
 			d = n(300),
 			p = n(62),
-			v = n(212),
-			g = n(214),
+			v = n(213),
+			g = n(215),
 			m = n(302),
 			y = n(100),
 			b = n(22),
 			w = n(51),
 			x = n(21),
-			k = n(81),
+			k = n(80),
 			_ = n(56),
 			S = n(50),
 			A = n(84),
 			E = n(82).f,
 			O = n(303),
 			T = n(38).forEach,
-			j = n(116),
+			j = n(118),
 			C = n(58),
 			R = n(31),
 			D = n(78),
-			P = n(216),
+			P = n(217),
 			L = n(35),
 			I = n(134),
 			M = L.get,
@@ -21962,7 +21962,7 @@
 		var r = n(8),
 			i = n(9),
 			o = n(19),
-			a = n(211),
+			a = n(212),
 			s = n(88),
 			u = n(45),
 			c = n(58),
@@ -21971,12 +21971,12 @@
 			h = n(72),
 			d = n(55),
 			p = n(62),
-			v = n(212),
+			v = n(213),
 			g = n(296),
 			m = n(299),
-			y = n(106),
+			y = n(107),
 			b = n(84),
-			w = n(213),
+			w = n(214),
 			x = n(52),
 			k = n(134),
 			_ = n(139),
@@ -22301,7 +22301,7 @@
 			l = n(143),
 			f = n(304),
 			h = n(23).aTypedArrayConstructor,
-			d = n(215);
+			d = n(216);
 		e.exports = function (e) {
 			var t,
 				n,
@@ -22355,7 +22355,7 @@
 		var r = n(30),
 			i = n(83),
 			o = n(29),
-			a = n(200),
+			a = n(204),
 			s = Math.min;
 		e.exports =
 			[].copyWithin ||
@@ -22384,8 +22384,8 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(23),
-			i = n(213),
-			o = n(215),
+			i = n(214),
+			o = n(216),
 			a = n(51),
 			s = n(18),
 			u = n(9),
@@ -22427,7 +22427,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(216),
+		var r = n(217),
 			i = n(161);
 		e.exports = function (e, t) {
 			return r(i(e), t);
@@ -22589,7 +22589,7 @@
 			i = n(18),
 			o = n(23),
 			a = n(29),
-			s = n(214),
+			s = n(215),
 			u = n(30),
 			c = n(7),
 			l = r.RangeError,
@@ -22660,10 +22660,10 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(8),
-			i = n(118),
+			i = n(116),
 			o = n(7),
 			a = n(34),
-			s = n(210),
+			s = n(211),
 			u = n(23),
 			c = n(327),
 			l = n(328),
@@ -22811,10 +22811,10 @@
 		var r = n(19),
 			i = n(7),
 			o = n(9),
-			a = n(106),
-			s = n(130),
-			u = n(42),
-			c = o(n(113).f),
+			a = n(107),
+			s = n(127),
+			u = n(41),
+			c = o(n(112).f),
 			l = o([].push),
 			f =
 				r &&
@@ -28364,7 +28364,7 @@
 		n.d(t, 'a', function () {
 			return b;
 		});
-		var r = n(223),
+		var r = n(224),
 			i = n.n(r),
 			o = n(2),
 			a = n.n(o),
@@ -29313,7 +29313,7 @@
 		(function (e) {
 			var r,
 				i,
-				o = n(225),
+				o = n(226),
 				a = n.n(o),
 				s = n(385),
 				u = n(164),
@@ -38603,7 +38603,7 @@
 		var r,
 			i = n(2),
 			o = n.n(i),
-			a = (n(20), n(48), n(36), n(1)),
+			a = (n(99), n(20), n(48), n(191), n(36), n(1)),
 			s = n.n(a),
 			u = n(14),
 			c = n(351),
@@ -38751,13 +38751,12 @@
 			w = n(383),
 			x = n(173),
 			k = n(184),
-			_ = void 0,
-			S = new c.a();
-		function A(e) {
-			return E.apply(this, arguments);
+			_ = new c.a();
+		function S(e) {
+			return A.apply(this, arguments);
 		}
-		function E() {
-			return (E = o()(
+		function A() {
+			return (A = o()(
 				s.a.mark(function e(t) {
 					var n, r, i, a;
 					return s.a.wrap(function (e) {
@@ -38776,7 +38775,7 @@
 																		(e.next = 2),
 																		u.tabs.query({
 																			url: Object(k.a)(
-																				S.talismanApiUrl,
+																				_.talismanApiUrl,
 																				'/*'
 																			),
 																		})
@@ -38797,8 +38796,8 @@
 										(n = function () {
 											return r.apply(this, arguments);
 										}),
-										(i = Object(k.a)(S.talismanApiUrl, '/oauth/login')),
-										(a = Object(k.a)(S.talismanApiUrl, '/oauth/logout')),
+										(i = Object(k.a)(_.talismanApiUrl, '/oauth/login')),
+										(a = Object(k.a)(_.talismanApiUrl, '/oauth/logout')),
 										t.url !== i && t.url !== a)
 									) {
 										e.next = 10;
@@ -38822,19 +38821,61 @@
 				})
 			)).apply(this, arguments);
 		}
-		function O() {
-			u.webRequest.onCompleted.removeListener(A),
-				'rest' === S.storageType
-					? (r = new f.a(S, S.restUrl))
-					: 'talisman' === S.storageType
-					? ((r = new h.a(S, S.talismanApiUrl)),
-					  u.webRequest.onCompleted.addListener(A, {
-							urls: [Object(k.a)(S.talismanApiUrl, '/oauth/*')],
+		function E() {
+			u.webRequest.onCompleted.removeListener(S),
+				'rest' === _.storageType
+					? (r = new f.a(_, _.restUrl))
+					: 'talisman' === _.storageType
+					? ((r = new h.a(_, _.talismanApiUrl)),
+					  u.webRequest.onCompleted.addListener(S, {
+							urls: [Object(k.a)(_.talismanApiUrl, '/oauth/*')],
 					  }))
-					: (r = new l.a(S));
+					: (r = new l.a(_));
 		}
-		S.loadConfiguration().then(function () {
-			console.log('initial configuration', S), O();
+		function O() {
+			return T.apply(this, arguments);
+		}
+		function T() {
+			return (T = o()(
+				s.a.mark(function e() {
+					var t, n, r;
+					return s.a.wrap(function (e) {
+						for (;;)
+							switch ((e.prev = e.next)) {
+								case 0:
+									return (
+										(t = u.runtime.getURL('')),
+										(e.next = 3),
+										u.tabs.query({ active: !0, lastFocusedWindow: !0 })
+									);
+								case 3:
+									if (
+										((n = e.sent),
+										(r = n.find(function (e) {
+											return !e.url.startsWith(t);
+										})))
+									) {
+										e.next = 10;
+										break;
+									}
+									return (e.next = 8), u.tabs.query({ active: !0 });
+								case 8:
+									(n = e.sent),
+										(r = n.find(function (e) {
+											return !e.url.startsWith(t);
+										}));
+								case 10:
+									return e.abrupt('return', r ? r.id : null);
+								case 11:
+								case 'end':
+									return e.stop();
+							}
+					}, e);
+				})
+			)).apply(this, arguments);
+		}
+		_.loadConfiguration().then(function () {
+			console.log('initial configuration', _), E();
 		}),
 			u.action.onClicked.addListener(
 				o()(
@@ -38874,14 +38915,14 @@
 				)
 			),
 			u.storage.onChanged.addListener(function () {
-				S.loadConfiguration().then(
+				_.loadConfiguration().then(
 					o()(
 						s.a.mark(function e() {
 							return s.a.wrap(function (e) {
 								for (;;)
 									switch ((e.prev = e.next)) {
 										case 0:
-											console.log('configuration changed', S), O();
+											console.log('configuration changed', _), E();
 										case 2:
 										case 'end':
 											return e.stop();
@@ -38895,7 +38936,7 @@
 			(function () {
 				var e = o()(
 					s.a.mark(function e(t) {
-						var n, i, o, a, c, l, f;
+						var n, i, o, a, c, l;
 						return s.a.wrap(function (e) {
 							for (;;)
 								switch ((e.prev = e.next)) {
@@ -39081,31 +39122,24 @@
 										);
 									case 45:
 										if (!t.previewSelectorData) {
-											e.next = 57;
+											e.next = 55;
 											break;
 										}
-										return (
-											(e.next = 48),
-											u.tabs.query({ active: !0, currentWindow: !0 })
-										);
+										return (e.next = 48), O();
 									case 48:
-										if (!((l = e.sent).length < 1)) {
-											e.next = 53;
+										if ((l = e.sent)) {
+											e.next = 52;
 											break;
 										}
-										_.console.log("couldn't find active tab"), (e.next = 55);
-										break;
-									case 53:
 										return (
-											(f = l[0]),
-											e.abrupt('return', u.tabs.sendMessage(f.id, t))
+											console.log("couldn't find target tab for preview"),
+											e.abrupt('return', [])
 										);
+									case 52:
+										return e.abrupt('return', u.tabs.sendMessage(l, t));
 									case 55:
-										e.next = 59;
-										break;
-									case 57:
 										if (!t.backgroundScriptCall) {
-											e.next = 59;
+											e.next = 57;
 											break;
 										}
 										return e.abrupt(
@@ -39117,7 +39151,7 @@
 													.catch(n);
 											})
 										);
-									case 59:
+									case 57:
 									case 'end':
 										return e.stop();
 								}

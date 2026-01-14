@@ -346,9 +346,9 @@
 		"message": "Refresh if you manually changed the selector"
 	},
 	"content_script_width": { "message": "130px !important" },
-	"extension_name": { "message": "Web Scraper" },
-	"extension_short_name": { "message": "Web Scraper" },
-	"extension_description": { "message": "Tool for data extraction from websites" },
+	"extension_name": { "message": "Competitorch Extension" },
+	"extension_short_name": { "message": "Competitorch" },
+	"extension_description": { "message": "Data scraping tool for competitive analysis" },
 	"browse_data_search": { "message": "Search in scraped data" },
 	"parent_selector_self_citation": { "message": "The selector cannot only point to itself" },
 	"sitemap_export_copy_text_button": { "message": "Copy the sitemap to the clipboard" },

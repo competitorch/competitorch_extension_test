@@ -74,20 +74,31 @@ browser.storage.onChanged.addListener(function () {
 	});
 });
 
-const sendToActiveTab = function (request, callback) {
-	browser.tabs
-		.query({
-			active: true,
-			currentWindow: true,
-		})
-		.then(tabs => {
-			if (tabs.length < 1) {
-				this.console.log("couldn't find active tab");
-			} else {
-				const tab = tabs[0];
-				browser.tabs.sendMessage(tab.id, request).then(callback).catch(callback);
-			}
-		});
+// Helper function to get the target tab (non-extension tab)
+async function getTargetTabId() {
+	const extensionUrl = browser.runtime.getURL('');
+
+	// First try last focused window
+	let tabs = await browser.tabs.query({ active: true, lastFocusedWindow: true });
+	let targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl));
+
+	if (!targetTab) {
+		// Search all windows for an active non-extension tab
+		tabs = await browser.tabs.query({ active: true });
+		targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl));
+	}
+
+	return targetTab ? targetTab.id : null;
+}
+
+const sendToActiveTab = async function (request, callback) {
+	const tabId = await getTargetTabId();
+	if (!tabId) {
+		console.log("couldn't find target tab to scrape");
+		if (callback) callback(null);
+		return;
+	}
+	browser.tabs.sendMessage(tabId, request).then(callback).catch(callback);
 };
 
 browser.runtime.onMessage.addListener(async request => {
@@ -193,13 +204,12 @@ browser.runtime.onMessage.addListener(async request => {
 	}
 
 	if (request.previewSelectorData) {
-		const tabs = await browser.tabs.query({ active: true, currentWindow: true });
-		if (tabs.length < 1) {
-			this.console.log("couldn't find active tab");
-		} else {
-			const tab = tabs[0];
-			return browser.tabs.sendMessage(tab.id, request);
+		const tabId = await getTargetTabId();
+		if (!tabId) {
+			console.log("couldn't find target tab for preview");
+			return [];
 		}
+		return browser.tabs.sendMessage(tabId, request);
 	} else if (request.backgroundScriptCall) {
 		return new Promise((resolve, reject) => {
 			const backgroundScript = getBackgroundScript('BackgroundScript');
