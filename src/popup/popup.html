@@ -1,25 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF8" />
+		<link rel="stylesheet" href="./app.css" />
 		<style>
 			body {
-				width: 300px;
-				font-size: 12px;
+				width: 800px;
+				height: 600px;
+				min-width: 800px;
+				min-height: 600px;
+				background-color: #1a1a1a;
+				color: #e0e0e0;
+				margin: 0;
+				padding: 0;
+				overflow: auto;
+			}
+
+			/* Dark theme overrides */
+			.navbar {
+				background-color: #2d2d2d !important;
+				border-color: #ff8c00 !important;
+			}
+
+			.navbar-inverse {
+				background-color: #2d2d2d !important;
+			}
+
+			.navbar-inverse .navbar-nav > li > a {
+				color: #e0e0e0 !important;
+			}
+
+			.navbar-inverse .navbar-nav > li > a:hover,
+			.navbar-inverse .navbar-nav > li > a:focus {
+				color: #ff8c00 !important;
+				background-color: #3d3d3d !important;
+			}
+
+			.navbar-inverse .navbar-nav > .active > a,
+			.navbar-inverse .navbar-nav > .active > a:hover,
+			.navbar-inverse .navbar-nav > .active > a:focus {
+				background-color: #3d3d3d !important;
+				color: #ff8c00 !important;
+			}
+
+			.table {
+				background-color: #2d2d2d;
+				color: #e0e0e0;
+			}
+
+			.table-striped > tbody > tr:nth-of-type(odd) {
+				background-color: #252525;
+			}
+
+			.table-hover > tbody > tr:hover {
+				background-color: #3d3d3d;
+			}
+
+			.btn-primary {
+				background-color: #ff8c00;
+				border-color: #ff8c00;
+			}
+
+			.btn-primary:hover {
+				background-color: #ff7700;
+				border-color: #ff7700;
+			}
+
+			.form-control {
+				background-color: #3d3d3d;
+				color: #e0e0e0;
+				border-color: #555;
+			}
+
+			.form-control:focus {
+				background-color: #3d3d3d;
+				color: #e0e0e0;
+				border-color: #ff8c00;
+				box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
+			}
+
+			a {
+				color: #ff8c00;
+			}
+
+			a:hover {
+				color: #ff7700;
 			}
 		</style>
-		<script src="popup.js"></script>
+		<script src="./app.js"></script>
 	</head>
-	<body>
-		<p data-i18n="popup_title"></p>
-		<ul>
-			<li data-i18n="popup_windows_linux"></li>
-			<li data-i18n="popup_mac"></li>
-			<li data-i18n="popup_any_oc"></li>
-			<li class="ws-version" data-i18n="popup_ws_version"></li>
-		</ul>
-		<p data-i18n="popup_documentation_link">
-			<a target="_blank" href="http://webscraper.io/">webscraper.io</a>
-		</p>
-	</body>
+	<body></body>
 </html>

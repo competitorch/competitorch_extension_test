@@ -185,7 +185,7 @@
 	"sitemap_create_startUrls": { "message": "Comma separated URL list" },
 	"sitemap_create_model": { "message": "Sitemap model" },
 
-	"options_title": { "message": "Web Scraper" },
+	"options_title": { "message": "Competitorch Scrape Extension" },
 	"options_page_title": { "message": "Options page" },
 	"options_plugin_settings": { "message": "Plugin settings" },
 	"options_storage_type": { "message": "Storage type" },
@@ -346,9 +346,9 @@
 		"message": "Refresh if you manually changed the selector"
 	},
 	"content_script_width": { "message": "130px !important" },
-	"extension_name": { "message": "Web Scraper" },
-	"extension_short_name": { "message": "Web Scraper" },
-	"extension_description": { "message": "Tool for data extraction from websites" },
+	"extension_name": { "message": "Competitorch Scrape Extension" },
+	"extension_short_name": { "message": "Competitorch" },
+	"extension_description": { "message": "Competitorch web data extraction tool" },
 	"browse_data_search": { "message": "Search in scraped data" },
 	"parent_selector_self_citation": { "message": "The selector cannot only point to itself" },
 	"sitemap_export_copy_text_button": { "message": "Copy the sitemap to the clipboard" },
@@ -389,7 +389,7 @@
 		"message": "Error! Please, check your login/pass, or connection availability"
 	},
 	"popup_ws_version": {
-		"message": "Web Scraper version: "
+		"message": "Competitorch Scrape Extension version: "
 	},
 	"sitemap_template_create_nav_button": {
 		"message": "Load news template"

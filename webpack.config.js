@@ -19,8 +19,8 @@ const config = {
 		'background/background': './background/background.js',
 		'devtools/devtools': './devtools/devtools.js',
 		'devtools/app': './scripts/App.js',
+		'popup/app': './scripts/App.js',
 		'options/options': './options/options.js',
-		'popup/popup': './popup/popup.js',
 		'content_script/content_script': './content_script/content_script.js',
 	},
 	output: {

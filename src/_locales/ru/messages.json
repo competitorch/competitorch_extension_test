@@ -193,7 +193,7 @@
 	"sitemap_create_startUrls": { "message": "Список шаблонов URL через запятую" },
 	"sitemap_create_model": { "message": "Модель карты обхода" },
 
-	"options_title": { "message": "Web Scraper" },
+	"options_title": { "message": "Competitorch Scrape Extension" },
 	"options_page_title": { "message": "Страница настроек" },
 	"options_plugin_settings": { "message": "Настройки хранилища" },
 	"options_storage_type": { "message": "Тип хранилища" },
@@ -379,9 +379,9 @@
 	"selector_edit_refresh_button_title": {
 		"message": "Обновите, если вы вручную изменили селектор"
 	},
-	"extension_name": { "message": "Web Scraper" },
-	"extension_short_name": { "message": "Web Scraper" },
-	"extension_description": { "message": "Инструмент для извлечения данных с веб-сайтов." },
+	"extension_name": { "message": "Competitorch Scrape Extension" },
+	"extension_short_name": { "message": "Competitorch" },
+	"extension_description": { "message": "Competitorch - инструмент для извлечения данных." },
 	"browse_data_search": { "message": "Поиск в собранных данных" },
 	"content_script_width": { "message": "150px !important" },
 	"parent_selector_self_citation": { "message": "Селектор не может указывать только на себя" },
@@ -424,7 +424,7 @@
 		"message": "Ошибка! Пожалуйста, проверьте ваши логин/пароль или соединение"
 	},
 	"popup_ws_version": {
-		"message": "Версия Web Scraper: "
+		"message": "Версия Competitorch: "
 	},
 	"sitemap_template_create_nav_button": {
 		"message": "Загрузить новостной шаблон"
