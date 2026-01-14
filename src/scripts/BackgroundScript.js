@@ -17,15 +17,25 @@ const BackgroundScript = {
 			browser.tabs
 				.query({
 					active: true,
-					currentWindow: true,
+					lastFocusedWindow: true,
 				})
-				.then(function (tabs) {
-					if (tabs.length < 1) {
-						// @TODO must be running within popup. maybe find another active window?
-						reject("couldn't find the active tab");
+				.then(async function (tabs) {
+					// Filter out extension pages to find the actual target tab
+					const extensionUrl = browser.runtime.getURL('');
+					let targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl));
+
+					if (!targetTab && tabs.length > 0) {
+						// If only extension tabs are active, search all windows for an active non-extension tab
+						const allTabs = await browser.tabs.query({ active: true });
+						targetTab = allTabs.find(tab => !tab.url.startsWith(extensionUrl));
+					}
+
+					if (!targetTab) {
+						reject(
+							"couldn't find an active tab to scrape. Please open a webpage in another tab."
+						);
 					} else {
-						const tabId = tabs[0].id;
-						resolve(tabId);
+						resolve(targetTab.id);
 					}
 				});
 		});

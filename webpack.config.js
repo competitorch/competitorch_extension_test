@@ -21,6 +21,7 @@ const config = {
 		'devtools/app': './scripts/App.js',
 		'options/options': './options/options.js',
 		'popup/popup': './popup/popup.js',
+		'tab/tab': './tab/tab.js',
 		'content_script/content_script': './content_script/content_script.js',
 	},
 	output: {
@@ -87,6 +88,8 @@ const config = {
 			{ from: '_locales', to: '_locales' },
 			{ from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
 			{ from: 'options/options.html', to: 'options/options.html', transform: transformHtml },
+			{ from: 'tab/tab.html', to: 'tab/tab.html', transform: transformHtml },
+			{ from: 'devtools/views', to: 'tab/views/', transform: transformHtml },
 			{ from: 'devtools/panel.html', to: 'devtools/panel.html', transform: transformHtml },
 			{ from: 'devtools/views', to: 'devtools/views/', transform: transformHtml },
 			{

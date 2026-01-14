@@ -727,16 +727,17 @@ export default class SitemapController {
 		return true;
 	}
 
-	showTemplateSitemapPanel() {
+	async showTemplateSitemapPanel() {
 		this.showImportSitemapPanel();
-		chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-			const currentTab = tabs[0];
-			if (currentTab && currentTab.url) {
-				document.getElementById('edit_sitemap_id').value = urlToSitemapName(currentTab.url);
-			}
+		const tabs = await browser.tabs.query({ active: true, lastFocusedWindow: true });
+		// Filter out extension pages
+		const extensionUrl = browser.runtime.getURL('');
+		const currentTab = tabs.find(tab => !tab.url.startsWith(extensionUrl)) || tabs[0];
+		if (currentTab && currentTab.url) {
+			document.getElementById('edit_sitemap_id').value = urlToSitemapName(currentTab.url);
 			sitemapTemplate.startUrls = [currentTab.url];
 			$('#sitemapJSON').text(JSON.stringify(sitemapTemplate));
-		});
+		}
 		return true;
 	}
 
@@ -1839,7 +1840,10 @@ export default class SitemapController {
 		this.setActiveNavigationButton('sitemap-scrape');
 		const sitemap = this.state.currentSitemap;
 		browser.tabs.query({ active: true, lastFocusedWindow: true }).then(tabs => {
-			const url = tabs.length ? tabs[0].url : undefined;
+			// Filter out extension pages to get the actual target tab
+			const extensionUrl = browser.runtime.getURL('');
+			const targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl)) || tabs[0];
+			const url = targetTab ? targetTab.url : undefined;
 			const scrapeConfigPanel = ich.SitemapScrapeConfig({ sitemap, url });
 			$('#viewport').html(scrapeConfigPanel);
 			this.initScrapeSitemapConfigValidation();

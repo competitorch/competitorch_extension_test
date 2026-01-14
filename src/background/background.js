@@ -52,6 +52,21 @@ config.loadConfiguration().then(() => {
 	setStore();
 });
 
+// Open scraper tab when extension icon is clicked
+browser.action.onClicked.addListener(async () => {
+	const tabUrl = browser.runtime.getURL('tab/tab.html');
+	// Check if tab is already open
+	const existingTabs = await browser.tabs.query({ url: tabUrl });
+	if (existingTabs.length > 0) {
+		// Focus existing tab
+		await browser.tabs.update(existingTabs[0].id, { active: true });
+		await browser.windows.update(existingTabs[0].windowId, { focused: true });
+	} else {
+		// Open new tab
+		await browser.tabs.create({ url: tabUrl });
+	}
+});
+
 browser.storage.onChanged.addListener(function () {
 	config.loadConfiguration().then(async () => {
 		console.log('configuration changed', config);
