@@ -1,14 +1,37 @@
-# Web Scraper
+# Competitorch Scrape Extension
 
-Web Scraper is a chrome browser extension built for data extraction from web
-pages. Using this extension you can create a plan (sitemap) how a web site
-should be traversed and what should be extracted. Using these sitemaps the
-Web Scraper will navigate the site accordingly and extract all data. Scraped
-data later can be exported as CSV or JSON Lines.
+**Competitorch Scrape Extension** is a Chrome/Brave browser extension built for data extraction from web pages. Using this extension you can create a plan (sitemap) how a web site should be traversed and what should be extracted. Using these sitemaps the extension will navigate the site accordingly and extract all data. Scraped data can be exported as CSV or JSON Lines.
 
-#### Latest Version
+## 🚀 Quick Start
+
+### Ready-to-Use Extension
+
+The **fastest way** to use the extension:
+
+1. Download this repository
+2. Open Chrome/Brave and go to `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked extension"
+5. Select the `chrome-extension/` folder
+6. Click the flashlight icon 🔦 in the toolbar to start!
+
+See [chrome-extension/README.md](./chrome-extension/README.md) for details.
+
+### Development Setup
+
+If you want to modify or develop the extension:
 
 Read about installation process on [installation page](./docs/Installation.md).
+
+## ✨ Features
+
+-   **🎨 Dark Theme** - Modern dark interface with orange accents (#ff8c00)
+-   **🪟 Popup Window** - Opens in a separate window (no DevTools required)
+-   **🔦 Custom Branding** - Flashlight icon and Competitorch branding
+-   **🎯 Visual Selector** - Point-and-click element selection
+-   **📊 Data Export** - CSV and JSON Lines formats
+-   **🗺️ Sitemap Management** - Create, import, export scraping plans
+-   **🌐 Multi-language** - English and Russian support
 
 ## Changelog
 
