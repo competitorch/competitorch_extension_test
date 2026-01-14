@@ -1,7 +1,6 @@
 .idea
 projectFilesBackup
 extension.zip
-dist
 node_modules
 
 /.vs/web-scraper-chrome-extension/v15/.suo
