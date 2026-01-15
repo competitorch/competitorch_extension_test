@@ -436,5 +436,11 @@
 	"target_tab_pinned": { "message": "Pinned (manually selected)" },
 	"target_tab_help": {
 		"message": "This shows the webpage that will be used for scraping. Select elements from this tab."
-	}
+	},
+
+	"matching_mode_strict": { "message": "Strict" },
+	"matching_mode_tag_classes": { "message": "Tag + Classes" },
+	"matching_mode_tag_only": { "message": "Tag Only" },
+
+	"SelectorAutodetect": { "message": "Autodetect" }
 }

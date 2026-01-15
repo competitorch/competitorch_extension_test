@@ -28,6 +28,9 @@ export default class SitemapController {
 		this.contentScript = getContentScript('DevTools');
 		this.selectorTypes = [
 			{
+				type: 'SelectorAutodetect',
+			},
+			{
 				type: 'SelectorText',
 			},
 			{
@@ -2329,12 +2332,63 @@ export default class SitemapController {
 			allowedElements: selector.getItemCSSSelector(),
 		});
 
+		// Auto-detect selector type if SelectorAutodetect is selected
+		const currentType = $('#edit-selector [name=type]').val();
+		if (currentType === 'SelectorAutodetect' && result.CSSSelector) {
+			const detectedType = this.autodetectSelectorType(result.CSSSelector);
+			if (detectedType) {
+				$('#edit-selector [name=type]').val(detectedType);
+				this.selectorTypeChanged(true);
+			}
+		}
+
 		selector = this.getCurrentlyEditedSelector();
 		await selector.afterSelect(result.CSSSelector, this, input.attr('id'));
 
 		// update validation for selector field
 		const validator = this.getFormValidator();
 		validator.revalidateField(input);
+	}
+
+	/**
+	 * Auto-detect the best selector type based on CSS selector
+	 * @param cssSelector The CSS selector string
+	 * @returns The detected selector type
+	 */
+	autodetectSelectorType(cssSelector) {
+		if (!cssSelector) return 'SelectorText';
+
+		const selectorLower = cssSelector.toLowerCase();
+
+		// Check for specific element types
+		if (
+			selectorLower.match(/^a\b/) ||
+			selectorLower.includes(' a') ||
+			selectorLower.includes('>a')
+		) {
+			return 'SelectorLink';
+		}
+		if (
+			selectorLower.match(/^img\b/) ||
+			selectorLower.includes(' img') ||
+			selectorLower.includes('>img')
+		) {
+			return 'SelectorImage';
+		}
+		if (
+			selectorLower.match(/^(input|textarea|select)\b/) ||
+			selectorLower.includes(' input') ||
+			selectorLower.includes(' textarea') ||
+			selectorLower.includes(' select')
+		) {
+			return 'SelectorInputValue';
+		}
+		if (selectorLower.match(/^table\b/) || selectorLower.includes(' table')) {
+			return 'SelectorTable';
+		}
+
+		// Default to text
+		return 'SelectorText';
 	}
 
 	getCurrentStateParentSelectorIds() {

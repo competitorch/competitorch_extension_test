@@ -2,22 +2,14 @@
 	<div class="list-item">
 		<div class="selector-container"><div class="selector"></div></div>
 	</div>
-	<div class="input-group-addon list-item">
-		<input
-			type="checkbox"
-			title="content_selector_different_element_selection_title"
-			name="diferentElementSelection"
-		/>
-		<div class="popover top">
-			<div class="close">×</div>
-			<div class="arrow"></div>
-			<div class="popover-content">
-				<div
-					class="txt"
-					data-i18n="content_selector_different_element_selection_error"
-				></div>
-			</div>
-		</div>
+	<div class="list-item matching-mode-container">
+		<select name="matchingMode" class="matching-mode-select">
+			<option value="strict" data-i18n="matching_mode_strict">Strict</option>
+			<option value="tag-classes" selected data-i18n="matching_mode_tag_classes">
+				Tag + Classes
+			</option>
+			<option value="tag-only" data-i18n="matching_mode_tag_only">Tag Only</option>
+		</select>
 	</div>
 	<div class="list-item key-events">
 		<div

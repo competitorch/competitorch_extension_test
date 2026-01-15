@@ -44,8 +44,8 @@ export default class ContentSelector {
 			// element selected from top
 			this.top = 0;
 
-			// initialize css selector
-			this.initCssSelector(false);
+			// initialize css selector with default mode (tag-classes allows flexible matching)
+			this.initCssSelector(true, 'tag-classes');
 			this.initGUI();
 		}
 
@@ -60,10 +60,9 @@ export default class ContentSelector {
 			if (this.isParentSelected()) {
 				if (this.selectedElements.length === 1) {
 					cssSelector = '_parent_';
-				} else if (
-					$('#-selector-toolbar [name=diferentElementSelection]').prop('checked')
-				) {
-					const selectedElements = this.selectedElements.clone();
+				} else if (this.matchingMode !== 'strict') {
+					// In flexible modes, allow parent with other elements
+					const selectedElements = this.selectedElements.slice();
 					selectedElements.splice(selectedElements.indexOf(this.parent), 1);
 					cssSelector = `_parent_, ${this.cssSelector.getCssSelector(
 						selectedElements,
@@ -89,12 +88,15 @@ export default class ContentSelector {
 	/**
 	 * initialize or reconfigure css selector class
 	 * @param allowMultipleSelectors
+	 * @param matchingMode - 'strict', 'tag-classes', or 'tag-only'
 	 */
-	initCssSelector(allowMultipleSelectors) {
+	initCssSelector(allowMultipleSelectors, matchingMode) {
+		this.matchingMode = matchingMode || this.matchingMode || 'tag-classes';
 		this.cssSelector = new CssSelector({
 			enableSmartTableSelector: true,
 			parent: this.parent,
 			allowMultipleSelectors,
+			matchingMode: this.matchingMode,
 			ignoredClasses: [
 				'-sitemap-select-item-selected',
 				'-sitemap-select-item-hover',
@@ -135,8 +137,7 @@ export default class ContentSelector {
 		this.bindElementSelection();
 		this.bindKeyboardSelectionManipulations();
 		await this.attachToolbar();
-		this.bindMultipleGroupCheckbox();
-		this.bindMultipleGroupPopupHide();
+		this.bindMatchingModeDropdown();
 		this.bindMoveImagesToTop();
 		Translator.translatePage();
 	}
@@ -288,46 +289,34 @@ export default class ContentSelector {
 			);
 		} catch (err) {
 			if (err === 'found multiple element groups, but allowMultipleSelectors disabled') {
-				console.log('multiple different element selection disabled');
-
-				this.showMultipleGroupPopup();
-				// remove last added element
+				console.log(
+					'Multiple element groups detected. Switch to "Tag + Classes" or "Tag Only" mode for flexible matching.'
+				);
+				// In strict mode, remove the incompatible element
 				this.selectedElements.pop();
 				this.highlightSelectedElements();
 			}
 		}
 	}
 
-	showMultipleGroupPopup() {
-		$('#-selector-toolbar .popover').attr('style', 'display:block !important;');
-	}
-
-	hideMultipleGroupPopup() {
-		$('#-selector-toolbar .popover').attr('style', '');
-	}
-
-	bindMultipleGroupPopupHide() {
-		$('#-selector-toolbar .popover .close').click(this.hideMultipleGroupPopup.bind(this));
-	}
-
-	unbindMultipleGroupPopupHide() {
-		$('#-selector-toolbar .popover .close').unbind('click');
-	}
-
-	bindMultipleGroupCheckbox() {
-		$('#-selector-toolbar [name=diferentElementSelection]').change(
+	/**
+	 * Bind the matching mode dropdown to update the CSS selector
+	 */
+	bindMatchingModeDropdown() {
+		$('#-selector-toolbar [name=matchingMode]').change(
 			function (e) {
-				if ($(e.currentTarget).is(':checked')) {
-					this.initCssSelector(true);
-				} else {
-					this.initCssSelector(false);
-				}
+				const matchingMode = $(e.currentTarget).val();
+				this.initCssSelector(matchingMode !== 'strict', matchingMode);
+				this.highlightSelectedElements();
 			}.bind(this)
 		);
 	}
 
-	unbindMultipleGroupCheckbox() {
-		$('#-selector-toolbar .diferentElementSelection').unbind('change');
+	/**
+	 * Unbind the matching mode dropdown
+	 */
+	unbindMatchingModeDropdown() {
+		$('#-selector-toolbar [name=matchingMode]').unbind('change');
 	}
 
 	async attachToolbar() {
@@ -377,8 +366,7 @@ export default class ContentSelector {
 		this.unbindElementSelection();
 		this.unbindElementHighlight();
 		this.unbindKeyboardSelectionMaipulatios();
-		this.unbindMultipleGroupPopupHide();
-		this.unbindMultipleGroupCheckbox();
+		this.unbindMatchingModeDropdown();
 		this.unbindMoveImagesToTop();
 		this.removeToolbar();
 	}

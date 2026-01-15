@@ -12,6 +12,8 @@ export default class CssSelector {
 		this.enableResultStripping = true;
 		this.enableSmartTableSelector = false;
 		this.ignoredClasses = [];
+		// Matching mode: 'strict', 'tag-classes', 'tag-only'
+		this.matchingMode = 'tag-classes';
 		this.query = function (selector) {
 			return this.parent.querySelectorAll(selector);
 		};
@@ -196,12 +198,91 @@ export default class CssSelector {
 	}
 
 	/**
-	 * Compares whether two elements are similar. Similar elements should
-	 * have a common parrent and all parent elements should be the same type.
+	 * Find common classes between multiple elements
+	 * @param elements Array of DOM elements
+	 * @returns Array of common class names
+	 */
+	findCommonClasses(elements) {
+		if (!elements || elements.length === 0) return [];
+
+		// Get classes from first element
+		let commonClasses = Array.from(elements[0].classList || []).filter(
+			cls => !this.ignoredClasses.includes(cls)
+		);
+
+		// Intersect with classes from other elements
+		for (let i = 1; i < elements.length; i++) {
+			const elementClasses = Array.from(elements[i].classList || []).filter(
+				cls => !this.ignoredClasses.includes(cls)
+			);
+			commonClasses = commonClasses.filter(cls => elementClasses.includes(cls));
+		}
+
+		return commonClasses;
+	}
+
+	/**
+	 * Find common attributes between multiple elements
+	 * @param elements Array of DOM elements
+	 * @returns Object with common attribute key-value pairs
+	 */
+	findCommonAttributes(elements) {
+		if (!elements || elements.length === 0) return {};
+
+		const attributesToCheck = ['data-type', 'data-id', 'role', 'itemprop', 'itemtype'];
+		const commonAttrs = {};
+
+		for (const attr of attributesToCheck) {
+			const firstValue = elements[0].getAttribute(attr);
+			if (firstValue) {
+				const allHaveSame = elements.every(el => el.getAttribute(attr) === firstValue);
+				if (allHaveSame) {
+					commonAttrs[attr] = firstValue;
+				}
+			}
+		}
+
+		return commonAttrs;
+	}
+
+	/**
+	 * Compares whether two elements are similar based on matching mode.
+	 * - strict: all parent elements must be the same type
+	 * - tag-classes: same tag and at least one common class (or same tag if no classes)
+	 * - tag-only: only compare tag names
 	 * @param element1
 	 * @param element2
 	 */
 	checkSimilarElements(element1, element2) {
+		// tag-only mode: just compare tag names
+		if (this.matchingMode === 'tag-only') {
+			return element1.tagName === element2.tagName;
+		}
+
+		// tag-classes mode: same tag and common classes
+		if (this.matchingMode === 'tag-classes') {
+			if (element1.tagName !== element2.tagName) {
+				return false;
+			}
+
+			// If both have no classes, they're similar
+			const classes1 = Array.from(element1.classList || []).filter(
+				cls => !this.ignoredClasses.includes(cls)
+			);
+			const classes2 = Array.from(element2.classList || []).filter(
+				cls => !this.ignoredClasses.includes(cls)
+			);
+
+			if (classes1.length === 0 && classes2.length === 0) {
+				return true;
+			}
+
+			// If they have at least one common class, they're similar
+			const hasCommonClass = classes1.some(cls => classes2.includes(cls));
+			return hasCommonClass || classes1.length === 0 || classes2.length === 0;
+		}
+
+		// strict mode: original behavior - all parents must match
 		while (true) {
 			if (element1.tagName !== element2.tagName) {
 				return false;
@@ -262,6 +343,33 @@ export default class CssSelector {
 		return groups;
 	}
 
+	/**
+	 * Build a smart CSS selector based on common properties
+	 * @param elements Array of elements
+	 * @returns CSS selector string
+	 */
+	buildSmartSelector(elements) {
+		if (!elements || elements.length === 0) return '';
+
+		const tag = elements[0].tagName.toLowerCase();
+		const commonClasses = this.findCommonClasses(elements);
+		const commonAttrs = this.findCommonAttributes(elements);
+
+		let selector = tag;
+
+		// Add common classes
+		if (commonClasses.length > 0) {
+			selector += '.' + commonClasses.join('.');
+		}
+
+		// Add common attributes
+		for (const [attr, value] of Object.entries(commonAttrs)) {
+			selector += `[${attr}="${value}"]`;
+		}
+
+		return selector;
+	}
+
 	getCssSelector(elements, top) {
 		top = top || 0;
 
@@ -275,7 +383,18 @@ export default class CssSelector {
 
 		let resultCSSSelector;
 
-		if (this.allowMultipleSelectors) {
+		// For non-strict modes with multiple groups, try to build smart selectors
+		if (this.matchingMode !== 'strict' && elementGroups.length > 1) {
+			const groupSelectors = [];
+
+			for (let i = 0; i < elementGroups.length; i++) {
+				const groupElements = elementGroups[i];
+				const smartSelector = this.buildSmartSelector(groupElements);
+				groupSelectors.push(smartSelector);
+			}
+
+			resultCSSSelector = groupSelectors.join(', ');
+		} else if (this.allowMultipleSelectors) {
 			const groupSelectors = [];
 
 			for (let i = 0; i < elementGroups.length; i++) {
