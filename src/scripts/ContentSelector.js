@@ -143,19 +143,30 @@ export default class ContentSelector {
 	}
 
 	bindElementSelection() {
-		this.$allElements.bind(
-			'click.elementSelector',
-			function (e) {
-				const element = e.currentTarget;
-				if (this.selectedElements.indexOf(element) === -1) {
-					this.selectedElements.push(element);
-				}
-				this.highlightSelectedElements();
+		// Store click handlers for later removal
+		this._clickHandlers = new Map();
 
-				// Cancel all other events
-				return false;
-			}.bind(this)
-		);
+		// Use native addEventListener with capture:true to intercept clicks
+		// before the website's JavaScript can handle them
+		const clickHandler = e => {
+			const element = e.currentTarget;
+			if (this.selectedElements.indexOf(element) === -1) {
+				this.selectedElements.push(element);
+			}
+			this.highlightSelectedElements();
+
+			// Stop the event from reaching the website's handlers
+			e.preventDefault();
+			e.stopPropagation();
+			e.stopImmediatePropagation();
+			return false;
+		};
+
+		this.$allElements.each((i, element) => {
+			const handler = clickHandler.bind(this);
+			this._clickHandlers.set(element, handler);
+			element.addEventListener('click', handler, true); // capture: true
+		});
 	}
 
 	/**
@@ -335,6 +346,14 @@ export default class ContentSelector {
 	}
 
 	unbindElementSelection() {
+		// Remove native event listeners
+		if (this._clickHandlers) {
+			this._clickHandlers.forEach((handler, element) => {
+				element.removeEventListener('click', handler, true);
+			});
+			this._clickHandlers.clear();
+		}
+		// Fallback: also try jQuery unbind for backwards compatibility
 		$(this.$allElements).unbind('click.elementSelector');
 		// remove highlighted element classes
 		this.unbindElementSelectionHighlight();
