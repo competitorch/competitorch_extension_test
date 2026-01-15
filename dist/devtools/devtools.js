@@ -52,7 +52,7 @@
 		(s.p = ''),
 		s((s.s = 395));
 })({
-	14: function (e, r, s) {
+	13: function (e, r, s) {
 		var g, n, a;
 		'undefined' != typeof globalThis ? globalThis : 'undefined' != typeof self && self,
 			(n = [e]),
@@ -644,7 +644,7 @@
 	395: function (e, r, s) {
 		'use strict';
 		s.r(r);
-		var g = s(14);
+		var g = s(13);
 		'undefined' != typeof InstallTrigger
 			? g.devtools.panels.create('Web Scraper', '../icons/icon48.png', './panel.html')
 			: g.devtools.panels.create('Web Scraper', 'icons/icon48.png', 'devtools/panel.html');

@@ -1,3 +1,118 @@
+<!-- Target Tab Indicator -->
+<style>
+	#target-tab-indicator {
+		background: var(--bg-secondary, #16213e);
+		border: 1px solid var(--border-color, #2d2d44);
+		border-radius: 6px;
+		padding: 10px 15px;
+		margin: 10px 15px;
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		flex-wrap: wrap;
+	}
+
+	#target-tab-indicator .indicator-label {
+		font-weight: 600;
+		color: var(--accent-primary, #ff6b35);
+		white-space: nowrap;
+	}
+
+	#target-tab-indicator .tab-info {
+		flex: 1;
+		min-width: 200px;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	#target-tab-indicator .tab-url {
+		color: var(--text-primary, #e4e4e7);
+		font-size: 13px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 400px;
+	}
+
+	#target-tab-indicator .connection-status {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		font-size: 12px;
+		padding: 3px 8px;
+		border-radius: 12px;
+		white-space: nowrap;
+	}
+
+	#target-tab-indicator .connection-status.connected {
+		background: rgba(34, 197, 94, 0.2);
+		color: #22c55e;
+	}
+
+	#target-tab-indicator .connection-status.disconnected {
+		background: rgba(239, 68, 68, 0.2);
+		color: #ef4444;
+	}
+
+	#target-tab-indicator .connection-status.checking {
+		background: rgba(234, 179, 8, 0.2);
+		color: #eab308;
+	}
+
+	#target-tab-indicator .connection-status .status-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: currentColor;
+	}
+
+	#target-tab-indicator .tab-actions {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+	}
+
+	#target-tab-indicator .btn-sm {
+		padding: 4px 10px;
+		font-size: 12px;
+	}
+
+	#target-tab-selector {
+		max-width: 250px;
+		font-size: 12px;
+	}
+
+	#target-tab-indicator .no-tab-warning {
+		color: #ef4444;
+		font-size: 13px;
+	}
+</style>
+
+<div id="target-tab-indicator">
+	<span class="indicator-label" data-i18n="target_tab_label">Target Tab:</span>
+	<div class="tab-info">
+		<span id="target-tab-url" class="tab-url" data-i18n="target_tab_searching"
+			>Searching for tab...</span
+		>
+		<span id="connection-status" class="connection-status checking">
+			<span class="status-dot"></span>
+			<span class="status-text" data-i18n="target_tab_checking">Checking...</span>
+		</span>
+	</div>
+	<div class="tab-actions">
+		<select id="target-tab-selector" class="form-control">
+			<option value="" data-i18n="target_tab_auto">Auto-detect</option>
+		</select>
+		<button id="test-connection-btn" class="btn btn-default btn-sm" data-i18n="target_tab_test">
+			Test Connection
+		</button>
+		<button id="refresh-tabs-btn" class="btn btn-default btn-sm" title="Refresh tab list">
+			<span class="glyphicon glyphicon-refresh"></span>
+		</button>
+	</div>
+</div>
+
 <!-- Navigation -->
 <style>
 	nav {

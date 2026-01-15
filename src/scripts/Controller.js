@@ -170,12 +170,24 @@ export default class SitemapController {
 		// render main viewport
 		ich.Viewport().appendTo('body');
 
+		// Initialize target tab indicator
+		this.initTargetTabIndicator();
+
 		// cancel all form submits
 		$('form').bind('submit', () => {
 			return false;
 		});
 
 		this.control({
+			'#target-tab-selector': {
+				change: this.onTargetTabSelectorChange,
+			},
+			'#test-connection-btn': {
+				click: this.testTargetTabConnection,
+			},
+			'#refresh-tabs-btn': {
+				click: this.refreshAvailableTabs,
+			},
 			'#sitemapFiles': {
 				change: this.readBlob,
 			},
@@ -2603,5 +2615,175 @@ export default class SitemapController {
 				$(this).remove();
 			});
 		});
+	}
+
+	// ============================================
+	// Target Tab Indicator Functions
+	// ============================================
+
+	/**
+	 * Initialize the target tab indicator
+	 */
+	async initTargetTabIndicator() {
+		// Initial load of tabs and status
+		await this.refreshAvailableTabs();
+		await this.updateTargetTabStatus();
+
+		// Auto-refresh status periodically
+		setInterval(() => this.updateTargetTabStatus(), 5000);
+	}
+
+	/**
+	 * Refresh the list of available tabs in the dropdown
+	 */
+	async refreshAvailableTabs() {
+		try {
+			const tabs = await browser.runtime.sendMessage({ getAvailableTabs: true });
+			const $selector = $('#target-tab-selector');
+			const currentValue = $selector.val();
+
+			$selector.empty();
+			$selector.append(
+				$('<option>', {
+					value: '',
+					text: Translator.getTranslationByKey('target_tab_auto') || 'Auto-detect',
+				})
+			);
+
+			tabs.forEach(tab => {
+				const displayText = this.truncateUrl(tab.title || tab.url, 40);
+				$selector.append(
+					$('<option>', {
+						value: tab.id,
+						text: displayText,
+						title: tab.url,
+					})
+				);
+			});
+
+			// Restore previous selection if still valid
+			if (currentValue && tabs.some(t => t.id === parseInt(currentValue, 10))) {
+				$selector.val(currentValue);
+			}
+		} catch (error) {
+			console.warn('Failed to refresh available tabs:', error);
+		}
+	}
+
+	/**
+	 * Update the target tab status display
+	 */
+	async updateTargetTabStatus() {
+		const $url = $('#target-tab-url');
+		const $status = $('#connection-status');
+		const $statusText = $status.find('.status-text');
+
+		try {
+			const tabInfo = await browser.runtime.sendMessage({ getTargetTabInfo: true });
+
+			if (tabInfo.found) {
+				const displayUrl = this.truncateUrl(tabInfo.url, 60);
+				$url.text(displayUrl).attr('title', tabInfo.url);
+
+				if (tabInfo.isManual) {
+					$url.prepend(
+						$('<span>', {
+							class: 'glyphicon glyphicon-pushpin',
+							style: 'margin-right: 5px; font-size: 11px;',
+							title: Translator.getTranslationByKey('target_tab_pinned') || 'Pinned',
+						})
+					);
+				}
+
+				// Test connection
+				const connectionResult = await browser.runtime.sendMessage({
+					testTabConnection: true,
+					tabId: tabInfo.id,
+				});
+
+				if (connectionResult.success) {
+					$status.removeClass('disconnected checking').addClass('connected');
+					$statusText.text(
+						Translator.getTranslationByKey('target_tab_connected') || 'Connected'
+					);
+				} else {
+					$status.removeClass('connected checking').addClass('disconnected');
+					$statusText.text(
+						Translator.getTranslationByKey('target_tab_disconnected') || 'Not connected'
+					);
+				}
+			} else {
+				$url.text(
+					Translator.getTranslationByKey('target_tab_no_tab') ||
+						'No suitable tab found. Open a webpage to scrape.'
+				);
+				$status.removeClass('connected checking').addClass('disconnected');
+				$statusText.text(
+					Translator.getTranslationByKey('target_tab_no_tab_short') || 'No tab'
+				);
+			}
+		} catch (error) {
+			$url.text(
+				Translator.getTranslationByKey('target_tab_error') || 'Error checking target tab'
+			);
+			$status.removeClass('connected checking').addClass('disconnected');
+			$statusText.text(Translator.getTranslationByKey('target_tab_error_short') || 'Error');
+		}
+	}
+
+	/**
+	 * Handle target tab selector change
+	 */
+	async onTargetTabSelectorChange() {
+		const selectedValue = $('#target-tab-selector').val();
+		const tabId = selectedValue === '' ? null : selectedValue;
+
+		try {
+			await browser.runtime.sendMessage({ setTargetTab: true, tabId });
+			await this.updateTargetTabStatus();
+		} catch (error) {
+			console.warn('Failed to set target tab:', error);
+		}
+	}
+
+	/**
+	 * Test connection to current target tab
+	 */
+	async testTargetTabConnection() {
+		const $btn = $('#test-connection-btn');
+		const $status = $('#connection-status');
+		const $statusText = $status.find('.status-text');
+
+		$btn.prop('disabled', true);
+		$status.removeClass('connected disconnected').addClass('checking');
+		$statusText.text(Translator.getTranslationByKey('target_tab_testing') || 'Testing...');
+
+		try {
+			const result = await browser.runtime.sendMessage({ testTabConnection: true });
+
+			if (result.success) {
+				$status.removeClass('disconnected checking').addClass('connected');
+				$statusText.text(
+					Translator.getTranslationByKey('target_tab_connected') || 'Connected'
+				);
+			} else {
+				$status.removeClass('connected checking').addClass('disconnected');
+				$statusText.text(result.error || 'Connection failed');
+			}
+		} catch (error) {
+			$status.removeClass('connected checking').addClass('disconnected');
+			$statusText.text(Translator.getTranslationByKey('target_tab_error_short') || 'Error');
+		} finally {
+			$btn.prop('disabled', false);
+		}
+	}
+
+	/**
+	 * Truncate URL for display
+	 */
+	truncateUrl(url, maxLength) {
+		if (!url) return '';
+		if (url.length <= maxLength) return url;
+		return url.substring(0, maxLength - 3) + '...';
 	}
 }

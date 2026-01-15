@@ -7,6 +7,11 @@ import './content_script.css';
 browser.runtime.onMessage.addListener(request => {
 	console.log('browser.runtime.onMessage', request);
 	return new Promise(resolve => {
+		// Ping handler for connection testing
+		if (request.ping) {
+			resolve({ pong: true, url: window.location.href });
+			return;
+		}
 		if (request.extractData) {
 			console.log('received data extraction request', request);
 			const extractor = new DataExtractor(request);

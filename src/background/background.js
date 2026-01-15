@@ -12,6 +12,7 @@ import urlJoin from 'url-join';
 
 const config = new Config();
 let store;
+let manualTargetTabId = null; // Allow manual tab selection
 
 async function talismanAuthListener(responseDetails) {
 	async function reloadTabs() {
@@ -94,6 +95,19 @@ function isUrlSupported(url) {
 async function getTargetTabId() {
 	const extensionUrl = browser.runtime.getURL('');
 
+	// If manual target is set, verify it still exists and is valid
+	if (manualTargetTabId !== null) {
+		try {
+			const tab = await browser.tabs.get(manualTargetTabId);
+			if (tab && !tab.url.startsWith(extensionUrl) && isUrlSupported(tab.url)) {
+				return manualTargetTabId;
+			}
+		} catch (e) {
+			// Tab no longer exists, clear manual selection
+			manualTargetTabId = null;
+		}
+	}
+
 	// First try last focused window
 	let tabs = await browser.tabs.query({ active: true, lastFocusedWindow: true });
 	let targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl) && isUrlSupported(tab.url));
@@ -105,6 +119,66 @@ async function getTargetTabId() {
 	}
 
 	return targetTab ? targetTab.id : null;
+}
+
+// Get list of all available tabs that can be scraped
+async function getAvailableTabs() {
+	const extensionUrl = browser.runtime.getURL('');
+	const allTabs = await browser.tabs.query({});
+
+	return allTabs
+		.filter(tab => !tab.url.startsWith(extensionUrl) && isUrlSupported(tab.url))
+		.map(tab => ({
+			id: tab.id,
+			title: tab.title || 'Untitled',
+			url: tab.url,
+			favIconUrl: tab.favIconUrl,
+		}));
+}
+
+// Get info about current target tab
+async function getTargetTabInfo() {
+	const tabId = await getTargetTabId();
+	if (!tabId) {
+		return { found: false, error: 'No suitable tab found' };
+	}
+
+	try {
+		const tab = await browser.tabs.get(tabId);
+		return {
+			found: true,
+			id: tab.id,
+			title: tab.title || 'Untitled',
+			url: tab.url,
+			isManual: manualTargetTabId === tabId,
+		};
+	} catch (e) {
+		return { found: false, error: e.message };
+	}
+}
+
+// Test connection to target tab
+async function testTabConnection(tabId) {
+	const targetId = tabId || (await getTargetTabId());
+	if (!targetId) {
+		return { success: false, error: 'No target tab found' };
+	}
+
+	try {
+		// Send a ping message to the content script
+		const response = await browser.tabs.sendMessage(targetId, { ping: true });
+		return {
+			success: true,
+			tabId: targetId,
+			response: response || 'Connected',
+		};
+	} catch (e) {
+		return {
+			success: false,
+			tabId: targetId,
+			error: e.message || 'Could not connect to tab',
+		};
+	}
 }
 
 const sendToActiveTab = async function (request, callback) {
@@ -124,6 +198,31 @@ const sendToActiveTab = async function (request, callback) {
 };
 
 browser.runtime.onMessage.addListener(async request => {
+	// Get available tabs for scraping
+	if (request.getAvailableTabs) {
+		return await getAvailableTabs();
+	}
+
+	// Get current target tab info
+	if (request.getTargetTabInfo) {
+		return await getTargetTabInfo();
+	}
+
+	// Test connection to target tab
+	if (request.testTabConnection) {
+		return await testTabConnection(request.tabId);
+	}
+
+	// Set manual target tab
+	if (request.setTargetTab) {
+		if (request.tabId === null || request.tabId === '') {
+			manualTargetTabId = null;
+			return { success: true, mode: 'auto' };
+		}
+		manualTargetTabId = parseInt(request.tabId, 10);
+		return { success: true, mode: 'manual', tabId: manualTargetTabId };
+	}
+
 	// Fetch XML Sitemap (to avoid CORS issues)
 	if (request.fetchXMLSitemap) {
 		try {

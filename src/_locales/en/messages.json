@@ -419,5 +419,22 @@
 	},
 	"sitemap_invalid_specificationVersion": {
 		"message": "The version of the sitemap is newer than the plugin version. Please update the plugin"
+	},
+
+	"target_tab_label": { "message": "Target Tab:" },
+	"target_tab_searching": { "message": "Searching for tab..." },
+	"target_tab_checking": { "message": "Checking..." },
+	"target_tab_auto": { "message": "Auto-detect" },
+	"target_tab_test": { "message": "Test Connection" },
+	"target_tab_connected": { "message": "Connected" },
+	"target_tab_disconnected": { "message": "Not connected" },
+	"target_tab_no_tab": { "message": "No suitable tab found. Open a webpage to scrape." },
+	"target_tab_no_tab_short": { "message": "No tab" },
+	"target_tab_error": { "message": "Error checking target tab" },
+	"target_tab_error_short": { "message": "Error" },
+	"target_tab_testing": { "message": "Testing..." },
+	"target_tab_pinned": { "message": "Pinned (manually selected)" },
+	"target_tab_help": {
+		"message": "This shows the webpage that will be used for scraping. Select elements from this tab."
 	}
 }
