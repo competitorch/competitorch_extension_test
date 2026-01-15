@@ -16960,7 +16960,7 @@
 											);
 									}),
 										document.addEventListener(
-											'click',
+											'mousedown',
 											this._documentClickHandler,
 											!0
 										);
@@ -17193,7 +17193,7 @@
 								value: function () {
 									this._documentClickHandler &&
 										(document.removeEventListener(
-											'click',
+											'mousedown',
 											this._documentClickHandler,
 											!0
 										),

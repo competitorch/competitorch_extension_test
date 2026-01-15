@@ -143,8 +143,9 @@ export default class ContentSelector {
 	}
 
 	bindElementSelection() {
-		// Use a single document-level listener with capture:true to intercept clicks
+		// Use a single document-level listener with capture:true to intercept events
 		// before the website's JavaScript can handle them
+		// Using mousedown instead of click - harder for frameworks to intercept
 		const allElementsArray = this.$allElements.toArray();
 
 		this._documentClickHandler = e => {
@@ -175,7 +176,8 @@ export default class ContentSelector {
 			}
 		};
 
-		document.addEventListener('click', this._documentClickHandler, true); // capture: true
+		// Use mousedown - it fires before click and is harder to intercept
+		document.addEventListener('mousedown', this._documentClickHandler, true);
 	}
 
 	/**
@@ -355,9 +357,9 @@ export default class ContentSelector {
 	}
 
 	unbindElementSelection() {
-		// Remove document-level click listener
+		// Remove document-level mousedown listener
 		if (this._documentClickHandler) {
-			document.removeEventListener('click', this._documentClickHandler, true);
+			document.removeEventListener('mousedown', this._documentClickHandler, true);
 			this._documentClickHandler = null;
 		}
 		// Fallback: also try jQuery unbind for backwards compatibility
