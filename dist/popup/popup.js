@@ -6300,7 +6300,7 @@
 	189: function (e, t, n) {
 		'use strict';
 		var r = n(104),
-			o = n(51);
+			o = n(52);
 		e.exports = r
 			? {}.toString
 			: function () {
@@ -6591,7 +6591,7 @@
 			return null == e;
 		};
 	},
-	43: function (e, t, n) {
+	44: function (e, t, n) {
 		'use strict';
 		var r = n(9),
 			o = r({}.toString),
@@ -6613,16 +6613,16 @@
 					return (e[t] = n), e;
 			  };
 	},
-	50: function (e, t, n) {
+	51: function (e, t, n) {
 		'use strict';
 		var r = n(9);
 		e.exports = r({}.isPrototypeOf);
 	},
-	51: function (e, t, n) {
+	52: function (e, t, n) {
 		'use strict';
 		var r = n(104),
 			o = n(15),
-			i = n(43),
+			i = n(44),
 			s = n(17)('toStringTag'),
 			a = Object,
 			u =
@@ -6820,7 +6820,7 @@
 		'use strict';
 		var r = n(33),
 			o = n(15),
-			i = n(50),
+			i = n(51),
 			s = n(138),
 			a = Object;
 		e.exports = s

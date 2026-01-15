@@ -15,6 +15,23 @@
 	"create_sitemap_nav_button": { "message": "Create new sitemap" },
 	"create_sitemap_create_nav_button": { "message": "Create sitemap" },
 	"create_sitemap_import_nav_button": { "message": "Import sitemap" },
+	"sitemap_xml_import_nav_button": { "message": "Import from XML Sitemap" },
+	"sitemap_xml_import_title": { "message": "Import URLs from XML Sitemap" },
+	"sitemap_xml_import_description": {
+		"message": "Fetch URLs from an XML sitemap and optionally filter them with a regex pattern."
+	},
+	"sitemap_xml_url_label": { "message": "XML Sitemap URL" },
+	"sitemap_xml_regex_label": { "message": "URL Filter (Regex - optional)" },
+	"sitemap_xml_regex_help": {
+		"message": "Leave empty to import all URLs. Example: 'itinerary' will only import URLs containing 'itinerary'."
+	},
+	"sitemap_xml_fetch_button": { "message": "Fetch Sitemap" },
+	"sitemap_xml_found_urls": { "message": "Found URLs:" },
+	"sitemap_xml_select_all": { "message": "Select All" },
+	"sitemap_xml_deselect_all": { "message": "Deselect All" },
+	"sitemap_xml_new_sitemap_id": { "message": "New Sitemap ID" },
+	"sitemap_xml_create_button": { "message": "Create Sitemap with Selected URLs" },
+	"sitemap_xml_loading": { "message": "Loading sitemap..." },
 	"sitemaplist_id": { "message": "ID" },
 	"projectlist_id": { "message": "ID" },
 	"projectName": { "message": "Project name" },

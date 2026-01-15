@@ -133,6 +133,7 @@ export default class SitemapController {
 			'SitemapListItem',
 			'SitemapCreate',
 			'SitemapImport',
+			'SitemapXMLImport',
 			'SitemapExport',
 			'SitemapBrowseData',
 			'SitemapScrapeConfig',
@@ -195,6 +196,21 @@ export default class SitemapController {
 			},
 			'#sitemap-template-create-nav-button': {
 				click: this.showTemplateSitemapPanel,
+			},
+			'#sitemap-xml-import-nav-button': {
+				click: this.showXMLSitemapImportPanel,
+			},
+			'#fetch-xml-sitemap': {
+				click: this.fetchXMLSitemap,
+			},
+			'#select-all-urls': {
+				click: this.selectAllXMLUrls,
+			},
+			'#deselect-all-urls': {
+				click: this.deselectAllXMLUrls,
+			},
+			'#create-sitemap-from-xml': {
+				click: this.createSitemapFromXML,
 			},
 			'#sitemap-export-nav-button': {
 				click: this.showSitemapExportPanel,
@@ -739,6 +755,166 @@ export default class SitemapController {
 			$('#sitemapJSON').text(JSON.stringify(sitemapTemplate));
 		}
 		return true;
+	}
+
+	showXMLSitemapImportPanel() {
+		this.setActiveNavigationButton('create-sitemap-import');
+		const $xmlImportForm = ich.SitemapXMLImport();
+		$('#viewport').html($xmlImportForm);
+		Translator.translatePage();
+		return true;
+	}
+
+	async fetchXMLSitemap() {
+		const sitemapUrl = $('#xml-sitemap-url').val();
+		const regexFilter = $('#url-regex-filter').val();
+
+		if (!sitemapUrl) {
+			$('#xml-import-error').text('Please enter a sitemap URL').removeClass('hidden');
+			return;
+		}
+
+		// Show loading, hide results and error
+		$('#xml-import-loading').removeClass('hidden');
+		$('#xml-sitemap-results').addClass('hidden');
+		$('#xml-import-error').addClass('hidden');
+
+		try {
+			// Fetch the sitemap XML via background script to avoid CORS
+			const response = await browser.runtime.sendMessage({
+				fetchXMLSitemap: true,
+				url: sitemapUrl,
+			});
+
+			if (response.error) {
+				throw new Error(response.error);
+			}
+
+			const parser = new DOMParser();
+			const xmlDoc = parser.parseFromString(response.xml, 'text/xml');
+
+			// Check for parsing errors
+			const parseError = xmlDoc.querySelector('parsererror');
+			if (parseError) {
+				throw new Error('Invalid XML format');
+			}
+
+			// Extract URLs from sitemap
+			let urls = [];
+			const urlElements = xmlDoc.querySelectorAll('url > loc');
+			urlElements.forEach(el => {
+				urls.push(el.textContent.trim());
+			});
+
+			// Also check for sitemap index (nested sitemaps)
+			const sitemapElements = xmlDoc.querySelectorAll('sitemap > loc');
+			if (sitemapElements.length > 0 && urls.length === 0) {
+				$('#xml-import-error')
+					.text(
+						'This is a sitemap index. Please use one of the individual sitemap URLs listed in it.'
+					)
+					.removeClass('hidden');
+				$('#xml-import-loading').addClass('hidden');
+				return;
+			}
+
+			// Apply regex filter if provided
+			if (regexFilter) {
+				try {
+					const regex = new RegExp(regexFilter, 'i');
+					urls = urls.filter(url => regex.test(url));
+				} catch (e) {
+					throw new Error('Invalid regex pattern: ' + e.message);
+				}
+			}
+
+			if (urls.length === 0) {
+				$('#xml-import-error')
+					.text('No URLs found matching the criteria')
+					.removeClass('hidden');
+				$('#xml-import-loading').addClass('hidden');
+				return;
+			}
+
+			// Display results
+			$('#xml-url-count').text(urls.length);
+			const $urlList = $('#xml-url-list');
+			$urlList.empty();
+
+			urls.forEach((url, index) => {
+				const $item = $(`
+					<div class="url-checkbox-item">
+						<label>
+							<input type="checkbox" class="xml-url-checkbox" value="${url}" checked>
+							${url}
+						</label>
+					</div>
+				`);
+				$urlList.append($item);
+			});
+
+			// Generate suggested sitemap ID from URL
+			const suggestedId = urlToSitemapName(sitemapUrl);
+			$('#new-sitemap-id').val(suggestedId);
+
+			$('#xml-sitemap-results').removeClass('hidden');
+		} catch (error) {
+			$('#xml-import-error')
+				.text('Error: ' + error.message)
+				.removeClass('hidden');
+		} finally {
+			$('#xml-import-loading').addClass('hidden');
+		}
+	}
+
+	selectAllXMLUrls() {
+		$('.xml-url-checkbox').prop('checked', true);
+	}
+
+	deselectAllXMLUrls() {
+		$('.xml-url-checkbox').prop('checked', false);
+	}
+
+	async createSitemapFromXML() {
+		const sitemapId = $('#new-sitemap-id').val();
+
+		if (!sitemapId) {
+			$('#xml-import-error').text('Please enter a sitemap ID').removeClass('hidden');
+			return;
+		}
+
+		// Validate sitemap ID
+		if (!sitemapId.match(SITEMAP_ID_REGEXP)) {
+			$('#xml-import-error')
+				.text('Invalid sitemap ID. Use lowercase letters, numbers, and underscores.')
+				.removeClass('hidden');
+			return;
+		}
+
+		// Get selected URLs
+		const selectedUrls = [];
+		$('.xml-url-checkbox:checked').each(function () {
+			selectedUrls.push($(this).val());
+		});
+
+		if (selectedUrls.length === 0) {
+			$('#xml-import-error').text('Please select at least one URL').removeClass('hidden');
+			return;
+		}
+
+		// Check if sitemap exists
+		const sitemapExists = await this.store.sitemapExists(sitemapId, this.getCurrentProjectId());
+		if (sitemapExists) {
+			$('#xml-import-error')
+				.text('A sitemap with this ID already exists')
+				.removeClass('hidden');
+			return;
+		}
+
+		// Create the sitemap
+		let sitemap = new Sitemap(sitemapId, selectedUrls, undefined, undefined, []);
+		sitemap = await this.store.createSitemap(sitemap, this.getCurrentProjectId());
+		this._editSitemap(sitemap);
 	}
 
 	showSitemapExportPanel() {

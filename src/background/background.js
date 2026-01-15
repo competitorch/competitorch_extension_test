@@ -102,6 +102,20 @@ const sendToActiveTab = async function (request, callback) {
 };
 
 browser.runtime.onMessage.addListener(async request => {
+	// Fetch XML Sitemap (to avoid CORS issues)
+	if (request.fetchXMLSitemap) {
+		try {
+			const response = await fetch(request.url);
+			if (!response.ok) {
+				return { error: `HTTP error: ${response.status}` };
+			}
+			const xml = await response.text();
+			return { xml };
+		} catch (error) {
+			return { error: error.message };
+		}
+	}
+
 	if (request.getStandName) {
 		return store.standName;
 	}
