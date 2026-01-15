@@ -143,30 +143,39 @@ export default class ContentSelector {
 	}
 
 	bindElementSelection() {
-		// Store click handlers for later removal
-		this._clickHandlers = new Map();
-
-		// Use native addEventListener with capture:true to intercept clicks
+		// Use a single document-level listener with capture:true to intercept clicks
 		// before the website's JavaScript can handle them
-		const clickHandler = e => {
-			const element = e.currentTarget;
-			if (this.selectedElements.indexOf(element) === -1) {
-				this.selectedElements.push(element);
-			}
-			this.highlightSelectedElements();
+		const allElementsArray = this.$allElements.toArray();
 
-			// Stop the event from reaching the website's handlers
-			e.preventDefault();
-			e.stopPropagation();
-			e.stopImmediatePropagation();
-			return false;
+		this._documentClickHandler = e => {
+			// Find the most specific allowed element that was clicked
+			let targetElement = e.target;
+			let selectedElement = null;
+
+			// Walk up the DOM tree to find if clicked element or any parent is in our allowed list
+			while (targetElement && targetElement !== document) {
+				if (allElementsArray.indexOf(targetElement) !== -1) {
+					selectedElement = targetElement;
+					break; // Take the most specific (deepest) match
+				}
+				targetElement = targetElement.parentNode;
+			}
+
+			if (selectedElement) {
+				if (this.selectedElements.indexOf(selectedElement) === -1) {
+					this.selectedElements.push(selectedElement);
+				}
+				this.highlightSelectedElements();
+
+				// Stop the event from reaching the website's handlers
+				e.preventDefault();
+				e.stopPropagation();
+				e.stopImmediatePropagation();
+				return false;
+			}
 		};
 
-		this.$allElements.each((i, element) => {
-			const handler = clickHandler.bind(this);
-			this._clickHandlers.set(element, handler);
-			element.addEventListener('click', handler, true); // capture: true
-		});
+		document.addEventListener('click', this._documentClickHandler, true); // capture: true
 	}
 
 	/**
@@ -346,12 +355,10 @@ export default class ContentSelector {
 	}
 
 	unbindElementSelection() {
-		// Remove native event listeners
-		if (this._clickHandlers) {
-			this._clickHandlers.forEach((handler, element) => {
-				element.removeEventListener('click', handler, true);
-			});
-			this._clickHandlers.clear();
+		// Remove document-level click listener
+		if (this._documentClickHandler) {
+			document.removeEventListener('click', this._documentClickHandler, true);
+			this._documentClickHandler = null;
 		}
 		// Fallback: also try jQuery unbind for backwards compatibility
 		$(this.$allElements).unbind('click.elementSelector');
