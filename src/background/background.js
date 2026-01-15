@@ -74,18 +74,34 @@ browser.storage.onChanged.addListener(function () {
 	});
 });
 
-// Helper function to get the target tab (non-extension tab)
+// URLs that don't support content scripts
+const UNSUPPORTED_URL_PATTERNS = [
+	/^chrome:\/\//,
+	/^chrome-extension:\/\//,
+	/^about:/,
+	/^edge:\/\//,
+	/^brave:\/\//,
+	/^opera:\/\//,
+	/^moz-extension:\/\//,
+];
+
+function isUrlSupported(url) {
+	if (!url) return false;
+	return !UNSUPPORTED_URL_PATTERNS.some(pattern => pattern.test(url));
+}
+
+// Helper function to get the target tab (non-extension tab with supported URL)
 async function getTargetTabId() {
 	const extensionUrl = browser.runtime.getURL('');
 
 	// First try last focused window
 	let tabs = await browser.tabs.query({ active: true, lastFocusedWindow: true });
-	let targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl));
+	let targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl) && isUrlSupported(tab.url));
 
 	if (!targetTab) {
-		// Search all windows for an active non-extension tab
+		// Search all windows for an active supported tab
 		tabs = await browser.tabs.query({ active: true });
-		targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl));
+		targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl) && isUrlSupported(tab.url));
 	}
 
 	return targetTab ? targetTab.id : null;
@@ -98,7 +114,13 @@ const sendToActiveTab = async function (request, callback) {
 		if (callback) callback(null);
 		return;
 	}
-	browser.tabs.sendMessage(tabId, request).then(callback).catch(callback);
+	try {
+		const result = await browser.tabs.sendMessage(tabId, request);
+		if (callback) callback(result);
+	} catch (error) {
+		console.warn('sendToActiveTab error:', error.message);
+		if (callback) callback(null);
+	}
 };
 
 browser.runtime.onMessage.addListener(async request => {
@@ -223,7 +245,12 @@ browser.runtime.onMessage.addListener(async request => {
 			console.log("couldn't find target tab for preview");
 			return [];
 		}
-		return browser.tabs.sendMessage(tabId, request);
+		try {
+			return await browser.tabs.sendMessage(tabId, request);
+		} catch (error) {
+			console.warn('previewSelectorData error:', error.message);
+			return [];
+		}
 	} else if (request.backgroundScriptCall) {
 		return new Promise((resolve, reject) => {
 			const backgroundScript = getBackgroundScript('BackgroundScript');

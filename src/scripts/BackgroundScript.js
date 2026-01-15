@@ -1,5 +1,22 @@
 import * as browser from 'webextension-polyfill';
 
+// URLs that don't support content scripts
+const UNSUPPORTED_URL_PATTERNS = [
+	/^chrome:\/\//,
+	/^chrome-extension:\/\//,
+	/^about:/,
+	/^edge:\/\//,
+	/^brave:\/\//,
+	/^opera:\/\//,
+	/^moz-extension:\/\//,
+	/^file:\/\//,
+];
+
+function isUrlSupported(url) {
+	if (!url) return false;
+	return !UNSUPPORTED_URL_PATTERNS.some(pattern => pattern.test(url));
+}
+
 /**
  * ContentScript that can be called from anywhere within the extension
  */
@@ -20,19 +37,23 @@ const BackgroundScript = {
 					lastFocusedWindow: true,
 				})
 				.then(async function (tabs) {
-					// Filter out extension pages to find the actual target tab
+					// Filter out extension pages and unsupported URLs
 					const extensionUrl = browser.runtime.getURL('');
-					let targetTab = tabs.find(tab => !tab.url.startsWith(extensionUrl));
+					let targetTab = tabs.find(
+						tab => !tab.url.startsWith(extensionUrl) && isUrlSupported(tab.url)
+					);
 
 					if (!targetTab && tabs.length > 0) {
-						// If only extension tabs are active, search all windows for an active non-extension tab
+						// Search all windows for an active supported tab
 						const allTabs = await browser.tabs.query({ active: true });
-						targetTab = allTabs.find(tab => !tab.url.startsWith(extensionUrl));
+						targetTab = allTabs.find(
+							tab => !tab.url.startsWith(extensionUrl) && isUrlSupported(tab.url)
+						);
 					}
 
 					if (!targetTab) {
 						reject(
-							"couldn't find an active tab to scrape. Please open a webpage in another tab."
+							"couldn't find an active tab to scrape. Please open a webpage (http/https) in another tab."
 						);
 					} else {
 						resolve(targetTab.id);
@@ -52,9 +73,12 @@ const BackgroundScript = {
 			fn: request.fn,
 			request: request.request,
 		};
-		return this.getActiveTabId().then(tabId =>
-			browser.tabs.sendMessage(tabId, reqToContentScript)
-		);
+		return this.getActiveTabId()
+			.then(tabId => browser.tabs.sendMessage(tabId, reqToContentScript))
+			.catch(error => {
+				console.warn('executeContentScript error:', error);
+				return Promise.reject(error);
+			});
 	},
 };
 

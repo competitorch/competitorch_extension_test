@@ -5511,7 +5511,7 @@
 			(e.exports.default = e.exports);
 	},
 	function (e, t, n) {
-		var r = n(152);
+		var r = n(154);
 		function i(e, t) {
 			for (var n = 0; n < t.length; n++) {
 				var i = t[n];
@@ -6650,7 +6650,7 @@
 					n(94),
 					n(48),
 					n(149),
-					n(32),
+					n(30),
 					n(64),
 					n(135),
 					n(68),
@@ -7045,7 +7045,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(9),
-			i = n(30),
+			i = n(31),
 			o = r({}.hasOwnProperty);
 		e.exports =
 			Object.hasOwn ||
@@ -7278,7 +7278,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(15),
-			i = n(31),
+			i = n(32),
 			o = n(148),
 			a = n(110);
 		e.exports = function (e, t, n, s) {
@@ -7308,6 +7308,12 @@
 		e.exports = function (e) {
 			return r(e.length);
 		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(10),
+			i = n(152);
+		r({ target: 'RegExp', proto: !0, forced: /./.exec !== i }, { exec: i });
 	},
 	function (e, t, n) {
 		'use strict';
@@ -7362,12 +7368,6 @@
 					if ('get' in n || 'set' in n) throw new u('Accessors not supported');
 					return 'value' in n && (e[t] = n.value), e;
 			  };
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(10),
-			i = n(153);
-		r({ target: 'RegExp', proto: !0, forced: /./.exec !== i }, { exec: i });
 	},
 	function (e, t, n) {
 		'use strict';
@@ -7454,8 +7454,8 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(8),
-			i = n(195),
-			o = n(196),
+			i = n(198),
+			o = n(199),
 			a = n(260),
 			s = n(45),
 			u = function (e) {
@@ -7478,7 +7478,7 @@
 		var r = n(46),
 			i = n(9),
 			o = n(113),
-			a = n(30),
+			a = n(31),
 			s = n(29),
 			u = n(123),
 			c = i([].push),
@@ -7587,7 +7587,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(19),
-			i = n(31),
+			i = n(32),
 			o = n(63);
 		e.exports = r
 			? function (e, t, n) {
@@ -7698,7 +7698,7 @@
 			i = n(124),
 			o = n(92),
 			a = n(35),
-			s = n(31).f,
+			s = n(32).f,
 			u = n(158),
 			c = n(133),
 			l = n(37),
@@ -7757,7 +7757,7 @@
 					n(20),
 					n(94),
 					n(149),
-					n(32),
+					n(30),
 					n(64),
 					n(172),
 					n(135),
@@ -8222,7 +8222,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(31).f,
+		var r = n(32).f,
 			i = n(22),
 			o = n(17)('toStringTag');
 		e.exports = function (e, t, n) {
@@ -8232,7 +8232,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(148),
-			i = n(31);
+			i = n(32);
 		e.exports = function (e, t, n) {
 			return (
 				n.get && r(n.get, t, { getter: !0 }),
@@ -8494,7 +8494,7 @@
 				);
 				var n;
 			})(v.a),
-			A = (n(98), n(121), n(97), n(108), n(32), n(64), n(27)),
+			A = (n(98), n(121), n(97), n(108), n(30), n(64), n(27)),
 			E = n.n(A);
 		n(67), n(49), n(79);
 		function T(e, t) {
@@ -11131,7 +11131,7 @@
 			n.d(t, 'a', function () {
 				return r;
 			});
-			n(74), n(20), n(32), n(248), n(69), n(36);
+			n(74), n(20), n(30), n(248), n(69), n(36);
 			function r(t, n) {
 				var r = [],
 					i = function (e) {
@@ -11435,8 +11435,8 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(8),
-			i = n(195),
-			o = n(196),
+			i = n(198),
+			o = n(199),
 			a = n(49),
 			s = n(45),
 			u = n(57),
@@ -11613,7 +11613,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(19),
-			i = n(31),
+			i = n(32),
 			o = n(63);
 		e.exports = function (e, t, n) {
 			r ? i.f(e, t, o(0, n)) : (e[t] = n);
@@ -11744,7 +11744,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(10),
-			i = n(198);
+			i = n(201);
 		r(
 			{
 				target: 'Array',
@@ -11857,7 +11857,7 @@
 		'use strict';
 		var r = n(22),
 			i = n(15),
-			o = n(30),
+			o = n(31),
 			a = n(103),
 			s = n(264),
 			u = a('IE_PROTO'),
@@ -11934,7 +11934,7 @@
 				h = n.n(f),
 				d = n(66),
 				p = n.n(d),
-				v = (n(67), n(20), n(32), n(69), n(145));
+				v = (n(67), n(20), n(30), n(69), n(145));
 			function g(e, t, n) {
 				return (
 					(t = l()(t)),
@@ -12345,7 +12345,7 @@
 		'use strict';
 		var r = n(17),
 			i = n(56),
-			o = n(31).f,
+			o = n(32).f,
 			a = r('unscopables'),
 			s = Array.prototype;
 		void 0 === s[a] && o(s, a, { configurable: !0, value: i(null) }),
@@ -12359,7 +12359,7 @@
 			i = n(7),
 			o = n(89),
 			a = n(21),
-			s = n(30),
+			s = n(31),
 			u = n(29),
 			c = n(157),
 			l = n(90),
@@ -12404,7 +12404,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(10),
-			i = n(30),
+			i = n(31),
 			o = n(83),
 			a = n(55),
 			s = n(29),
@@ -12510,10 +12510,10 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		n(32);
+		n(30);
 		var r = n(18),
 			i = n(28),
-			o = n(153),
+			o = n(152),
 			a = n(7),
 			s = n(17),
 			u = n(45),
@@ -12571,7 +12571,7 @@
 			i = n(24),
 			o = n(15),
 			a = n(44),
-			s = n(153),
+			s = n(152),
 			u = TypeError;
 		e.exports = function (e, t) {
 			var n = e.exec;
@@ -12819,7 +12819,7 @@
 		var r = n(22),
 			i = n(174),
 			o = n(78),
-			a = n(31);
+			a = n(32);
 		e.exports = function (e, t, n) {
 			for (var s = i(t), u = a.f, c = o.f, l = 0; l < s.length; l++) {
 				var f = s[l];
@@ -13125,7 +13125,7 @@
 				n(231),
 				n(334),
 				n(20),
-				n(32),
+				n(30),
 				n(172),
 				n(68),
 				n(69),
@@ -13755,10 +13755,10 @@
 			c = n(56),
 			l = n(82).f,
 			f = n(51),
-			h = n(193),
+			h = n(196),
 			d = n(26),
 			p = n(208),
-			v = n(154),
+			v = n(153),
 			g = n(276),
 			m = n(28),
 			y = n(7),
@@ -13766,8 +13766,8 @@
 			w = n(35).enforce,
 			x = n(118),
 			k = n(17),
-			_ = n(200),
-			S = n(201),
+			_ = n(192),
+			S = n(193),
 			A = k('match'),
 			E = i.RegExp,
 			T = E.prototype,
@@ -13945,29 +13945,19 @@
 			});
 	},
 	function (e, t, n) {
-		var r = n(96).default,
-			i = n(197);
-		(e.exports = function (e) {
-			var t = i(e, 'string');
-			return 'symbol' == r(t) ? t : t + '';
-		}),
-			(e.exports.__esModule = !0),
-			(e.exports.default = e.exports);
-	},
-	function (e, t, n) {
 		'use strict';
 		var r,
 			i,
 			o = n(18),
 			a = n(9),
 			s = n(26),
-			u = n(199),
-			c = n(154),
+			u = n(191),
+			c = n(153),
 			l = n(71),
 			f = n(56),
 			h = n(35).get,
-			d = n(200),
-			p = n(201),
+			d = n(192),
+			p = n(193),
 			v = l('native-string-replace', String.prototype.replace),
 			g = RegExp.prototype.exec,
 			m = g,
@@ -14063,6 +14053,16 @@
 					return (e.lastIndex = 2), null !== e.exec('str');
 				});
 		e.exports = { BROKEN_CARET: s, MISSED_STICKY: a, UNSUPPORTED_Y: o };
+	},
+	function (e, t, n) {
+		var r = n(96).default,
+			i = n(200);
+		(e.exports = function (e) {
+			var t = i(e, 'string');
+			return 'symbol' == r(t) ? t : t + '';
+		}),
+			(e.exports.__esModule = !0),
+			(e.exports.default = e.exports);
 	},
 	function (e, t, n) {
 		'use strict';
@@ -14229,7 +14229,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(34),
-			i = n(30),
+			i = n(31),
 			o = n(113),
 			a = n(29),
 			s = TypeError,
@@ -14257,7 +14257,7 @@
 		e.exports = { left: c(!1), right: c(!0) };
 	},
 	function (e, t, n) {
-		var r = n(152);
+		var r = n(154);
 		(e.exports = function (e, t, n) {
 			return (
 				(t = r(t)) in e
@@ -15667,10 +15667,10 @@
 		'use strict';
 		var r = n(10),
 			i = n(9),
-			o = n(192),
+			o = n(195),
 			a = n(40),
 			s = n(26),
-			u = n(194),
+			u = n(197),
 			c = i(''.indexOf);
 		r(
 			{ target: 'String', proto: !0, forced: !u('includes') },
@@ -15684,83 +15684,104 @@
 	function (e, t, n) {
 		'use strict';
 		n.d(t, 'a', function () {
-			return c;
+			return f;
 		});
 		var r = n(2),
 			i = n.n(r),
 			o = n(1),
 			a = n.n(o),
-			s = (n(99), n(20), n(48), n(191), n(36), n(14)),
-			u = {
-				dummy: () => Promise.resolve('dummy'),
-				getActiveTabId: () =>
-					new Promise(function (e, t) {
-						s.tabs.query({ active: !0, lastFocusedWindow: !0 }).then(
-							(function () {
-								var n = i()(
-									a.a.mark(function n(r) {
-										var i, o, u;
-										return a.a.wrap(function (n) {
-											for (;;)
-												switch ((n.prev = n.next)) {
-													case 0:
-														if (
-															((i = s.runtime.getURL('')),
-															(o = r.find(function (e) {
-																return !e.url.startsWith(i);
-															})) || !(r.length > 0))
-														) {
-															n.next = 7;
-															break;
-														}
-														return (
-															(n.next = 5),
-															s.tabs.query({ active: !0 })
-														);
-													case 5:
-														(u = n.sent),
-															(o = u.find(function (e) {
-																return !e.url.startsWith(i);
-															}));
-													case 7:
-														o
-															? e(o.id)
-															: t(
-																	"couldn't find an active tab to scrape. Please open a webpage in another tab."
-															  );
-													case 8:
-													case 'end':
-														return n.stop();
-												}
-										}, n);
-									})
-								);
-								return function (e) {
-									return n.apply(this, arguments);
-								};
-							})()
-						);
-					}),
-				executeContentScript(e) {
-					var t = { contentScriptCall: !0, fn: e.fn, request: e.request };
-					return this.getActiveTabId().then(function (e) {
-						return s.tabs.sendMessage(e, t);
-					});
-				},
-			};
+			s = (n(99), n(20), n(48), n(30), n(194), n(36), n(14)),
+			u = [
+				/^chrome:\/\//,
+				/^chrome-extension:\/\//,
+				/^about:/,
+				/^edge:\/\//,
+				/^brave:\/\//,
+				/^opera:\/\//,
+				/^moz-extension:\/\//,
+				/^file:\/\//,
+			];
 		function c(e) {
-			if ('BackgroundScript' === e) return u;
+			return (
+				!!e &&
+				!u.some(function (t) {
+					return t.test(e);
+				})
+			);
+		}
+		var l = {
+			dummy: () => Promise.resolve('dummy'),
+			getActiveTabId: () =>
+				new Promise(function (e, t) {
+					s.tabs.query({ active: !0, lastFocusedWindow: !0 }).then(
+						(function () {
+							var n = i()(
+								a.a.mark(function n(r) {
+									var i, o, u;
+									return a.a.wrap(function (n) {
+										for (;;)
+											switch ((n.prev = n.next)) {
+												case 0:
+													if (
+														((i = s.runtime.getURL('')),
+														(o = r.find(function (e) {
+															return !e.url.startsWith(i) && c(e.url);
+														})) || !(r.length > 0))
+													) {
+														n.next = 7;
+														break;
+													}
+													return (
+														(n.next = 5), s.tabs.query({ active: !0 })
+													);
+												case 5:
+													(u = n.sent),
+														(o = u.find(function (e) {
+															return !e.url.startsWith(i) && c(e.url);
+														}));
+												case 7:
+													o
+														? e(o.id)
+														: t(
+																"couldn't find an active tab to scrape. Please open a webpage (http/https) in another tab."
+														  );
+												case 8:
+												case 'end':
+													return n.stop();
+											}
+									}, n);
+								})
+							);
+							return function (e) {
+								return n.apply(this, arguments);
+							};
+						})()
+					);
+				}),
+			executeContentScript(e) {
+				var t = { contentScriptCall: !0, fn: e.fn, request: e.request };
+				return this.getActiveTabId()
+					.then(function (e) {
+						return s.tabs.sendMessage(e, t);
+					})
+					.catch(function (e) {
+						return console.warn('executeContentScript error:', e), Promise.reject(e);
+					});
+			},
+		};
+		function f(e) {
+			if ('BackgroundScript' === e) return l;
 			if ('DevTools' === e || 'ContentScript' === e) {
 				var t = {};
 				return (
-					Object.keys(u).forEach(function (e) {
+					Object.keys(l).forEach(function (e) {
 						t[e] =
-							'function' == typeof u[e]
+							'function' == typeof l[e]
 								? function (t) {
 										var n = { backgroundScriptCall: !0, fn: e, request: t };
 										return s.runtime.sendMessage(n);
 								  }
-								: u[e];
+								: l[e];
 					}),
 					t
 				);
@@ -15962,7 +15983,7 @@
 		'use strict';
 		var r = n(19),
 			i = n(151),
-			o = n(31),
+			o = n(32),
 			a = n(24),
 			s = n(41),
 			u = n(127);
@@ -15999,15 +16020,52 @@
 	},
 	function (e, t, n) {
 		'use strict';
+		var r = n(24);
+		e.exports = function () {
+			var e = r(this),
+				t = '';
+			return (
+				e.hasIndices && (t += 'd'),
+				e.global && (t += 'g'),
+				e.ignoreCase && (t += 'i'),
+				e.multiline && (t += 'm'),
+				e.dotAll && (t += 's'),
+				e.unicode && (t += 'u'),
+				e.unicodeSets && (t += 'v'),
+				e.sticky && (t += 'y'),
+				t
+			);
+		};
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(7),
+			i = n(8).RegExp;
+		e.exports = r(function () {
+			var e = i('.', 's');
+			return !(e.dotAll && e.test('\n') && 's' === e.flags);
+		});
+	},
+	function (e, t, n) {
+		'use strict';
+		var r = n(7),
+			i = n(8).RegExp;
+		e.exports = r(function () {
+			var e = i('(?<a>b)', 'g');
+			return 'b' !== e.exec('b').groups.a || 'bc' !== 'b'.replace(e, '$<a>c');
+		});
+	},
+	function (e, t, n) {
+		'use strict';
 		var r,
 			i = n(10),
 			o = n(116),
 			a = n(78).f,
 			s = n(62),
 			u = n(26),
-			c = n(192),
+			c = n(195),
 			l = n(40),
-			f = n(194),
+			f = n(197),
 			h = n(37),
 			d = o(''.slice),
 			p = Math.min,
@@ -16032,7 +16090,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(193),
+		var r = n(196),
 			i = TypeError;
 		e.exports = function (e) {
 			if (r(e)) throw new i("The method doesn't accept regular expressions");
@@ -16125,7 +16183,7 @@
 		'use strict';
 		var r = n(46),
 			i = n(18),
-			o = n(30),
+			o = n(31),
 			a = n(262),
 			s = n(143),
 			u = n(117),
@@ -16157,43 +16215,6 @@
 					(k = g ? a(w, v, [b.value, S], !0) : b.value), l(y, S, k);
 			return (y.length = S), y;
 		};
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(24);
-		e.exports = function () {
-			var e = r(this),
-				t = '';
-			return (
-				e.hasIndices && (t += 'd'),
-				e.global && (t += 'g'),
-				e.ignoreCase && (t += 'i'),
-				e.multiline && (t += 'm'),
-				e.dotAll && (t += 's'),
-				e.unicode && (t += 'u'),
-				e.unicodeSets && (t += 'v'),
-				e.sticky && (t += 'y'),
-				t
-			);
-		};
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(7),
-			i = n(8).RegExp;
-		e.exports = r(function () {
-			var e = i('.', 's');
-			return !(e.dotAll && e.test('\n') && 's' === e.flags);
-		});
-	},
-	function (e, t, n) {
-		'use strict';
-		var r = n(7),
-			i = n(8).RegExp;
-		e.exports = r(function () {
-			var e = i('(?<a>b)', 'g');
-			return 'b' !== e.exec('b').groups.a || 'bc' !== 'b'.replace(e, '$<a>c');
-		});
 	},
 	function (e, t, n) {
 		'use strict';
@@ -16285,7 +16306,7 @@
 		var r = n(18),
 			i = n(22),
 			o = n(51),
-			a = n(199),
+			a = n(191),
 			s = RegExp.prototype;
 		e.exports = function (e) {
 			var t = e.flags;
@@ -16776,7 +16797,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(30),
+		var r = n(31),
 			i = n(83),
 			o = n(29);
 		e.exports = function (e) {
@@ -16846,7 +16867,7 @@
 			o = n(87),
 			a = n(21),
 			s = n(22),
-			u = n(31).f,
+			u = n(32).f,
 			c = n(82),
 			l = n(205),
 			f = n(341),
@@ -16989,7 +17010,7 @@
 			a = n.n(o),
 			s =
 				(n(74),
-				n(32),
+				n(30),
 				n(68),
 				(function () {
 					return a()(
@@ -17096,7 +17117,7 @@
 			h = n.n(f),
 			d = n(66),
 			p = n.n(d);
-		n(32), n(68), n(69);
+		n(30), n(68), n(69);
 		function v(e, t, n) {
 			return (
 				(t = l()(t)),
@@ -17167,7 +17188,7 @@
 			a = n.n(o),
 			s =
 				(n(20),
-				n(32),
+				n(30),
 				n(135),
 				n(36),
 				(function () {
@@ -17452,7 +17473,7 @@
 		var r = n(10),
 			i = n(255),
 			o = n(34),
-			a = n(30),
+			a = n(31),
 			s = n(29),
 			u = n(123);
 		r(
@@ -17978,7 +17999,7 @@
 			s = n(127),
 			u = n(115),
 			c = n(112),
-			l = n(30),
+			l = n(31),
 			f = n(113),
 			h = Object.assign,
 			d = Object.defineProperty,
@@ -18044,7 +18065,7 @@
 			h = n(26),
 			d = n(61),
 			p = n(132),
-			v = n(154),
+			v = n(153),
 			g = n(7),
 			m = v.UNSUPPORTED_Y,
 			y = Math.min,
@@ -20024,7 +20045,7 @@
 	function (e, t, n) {
 		'use strict';
 		var r = n(9),
-			i = n(30),
+			i = n(31),
 			o = Math.floor,
 			a = r(''.charAt),
 			s = r(''.replace),
@@ -20128,7 +20149,7 @@
 			x = n(205),
 			k = n(115),
 			_ = n(78),
-			S = n(31),
+			S = n(32),
 			A = n(188),
 			E = n(112),
 			T = n(28),
@@ -20330,7 +20351,7 @@
 		var r = n(268),
 			i = n(22),
 			o = n(206),
-			a = n(31).f;
+			a = n(32).f;
 		e.exports = function (e) {
 			var t = r.Symbol || (r.Symbol = {});
 			i(t, e) || a(t, e, { value: o.f(e) });
@@ -20499,7 +20520,7 @@
 			i = n(70),
 			o = n(7),
 			a = n(115),
-			s = n(30);
+			s = n(31);
 		r(
 			{
 				target: 'Object',
@@ -20547,7 +20568,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(31).f;
+		var r = n(32).f;
 		e.exports = function (e, t, n) {
 			n in e ||
 				r(e, n, {
@@ -20587,7 +20608,7 @@
 			h = n(72),
 			d = n(22),
 			p = n(247),
-			v = n(198),
+			v = n(201),
 			g = n(53),
 			m = n(156).codeAt,
 			y = n(280),
@@ -21775,7 +21796,7 @@
 			O = n(38).forEach,
 			j = n(118),
 			C = n(58),
-			R = n(31),
+			R = n(32),
 			D = n(78),
 			P = n(217),
 			L = n(35),
@@ -22294,7 +22315,7 @@
 		var r = n(46),
 			i = n(18),
 			o = n(141),
-			a = n(30),
+			a = n(31),
 			s = n(29),
 			u = n(119),
 			c = n(93),
@@ -22352,7 +22373,7 @@
 	},
 	function (e, t, n) {
 		'use strict';
-		var r = n(30),
+		var r = n(31),
 			i = n(83),
 			o = n(29),
 			a = n(204),
@@ -22590,7 +22611,7 @@
 			o = n(23),
 			a = n(29),
 			s = n(215),
-			u = n(30),
+			u = n(31),
 			c = n(7),
 			l = r.RangeError,
 			f = r.Int8Array,
@@ -28374,7 +28395,7 @@
 			l = n.n(c),
 			f = n(1),
 			h = n.n(f),
-			d = (n(67), n(97), n(39), n(20), n(48), n(32), n(68), n(377)),
+			d = (n(67), n(97), n(39), n(20), n(48), n(30), n(68), n(377)),
 			p = n(14),
 			v = n(50),
 			g = (n(335), ['_rev']),
@@ -35813,7 +35834,7 @@
 			a = n.n(o),
 			s =
 				(n(149),
-				n(32),
+				n(30),
 				n(64),
 				n(135),
 				(function () {
@@ -37991,7 +38012,7 @@
 				l = n.n(c),
 				f = n(1),
 				h = n.n(f),
-				d = (n(49), n(39), n(339), n(20), n(94), n(48), n(32), n(36), n(79), n(384)),
+				d = (n(49), n(39), n(339), n(20), n(94), n(48), n(30), n(36), n(79), n(384)),
 				p = n(379),
 				v =
 					(n(361),
@@ -38603,7 +38624,7 @@
 		var r,
 			i = n(2),
 			o = n.n(i),
-			a = (n(99), n(20), n(48), n(191), n(36), n(1)),
+			a = (n(99), n(20), n(48), n(30), n(194), n(36), n(1)),
 			s = n.n(a),
 			u = n(14),
 			c = n(351),
@@ -38616,8 +38637,7 @@
 			g = n(4),
 			m = n.n(g),
 			y =
-				(n(32),
-				n(135),
+				(n(135),
 				(function () {
 					return m()(
 						function e() {
@@ -38832,48 +38852,6 @@
 					  }))
 					: (r = new l.a(_));
 		}
-		function T() {
-			return O.apply(this, arguments);
-		}
-		function O() {
-			return (O = o()(
-				s.a.mark(function e() {
-					var t, n, r;
-					return s.a.wrap(function (e) {
-						for (;;)
-							switch ((e.prev = e.next)) {
-								case 0:
-									return (
-										(t = u.runtime.getURL('')),
-										(e.next = 3),
-										u.tabs.query({ active: !0, lastFocusedWindow: !0 })
-									);
-								case 3:
-									if (
-										((n = e.sent),
-										(r = n.find(function (e) {
-											return !e.url.startsWith(t);
-										})))
-									) {
-										e.next = 10;
-										break;
-									}
-									return (e.next = 8), u.tabs.query({ active: !0 });
-								case 8:
-									(n = e.sent),
-										(r = n.find(function (e) {
-											return !e.url.startsWith(t);
-										}));
-								case 10:
-									return e.abrupt('return', r ? r.id : null);
-								case 11:
-								case 'end':
-									return e.stop();
-							}
-					}, e);
-				})
-			)).apply(this, arguments);
-		}
 		_.loadConfiguration().then(function () {
 			console.log('initial configuration', _), E();
 		}),
@@ -38932,6 +38910,65 @@
 					)
 				);
 			});
+		var T = [
+			/^chrome:\/\//,
+			/^chrome-extension:\/\//,
+			/^about:/,
+			/^edge:\/\//,
+			/^brave:\/\//,
+			/^opera:\/\//,
+			/^moz-extension:\/\//,
+		];
+		function O(e) {
+			return (
+				!!e &&
+				!T.some(function (t) {
+					return t.test(e);
+				})
+			);
+		}
+		function j() {
+			return C.apply(this, arguments);
+		}
+		function C() {
+			return (C = o()(
+				s.a.mark(function e() {
+					var t, n, r;
+					return s.a.wrap(function (e) {
+						for (;;)
+							switch ((e.prev = e.next)) {
+								case 0:
+									return (
+										(t = u.runtime.getURL('')),
+										(e.next = 3),
+										u.tabs.query({ active: !0, lastFocusedWindow: !0 })
+									);
+								case 3:
+									if (
+										((n = e.sent),
+										(r = n.find(function (e) {
+											return !e.url.startsWith(t) && O(e.url);
+										})))
+									) {
+										e.next = 10;
+										break;
+									}
+									return (e.next = 8), u.tabs.query({ active: !0 });
+								case 8:
+									(n = e.sent),
+										(r = n.find(function (e) {
+											return !e.url.startsWith(t) && O(e.url);
+										}));
+								case 10:
+									return e.abrupt('return', r ? r.id : null);
+								case 11:
+								case 'end':
+									return e.stop();
+							}
+					}, e);
+				})
+			)).apply(this, arguments);
+		}
 		u.runtime.onMessage.addListener(
 			(function () {
 				var e = o()(
@@ -39152,10 +39189,10 @@
 											);
 										case 61:
 											if (!t.previewSelectorData) {
-												e.next = 71;
+												e.next = 80;
 												break;
 											}
-											return (e.next = 64), T();
+											return (e.next = 64), j();
 										case 64:
 											if ((h = e.sent)) {
 												e.next = 68;
@@ -39166,10 +39203,29 @@
 												e.abrupt('return', [])
 											);
 										case 68:
-											return e.abrupt('return', u.tabs.sendMessage(h, t));
+											return (
+												(e.prev = 68),
+												(e.next = 71),
+												u.tabs.sendMessage(h, t)
+											);
 										case 71:
+											return e.abrupt('return', e.sent);
+										case 74:
+											return (
+												(e.prev = 74),
+												(e.t1 = e.catch(68)),
+												console.warn(
+													'previewSelectorData error:',
+													e.t1.message
+												),
+												e.abrupt('return', [])
+											);
+										case 78:
+											e.next = 82;
+											break;
+										case 80:
 											if (!t.backgroundScriptCall) {
-												e.next = 73;
+												e.next = 82;
 												break;
 											}
 											return e.abrupt(
@@ -39181,14 +39237,17 @@
 														.catch(n);
 												})
 											);
-										case 73:
+										case 82:
 										case 'end':
 											return e.stop();
 									}
 							},
 							e,
 							null,
-							[[1, 13]]
+							[
+								[1, 13],
+								[68, 74],
+							]
 						);
 					})
 				);
