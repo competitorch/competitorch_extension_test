@@ -442,5 +442,8 @@
 	"matching_mode_tag_classes": { "message": "Tag + Classes" },
 	"matching_mode_tag_only": { "message": "Tag Only" },
 
+	"advanced_mode_label": { "message": "Advanced" },
+	"advanced_mode_hint": { "message": "Hold Alt + Click to select" },
+
 	"SelectorAutodetect": { "message": "Autodetect" }
 }

@@ -884,3 +884,58 @@ body.-web-scraper-selection-active img.-web-scraper-img-on-top {
 	-webkit-appearance: menulist !important;
 	appearance: menulist !important;
 }
+
+/**
+ * Advanced mode toggle styles
+ */
+#-selector-toolbar .advanced-mode-container {
+	background-color: #fff3e0 !important;
+	padding: 2px 8px !important;
+	border-left: none !important;
+}
+
+#-selector-toolbar .advanced-mode-toggle {
+	display: flex !important;
+	align-items: center !important;
+	gap: 5px !important;
+	cursor: pointer !important;
+	font: 100%/1em Verdana, Helvetica, sans-serif !important;
+	font-size: 11px !important;
+	line-height: 22px !important;
+	color: #e65100 !important;
+	white-space: nowrap !important;
+}
+
+#-selector-toolbar .advanced-mode-checkbox {
+	width: 14px !important;
+	height: 14px !important;
+	margin: 0 !important;
+	cursor: pointer !important;
+	accent-color: #ff7300 !important;
+}
+
+#-selector-toolbar .advanced-mode-label {
+	font-weight: 600 !important;
+}
+
+#-selector-toolbar .advanced-mode-hint {
+	background-color: #ff7300 !important;
+	color: #fff !important;
+	-webkit-text-fill-color: #fff !important;
+	font: 100%/1em Verdana, Helvetica, sans-serif !important;
+	font-size: 11px !important;
+	font-weight: 600 !important;
+	padding: 0 10px !important;
+	white-space: nowrap !important;
+	animation: pulse-hint 1.5s infinite !important;
+}
+
+@keyframes pulse-hint {
+	0%,
+	100% {
+		opacity: 1 !important;
+	}
+	50% {
+		opacity: 0.7 !important;
+	}
+}

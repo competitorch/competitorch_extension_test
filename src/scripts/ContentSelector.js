@@ -133,22 +133,48 @@ export default class ContentSelector {
 			this.$allElements.push(this.parent);
 		}
 
+		this.advancedMode = false;
 		this.bindElementHighlight();
 		this.bindElementSelection();
 		this.bindKeyboardSelectionManipulations();
 		await this.attachToolbar();
 		this.bindMatchingModeDropdown();
+		this.bindAdvancedModeToggle();
 		this.bindMoveImagesToTop();
 		Translator.translatePage();
+	}
+
+	bindAdvancedModeToggle() {
+		$('#-selector-toolbar [name=advancedMode]').change(
+			function (e) {
+				this.advancedMode = $(e.currentTarget).is(':checked');
+				if (this.advancedMode) {
+					$('#-selector-toolbar .advanced-mode-hint').removeClass('hide');
+				} else {
+					$('#-selector-toolbar .advanced-mode-hint').addClass('hide');
+				}
+				// Rebind element selection with new mode
+				this.unbindElementSelection();
+				this.bindElementSelection();
+			}.bind(this)
+		);
+	}
+
+	unbindAdvancedModeToggle() {
+		$('#-selector-toolbar [name=advancedMode]').unbind('change');
 	}
 
 	bindElementSelection() {
 		// Use a single document-level listener with capture:true to intercept events
 		// before the website's JavaScript can handle them
-		// Using mousedown instead of click - harder for frameworks to intercept
 		const allElementsArray = this.$allElements.toArray();
 
 		this._documentClickHandler = e => {
+			// In Advanced Mode, only select when Alt is pressed
+			if (this.advancedMode && !e.altKey) {
+				return; // Let the click pass through normally
+			}
+
 			// Find the most specific allowed element that was clicked
 			let targetElement = e.target;
 			let selectedElement = null;
@@ -395,6 +421,7 @@ export default class ContentSelector {
 		this.unbindElementHighlight();
 		this.unbindKeyboardSelectionMaipulatios();
 		this.unbindMatchingModeDropdown();
+		this.unbindAdvancedModeToggle();
 		this.unbindMoveImagesToTop();
 		this.removeToolbar();
 	}
