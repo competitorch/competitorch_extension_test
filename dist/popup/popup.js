@@ -50,7 +50,7 @@
 			return Object.prototype.hasOwnProperty.call(e, t);
 		}),
 		(n.p = ''),
-		n((n.s = 398));
+		n((n.s = 401));
 })({
 	0: function (e, t, n) {
 		var r;
@@ -5463,18 +5463,41 @@
 			);
 		});
 	},
-	100: function (e, t, n) {
+	101: function (e, t) {
+		function n(t) {
+			return (
+				(e.exports = n =
+					'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
+						? function (e) {
+								return typeof e;
+						  }
+						: function (e) {
+								return e &&
+									'function' == typeof Symbol &&
+									e.constructor === Symbol &&
+									e !== Symbol.prototype
+									? 'symbol'
+									: typeof e;
+						  }),
+				(e.exports.__esModule = !0),
+				(e.exports.default = e.exports),
+				n(t)
+			);
+		}
+		(e.exports = n), (e.exports.__esModule = !0), (e.exports.default = e.exports);
+	},
+	103: function (e, t, n) {
 		'use strict';
-		var r = n(152),
-			o = n(80);
+		var r = n(155),
+			o = n(81);
 		e.exports = function (e) {
 			var t = r(e, 'string');
 			return o(t) ? t : t + '';
 		};
 	},
-	101: function (e, t, n) {
+	104: function (e, t, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			o = n(21),
 			i = r.document,
 			s = o(i) && o(i.createElement);
@@ -5482,11 +5505,11 @@
 			return s ? i.createElement(e) : {};
 		};
 	},
-	103: function (e, t, n) {
+	107: function (e, t, n) {
 		'use strict';
-		var r = n(37),
-			o = n(8),
-			i = n(110),
+		var r = n(39),
+			o = n(9),
+			i = n(116),
 			s = (e.exports = o['__core-js_shared__'] || i('__core-js_shared__', {}));
 		(s.versions || (s.versions = [])).push({
 			version: '3.38.1',
@@ -5496,23 +5519,23 @@
 			source: 'https://github.com/zloirock/core-js',
 		});
 	},
-	104: function (e, t, n) {
+	108: function (e, t, n) {
 		'use strict';
-		var r = n(71),
-			o = n(81),
+		var r = n(72),
+			o = n(82),
 			i = r('keys');
 		e.exports = function (e) {
 			return i[e] || (i[e] = o(e));
 		};
 	},
-	105: function (e, t, n) {
+	109: function (e, t, n) {
 		'use strict';
 		var r = {};
 		(r[n(17)('toStringTag')] = 'z'), (e.exports = '[object z]' === String(r));
 	},
-	110: function (e, t, n) {
+	116: function (e, t, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			o = Object.defineProperty;
 		e.exports = function (e, t) {
 			try {
@@ -5523,11 +5546,11 @@
 			return t;
 		};
 	},
-	114: function (e, t, n) {
+	120: function (e, t, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			o = n(15),
-			i = n(103),
+			i = n(107),
 			s = r(Function.toString);
 		o(i.inspectSource) ||
 			(i.inspectSource = function (e) {
@@ -6124,28 +6147,10 @@
 						? r.apply(t, o)
 						: r) || (e.exports = i);
 	},
-	140: function (e, t, n) {
+	143: function (e, t, n) {
 		'use strict';
-		var r = n(70);
+		var r = n(71);
 		e.exports = r && !Symbol.sham && 'symbol' == typeof Symbol.iterator;
-	},
-	149: function (e, t, n) {
-		'use strict';
-		var r = n(19),
-			o = n(7),
-			i = n(101);
-		e.exports =
-			!r &&
-			!o(function () {
-				return (
-					7 !==
-					Object.defineProperty(i('div'), 'a', {
-						get: function () {
-							return 7;
-						},
-					}).a
-				);
-			});
 	},
 	15: function (e, t, n) {
 		'use strict';
@@ -6159,16 +6164,34 @@
 						return 'function' == typeof e;
 				  };
 	},
-	150: function (e, t, n) {
+	152: function (e, t, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(19),
+			o = n(7),
+			i = n(104);
+		e.exports =
+			!r &&
+			!o(function () {
+				return (
+					7 !==
+					Object.defineProperty(i('div'), 'a', {
+						get: function () {
+							return 7;
+						},
+					}).a
+				);
+			});
+	},
+	153: function (e, t, n) {
+		'use strict';
+		var r = n(8),
 			o = n(7),
 			i = n(15),
 			s = n(22),
 			a = n(19),
-			u = n(90).CONFIGURABLE,
-			c = n(114),
-			l = n(35),
+			u = n(92).CONFIGURABLE,
+			c = n(120),
+			l = n(36),
 			f = l.enforce,
 			p = l.get,
 			d = String,
@@ -6206,13 +6229,13 @@
 			return (i(this) && p(this).source) || c(this);
 		}, 'toString');
 	},
-	152: function (e, t, n) {
+	155: function (e, t, n) {
 		'use strict';
 		var r = n(18),
 			o = n(21),
-			i = n(80),
-			s = n(62),
-			a = n(187),
+			i = n(81),
+			s = n(64),
+			a = n(191),
 			u = n(17),
 			c = TypeError,
 			l = u('toPrimitive');
@@ -6227,7 +6250,7 @@
 			return void 0 === t && (t = 'number'), a(e, t);
 		};
 	},
-	153: function (e, t, n) {
+	156: function (e, t, n) {
 		'use strict';
 		var r = n(19),
 			o = n(7);
@@ -6241,9 +6264,9 @@
 				);
 			});
 	},
-	156: function (e, t, n) {
-		var r = n(98).default,
-			o = n(201);
+	159: function (e, t, n) {
+		var r = n(101).default,
+			o = n(205);
 		(e.exports = function (e) {
 			var t = o(e, 'string');
 			return 'symbol' == r(t) ? t : t + '';
@@ -6253,12 +6276,12 @@
 	},
 	17: function (e, t, n) {
 		'use strict';
-		var r = n(8),
-			o = n(71),
+		var r = n(9),
+			o = n(72),
 			i = n(22),
-			s = n(81),
-			a = n(70),
-			u = n(140),
+			s = n(82),
+			a = n(71),
+			u = n(143),
 			c = r.Symbol,
 			l = o('wks'),
 			f = u ? c.for || c : (c && c.withoutSetter) || s;
@@ -6268,34 +6291,13 @@
 	},
 	18: function (e, t, n) {
 		'use strict';
-		var r = n(76),
+		var r = n(77),
 			o = Function.prototype.call;
 		e.exports = r
 			? o.bind(o)
 			: function () {
 					return o.apply(o, arguments);
 			  };
-	},
-	187: function (e, t, n) {
-		'use strict';
-		var r = n(18),
-			o = n(15),
-			i = n(21),
-			s = TypeError;
-		e.exports = function (e, t) {
-			var n, a;
-			if ('string' === t && o((n = e.toString)) && !i((a = r(n, e)))) return a;
-			if (o((n = e.valueOf)) && !i((a = r(n, e)))) return a;
-			if ('string' !== t && o((n = e.toString)) && !i((a = r(n, e)))) return a;
-			throw new s("Can't convert object to primitive value");
-		};
-	},
-	188: function (e, t, n) {
-		'use strict';
-		var r = n(8),
-			o = n(15),
-			i = r.WeakMap;
-		e.exports = o(i) && /native code/.test(String(i));
 	},
 	19: function (e, t, n) {
 		'use strict';
@@ -6311,9 +6313,30 @@
 			);
 		});
 	},
-	190: function (e, t, n) {
+	191: function (e, t, n) {
 		'use strict';
-		var r = n(105),
+		var r = n(18),
+			o = n(15),
+			i = n(21),
+			s = TypeError;
+		e.exports = function (e, t) {
+			var n, a;
+			if ('string' === t && o((n = e.toString)) && !i((a = r(n, e)))) return a;
+			if (o((n = e.valueOf)) && !i((a = r(n, e)))) return a;
+			if ('string' !== t && o((n = e.toString)) && !i((a = r(n, e)))) return a;
+			throw new s("Can't convert object to primitive value");
+		};
+	},
+	192: function (e, t, n) {
+		'use strict';
+		var r = n(9),
+			o = n(15),
+			i = r.WeakMap;
+		e.exports = o(i) && /native code/.test(String(i));
+	},
+	194: function (e, t, n) {
+		'use strict';
+		var r = n(109),
 			o = n(52);
 		e.exports = r
 			? {}.toString
@@ -6323,13 +6346,13 @@
 	},
 	20: function (e, t, n) {
 		'use strict';
-		var r = n(105),
+		var r = n(109),
 			o = n(28),
-			i = n(190);
+			i = n(194);
 		r || o(Object.prototype, 'toString', i, { unsafe: !0 });
 	},
-	201: function (e, t, n) {
-		var r = n(98).default;
+	205: function (e, t, n) {
+		var r = n(101).default;
 		(e.exports = function (e, t) {
 			if ('object' != r(e) || !e) return e;
 			var n = e[Symbol.toPrimitive];
@@ -6352,8 +6375,8 @@
 	},
 	22: function (e, t, n) {
 		'use strict';
-		var r = n(9),
-			o = n(31),
+		var r = n(8),
+			o = n(30),
 			i = r({}.hasOwnProperty);
 		e.exports =
 			Object.hasOwn ||
@@ -6361,7 +6384,7 @@
 				return i(o(e), t);
 			};
 	},
-	24: function (e, t, n) {
+	25: function (e, t, n) {
 		'use strict';
 		var r = n(21),
 			o = String,
@@ -6375,8 +6398,8 @@
 		'use strict';
 		var r = n(15),
 			o = n(32),
-			i = n(150),
-			s = n(110);
+			i = n(153),
+			s = n(116);
 		e.exports = function (e, t, n, a) {
 			a || (a = {});
 			var u = a.enumerable,
@@ -6405,9 +6428,9 @@
 			(e.exports.__esModule = !0),
 			(e.exports.default = e.exports);
 	},
-	31: function (e, t, n) {
+	30: function (e, t, n) {
 		'use strict';
-		var r = n(40),
+		var r = n(41),
 			o = Object;
 		e.exports = function (e) {
 			return o(r(e));
@@ -6416,10 +6439,10 @@
 	32: function (e, t, n) {
 		'use strict';
 		var r = n(19),
-			o = n(149),
-			i = n(153),
-			s = n(24),
-			a = n(100),
+			o = n(152),
+			i = n(156),
+			s = n(25),
+			a = n(103),
 			u = TypeError,
 			c = Object.defineProperty,
 			l = Object.getOwnPropertyDescriptor;
@@ -6461,7 +6484,17 @@
 	},
 	33: function (e, t, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(15),
+			o = n(61),
+			i = TypeError;
+		e.exports = function (e) {
+			if (r(e)) return e;
+			throw new i(o(e) + ' is not a function');
+		};
+	},
+	34: function (e, t, n) {
+		'use strict';
+		var r = n(9),
 			o = n(15),
 			i = function (e) {
 				return o(e) ? e : void 0;
@@ -6470,29 +6503,19 @@
 			return arguments.length < 2 ? i(r[e]) : r[e] && r[e][t];
 		};
 	},
-	34: function (e, t, n) {
-		'use strict';
-		var r = n(15),
-			o = n(60),
-			i = TypeError;
-		e.exports = function (e) {
-			if (r(e)) return e;
-			throw new i(o(e) + ' is not a function');
-		};
-	},
-	35: function (e, t, n) {
+	36: function (e, t, n) {
 		'use strict';
 		var r,
 			o,
 			i,
-			s = n(188),
-			a = n(8),
+			s = n(192),
+			a = n(9),
 			u = n(21),
 			c = n(45),
 			l = n(22),
-			f = n(103),
-			p = n(104),
-			d = n(89),
+			f = n(107),
+			p = n(108),
+			d = n(91),
 			h = a.TypeError,
 			g = a.WeakMap;
 		if (s || f.state) {
@@ -6541,21 +6564,12 @@
 			},
 		};
 	},
-	37: function (e, t, n) {
+	39: function (e, t, n) {
 		'use strict';
 		e.exports = !1;
 	},
-	398: function (e, t, n) {
-		'use strict';
-		n.r(t);
-		var r = n(0),
-			o = n(6);
-		r(function () {
-			o.a.translatePage(), r('.ws-version').append(chrome.app.getDetails().version);
-		});
-	},
 	4: function (e, t, n) {
-		var r = n(156);
+		var r = n(159);
 		function o(e, t) {
 			for (var n = 0; n < t.length; n++) {
 				var o = t[n];
@@ -6576,16 +6590,25 @@
 			(e.exports.__esModule = !0),
 			(e.exports.default = e.exports);
 	},
-	40: function (e, t, n) {
+	401: function (e, t, n) {
 		'use strict';
-		var r = n(42),
+		n.r(t);
+		var r = n(0),
+			o = n(6);
+		r(function () {
+			o.a.translatePage(), r('.ws-version').append(chrome.app.getDetails().version);
+		});
+	},
+	41: function (e, t, n) {
+		'use strict';
+		var r = n(43),
 			o = TypeError;
 		e.exports = function (e) {
 			if (r(e)) throw new o("Can't call method on " + e);
 			return e;
 		};
 	},
-	42: function (e, t, n) {
+	43: function (e, t, n) {
 		'use strict';
 		e.exports = function (e) {
 			return null == e;
@@ -6593,7 +6616,7 @@
 	},
 	44: function (e, t, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			o = r({}.toString),
 			i = r(''.slice);
 		e.exports = function (e) {
@@ -6604,7 +6627,7 @@
 		'use strict';
 		var r = n(19),
 			o = n(32),
-			i = n(64);
+			i = n(66);
 		e.exports = r
 			? function (e, t, n) {
 					return o.f(e, t, i(1, n));
@@ -6615,12 +6638,12 @@
 	},
 	51: function (e, t, n) {
 		'use strict';
-		var r = n(9);
+		var r = n(8);
 		e.exports = r({}.isPrototypeOf);
 	},
 	52: function (e, t, n) {
 		'use strict';
-		var r = n(105),
+		var r = n(109),
 			o = n(15),
 			i = n(44),
 			s = n(17)('toStringTag'),
@@ -6654,9 +6677,9 @@
 						: r;
 			  };
 	},
-	54: function (e, t, n) {
+	55: function (e, t, n) {
 		'use strict';
-		var r = n(8).navigator,
+		var r = n(9).navigator,
 			o = r && r.userAgent;
 		e.exports = o ? String(o) : '';
 	},
@@ -6719,7 +6742,7 @@
 				})();
 		}).call(this, n(0));
 	},
-	60: function (e, t, n) {
+	61: function (e, t, n) {
 		'use strict';
 		var r = String;
 		e.exports = function (e) {
@@ -6730,56 +6753,27 @@
 			}
 		};
 	},
-	62: function (e, t, n) {
+	64: function (e, t, n) {
 		'use strict';
-		var r = n(34),
-			o = n(42);
+		var r = n(33),
+			o = n(43);
 		e.exports = function (e, t) {
 			var n = e[t];
 			return o(n) ? void 0 : r(n);
 		};
 	},
-	64: function (e, t, n) {
+	66: function (e, t, n) {
 		'use strict';
 		e.exports = function (e, t) {
 			return { enumerable: !(1 & e), configurable: !(2 & e), writable: !(4 & e), value: t };
 		};
 	},
-	7: function (e, t, n) {
-		'use strict';
-		e.exports = function (e) {
-			try {
-				return !!e();
-			} catch (e) {
-				return !0;
-			}
-		};
-	},
-	70: function (e, t, n) {
-		'use strict';
-		var r = n(75),
-			o = n(7),
-			i = n(8).String;
-		e.exports =
-			!!Object.getOwnPropertySymbols &&
-			!o(function () {
-				var e = Symbol('symbol detection');
-				return !i(e) || !(Object(e) instanceof Symbol) || (!Symbol.sham && r && r < 41);
-			});
-	},
-	71: function (e, t, n) {
-		'use strict';
-		var r = n(103);
-		e.exports = function (e, t) {
-			return r[e] || (r[e] = t || {});
-		};
-	},
-	75: function (e, t, n) {
+	67: function (e, t, n) {
 		'use strict';
 		var r,
 			o,
-			i = n(8),
-			s = n(54),
+			i = n(9),
+			s = n(55),
 			a = i.process,
 			u = i.Deno,
 			c = (a && a.versions) || (u && u.version),
@@ -6792,7 +6786,36 @@
 				(o = +r[1]),
 			(e.exports = o);
 	},
-	76: function (e, t, n) {
+	7: function (e, t, n) {
+		'use strict';
+		e.exports = function (e) {
+			try {
+				return !!e();
+			} catch (e) {
+				return !0;
+			}
+		};
+	},
+	71: function (e, t, n) {
+		'use strict';
+		var r = n(67),
+			o = n(7),
+			i = n(9).String;
+		e.exports =
+			!!Object.getOwnPropertySymbols &&
+			!o(function () {
+				var e = Symbol('symbol detection');
+				return !i(e) || !(Object(e) instanceof Symbol) || (!Symbol.sham && r && r < 41);
+			});
+	},
+	72: function (e, t, n) {
+		'use strict';
+		var r = n(107);
+		e.exports = function (e, t) {
+			return r[e] || (r[e] = t || {});
+		};
+	},
+	77: function (e, t, n) {
 		'use strict';
 		var r = n(7);
 		e.exports = !r(function () {
@@ -6801,6 +6824,46 @@
 		});
 	},
 	8: function (e, t, n) {
+		'use strict';
+		var r = n(77),
+			o = Function.prototype,
+			i = o.call,
+			s = r && o.bind.bind(i, i);
+		e.exports = r
+			? s
+			: function (e) {
+					return function () {
+						return i.apply(e, arguments);
+					};
+			  };
+	},
+	81: function (e, t, n) {
+		'use strict';
+		var r = n(34),
+			o = n(15),
+			i = n(51),
+			s = n(143),
+			a = Object;
+		e.exports = s
+			? function (e) {
+					return 'symbol' == typeof e;
+			  }
+			: function (e) {
+					var t = r('Symbol');
+					return o(t) && i(t.prototype, a(e));
+			  };
+	},
+	82: function (e, t, n) {
+		'use strict';
+		var r = n(8),
+			o = 0,
+			i = Math.random(),
+			s = r((1).toString);
+		e.exports = function (e) {
+			return 'Symbol(' + (void 0 === e ? '' : e) + ')_' + s(++o + i, 36);
+		};
+	},
+	9: function (e, t, n) {
 		'use strict';
 		var r = function (e) {
 			return e && e.Math === Math && e;
@@ -6816,51 +6879,11 @@
 			})() ||
 			Function('return this')();
 	},
-	80: function (e, t, n) {
-		'use strict';
-		var r = n(33),
-			o = n(15),
-			i = n(51),
-			s = n(140),
-			a = Object;
-		e.exports = s
-			? function (e) {
-					return 'symbol' == typeof e;
-			  }
-			: function (e) {
-					var t = r('Symbol');
-					return o(t) && i(t.prototype, a(e));
-			  };
-	},
-	81: function (e, t, n) {
-		'use strict';
-		var r = n(9),
-			o = 0,
-			i = Math.random(),
-			s = r((1).toString);
-		e.exports = function (e) {
-			return 'Symbol(' + (void 0 === e ? '' : e) + ')_' + s(++o + i, 36);
-		};
-	},
-	89: function (e, t, n) {
+	91: function (e, t, n) {
 		'use strict';
 		e.exports = {};
 	},
-	9: function (e, t, n) {
-		'use strict';
-		var r = n(76),
-			o = Function.prototype,
-			i = o.call,
-			s = r && o.bind.bind(i, i);
-		e.exports = r
-			? s
-			: function (e) {
-					return function () {
-						return i.apply(e, arguments);
-					};
-			  };
-	},
-	90: function (e, t, n) {
+	92: function (e, t, n) {
 		'use strict';
 		var r = n(19),
 			o = n(22),
@@ -6870,29 +6893,6 @@
 			u = a && 'something' === function () {}.name,
 			c = a && (!r || (r && s(i, 'name').configurable));
 		e.exports = { EXISTS: a, PROPER: u, CONFIGURABLE: c };
-	},
-	98: function (e, t) {
-		function n(t) {
-			return (
-				(e.exports = n =
-					'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-						? function (e) {
-								return typeof e;
-						  }
-						: function (e) {
-								return e &&
-									'function' == typeof Symbol &&
-									e.constructor === Symbol &&
-									e !== Symbol.prototype
-									? 'symbol'
-									: typeof e;
-						  }),
-				(e.exports.__esModule = !0),
-				(e.exports.default = e.exports),
-				n(t)
-			);
-		}
-		(e.exports = n), (e.exports.__esModule = !0), (e.exports.default = e.exports);
 	},
 });
 //# sourceMappingURL=popup.js.map

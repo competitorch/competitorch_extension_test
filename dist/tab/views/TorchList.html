@@ -1,0 +1,81 @@
+<div id="torch-list" class="torch-section">
+	<div class="torch-header">
+		<h4 data-i18n="torch_list_title">Torches</h4>
+		<button type="button" class="btn btn-primary" id="create-new-torch">
+			<span class="glyphicon glyphicon-plus"></span>
+			<span data-i18n="torch_create_new">New Torch</span>
+		</button>
+	</div>
+	<div class="torch-list-container">
+		{{#torches}}
+		<div class="torch-card" data-torch-id="{{id}}">
+			<div class="torch-card-header">
+				<div class="torch-info">
+					<h5 class="torch-name">{{name}}</h5>
+					<span class="torch-meta">
+						{{preActionsCount}} pre-actions, {{columnsCount}} columns
+					</span>
+				</div>
+				<div class="torch-status">
+					{{#enabled}}
+					<span class="badge badge-success" data-i18n="torch_enabled">Enabled</span>
+					{{/enabled}} {{^enabled}}
+					<span class="badge badge-muted" data-i18n="torch_disabled">Disabled</span>
+					{{/enabled}}
+				</div>
+			</div>
+			{{#description}}
+			<p class="torch-description">{{description}}</p>
+			{{/description}}
+			<div class="torch-card-actions">
+				<button
+					type="button"
+					class="btn btn-sm btn-default"
+					action="edit-torch"
+					data-i18n="torch_edit"
+				>
+					Edit
+				</button>
+				<button
+					type="button"
+					class="btn btn-sm btn-default"
+					action="clone-torch"
+					data-i18n="torch_clone"
+				>
+					Clone
+				</button>
+				<button
+					type="button"
+					class="btn btn-sm btn-default"
+					action="run-torch"
+					data-i18n="torch_run"
+				>
+					Run
+				</button>
+				<button
+					type="button"
+					class="btn btn-sm btn-danger"
+					action="delete-torch"
+					data-i18n="torch_delete"
+				>
+					Delete
+				</button>
+			</div>
+		</div>
+		{{/torches}} {{^torches}}
+		<div class="torch-empty-state">
+			<div class="empty-icon">
+				<span class="glyphicon glyphicon-fire"></span>
+			</div>
+			<h5 data-i18n="torch_no_torches">No Torches Yet</h5>
+			<p data-i18n="torch_empty_description">
+				Create a torch to define what data to extract from your sitemap pages.
+			</p>
+			<button type="button" class="btn btn-primary" id="create-first-torch">
+				<span class="glyphicon glyphicon-plus"></span>
+				<span data-i18n="torch_create_first">Create Your First Torch</span>
+			</button>
+		</div>
+		{{/torches}}
+	</div>
+</div>

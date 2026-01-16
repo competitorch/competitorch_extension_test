@@ -50,7 +50,7 @@
 			return Object.prototype.hasOwnProperty.call(t, e);
 		}),
 		(n.p = ''),
-		n((n.s = 396));
+		n((n.s = 399));
 })([
 	function (t, e, n) {
 		var r;
@@ -92,8 +92,8 @@
 				h = f.toString,
 				d = f.hasOwnProperty,
 				p = d.toString,
-				g = p.call(Object),
-				v = {},
+				v = p.call(Object),
+				g = {},
 				m = function (t) {
 					return (
 						'function' == typeof t &&
@@ -106,7 +106,7 @@
 				},
 				b = n.document,
 				x = { type: !0, src: !0, nonce: !0, noModule: !0 };
-			function S(t, e, n) {
+			function w(t, e, n) {
 				var r,
 					i,
 					a = (n = n || b).createElement('script');
@@ -115,7 +115,7 @@
 						(i = e[r] || (e.getAttribute && e.getAttribute(r))) && a.setAttribute(r, i);
 				n.head.appendChild(a).parentNode.removeChild(a);
 			}
-			function w(t) {
+			function S(t) {
 				return null == t
 					? t + ''
 					: 'object' == typeof t || 'function' == typeof t
@@ -126,16 +126,16 @@
 				k = function (t, e) {
 					return new k.fn.init(t, e);
 				};
-			function C(t) {
+			function T(t) {
 				var e = !!t && 'length' in t && t.length,
-					n = w(t);
+					n = S(t);
 				return (
 					!m(t) &&
 					!y(t) &&
 					('array' === n || 0 === e || ('number' == typeof e && e > 0 && e - 1 in t))
 				);
 			}
-			function E(t, e) {
+			function C(t, e) {
 				return t.nodeName && t.nodeName.toLowerCase() === e.toLowerCase();
 			}
 			(k.fn = k.prototype =
@@ -251,7 +251,7 @@
 							(!(e = o(t)) ||
 								('function' ==
 									typeof (n = d.call(e, 'constructor') && e.constructor) &&
-									p.call(n) === g))
+									p.call(n) === v))
 						);
 					},
 					isEmptyObject: function (t) {
@@ -260,12 +260,12 @@
 						return !0;
 					},
 					globalEval: function (t, e, n) {
-						S(t, { nonce: e && e.nonce }, n);
+						w(t, { nonce: e && e.nonce }, n);
 					},
 					each: function (t, e) {
 						var n,
 							r = 0;
-						if (C(t)) for (n = t.length; r < n && !1 !== e.call(t[r], r, t[r]); r++);
+						if (T(t)) for (n = t.length; r < n && !1 !== e.call(t[r], r, t[r]); r++);
 						else for (r in t) if (!1 === e.call(t[r], r, t[r])) break;
 						return t;
 					},
@@ -287,7 +287,7 @@
 						var n = e || [];
 						return (
 							null != t &&
-								(C(Object(t))
+								(T(Object(t))
 									? k.merge(n, 'string' == typeof t ? [t] : t)
 									: l.call(n, t)),
 							n
@@ -315,13 +315,13 @@
 							i,
 							a = 0,
 							o = [];
-						if (C(t))
+						if (T(t))
 							for (r = t.length; a < r; a++) null != (i = e(t[a], a, n)) && o.push(i);
 						else for (a in t) null != (i = e(t[a], a, n)) && o.push(i);
 						return u(o);
 					},
 					guid: 1,
-					support: v,
+					support: g,
 				}),
 				'function' == typeof Symbol && (k.fn[Symbol.iterator] = a[Symbol.iterator]),
 				k.each(
@@ -333,7 +333,7 @@
 					}
 				);
 			var _ = a.pop,
-				T = a.sort,
+				E = a.sort,
 				M = a.splice,
 				I = '[\\x20\\t\\r\\n\\f]',
 				O = new RegExp('^' + I + '+|((?:^|[^\\\\])(?:\\\\.)*)' + I + '+$', 'g');
@@ -374,15 +374,15 @@
 					f,
 					h,
 					p,
-					g = P,
+					v = P,
 					m = k.expando,
 					y = 0,
 					b = 0,
 					x = tt(),
-					S = tt(),
 					w = tt(),
+					S = tt(),
 					A = tt(),
-					C = function (t, e) {
+					T = function (t, e) {
 						return t === e && (o = !0), 0;
 					},
 					R =
@@ -463,15 +463,15 @@
 					},
 					X = ht(
 						function (t) {
-							return !0 === t.disabled && E(t, 'fieldset');
+							return !0 === t.disabled && C(t, 'fieldset');
 						},
 						{ dir: 'parentNode', next: 'legend' }
 					);
 				try {
-					g.apply((a = s.call(N.childNodes)), N.childNodes),
+					v.apply((a = s.call(N.childNodes)), N.childNodes),
 						a[N.childNodes.length].nodeType;
 				} catch (t) {
-					g = {
+					v = {
 						apply: function (t, e) {
 							P.apply(t, s.call(e));
 						},
@@ -500,23 +500,23 @@
 							if ((i = l[1])) {
 								if (9 === y) {
 									if (!(o = e.getElementById(i))) return n;
-									if (o.id === i) return g.call(n, o), n;
+									if (o.id === i) return v.call(n, o), n;
 								} else if (
 									p &&
 									(o = p.getElementById(i)) &&
 									Q.contains(e, o) &&
 									o.id === i
 								)
-									return g.call(n, o), n;
+									return v.call(n, o), n;
 							} else {
-								if (l[2]) return g.apply(n, e.getElementsByTagName(t)), n;
+								if (l[2]) return v.apply(n, e.getElementsByTagName(t)), n;
 								if ((i = l[3]) && e.getElementsByClassName)
-									return g.apply(n, e.getElementsByClassName(i)), n;
+									return v.apply(n, e.getElementsByClassName(i)), n;
 							}
 						if (!(A[t + ' '] || (h && h.test(t)))) {
 							if (((d = t), (p = e), 1 === y && (U.test(t) || F.test(t)))) {
 								for (
-									((p = (K.test(t) && st(e.parentNode)) || e) == e && v.scope) ||
+									((p = (K.test(t) && st(e.parentNode)) || e) == e && g.scope) ||
 										((s = e.getAttribute('id'))
 											? (s = k.escapeSelector(s))
 											: e.setAttribute('id', (s = m))),
@@ -528,7 +528,7 @@
 								d = c.join(',');
 							}
 							try {
-								return g.apply(n, p.querySelectorAll(d)), n;
+								return v.apply(n, p.querySelectorAll(d)), n;
 							} catch (e) {
 								A(t, !0);
 							} finally {
@@ -561,12 +561,12 @@
 				}
 				function rt(t) {
 					return function (e) {
-						return E(e, 'input') && e.type === t;
+						return C(e, 'input') && e.type === t;
 					};
 				}
 				function it(t) {
 					return function (e) {
-						return (E(e, 'input') || E(e, 'button')) && e.type === t;
+						return (C(e, 'input') || C(e, 'button')) && e.type === t;
 					};
 				}
 				function at(t) {
@@ -608,26 +608,26 @@
 								(n = u.defaultView) &&
 								n.top !== n &&
 								n.addEventListener('unload', J),
-						  (v.getById = nt(function (t) {
+						  (g.getById = nt(function (t) {
 								return (
 									(l.appendChild(t).id = k.expando),
 									!u.getElementsByName || !u.getElementsByName(k.expando).length
 								);
 						  })),
-						  (v.disconnectedMatch = nt(function (t) {
+						  (g.disconnectedMatch = nt(function (t) {
 								return p.call(t, '*');
 						  })),
-						  (v.scope = nt(function () {
+						  (g.scope = nt(function () {
 								return u.querySelectorAll(':scope');
 						  })),
-						  (v.cssHas = nt(function () {
+						  (g.cssHas = nt(function () {
 								try {
 									return u.querySelector(':has(*,:jqfake)'), !1;
 								} catch (t) {
 									return !0;
 								}
 						  })),
-						  v.getById
+						  g.getById
 								? ((e.filter.ID = function (t) {
 										var e = t.replace(Y, Z);
 										return function (t) {
@@ -706,9 +706,9 @@
 									t.querySelectorAll("[name='']").length ||
 										h.push('\\[' + I + '*name' + I + '*=' + I + '*(?:\'\'|"")');
 						  }),
-						  v.cssHas || h.push(':has'),
+						  g.cssHas || h.push(':has'),
 						  (h = h.length && new RegExp(h.join('|'))),
-						  (C = function (t, e) {
+						  (T = function (t, e) {
 								if (t === e) return (o = !0), 0;
 								var n = !t.compareDocumentPosition - !e.compareDocumentPosition;
 								return (
@@ -718,7 +718,7 @@
 											(t.ownerDocument || t) == (e.ownerDocument || e)
 												? t.compareDocumentPosition(e)
 												: 1) ||
-									(!v.sortDetached && e.compareDocumentPosition(t) === n)
+									(!g.sortDetached && e.compareDocumentPosition(t) === n)
 										? t === u || (t.ownerDocument == N && Q.contains(N, t))
 											? -1
 											: e === u || (e.ownerDocument == N && Q.contains(N, e))
@@ -743,7 +743,7 @@
 							var n = p.call(t, e);
 							if (
 								n ||
-								v.disconnectedMatch ||
+								g.disconnectedMatch ||
 								(t.document && 11 !== t.document.nodeType)
 							)
 								return n;
@@ -770,7 +770,7 @@
 						r = 0,
 						a = 0;
 					if (
-						((o = !v.sortStable), (i = !v.sortStable && s.call(t, 0)), T.call(t, C), o)
+						((o = !g.sortStable), (i = !g.sortStable && s.call(t, 0)), E.call(t, T), o)
 					) {
 						for (; (e = t[a++]); ) e === t[a] && (r = n.push(a));
 						for (; r--; ) M.call(t, n[r], 1);
@@ -838,7 +838,7 @@
 											return !0;
 									  }
 									: function (t) {
-											return E(t, e);
+											return C(t, e);
 									  };
 							},
 							CLASS: function (t) {
@@ -896,30 +896,30 @@
 												h,
 												d,
 												p = a !== o ? 'nextSibling' : 'previousSibling',
-												g = e.parentNode,
-												v = s && e.nodeName.toLowerCase(),
+												v = e.parentNode,
+												g = s && e.nodeName.toLowerCase(),
 												b = !u && !s,
 												x = !1;
-											if (g) {
+											if (v) {
 												if (a) {
 													for (; p; ) {
 														for (f = e; (f = f[p]); )
-															if (s ? E(f, v) : 1 === f.nodeType)
+															if (s ? C(f, g) : 1 === f.nodeType)
 																return !1;
 														d = p = 'only' === t && !d && 'nextSibling';
 													}
 													return !0;
 												}
 												if (
-													((d = [o ? g.firstChild : g.lastChild]), o && b)
+													((d = [o ? v.firstChild : v.lastChild]), o && b)
 												) {
 													for (
 														x =
 															(h =
 																(l =
-																	(c = g[m] || (g[m] = {}))[t] ||
+																	(c = v[m] || (v[m] = {}))[t] ||
 																	[])[0] === y && l[1]) && l[2],
-															f = h && g.childNodes[h];
+															f = h && v.childNodes[h];
 														(f =
 															(++h && f && f[p]) ||
 															(x = h = 0) ||
@@ -944,7 +944,7 @@
 															(++h && f && f[p]) ||
 															(x = h = 0) ||
 															d.pop()) &&
-														(!(s ? E(f, v) : 1 === f.nodeType) ||
+														(!(s ? C(f, g) : 1 === f.nodeType) ||
 															!++x ||
 															(b &&
 																((c = f[m] || (f[m] = {}))[t] = [
@@ -1056,8 +1056,8 @@
 							disabled: at(!0),
 							checked: function (t) {
 								return (
-									(E(t, 'input') && !!t.checked) ||
-									(E(t, 'option') && !!t.selected)
+									(C(t, 'input') && !!t.checked) ||
+									(C(t, 'option') && !!t.selected)
 								);
 							},
 							selected: function (t) {
@@ -1080,12 +1080,12 @@
 								return q.test(t.nodeName);
 							},
 							button: function (t) {
-								return (E(t, 'input') && 'button' === t.type) || E(t, 'button');
+								return (C(t, 'input') && 'button' === t.type) || C(t, 'button');
 							},
 							text: function (t) {
 								var e;
 								return (
-									E(t, 'input') &&
+									C(t, 'input') &&
 									'text' === t.type &&
 									(null == (e = t.getAttribute('type')) ||
 										'text' === e.toLowerCase())
@@ -1131,7 +1131,7 @@
 						s,
 						u,
 						l,
-						c = S[t + ' '];
+						c = w[t + ' '];
 					if (c) return n ? 0 : c.slice(0);
 					for (s = t, u = [], l = e.preFilter; s; ) {
 						for (o in ((r && !(i = B.exec(s))) ||
@@ -1149,7 +1149,7 @@
 								(s = s.slice(r.length)));
 						if (!r) break;
 					}
-					return n ? s.length : s ? Q.error(t) : S(t, u).slice(0);
+					return n ? s.length : s ? Q.error(t) : w(t, u).slice(0);
 				}
 				function ft(t) {
 					for (var e = 0, n = t.length, r = ''; e < n; e++) r += t[e].value;
@@ -1176,7 +1176,7 @@
 								} else
 									for (; (e = e[r]); )
 										if (1 === e.nodeType || o)
-											if (((c = e[m] || (e[m] = {})), i && E(e, i)))
+											if (((c = e[m] || (e[m] = {})), i && C(e, i)))
 												e = e[r] || e;
 											else {
 												if ((l = c[a]) && l[0] === y && l[1] === s)
@@ -1199,17 +1199,17 @@
 						(a = t[s]) && ((n && !n(a, r, i)) || (o.push(a), l && e.push(s)));
 					return o;
 				}
-				function gt(t, e, n, r, i, a) {
+				function vt(t, e, n, r, i, a) {
 					return (
-						r && !r[m] && (r = gt(r)),
-						i && !i[m] && (i = gt(i, a)),
+						r && !r[m] && (r = vt(r)),
+						i && !i[m] && (i = vt(i, a)),
 						et(function (a, o, s, u) {
 							var l,
 								f,
 								h,
 								d,
 								p = [],
-								v = [],
+								g = [],
 								m = o.length,
 								y =
 									a ||
@@ -1219,8 +1219,8 @@
 									})(e || '*', s.nodeType ? [s] : s, []),
 								b = !t || (!a && e) ? y : pt(y, p, t, s, u);
 							if ((n ? n(b, (d = i || (a ? t : m || r) ? [] : o), s, u) : (d = b), r))
-								for (l = pt(d, v), r(l, [], s, u), f = l.length; f--; )
-									(h = l[f]) && (d[v[f]] = !(b[v[f]] = h));
+								for (l = pt(d, g), r(l, [], s, u), f = l.length; f--; )
+									(h = l[f]) && (d[g[f]] = !(b[g[f]] = h));
 							if (a) {
 								if (i || t) {
 									if (i) {
@@ -1233,11 +1233,11 @@
 											(l = i ? c.call(a, h) : p[f]) > -1 &&
 											(a[l] = !(o[l] = h));
 								}
-							} else (d = pt(d === o ? d.splice(m, d.length) : d)), i ? i(null, o, d, u) : g.apply(o, d);
+							} else (d = pt(d === o ? d.splice(m, d.length) : d)), i ? i(null, o, d, u) : v.apply(o, d);
 						})
 					);
 				}
-				function vt(t) {
+				function gt(t) {
 					for (
 						var n,
 							i,
@@ -1275,7 +1275,7 @@
 						else {
 							if ((i = e.filter[t[l].type].apply(null, t[l].matches))[m]) {
 								for (a = ++l; a < o && !e.relative[t[a].type]; a++);
-								return gt(
+								return vt(
 									l > 1 && dt(d),
 									l > 1 &&
 										ft(
@@ -1284,8 +1284,8 @@
 												.concat({ value: ' ' === t[l - 2].type ? '*' : '' })
 										).replace(O, '$1'),
 									i,
-									l < a && vt(t.slice(l, a)),
-									a < o && vt((t = t.slice(a))),
+									l < a && gt(t.slice(l, a)),
+									a < o && gt((t = t.slice(a))),
 									a < o && ft(t)
 								);
 							}
@@ -1297,11 +1297,11 @@
 					var i,
 						a = [],
 						o = [],
-						s = w[t + ' '];
+						s = S[t + ' '];
 					if (!s) {
 						for (n || (n = ct(t)), i = n.length; i--; )
-							(s = vt(n[i]))[m] ? a.push(s) : o.push(s);
-						(s = w(
+							(s = gt(n[i]))[m] ? a.push(s) : o.push(s);
+						(s = S(
 							t,
 							(function (t, n) {
 								var i = n.length > 0,
@@ -1309,18 +1309,18 @@
 									o = function (o, s, l, c, h) {
 										var d,
 											p,
-											v,
+											g,
 											m = 0,
 											b = '0',
 											x = o && [],
-											S = [],
-											w = r,
+											w = [],
+											S = r,
 											A = o || (a && e.find.TAG('*', h)),
-											C = (y += null == w ? 1 : Math.random() || 0.1),
-											E = A.length;
+											T = (y += null == S ? 1 : Math.random() || 0.1),
+											C = A.length;
 										for (
 											h && (r = s == u || s || h);
-											b !== E && null != (d = A[b]);
+											b !== C && null != (d = A[b]);
 											b++
 										) {
 											if (a && d) {
@@ -1329,33 +1329,33 @@
 														s ||
 															d.ownerDocument == u ||
 															(ut(d), (l = !f));
-													(v = t[p++]);
+													(g = t[p++]);
 
 												)
-													if (v(d, s || u, l)) {
-														g.call(c, d);
+													if (g(d, s || u, l)) {
+														v.call(c, d);
 														break;
 													}
-												h && (y = C);
+												h && (y = T);
 											}
-											i && ((d = !v && d) && m--, o && x.push(d));
+											i && ((d = !g && d) && m--, o && x.push(d));
 										}
 										if (((m += b), i && b !== m)) {
-											for (p = 0; (v = n[p++]); ) v(x, S, s, l);
+											for (p = 0; (g = n[p++]); ) g(x, w, s, l);
 											if (o) {
 												if (m > 0)
 													for (; b--; )
-														x[b] || S[b] || (S[b] = _.call(c));
-												S = pt(S);
+														x[b] || w[b] || (w[b] = _.call(c));
+												w = pt(w);
 											}
-											g.apply(c, S),
+											v.apply(c, w),
 												h &&
 													!o &&
-													S.length > 0 &&
+													w.length > 0 &&
 													m + n.length > 1 &&
 													k.uniqueSort(c);
 										}
-										return h && ((y = C), (r = w)), x;
+										return h && ((y = T), (r = S)), x;
 									};
 								return i ? et(o) : o;
 							})(o, a)
@@ -1396,7 +1396,7 @@
 								))
 							) {
 								if ((o.splice(a, 1), !(t = i.length && ft(o))))
-									return g.apply(r, i), r;
+									return v.apply(r, i), r;
 								break;
 							}
 					}
@@ -1406,9 +1406,9 @@
 				}
 				(lt.prototype = e.filters = e.pseudos),
 					(e.setFilters = new lt()),
-					(v.sortStable = m.split('').sort(C).join('') === m),
+					(g.sortStable = m.split('').sort(T).join('') === m),
 					ut(),
-					(v.sortDetached = nt(function (t) {
+					(g.sortDetached = nt(function (t) {
 						return 1 & t.compareDocumentPosition(u.createElement('fieldset'));
 					})),
 					(k.find = Q),
@@ -1622,7 +1622,7 @@
 						contents: function (t) {
 							return null != t.contentDocument && o(t.contentDocument)
 								? t.contentDocument
-								: (E(t, 'template') && (t = t.content || t),
+								: (C(t, 'template') && (t = t.content || t),
 								  k.merge([], t.childNodes));
 						},
 					},
@@ -1695,7 +1695,7 @@
 										k.each(n, function (n, r) {
 											m(r)
 												? (t.unique && l.has(r)) || a.push(r)
-												: r && r.length && 'string' !== w(r) && e(r);
+												: r && r.length && 'string' !== S(r) && e(r);
 										});
 									})(arguments),
 									n && !e && u()),
@@ -1983,7 +1983,7 @@
 					var s = 0,
 						u = t.length,
 						l = null == n;
-					if ('object' === w(n)) for (s in ((i = !0), n)) Q(t, e, s, n[s], !0, a, o);
+					if ('object' === S(n)) for (s in ((i = !0), n)) Q(t, e, s, n[s], !0, a, o);
 					else if (
 						void 0 !== r &&
 						((i = !0),
@@ -2257,18 +2257,18 @@
 				ht = new RegExp('^(?:([+-])=|)(' + ft + ')([a-z%]*)$', 'i'),
 				dt = ['Top', 'Right', 'Bottom', 'Left'],
 				pt = b.documentElement,
-				gt = function (t) {
+				vt = function (t) {
 					return k.contains(t.ownerDocument, t);
 				},
-				vt = { composed: !0 };
+				gt = { composed: !0 };
 			pt.getRootNode &&
-				(gt = function (t) {
-					return k.contains(t.ownerDocument, t) || t.getRootNode(vt) === t.ownerDocument;
+				(vt = function (t) {
+					return k.contains(t.ownerDocument, t) || t.getRootNode(gt) === t.ownerDocument;
 				});
 			var mt = function (t, e) {
 				return (
 					'none' === (t = e || t).style.display ||
-					('' === t.style.display && gt(t) && 'none' === k.css(t, 'display'))
+					('' === t.style.display && vt(t) && 'none' === k.css(t, 'display'))
 				);
 			};
 			function yt(t, e, n, r) {
@@ -2319,7 +2319,7 @@
 					i)
 				);
 			}
-			function St(t, e) {
+			function wt(t, e) {
 				for (var n, r, i = [], a = 0, o = t.length; a < o; a++)
 					(r = t[a]).style &&
 						((n = r.style.display),
@@ -2334,10 +2334,10 @@
 			}
 			k.fn.extend({
 				show: function () {
-					return St(this, !0);
+					return wt(this, !0);
 				},
 				hide: function () {
-					return St(this);
+					return wt(this);
 				},
 				toggle: function (t) {
 					return 'boolean' == typeof t
@@ -2349,21 +2349,21 @@
 						  });
 				},
 			});
-			var wt,
+			var St,
 				At,
 				kt = /^(?:checkbox|radio)$/i,
-				Ct = /<([a-z][^\/\0>\x20\t\r\n\f]*)/i,
-				Et = /^$|^module$|\/(?:java|ecma)script/i;
-			(wt = b.createDocumentFragment().appendChild(b.createElement('div'))),
+				Tt = /<([a-z][^\/\0>\x20\t\r\n\f]*)/i,
+				Ct = /^$|^module$|\/(?:java|ecma)script/i;
+			(St = b.createDocumentFragment().appendChild(b.createElement('div'))),
 				(At = b.createElement('input')).setAttribute('type', 'radio'),
 				At.setAttribute('checked', 'checked'),
 				At.setAttribute('name', 't'),
-				wt.appendChild(At),
-				(v.checkClone = wt.cloneNode(!0).cloneNode(!0).lastChild.checked),
-				(wt.innerHTML = '<textarea>x</textarea>'),
-				(v.noCloneChecked = !!wt.cloneNode(!0).lastChild.defaultValue),
-				(wt.innerHTML = '<option></option>'),
-				(v.option = !!wt.lastChild);
+				St.appendChild(At),
+				(g.checkClone = St.cloneNode(!0).cloneNode(!0).lastChild.checked),
+				(St.innerHTML = '<textarea>x</textarea>'),
+				(g.noCloneChecked = !!St.cloneNode(!0).lastChild.defaultValue),
+				(St.innerHTML = '<option></option>'),
+				(g.option = !!St.lastChild);
 			var _t = {
 				thead: [1, '<table>', '</table>'],
 				col: [2, '<table><colgroup>', '</colgroup></table>'],
@@ -2371,7 +2371,7 @@
 				td: [3, '<table><tbody><tr>', '</tr></tbody></table>'],
 				_default: [0, '', ''],
 			};
-			function Tt(t, e) {
+			function Et(t, e) {
 				var n;
 				return (
 					(n =
@@ -2380,7 +2380,7 @@
 							: void 0 !== t.querySelectorAll
 							? t.querySelectorAll(e || '*')
 							: []),
-					void 0 === e || (e && E(t, e)) ? k.merge([t], n) : n
+					void 0 === e || (e && C(t, e)) ? k.merge([t], n) : n
 				);
 			}
 			function Mt(t, e) {
@@ -2389,7 +2389,7 @@
 			}
 			(_t.tbody = _t.tfoot = _t.colgroup = _t.caption = _t.thead),
 				(_t.th = _t.td),
-				v.option ||
+				g.option ||
 					(_t.optgroup = _t.option = [1, "<select multiple='multiple'>", '</select>']);
 			var It = /<|&#?\w+;/;
 			function Ot(t, e, n, r, i) {
@@ -2408,11 +2408,11 @@
 					d++
 				)
 					if ((a = t[d]) || 0 === a)
-						if ('object' === w(a)) k.merge(h, a.nodeType ? [a] : a);
+						if ('object' === S(a)) k.merge(h, a.nodeType ? [a] : a);
 						else if (It.test(a)) {
 							for (
 								o = o || f.appendChild(e.createElement('div')),
-									s = (Ct.exec(a) || ['', ''])[1].toLowerCase(),
+									s = (Tt.exec(a) || ['', ''])[1].toLowerCase(),
 									u = _t[s] || _t._default,
 									o.innerHTML = u[1] + k.htmlPrefilter(a) + u[2],
 									c = u[0];
@@ -2424,8 +2424,8 @@
 						} else h.push(e.createTextNode(a));
 				for (f.textContent = '', d = 0; (a = h[d++]); )
 					if (r && k.inArray(a, r) > -1) i && i.push(a);
-					else if (((l = gt(a)), (o = Tt(f.appendChild(a), 'script')), l && Mt(o), n))
-						for (c = 0; (a = o[c++]); ) Et.test(a.type || '') && n.push(a);
+					else if (((l = vt(a)), (o = Et(f.appendChild(a), 'script')), l && Mt(o), n))
+						for (c = 0; (a = o[c++]); ) Ct.test(a.type || '') && n.push(a);
 				return f;
 			}
 			var Rt = /^([^.]*)(?:\.(.+)|)/;
@@ -2507,16 +2507,16 @@
 						h,
 						d,
 						p,
-						g,
-						v = ot.get(t);
+						v,
+						g = ot.get(t);
 					if (it(t))
 						for (
 							n.handler && ((n = (a = n).handler), (i = a.selector)),
 								i && k.find.matchesSelector(pt, i),
 								n.guid || (n.guid = k.guid++),
-								(u = v.events) || (u = v.events = Object.create(null)),
-								(o = v.handle) ||
-									(o = v.handle =
+								(u = g.events) || (u = g.events = Object.create(null)),
+								(o = g.handle) ||
+									(o = g.handle =
 										function (e) {
 											return void 0 !== k && k.event.triggered !== e.type
 												? k.event.dispatch.apply(t, arguments)
@@ -2526,7 +2526,7 @@
 							l--;
 
 						)
-							(d = g = (s = Rt.exec(e[l]) || [])[1]),
+							(d = v = (s = Rt.exec(e[l]) || [])[1]),
 								(p = (s[2] || '').split('.').sort()),
 								d &&
 									((f = k.event.special[d] || {}),
@@ -2535,7 +2535,7 @@
 									(c = k.extend(
 										{
 											type: d,
-											origType: g,
+											origType: v,
 											data: r,
 											handler: n,
 											guid: n.guid,
@@ -2566,12 +2566,12 @@
 						h,
 						d,
 						p,
-						g,
-						v = ot.hasData(t) && ot.get(t);
-					if (v && (u = v.events)) {
+						v,
+						g = ot.hasData(t) && ot.get(t);
+					if (g && (u = g.events)) {
 						for (l = (e = (e || '').match(W) || ['']).length; l--; )
 							if (
-								((d = g = (s = Rt.exec(e[l]) || [])[1]),
+								((d = v = (s = Rt.exec(e[l]) || [])[1]),
 								(p = (s[2] || '').split('.').sort()),
 								d)
 							) {
@@ -2588,7 +2588,7 @@
 
 								)
 									(c = h[a]),
-										(!i && g !== c.origType) ||
+										(!i && v !== c.origType) ||
 											(n && n.guid !== c.guid) ||
 											(s && !s.test(c.namespace)) ||
 											(r &&
@@ -2599,8 +2599,8 @@
 											f.remove && f.remove.call(t, c));
 								o &&
 									!h.length &&
-									((f.teardown && !1 !== f.teardown.call(t, p, v.handle)) ||
-										k.removeEvent(t, d, v.handle),
+									((f.teardown && !1 !== f.teardown.call(t, p, g.handle)) ||
+										k.removeEvent(t, d, g.handle),
 									delete u[d]);
 							} else for (d in u) k.event.remove(t, d + e[l], n, r, !0);
 						k.isEmptyObject(u) && ot.remove(t, 'handle events');
@@ -2698,14 +2698,14 @@
 						setup: function (t) {
 							var e = this || t;
 							return (
-								kt.test(e.type) && e.click && E(e, 'input') && Lt(e, 'click', !0),
+								kt.test(e.type) && e.click && C(e, 'input') && Lt(e, 'click', !0),
 								!1
 							);
 						},
 						trigger: function (t) {
 							var e = this || t;
 							return (
-								kt.test(e.type) && e.click && E(e, 'input') && Lt(e, 'click'), !0
+								kt.test(e.type) && e.click && C(e, 'input') && Lt(e, 'click'), !0
 							);
 						},
 						_default: function (t) {
@@ -2713,9 +2713,9 @@
 							return (
 								(kt.test(e.type) &&
 									e.click &&
-									E(e, 'input') &&
+									C(e, 'input') &&
 									ot.get(e, 'click')) ||
-								E(e, 'a')
+								C(e, 'a')
 							);
 						},
 					},
@@ -2932,8 +2932,8 @@
 				Bt = /^\s*<!\[CDATA\[|\]\]>\s*$/g;
 			function Ft(t, e) {
 				return (
-					(E(t, 'table') &&
-						E(11 !== e.nodeType ? e : e.firstChild, 'tr') &&
+					(C(t, 'table') &&
+						C(11 !== e.nodeType ? e : e.firstChild, 'tr') &&
 						k(t).children('tbody')[0]) ||
 					t
 				);
@@ -2976,11 +2976,11 @@
 					h = t.length,
 					d = h - 1,
 					p = e[0],
-					g = m(p);
-				if (g || (h > 1 && 'string' == typeof p && !v.checkClone && $t.test(p)))
+					v = m(p);
+				if (v || (h > 1 && 'string' == typeof p && !g.checkClone && $t.test(p)))
 					return t.each(function (i) {
 						var a = t.eq(i);
-						g && (e[0] = p.call(this, i, a.html())), qt(a, e, n, r);
+						v && (e[0] = p.call(this, i, a.html())), qt(a, e, n, r);
 					});
 				if (
 					h &&
@@ -2988,14 +2988,14 @@
 					1 === i.childNodes.length && (i = a),
 					a || r)
 				) {
-					for (s = (o = k.map(Tt(i, 'script'), Ut)).length; f < h; f++)
+					for (s = (o = k.map(Et(i, 'script'), Ut)).length; f < h; f++)
 						(l = i),
-							f !== d && ((l = k.clone(l, !0, !0)), s && k.merge(o, Tt(l, 'script'))),
+							f !== d && ((l = k.clone(l, !0, !0)), s && k.merge(o, Et(l, 'script'))),
 							n.call(t[f], l, f);
 					if (s)
 						for (c = o[o.length - 1].ownerDocument, k.map(o, Vt), f = 0; f < s; f++)
 							(l = o[f]),
-								Et.test(l.type || '') &&
+								Ct.test(l.type || '') &&
 									!ot.access(l, 'globalEval') &&
 									k.contains(c, l) &&
 									(l.src && 'module' !== (l.type || '').toLowerCase()
@@ -3006,15 +3006,15 @@
 												{ nonce: l.nonce || l.getAttribute('nonce') },
 												c
 										  )
-										: S(l.textContent.replace(Bt, ''), l, c));
+										: w(l.textContent.replace(Bt, ''), l, c));
 				}
 				return t;
 			}
 			function Wt(t, e, n) {
 				for (var r, i = e ? k.filter(e, t) : t, a = 0; null != (r = i[a]); a++)
-					n || 1 !== r.nodeType || k.cleanData(Tt(r)),
+					n || 1 !== r.nodeType || k.cleanData(Et(r)),
 						r.parentNode &&
-							(n && gt(r) && Mt(Tt(r, 'script')), r.parentNode.removeChild(r));
+							(n && vt(r) && Mt(Et(r, 'script')), r.parentNode.removeChild(r));
 				return t;
 			}
 			k.extend({
@@ -3027,21 +3027,21 @@
 						a,
 						o,
 						s = t.cloneNode(!0),
-						u = gt(t);
+						u = vt(t);
 					if (
 						!(
-							v.noCloneChecked ||
+							g.noCloneChecked ||
 							(1 !== t.nodeType && 11 !== t.nodeType) ||
 							k.isXMLDoc(t)
 						)
 					)
-						for (o = Tt(s), r = 0, i = (a = Tt(t)).length; r < i; r++) zt(a[r], o[r]);
+						for (o = Et(s), r = 0, i = (a = Et(t)).length; r < i; r++) zt(a[r], o[r]);
 					if (e)
 						if (n)
-							for (a = a || Tt(t), o = o || Tt(s), r = 0, i = a.length; r < i; r++)
+							for (a = a || Et(t), o = o || Et(s), r = 0, i = a.length; r < i; r++)
 								Ht(a[r], o[r]);
 						else Ht(t, s);
-					return (o = Tt(s, 'script')).length > 0 && Mt(o, !u && Tt(t, 'script')), s;
+					return (o = Et(s, 'script')).length > 0 && Mt(o, !u && Et(t, 'script')), s;
 				},
 				cleanData: function (t) {
 					for (var e, n, r, i = k.event.special, a = 0; void 0 !== (n = t[a]); a++)
@@ -3111,7 +3111,7 @@
 					},
 					empty: function () {
 						for (var t, e = 0; null != (t = this[e]); e++)
-							1 === t.nodeType && (k.cleanData(Tt(t, !1)), (t.textContent = ''));
+							1 === t.nodeType && (k.cleanData(Et(t, !1)), (t.textContent = ''));
 						return this;
 					},
 					clone: function (t, e) {
@@ -3134,13 +3134,13 @@
 								if (
 									'string' == typeof t &&
 									!jt.test(t) &&
-									!_t[(Ct.exec(t) || ['', ''])[1].toLowerCase()]
+									!_t[(Tt.exec(t) || ['', ''])[1].toLowerCase()]
 								) {
 									t = k.htmlPrefilter(t);
 									try {
 										for (; n < r; n++)
 											1 === (e = this[n] || {}).nodeType &&
-												(k.cleanData(Tt(e, !1)), (e.innerHTML = t));
+												(k.cleanData(Et(e, !1)), (e.innerHTML = t));
 										e = 0;
 									} catch (t) {}
 								}
@@ -3159,7 +3159,7 @@
 							function (e) {
 								var n = this.parentNode;
 								k.inArray(this, t) < 0 &&
-									(k.cleanData(Tt(this)), n && n.replaceChild(e, this));
+									(k.cleanData(Et(this)), n && n.replaceChild(e, this));
 							},
 							t
 						);
@@ -3209,8 +3209,8 @@
 					(n = n || Yt(t)) &&
 						((o = n.getPropertyValue(e) || n[e]),
 						s && o && (o = o.replace(O, '$1') || void 0),
-						'' !== o || gt(t) || (o = k.style(t, e)),
-						!v.pixelBoxStyles() &&
+						'' !== o || vt(t) || (o = k.style(t, e)),
+						!g.pixelBoxStyles() &&
 							Gt.test(o) &&
 							Jt.test(e) &&
 							((r = u.width),
@@ -3266,8 +3266,8 @@
 				c.style &&
 					((c.style.backgroundClip = 'content-box'),
 					(c.cloneNode(!0).style.backgroundClip = ''),
-					(v.clearCloneStyle = 'content-box' === c.style.backgroundClip),
-					k.extend(v, {
+					(g.clearCloneStyle = 'content-box' === c.style.backgroundClip),
+					k.extend(g, {
 						boxSizingReliable: function () {
 							return t(), i;
 						},
@@ -3367,7 +3367,7 @@
 			function le(t, e, n) {
 				var r = Yt(t),
 					i =
-						(!v.boxSizingReliable() || n) &&
+						(!g.boxSizingReliable() || n) &&
 						'border-box' === k.css(t, 'boxSizing', !1, r),
 					a = i,
 					o = Xt(t, e, r),
@@ -3377,8 +3377,8 @@
 					o = 'auto';
 				}
 				return (
-					((!v.boxSizingReliable() && i) ||
-						(!v.reliableTrDimensions() && E(t, 'tr')) ||
+					((!g.boxSizingReliable() && i) ||
+						(!g.reliableTrDimensions() && C(t, 'tr')) ||
 						'auto' === o ||
 						(!parseFloat(o) && 'inline' === k.css(t, 'display', !1, r))) &&
 						t.getClientRects().length &&
@@ -3452,7 +3452,7 @@
 								('number' !== a ||
 									u ||
 									(n += (i && i[3]) || (k.cssNumber[s] ? '' : 'px')),
-								v.clearCloneStyle ||
+								g.clearCloneStyle ||
 									'' !== n ||
 									0 !== e.indexOf('background') ||
 									(l[e] = 'inherit'),
@@ -3490,7 +3490,7 @@
 						set: function (t, n, r) {
 							var i,
 								a = Yt(t),
-								o = !v.scrollboxSize() && 'absolute' === a.position,
+								o = !g.scrollboxSize() && 'absolute' === a.position,
 								s = (o || r) && 'border-box' === k.css(t, 'boxSizing', !1, a),
 								u = r ? ue(t, e, r, s, a) : 0;
 							return (
@@ -3511,7 +3511,7 @@
 						},
 					};
 				}),
-				(k.cssHooks.marginLeft = Qt(v.reliableMarginLeft, function (t, e) {
+				(k.cssHooks.marginLeft = Qt(g.reliableMarginLeft, function (t, e) {
 					if (e)
 						return (
 							(parseFloat(Xt(t, 'marginLeft')) ||
@@ -3637,14 +3637,14 @@
 				he,
 				de = /^(?:toggle|show|hide)$/,
 				pe = /queueHooks$/;
-			function ge() {
+			function ve() {
 				he &&
 					(!1 === b.hidden && n.requestAnimationFrame
-						? n.requestAnimationFrame(ge)
-						: n.setTimeout(ge, k.fx.interval),
+						? n.requestAnimationFrame(ve)
+						: n.setTimeout(ve, k.fx.interval),
 					k.fx.tick());
 			}
-			function ve() {
+			function ge() {
 				return (
 					n.setTimeout(function () {
 						fe = void 0;
@@ -3679,7 +3679,7 @@
 					u = function () {
 						if (i) return !1;
 						for (
-							var e = fe || ve(),
+							var e = fe || ge(),
 								n = Math.max(0, l.startTime + l.duration - e),
 								r = 1 - (n / l.duration || 0),
 								a = 0,
@@ -3701,7 +3701,7 @@
 						opts: k.extend(!0, { specialEasing: {}, easing: k.easing._default }, n),
 						originalProperties: e,
 						originalOptions: n,
-						startTime: fe || ve(),
+						startTime: fe || ge(),
 						duration: n.duration,
 						tweens: [],
 						createTween: function (e, n) {
@@ -3794,8 +3794,8 @@
 							h = this,
 							d = {},
 							p = t.style,
-							g = t.nodeType && mt(t),
-							v = ot.get(t, 'fxshow');
+							v = t.nodeType && mt(t),
+							g = ot.get(t, 'fxshow');
 						for (r in (n.queue ||
 							(null == (o = k._queueHooks(t, 'fx')).unqueued &&
 								((o.unqueued = 0),
@@ -3814,25 +3814,25 @@
 								if (
 									(delete e[r],
 									(a = a || 'toggle' === i),
-									i === (g ? 'hide' : 'show'))
+									i === (v ? 'hide' : 'show'))
 								) {
-									if ('show' !== i || !v || void 0 === v[r]) continue;
-									g = !0;
+									if ('show' !== i || !g || void 0 === g[r]) continue;
+									v = !0;
 								}
-								d[r] = (v && v[r]) || k.style(t, r);
+								d[r] = (g && g[r]) || k.style(t, r);
 							}
 						if ((u = !k.isEmptyObject(e)) || !k.isEmptyObject(d))
 							for (r in (f &&
 								1 === t.nodeType &&
 								((n.overflow = [p.overflow, p.overflowX, p.overflowY]),
-								null == (l = v && v.display) && (l = ot.get(t, 'display')),
+								null == (l = g && g.display) && (l = ot.get(t, 'display')),
 								'none' === (c = k.css(t, 'display')) &&
 									(l
 										? (c = l)
-										: (St([t], !0),
+										: (wt([t], !0),
 										  (l = t.style.display || l),
 										  (c = k.css(t, 'display')),
-										  St([t]))),
+										  wt([t]))),
 								('inline' === c || ('inline-block' === c && null != l)) &&
 									'none' === k.css(t, 'float') &&
 									(u ||
@@ -3852,18 +3852,18 @@
 							(u = !1),
 							d))
 								u ||
-									(v
-										? 'hidden' in v && (g = v.hidden)
-										: (v = ot.access(t, 'fxshow', { display: l })),
-									a && (v.hidden = !g),
-									g && St([t], !0),
+									(g
+										? 'hidden' in g && (v = g.hidden)
+										: (g = ot.access(t, 'fxshow', { display: l })),
+									a && (g.hidden = !v),
+									v && wt([t], !0),
 									h.done(function () {
-										for (r in (g || St([t]), ot.remove(t, 'fxshow'), d))
+										for (r in (v || wt([t]), ot.remove(t, 'fxshow'), d))
 											k.style(t, r, d[r]);
 									})),
-									(u = ye(g ? v[r] : 0, r, h)),
-									r in v ||
-										((v[r] = u.start), g && ((u.end = u.start), (u.start = 0)));
+									(u = ye(v ? g[r] : 0, r, h)),
+									r in g ||
+										((g[r] = u.start), v && ((u.end = u.start), (u.start = 0)));
 					},
 				],
 				prefilter: function (t, e) {
@@ -4002,7 +4002,7 @@
 				}),
 				(k.fx.interval = 13),
 				(k.fx.start = function () {
-					he || ((he = !0), ge());
+					he || ((he = !0), ve());
 				}),
 				(k.fx.stop = function () {
 					he = null;
@@ -4024,14 +4024,14 @@
 					var t = b.createElement('input'),
 						e = b.createElement('select').appendChild(b.createElement('option'));
 					(t.type = 'checkbox'),
-						(v.checkOn = '' !== t.value),
-						(v.optSelected = e.selected),
+						(g.checkOn = '' !== t.value),
+						(g.optSelected = e.selected),
 						((t = b.createElement('input')).value = 't'),
 						(t.type = 'radio'),
-						(v.radioValue = 't' === t.value);
+						(g.radioValue = 't' === t.value);
 				})();
 			var xe,
-				Se = k.expr.attrHandle;
+				we = k.expr.attrHandle;
 			k.fn.extend({
 				attr: function (t, e) {
 					return Q(this, k.attr, t, e, arguments.length > 1);
@@ -4069,7 +4069,7 @@
 					attrHooks: {
 						type: {
 							set: function (t, e) {
-								if (!v.radioValue && 'radio' === e && E(t, 'input')) {
+								if (!g.radioValue && 'radio' === e && C(t, 'input')) {
 									var n = t.value;
 									return t.setAttribute('type', e), n && (t.value = n), e;
 								}
@@ -4089,30 +4089,30 @@
 					},
 				}),
 				k.each(k.expr.match.bool.source.match(/\w+/g), function (t, e) {
-					var n = Se[e] || k.find.attr;
-					Se[e] = function (t, e, r) {
+					var n = we[e] || k.find.attr;
+					we[e] = function (t, e, r) {
 						var i,
 							a,
 							o = e.toLowerCase();
 						return (
 							r ||
-								((a = Se[o]),
-								(Se[o] = i),
+								((a = we[o]),
+								(we[o] = i),
 								(i = null != n(t, e, r) ? o : null),
-								(Se[o] = a)),
+								(we[o] = a)),
 							i
 						);
 					};
 				});
-			var we = /^(?:input|select|textarea|button)$/i,
+			var Se = /^(?:input|select|textarea|button)$/i,
 				Ae = /^(?:a|area)$/i;
 			function ke(t) {
 				return (t.match(W) || []).join(' ');
 			}
-			function Ce(t) {
+			function Te(t) {
 				return (t.getAttribute && t.getAttribute('class')) || '';
 			}
-			function Ee(t) {
+			function Ce(t) {
 				return Array.isArray(t) ? t : ('string' == typeof t && t.match(W)) || [];
 			}
 			k.fn.extend({
@@ -4149,7 +4149,7 @@
 								var e = k.find.attr(t, 'tabindex');
 								return e
 									? parseInt(e, 10)
-									: we.test(t.nodeName) || (Ae.test(t.nodeName) && t.href)
+									: Se.test(t.nodeName) || (Ae.test(t.nodeName) && t.href)
 									? 0
 									: -1;
 							},
@@ -4157,7 +4157,7 @@
 					},
 					propFix: { for: 'htmlFor', class: 'className' },
 				}),
-				v.optSelected ||
+				g.optSelected ||
 					(k.propHooks.selected = {
 						get: function (t) {
 							var e = t.parentNode;
@@ -4190,12 +4190,12 @@
 						var e, n, r, i, a, o;
 						return m(t)
 							? this.each(function (e) {
-									k(this).addClass(t.call(this, e, Ce(this)));
+									k(this).addClass(t.call(this, e, Te(this)));
 							  })
-							: (e = Ee(t)).length
+							: (e = Ce(t)).length
 							? this.each(function () {
 									if (
-										((r = Ce(this)),
+										((r = Te(this)),
 										(n = 1 === this.nodeType && ' ' + ke(r) + ' '))
 									) {
 										for (a = 0; a < e.length; a++)
@@ -4210,13 +4210,13 @@
 						var e, n, r, i, a, o;
 						return m(t)
 							? this.each(function (e) {
-									k(this).removeClass(t.call(this, e, Ce(this)));
+									k(this).removeClass(t.call(this, e, Te(this)));
 							  })
 							: arguments.length
-							? (e = Ee(t)).length
+							? (e = Ce(t)).length
 								? this.each(function () {
 										if (
-											((r = Ce(this)),
+											((r = Te(this)),
 											(n = 1 === this.nodeType && ' ' + ke(r) + ' '))
 										) {
 											for (a = 0; a < e.length; a++)
@@ -4237,13 +4237,13 @@
 							s = 'string' === o || Array.isArray(t);
 						return m(t)
 							? this.each(function (n) {
-									k(this).toggleClass(t.call(this, n, Ce(this), e), e);
+									k(this).toggleClass(t.call(this, n, Te(this), e), e);
 							  })
 							: 'boolean' == typeof e && s
 							? e
 								? this.addClass(t)
 								: this.removeClass(t)
-							: ((n = Ee(t)),
+							: ((n = Ce(t)),
 							  this.each(function () {
 									if (s)
 										for (a = k(this), i = 0; i < n.length; i++)
@@ -4251,7 +4251,7 @@
 												a.hasClass(r) ? a.removeClass(r) : a.addClass(r);
 									else
 										(void 0 !== t && 'boolean' !== o) ||
-											((r = Ce(this)) && ot.set(this, '__className__', r),
+											((r = Te(this)) && ot.set(this, '__className__', r),
 											this.setAttribute &&
 												this.setAttribute(
 													'class',
@@ -4266,7 +4266,7 @@
 							n,
 							r = 0;
 						for (e = ' ' + t + ' '; (n = this[r++]); )
-							if (1 === n.nodeType && (' ' + ke(Ce(n)) + ' ').indexOf(e) > -1)
+							if (1 === n.nodeType && (' ' + ke(Te(n)) + ' ').indexOf(e) > -1)
 								return !0;
 						return !1;
 					},
@@ -4333,7 +4333,7 @@
 									if (
 										((n = i[r]).selected || r === a) &&
 										!n.disabled &&
-										(!n.parentNode.disabled || !E(n.parentNode, 'optgroup'))
+										(!n.parentNode.disabled || !C(n.parentNode, 'optgroup'))
 									) {
 										if (((e = k(n).val()), o)) return e;
 										s.push(e);
@@ -4360,12 +4360,12 @@
 								return (t.checked = k.inArray(k(t).val(), e) > -1);
 						},
 					}),
-						v.checkOn ||
+						g.checkOn ||
 							(k.valHooks[this].get = function (t) {
 								return null === t.getAttribute('value') ? 'on' : t.value;
 							});
 				});
-			var Te = n.location,
+			var Ee = n.location,
 				Me = { guid: Date.now() },
 				Ie = /\?/;
 			k.parseXML = function (t) {
@@ -4405,31 +4405,31 @@
 						f,
 						h,
 						p = [r || b],
-						g = d.call(t, 'type') ? t.type : t,
-						v = d.call(t, 'namespace') ? t.namespace.split('.') : [];
+						v = d.call(t, 'type') ? t.type : t,
+						g = d.call(t, 'namespace') ? t.namespace.split('.') : [];
 					if (
 						((o = h = s = r = r || b),
 						3 !== r.nodeType &&
 							8 !== r.nodeType &&
-							!Oe.test(g + k.event.triggered) &&
-							(g.indexOf('.') > -1 && ((v = g.split('.')), (g = v.shift()), v.sort()),
-							(l = g.indexOf(':') < 0 && 'on' + g),
+							!Oe.test(v + k.event.triggered) &&
+							(v.indexOf('.') > -1 && ((g = v.split('.')), (v = g.shift()), g.sort()),
+							(l = v.indexOf(':') < 0 && 'on' + v),
 							((t = t[k.expando]
 								? t
-								: new k.Event(g, 'object' == typeof t && t)).isTrigger = i ? 2 : 3),
-							(t.namespace = v.join('.')),
+								: new k.Event(v, 'object' == typeof t && t)).isTrigger = i ? 2 : 3),
+							(t.namespace = g.join('.')),
 							(t.rnamespace = t.namespace
-								? new RegExp('(^|\\.)' + v.join('\\.(?:.*\\.|)') + '(\\.|$)')
+								? new RegExp('(^|\\.)' + g.join('\\.(?:.*\\.|)') + '(\\.|$)')
 								: null),
 							(t.result = void 0),
 							t.target || (t.target = r),
 							(e = null == e ? [t] : k.makeArray(e, [t])),
-							(f = k.event.special[g] || {}),
+							(f = k.event.special[v] || {}),
 							i || !f.trigger || !1 !== f.trigger.apply(r, e)))
 					) {
 						if (!i && !f.noBubble && !y(r)) {
 							for (
-								u = f.delegateType || g, Oe.test(u + g) || (o = o.parentNode);
+								u = f.delegateType || v, Oe.test(u + v) || (o = o.parentNode);
 								o;
 								o = o.parentNode
 							)
@@ -4439,7 +4439,7 @@
 						}
 						for (a = 0; (o = p[a++]) && !t.isPropagationStopped(); )
 							(h = o),
-								(t.type = a > 1 ? u : f.bindType || g),
+								(t.type = a > 1 ? u : f.bindType || v),
 								(c =
 									(ot.get(o, 'events') || Object.create(null))[t.type] &&
 									ot.get(o, 'handle')) && c.apply(o, e),
@@ -4449,19 +4449,19 @@
 									((t.result = c.apply(o, e)),
 									!1 === t.result && t.preventDefault());
 						return (
-							(t.type = g),
+							(t.type = v),
 							i ||
 								t.isDefaultPrevented() ||
 								(f._default && !1 !== f._default.apply(p.pop(), e)) ||
 								!it(r) ||
 								(l &&
-									m(r[g]) &&
+									m(r[v]) &&
 									!y(r) &&
 									((s = r[l]) && (r[l] = null),
-									(k.event.triggered = g),
-									t.isPropagationStopped() && h.addEventListener(g, Re),
-									r[g](),
-									t.isPropagationStopped() && h.removeEventListener(g, Re),
+									(k.event.triggered = v),
+									t.isPropagationStopped() && h.addEventListener(v, Re),
+									r[v](),
+									t.isPropagationStopped() && h.removeEventListener(v, Re),
 									(k.event.triggered = void 0),
 									s && (r[l] = s))),
 							t.result
@@ -4501,7 +4501,7 @@
 									r
 							  );
 					});
-				else if (n || 'object' !== w(e)) r(t, e);
+				else if (n || 'object' !== S(e)) r(t, e);
 				else for (i in e) je(t + '[' + i + ']', e[i], n, r);
 			}
 			(k.param = function (t, e) {
@@ -4602,16 +4602,16 @@
 				for (n in e) void 0 !== e[n] && ((i[n] ? t : r || (r = {}))[n] = e[n]);
 				return r && k.extend(!0, t, r), t;
 			}
-			(Ge.href = Te.href),
+			(Ge.href = Ee.href),
 				k.extend({
 					active: 0,
 					lastModified: {},
 					etag: {},
 					ajaxSettings: {
-						url: Te.href,
+						url: Ee.href,
 						type: 'GET',
 						isLocal: /^(?:about|app|app-storage|.+-extension|file|res|widget):$/.test(
-							Te.protocol
+							Ee.protocol
 						),
 						global: !0,
 						processData: !0,
@@ -4657,13 +4657,13 @@
 							h,
 							d = k.ajaxSetup({}, e),
 							p = d.context || d,
-							g = d.context && (p.nodeType || p.jquery) ? k(p) : k.event,
-							v = k.Deferred(),
+							v = d.context && (p.nodeType || p.jquery) ? k(p) : k.event,
+							g = k.Deferred(),
 							m = k.Callbacks('once memory'),
 							y = d.statusCode || {},
 							x = {},
-							S = {},
-							w = 'canceled',
+							w = {},
+							S = 'canceled',
 							A = {
 								readyState: 0,
 								getResponseHeader: function (t) {
@@ -4684,7 +4684,7 @@
 								setRequestHeader: function (t, e) {
 									return (
 										null == l &&
-											((t = S[t.toLowerCase()] = S[t.toLowerCase()] || t),
+											((t = w[t.toLowerCase()] = w[t.toLowerCase()] || t),
 											(x[t] = e)),
 										this
 									);
@@ -4700,15 +4700,15 @@
 									return this;
 								},
 								abort: function (t) {
-									var e = t || w;
-									return r && r.abort(e), C(0, e), this;
+									var e = t || S;
+									return r && r.abort(e), T(0, e), this;
 								},
 							};
 						if (
-							(v.promise(A),
-							(d.url = ((t || d.url || Te.href) + '').replace(
+							(g.promise(A),
+							(d.url = ((t || d.url || Ee.href) + '').replace(
 								He,
-								Te.protocol + '//'
+								Ee.protocol + '//'
 							)),
 							(d.type = e.method || e.type || d.method || d.type),
 							(d.dataTypes = (d.dataType || '*').toLowerCase().match(W) || ['']),
@@ -4773,13 +4773,13 @@
 						if (d.beforeSend && (!1 === d.beforeSend.call(p, A, d) || l))
 							return A.abort();
 						if (
-							((w = 'abort'),
+							((S = 'abort'),
 							m.add(d.complete),
 							A.done(d.success),
 							A.fail(d.error),
 							(r = Ye(qe, d, e, A)))
 						) {
-							if (((A.readyState = 1), c && g.trigger('ajaxSend', [A, d]), l))
+							if (((A.readyState = 1), c && v.trigger('ajaxSend', [A, d]), l))
 								return A;
 							d.async &&
 								d.timeout > 0 &&
@@ -4787,19 +4787,19 @@
 									A.abort('timeout');
 								}, d.timeout));
 							try {
-								(l = !1), r.send(x, C);
+								(l = !1), r.send(x, T);
 							} catch (t) {
 								if (l) throw t;
-								C(-1, t);
+								T(-1, t);
 							}
-						} else C(-1, 'No Transport');
-						function C(t, e, o, u) {
+						} else T(-1, 'No Transport');
+						function T(t, e, o, u) {
 							var f,
 								h,
 								b,
 								x,
-								S,
-								w = e;
+								w,
+								S = e;
 							l ||
 								((l = !0),
 								s && n.clearTimeout(s),
@@ -4899,24 +4899,24 @@
 								})(d, x, A, f)),
 								f
 									? (d.ifModified &&
-											((S = A.getResponseHeader('Last-Modified')) &&
-												(k.lastModified[i] = S),
-											(S = A.getResponseHeader('etag')) && (k.etag[i] = S)),
+											((w = A.getResponseHeader('Last-Modified')) &&
+												(k.lastModified[i] = w),
+											(w = A.getResponseHeader('etag')) && (k.etag[i] = w)),
 									  204 === t || 'HEAD' === d.type
-											? (w = 'nocontent')
+											? (S = 'nocontent')
 											: 304 === t
-											? (w = 'notmodified')
-											: ((w = x.state), (h = x.data), (f = !(b = x.error))))
-									: ((b = w), (!t && w) || ((w = 'error'), t < 0 && (t = 0))),
+											? (S = 'notmodified')
+											: ((S = x.state), (h = x.data), (f = !(b = x.error))))
+									: ((b = S), (!t && S) || ((S = 'error'), t < 0 && (t = 0))),
 								(A.status = t),
-								(A.statusText = (e || w) + ''),
-								f ? v.resolveWith(p, [h, w, A]) : v.rejectWith(p, [A, w, b]),
+								(A.statusText = (e || S) + ''),
+								f ? g.resolveWith(p, [h, S, A]) : g.rejectWith(p, [A, S, b]),
 								A.statusCode(y),
 								(y = void 0),
-								c && g.trigger(f ? 'ajaxSuccess' : 'ajaxError', [A, d, f ? h : b]),
-								m.fireWith(p, [A, w]),
+								c && v.trigger(f ? 'ajaxSuccess' : 'ajaxError', [A, d, f ? h : b]),
+								m.fireWith(p, [A, S]),
 								c &&
-									(g.trigger('ajaxComplete', [A, d]),
+									(v.trigger('ajaxComplete', [A, d]),
 									--k.active || k.event.trigger('ajaxStop')));
 						}
 						return A;
@@ -5019,11 +5019,11 @@
 				});
 			var Je = { 0: 200, 1223: 204 },
 				Xe = k.ajaxSettings.xhr();
-			(v.cors = !!Xe && 'withCredentials' in Xe),
-				(v.ajax = Xe = !!Xe),
+			(g.cors = !!Xe && 'withCredentials' in Xe),
+				(g.ajax = Xe = !!Xe),
 				k.ajaxTransport(function (t) {
 					var e, r;
-					if (v.cors || (Xe && !t.crossDomain))
+					if (g.cors || (Xe && !t.crossDomain))
 						return {
 							send: function (i, a) {
 								var o,
@@ -5181,7 +5181,7 @@
 							'script'
 						);
 				}),
-				(v.createHTMLDocument =
+				(g.createHTMLDocument =
 					(((Qe = b.implementation.createHTMLDocument('').body).innerHTML =
 						'<form></form><form></form>'),
 					2 === Qe.childNodes.length)),
@@ -5190,7 +5190,7 @@
 						? []
 						: ('boolean' == typeof e && ((n = e), (e = !1)),
 						  e ||
-								(v.createHTMLDocument
+								(g.createHTMLDocument
 									? (((r = (e =
 											b.implementation.createHTMLDocument('')).createElement(
 											'base'
@@ -5346,7 +5346,7 @@
 					};
 				}),
 				k.each(['top', 'left'], function (t, e) {
-					k.cssHooks[e] = Qt(v.pixelPosition, function (t, n) {
+					k.cssHooks[e] = Qt(g.pixelPosition, function (t, n) {
 						if (n) return (n = Xt(t, e)), Gt.test(n) ? k(t).position()[e] + 'px' : n;
 					});
 				}),
@@ -5445,11 +5445,11 @@
 				}),
 				(k.isArray = Array.isArray),
 				(k.parseJSON = JSON.parse),
-				(k.nodeName = E),
+				(k.nodeName = C),
 				(k.isFunction = m),
 				(k.isWindow = y),
 				(k.camelCase = rt),
-				(k.type = w),
+				(k.type = S),
 				(k.now = Date.now),
 				(k.isNumeric = function (t) {
 					var e = k.type(t);
@@ -5474,7 +5474,7 @@
 		});
 	},
 	function (t, e, n) {
-		var r = n(262)();
+		var r = n(268)();
 		t.exports = r;
 		try {
 			regeneratorRuntime = r;
@@ -5521,7 +5521,7 @@
 			(t.exports.default = t.exports);
 	},
 	function (t, e, n) {
-		var r = n(156);
+		var r = n(159);
 		function i(t, e) {
 			for (var n = 0; n < e.length; n++) {
 				var i = e[n];
@@ -5629,6 +5629,20 @@
 	},
 	function (t, e, n) {
 		'use strict';
+		var r = n(77),
+			i = Function.prototype,
+			a = i.call,
+			o = r && i.bind.bind(a, a);
+		t.exports = r
+			? o
+			: function (t) {
+					return function () {
+						return a.apply(t, arguments);
+					};
+			  };
+	},
+	function (t, e, n) {
+		'use strict';
 		var r = function (t) {
 			return t && t.Math === Math && t;
 		};
@@ -5645,27 +5659,13 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(76),
-			i = Function.prototype,
-			a = i.call,
-			o = r && i.bind.bind(a, a);
-		t.exports = r
-			? o
-			: function (t) {
-					return function () {
-						return a.apply(t, arguments);
-					};
-			  };
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(8),
-			i = n(78).f,
+		var r = n(9),
+			i = n(79).f,
 			a = n(45),
 			o = n(28),
-			s = n(110),
-			u = n(141),
-			l = n(111);
+			s = n(116),
+			u = n(144),
+			l = n(117);
 		t.exports = function (t, e) {
 			var n,
 				c,
@@ -5673,14 +5673,14 @@
 				h,
 				d,
 				p = t.target,
-				g = t.global,
-				v = t.stat;
-			if ((n = g ? r : v ? r[p] || s(p, {}) : r[p] && r[p].prototype))
+				v = t.global,
+				g = t.stat;
+			if ((n = v ? r : g ? r[p] || s(p, {}) : r[p] && r[p].prototype))
 				for (c in e) {
 					if (
 						((h = e[c]),
 						(f = t.dontCallGetSet ? (d = i(n, c)) && d.value : n[c]),
-						!l(g ? c : p + (v ? '.' : '#') + c, t.forced) && void 0 !== f)
+						!l(v ? c : p + (g ? '.' : '#') + c, t.forced) && void 0 !== f)
 					) {
 						if (typeof h == typeof f) continue;
 						u(h, f);
@@ -5690,8 +5690,8 @@
 		};
 	},
 	function (t, e, n) {
-		var r = n(98).default,
-			i = n(285);
+		var r = n(101).default,
+			i = n(291);
 		(t.exports = function (t, e) {
 			if (e && ('object' == r(e) || 'function' == typeof e)) return e;
 			if (void 0 !== e)
@@ -5702,7 +5702,7 @@
 			(t.exports.default = t.exports);
 	},
 	function (t, e, n) {
-		var r = n(162);
+		var r = n(167);
 		(t.exports = function (t, e) {
 			if ('function' != typeof e && null !== e)
 				throw new TypeError('Super expression must either be null or a function');
@@ -6284,16 +6284,16 @@
 												}),
 											},
 										},
-										g = {
+										v = {
 											clear: { minArgs: 1, maxArgs: 1 },
 											get: { minArgs: 1, maxArgs: 1 },
 											set: { minArgs: 1, maxArgs: 1 },
 										};
 									return (
 										(n.privacy = {
-											network: { '*': g },
-											services: { '*': g },
-											websites: { '*': g },
+											network: { '*': v },
+											services: { '*': v },
+											websites: { '*': v },
 										}),
 										u(t, p, n)
 									);
@@ -6323,7 +6323,7 @@
 			n.d(e, 'a', function () {
 				return m;
 			});
-			var r = n(25),
+			var r = n(24),
 				i = n.n(r),
 				a = n(2),
 				o = n.n(a),
@@ -6334,23 +6334,23 @@
 				f = n(1),
 				h = n.n(f),
 				d =
-					(n(125),
-					n(74),
-					n(39),
-					n(126),
+					(n(130),
+					n(75),
+					n(38),
+					n(106),
 					n(20),
-					n(84),
+					n(85),
 					n(48),
-					n(151),
-					n(30),
-					n(65),
-					n(135),
-					n(68),
-					n(69),
-					n(166)),
+					n(154),
+					n(31),
+					n(60),
+					n(138),
+					n(70),
+					n(62),
+					n(170)),
 				p = n.n(d),
-				g = n(66),
-				v = n(221),
+				v = n(68),
+				g = n(230),
 				m = (function () {
 					return c()(
 						function t(e) {
@@ -6514,7 +6514,7 @@
 							{
 								key: 'getDataElements',
 								value: function (t) {
-									var e = Object(g.a)(this.selector, t);
+									var e = Object(v.a)(this.selector, t);
 									return this.multiple ? e : e.length > 0 ? [e[0]] : [];
 								},
 							},
@@ -6633,7 +6633,7 @@
 																(r = t.sent),
 																(a = r.type),
 																(t.next = 9),
-																v.a.blobToBase64(r)
+																g.a.blobToBase64(r)
 															);
 														case 9:
 															return (
@@ -6683,12 +6683,12 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
-			i = n(71),
+		var r = n(9),
+			i = n(72),
 			a = n(22),
-			o = n(81),
-			s = n(70),
-			u = n(140),
+			o = n(82),
+			s = n(71),
+			u = n(143),
 			l = r.Symbol,
 			c = i('wks'),
 			f = u ? l.for || l : (l && l.withoutSetter) || o;
@@ -6698,7 +6698,7 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(76),
+		var r = n(77),
 			i = Function.prototype.call;
 		t.exports = r
 			? i.bind(i)
@@ -6722,9 +6722,9 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(105),
+		var r = n(109),
 			i = n(28),
-			a = n(190);
+			a = n(194);
 		r || i(Object.prototype, 'toString', a, { unsafe: !0 });
 	},
 	function (t, e, n) {
@@ -6736,8 +6736,8 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
-			i = n(31),
+		var r = n(8),
+			i = n(30),
 			a = r({}.hasOwnProperty);
 		t.exports =
 			Object.hasOwn ||
@@ -6750,35 +6750,35 @@
 		var r,
 			i,
 			a,
-			o = n(213),
+			o = n(219),
 			s = n(19),
-			u = n(8),
+			u = n(9),
 			l = n(15),
 			c = n(21),
 			f = n(22),
 			h = n(52),
-			d = n(60),
+			d = n(61),
 			p = n(45),
-			g = n(28),
-			v = n(58),
+			v = n(28),
+			g = n(59),
 			m = n(51),
-			y = n(108),
-			b = n(85),
+			y = n(113),
+			b = n(86),
 			x = n(17),
-			S = n(81),
-			w = n(35),
-			A = w.enforce,
-			k = w.get,
-			C = u.Int8Array,
-			E = C && C.prototype,
+			w = n(82),
+			S = n(36),
+			A = S.enforce,
+			k = S.get,
+			T = u.Int8Array,
+			C = T && T.prototype,
 			_ = u.Uint8ClampedArray,
-			T = _ && _.prototype,
-			M = C && y(C),
-			I = E && y(E),
+			E = _ && _.prototype,
+			M = T && y(T),
+			I = C && y(C),
 			O = Object.prototype,
 			R = u.TypeError,
 			D = x('toStringTag'),
-			N = S('TYPED_ARRAY_TAG'),
+			N = w('TYPED_ARRAY_TAG'),
 			P = o && !!b && 'Opera' !== h(u.opera),
 			L = !1,
 			j = {
@@ -6817,9 +6817,9 @@
 			for (r in j) u[r] && b(u[r], M);
 		if ((!P || !I || I === O) && ((I = M.prototype), P))
 			for (r in j) u[r] && b(u[r].prototype, I);
-		if ((P && y(T) !== I && b(T, I), s && !f(I, D)))
+		if ((P && y(E) !== I && b(E, I), s && !f(I, D)))
 			for (r in ((L = !0),
-			v(I, D, {
+			g(I, D, {
 				configurable: !0,
 				get: function () {
 					return c(this) ? this[N] : void 0;
@@ -6852,7 +6852,7 @@
 									} catch (t) {}
 								}
 						}
-					(I[t] && !n) || g(I, t, n ? e : (P && E[t]) || e, r);
+					(I[t] && !n) || v(I, t, n ? e : (P && C[t]) || e, r);
 				}
 			},
 			exportTypedArrayStaticMethod: function (t, e, n) {
@@ -6867,10 +6867,10 @@
 									} catch (t) {}
 						if (M[t] && !n) return;
 						try {
-							return g(M, t, n ? e : (P && M[t]) || e);
+							return v(M, t, n ? e : (P && M[t]) || e);
 						} catch (t) {}
 					}
-					for (r in j) !(i = u[r]) || (i[t] && !n) || g(i, t, e);
+					for (r in j) !(i = u[r]) || (i[t] && !n) || v(i, t, e);
 				}
 			},
 			getTypedArrayConstructor: B,
@@ -6885,6 +6885,17 @@
 		};
 	},
 	function (t, e, n) {
+		var r = n(295),
+			i = n(296),
+			a = n(217),
+			o = n(297);
+		(t.exports = function (t, e) {
+			return r(t) || i(t, e) || a(t, e) || o();
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
+	},
+	function (t, e, n) {
 		'use strict';
 		var r = n(21),
 			i = String,
@@ -6895,45 +6906,34 @@
 		};
 	},
 	function (t, e, n) {
-		var r = n(289),
-			i = n(290),
-			a = n(228),
-			o = n(291);
-		(t.exports = function (t, e) {
-			return r(t) || i(t, e) || a(t, e) || o();
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
-	},
-	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(33),
-			a = n(73),
-			o = n(284),
-			s = n(144),
-			u = n(24),
+			i = n(34),
+			a = n(74),
+			o = n(290),
+			s = n(147),
+			u = n(25),
 			l = n(21),
-			c = n(56),
+			c = n(57),
 			f = n(7),
 			h = i('Reflect', 'construct'),
 			d = Object.prototype,
 			p = [].push,
-			g = f(function () {
+			v = f(function () {
 				function t() {}
 				return !(h(function () {}, [], t) instanceof t);
 			}),
-			v = !f(function () {
+			g = !f(function () {
 				h(function () {});
 			}),
-			m = g || v;
+			m = v || g;
 		r(
 			{ target: 'Reflect', stat: !0, forced: m, sham: m },
 			{
 				construct: function (t, e) {
 					s(t), u(e);
 					var n = arguments.length < 3 ? t : s(arguments[2]);
-					if (v && !g) return h(t, e, n);
+					if (g && !v) return h(t, e, n);
 					if (t === n) {
 						switch (e.length) {
 							case 0:
@@ -6971,8 +6971,8 @@
 		'use strict';
 		var r = n(15),
 			i = n(32),
-			a = n(150),
-			o = n(110);
+			a = n(153),
+			o = n(116);
 		t.exports = function (t, e, n, s) {
 			s || (s = {});
 			var u = s.enumerable,
@@ -6996,20 +6996,14 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(63);
+		var r = n(65);
 		t.exports = function (t) {
 			return r(t.length);
 		};
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(10),
-			i = n(154);
-		r({ target: 'RegExp', proto: !0, forced: /./.exec !== i }, { exec: i });
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(40),
+		var r = n(41),
 			i = Object;
 		t.exports = function (t) {
 			return i(r(t));
@@ -7017,11 +7011,17 @@
 	},
 	function (t, e, n) {
 		'use strict';
+		var r = n(10),
+			i = n(157);
+		r({ target: 'RegExp', proto: !0, forced: /./.exec !== i }, { exec: i });
+	},
+	function (t, e, n) {
+		'use strict';
 		var r = n(19),
-			i = n(149),
-			a = n(153),
-			o = n(24),
-			s = n(100),
+			i = n(152),
+			a = n(156),
+			o = n(25),
+			s = n(103),
 			u = TypeError,
 			l = Object.defineProperty,
 			c = Object.getOwnPropertyDescriptor;
@@ -7063,7 +7063,17 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(15),
+			i = n(61),
+			a = TypeError;
+		t.exports = function (t) {
+			if (r(t)) return t;
+			throw new a(i(t) + ' is not a function');
+		};
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(9),
 			i = n(15),
 			a = function (t) {
 				return i(t) ? t : void 0;
@@ -7074,43 +7084,51 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(15),
-			i = n(60),
-			a = TypeError;
-		t.exports = function (t) {
-			if (r(t)) return t;
-			throw new a(i(t) + ' is not a function');
-		};
+		var r = n(9),
+			i = n(203),
+			a = n(204),
+			o = n(267),
+			s = n(45),
+			u = function (t) {
+				if (t && t.forEach !== o)
+					try {
+						s(t, 'forEach', o);
+					} catch (e) {
+						t.forEach = o;
+					}
+			};
+		for (var l in i) i[l] && u(r[l] && r[l].prototype);
+		u(a);
 	},
 	function (t, e, n) {
 		'use strict';
 		var r,
 			i,
 			a,
-			o = n(188),
-			s = n(8),
+			o = n(192),
+			s = n(9),
 			u = n(21),
 			l = n(45),
 			c = n(22),
-			f = n(103),
-			h = n(104),
-			d = n(89),
+			f = n(107),
+			h = n(108),
+			d = n(91),
 			p = s.TypeError,
-			g = s.WeakMap;
+			v = s.WeakMap;
 		if (o || f.state) {
-			var v = f.state || (f.state = new g());
-			(v.get = v.get),
-				(v.has = v.has),
-				(v.set = v.set),
+			var g = f.state || (f.state = new v());
+			(g.get = g.get),
+				(g.has = g.has),
+				(g.set = g.set),
 				(r = function (t, e) {
-					if (v.has(t)) throw new p('Object already initialized');
-					return (e.facade = t), v.set(t, e), e;
+					if (g.has(t)) throw new p('Object already initialized');
+					return (e.facade = t), g.set(t, e), e;
 				}),
 				(i = function (t) {
-					return v.get(t) || {};
+					return g.get(t) || {};
 				}),
 				(a = function (t) {
-					return v.has(t);
+					return g.has(t);
 				});
 		} else {
 			var m = h('state');
@@ -7145,34 +7163,12 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
-			i = n(199),
-			a = n(200),
-			o = n(261),
-			s = n(45),
-			u = function (t) {
-				if (t && t.forEach !== o)
-					try {
-						s(t, 'forEach', o);
-					} catch (e) {
-						t.forEach = o;
-					}
-			};
-		for (var l in i) i[l] && u(r[l] && r[l].prototype);
-		u(a);
-	},
-	function (t, e, n) {
-		'use strict';
-		t.exports = !1;
-	},
-	function (t, e, n) {
-		'use strict';
 		var r = n(46),
-			i = n(9),
-			a = n(113),
-			o = n(31),
+			i = n(8),
+			a = n(119),
+			o = n(30),
 			s = n(29),
-			u = n(123),
+			u = n(129),
 			l = i([].push),
 			c = function (t) {
 				var e = 1 === t,
@@ -7182,22 +7178,22 @@
 					f = 6 === t,
 					h = 7 === t,
 					d = 5 === t || f;
-				return function (p, g, v, m) {
+				return function (p, v, g, m) {
 					for (
 						var y,
 							b,
 							x = o(p),
-							S = a(x),
-							w = s(S),
-							A = r(g, v),
+							w = a(x),
+							S = s(w),
+							A = r(v, g),
 							k = 0,
-							C = m || u,
-							E = e ? C(p, w) : n || h ? C(p, 0) : void 0;
-						w > k;
+							T = m || u,
+							C = e ? T(p, S) : n || h ? T(p, 0) : void 0;
+						S > k;
 						k++
 					)
-						if ((d || k in S) && ((b = A((y = S[k]), k, x)), t))
-							if (e) E[k] = b;
+						if ((d || k in w) && ((b = A((y = w[k]), k, x)), t))
+							if (e) C[k] = b;
 							else if (b)
 								switch (t) {
 									case 3:
@@ -7207,16 +7203,16 @@
 									case 6:
 										return k;
 									case 2:
-										l(E, y);
+										l(C, y);
 								}
 							else
 								switch (t) {
 									case 4:
 										return !1;
 									case 7:
-										l(E, y);
+										l(C, y);
 								}
-					return f ? -1 : i || c ? c : E;
+					return f ? -1 : i || c ? c : C;
 				};
 			};
 		t.exports = {
@@ -7233,9 +7229,9 @@
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(38).map;
+			i = n(37).map;
 		r(
-			{ target: 'Array', proto: !0, forced: !n(106)('map') },
+			{ target: 'Array', proto: !0, forced: !n(110)('map') },
 			{
 				map: function (t) {
 					return i(this, t, arguments.length > 1 ? arguments[1] : void 0);
@@ -7245,26 +7241,7 @@
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(42),
-			i = TypeError;
-		t.exports = function (t) {
-			if (r(t)) throw new i("Can't call method on " + t);
-			return t;
-		};
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(113),
-			i = n(40);
-		t.exports = function (t) {
-			return r(i(t));
-		};
-	},
-	function (t, e, n) {
-		'use strict';
-		t.exports = function (t) {
-			return null == t;
-		};
+		t.exports = !1;
 	},
 	function (t, e, n) {
 		(function (n) {
@@ -7601,7 +7578,30 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(43),
+			i = TypeError;
+		t.exports = function (t) {
+			if (r(t)) throw new i("Can't call method on " + t);
+			return t;
+		};
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(119),
+			i = n(41);
+		t.exports = function (t) {
+			return r(i(t));
+		};
+	},
+	function (t, e, n) {
+		'use strict';
+		t.exports = function (t) {
+			return null == t;
+		};
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(8),
 			i = r({}.toString),
 			a = r(''.slice);
 		t.exports = function (t) {
@@ -7612,7 +7612,7 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(19),
 			i = n(32),
-			a = n(64);
+			a = n(66);
 		t.exports = r
 			? function (t, e, n) {
 					return i.f(t, e, a(1, n));
@@ -7623,9 +7623,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(116),
-			i = n(34),
-			a = n(76),
+		var r = n(122),
+			i = n(33),
+			a = n(77),
 			o = r(r.bind);
 		t.exports = function (t, e) {
 			return (
@@ -7643,18 +7643,18 @@ More info at: http://icanhazjs.com
 	,
 	function (t, e, n) {
 		'use strict';
-		n(233), n(241), n(242), n(243), n(244), n(245);
+		n(240), n(248), n(249), n(250), n(251), n(252);
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(41),
-			i = n(124),
-			a = n(94),
-			o = n(35),
+		var r = n(42),
+			i = n(105),
+			a = n(97),
+			o = n(36),
 			s = n(32).f,
-			u = n(160),
-			l = n(133),
-			c = n(37),
+			u = n(163),
+			l = n(136),
+			c = n(39),
 			f = n(19),
 			h = o.set,
 			d = o.getterFor('Array Iterator');
@@ -7691,41 +7691,44 @@ More info at: http://icanhazjs.com
 			n.d(e, 'a', function () {
 				return g;
 			});
-			var r = n(165),
+			var r = n(114),
 				i = n.n(r),
 				a = n(3),
 				o = n.n(a),
 				s = n(4),
 				u = n.n(s),
 				l =
-					(n(125),
-					n(59),
-					n(138),
-					n(74),
+					(n(130),
+					n(54),
+					n(76),
+					n(207),
+					n(141),
+					n(75),
 					n(49),
-					n(39),
-					n(126),
-					n(99),
-					n(246),
+					n(90),
+					n(38),
+					n(106),
+					n(185),
 					n(20),
-					n(84),
-					n(151),
-					n(30),
-					n(65),
-					n(139),
-					n(135),
-					n(68),
-					n(69),
-					n(36),
-					n(79),
-					n(181),
-					n(182),
-					n(183),
-					n(224)),
-				c = n(61),
-				f = n(136),
-				h = n(137);
-			function d(t, e) {
+					n(85),
+					n(154),
+					n(31),
+					n(60),
+					n(142),
+					n(138),
+					n(70),
+					n(62),
+					n(35),
+					n(80),
+					n(186),
+					n(187),
+					n(188),
+					n(233)),
+				c = n(63),
+				f = n(139),
+				h = n(140),
+				d = n(95);
+			function p(t, e) {
 				var n = Object.keys(t);
 				if (Object.getOwnPropertySymbols) {
 					var r = Object.getOwnPropertySymbols(t);
@@ -7737,23 +7740,23 @@ More info at: http://icanhazjs.com
 				}
 				return n;
 			}
-			function p(t) {
+			function v(t) {
 				for (var e = 1; e < arguments.length; e++) {
 					var n = null != arguments[e] ? arguments[e] : {};
 					e % 2
-						? d(Object(n), !0).forEach(function (e) {
+						? p(Object(n), !0).forEach(function (e) {
 								i()(t, e, n[e]);
 						  })
 						: Object.getOwnPropertyDescriptors
 						? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n))
-						: d(Object(n)).forEach(function (e) {
+						: p(Object(n)).forEach(function (e) {
 								Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(n, e));
 						  });
 				}
 				return t;
 			}
 			var g = (function () {
-				function e(t, n, r, i, a) {
+				function e(t, n, r, i, a, s) {
 					o()(this, e),
 						(this.rootSelector = { id: '_root', uuid: '0' }),
 						(this._id = t),
@@ -7761,6 +7764,9 @@ More info at: http://icanhazjs.com
 						(this.urlPattern = r),
 						(this.model = new f.a(i)),
 						(this.selectors = new c.a(a || [])),
+						(this.torches = (s || []).map(function (t) {
+							return d.b.fromObj(t);
+						})),
 						(this.sitemapSpecificationVersion = h.a.currentVersion());
 				}
 				return u()(
@@ -7793,7 +7799,7 @@ More info at: http://icanhazjs.com
 						{
 							key: 'getPossibleParentSelectorIds',
 							value: function () {
-								var t = [p({}, this.rootSelector)];
+								var t = [v({}, this.rootSelector)];
 								return (
 									this.selectors.forEach(function (e) {
 										e.canHaveChildSelectors() &&
@@ -7999,8 +8005,55 @@ More info at: http://icanhazjs.com
 									t.startUrls,
 									t.urlPattern,
 									t.model,
-									t.selectors
+									t.selectors,
+									t.torches
 								);
+							},
+						},
+						{
+							key: 'addTorch',
+							value: function (t) {
+								var e = d.b.fromObj(t);
+								return this.torches.push(e), e;
+							},
+						},
+						{
+							key: 'getTorch',
+							value: function (t) {
+								return this.torches.find(function (e) {
+									return e.id === t;
+								});
+							},
+						},
+						{
+							key: 'updateTorch',
+							value: function (t, e) {
+								var n = this.torches.findIndex(function (e) {
+									return e.id === t;
+								});
+								return -1 !== n
+									? ((this.torches[n] = d.b.fromObj(
+											v(v({}, this.torches[n].toJSON()), e)
+									  )),
+									  this.torches[n])
+									: null;
+							},
+						},
+						{
+							key: 'deleteTorch',
+							value: function (t) {
+								var e = this.torches.findIndex(function (e) {
+									return e.id === t;
+								});
+								return -1 !== e && (this.torches.splice(e, 1), !0);
+							},
+						},
+						{
+							key: 'getEnabledTorches',
+							value: function () {
+								return this.torches.filter(function (t) {
+									return t.enabled;
+								});
 							},
 						},
 					],
@@ -8013,7 +8066,8 @@ More info at: http://icanhazjs.com
 									t.startUrls,
 									t.urlPattern,
 									t.model,
-									t.selectors
+									t.selectors,
+									t.torches
 								);
 								return t._rev && (n._rev = t._rev), n;
 							},
@@ -8059,12 +8113,12 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9);
+		var r = n(8);
 		t.exports = r({}.isPrototypeOf);
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(105),
+		var r = n(109),
 			i = n(15),
 			a = n(44),
 			o = n(17)('toStringTag'),
@@ -8100,18 +8154,31 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9);
+		var r = n(8);
 		t.exports = r([].slice);
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8).navigator,
+		var r = n(10),
+			i = n(37).filter;
+		r(
+			{ target: 'Array', proto: !0, forced: !n(110)('filter') },
+			{
+				filter: function (t) {
+					return i(this, t, arguments.length > 1 ? arguments[1] : void 0);
+				},
+			}
+		);
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(9).navigator,
 			i = r && r.userAgent;
 		t.exports = i ? String(i) : '';
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(232);
+		var r = n(239);
 		t.exports = function (t) {
 			var e = +t;
 			return e != e || 0 === e ? 0 : r(e);
@@ -8120,13 +8187,13 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r,
-			i = n(24),
-			a = n(189),
-			o = n(142),
-			s = n(89),
-			u = n(177),
-			l = n(101),
-			c = n(104),
+			i = n(25),
+			a = n(193),
+			o = n(145),
+			s = n(91),
+			u = n(181),
+			l = n(104),
+			c = n(108),
 			f = c('IE_PROTO'),
 			h = function () {},
 			d = function (t) {
@@ -8137,12 +8204,12 @@ More info at: http://icanhazjs.com
 				var e = t.parentWindow.Object;
 				return (t = null), e;
 			},
-			g = function () {
+			v = function () {
 				try {
 					r = new ActiveXObject('htmlfile');
 				} catch (t) {}
 				var t, e;
-				g =
+				v =
 					'undefined' != typeof document
 						? document.domain && r
 							? p(r)
@@ -8154,8 +8221,8 @@ More info at: http://icanhazjs.com
 							  t.close(),
 							  t.F)
 						: p(r);
-				for (var n = o.length; n--; ) delete g.prototype[o[n]];
-				return g();
+				for (var n = o.length; n--; ) delete v.prototype[o[n]];
+				return v();
 			};
 		(s[f] = !0),
 			(t.exports =
@@ -8168,7 +8235,7 @@ More info at: http://icanhazjs.com
 							  (n = new h()),
 							  (h.prototype = null),
 							  (n[f] = t))
-							: (n = g()),
+							: (n = v()),
 						void 0 === e ? n : a.f(n, e)
 					);
 				});
@@ -8184,7 +8251,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(150),
+		var r = n(153),
 			i = n(32);
 		t.exports = function (t, e, n) {
 			return (
@@ -8196,16 +8263,28 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(10),
-			i = n(38).filter;
-		r(
-			{ target: 'Array', proto: !0, forced: !n(106)('filter') },
-			{
-				filter: function (t) {
-					return i(this, t, arguments.length > 1 ? arguments[1] : void 0);
+		var r = n(92).PROPER,
+			i = n(28),
+			a = n(25),
+			o = n(27),
+			s = n(7),
+			u = n(213),
+			l = RegExp.prototype,
+			c = l.toString,
+			f = s(function () {
+				return '/a/b' !== c.call({ source: 'a', flags: 'b' });
+			}),
+			h = r && 'toString' !== c.name;
+		(f || h) &&
+			i(
+				l,
+				'toString',
+				function () {
+					var t = a(this);
+					return '/' + o(t.source) + '/' + o(u(t));
 				},
-			}
-		);
+				{ unsafe: !0 }
+			);
 	},
 	function (t, e, n) {
 		'use strict';
@@ -8217,6 +8296,19 @@ More info at: http://icanhazjs.com
 				return 'Object';
 			}
 		};
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(10),
+			i = n(182).trim;
+		r(
+			{ target: 'String', proto: !0, forced: n(283)('trim') },
+			{
+				trim: function () {
+					return i(this);
+				},
+			}
+		);
 	},
 	function (t, e, n) {
 		'use strict';
@@ -8234,11 +8326,11 @@ More info at: http://icanhazjs.com
 			c = n.n(l),
 			f = n(12),
 			h = n.n(f),
-			d = n(67),
+			d = n(69),
 			p = n.n(d),
-			g = (n(125), n(74), n(20), n(36), n(16)),
-			v = n(2),
-			m = n.n(v),
+			v = (n(130), n(75), n(20), n(35), n(16)),
+			g = n(2),
+			m = n.n(g),
 			y = n(1),
 			b = n.n(y);
 		function x(t, e, n) {
@@ -8261,7 +8353,7 @@ More info at: http://icanhazjs.com
 				)
 			);
 		}
-		var S = (function (t) {
+		var w = (function (t) {
 				function e(t) {
 					var n;
 					return i()(this, e), (n = x(this, e, [t])).updateData(t, n.getFeatures()), n;
@@ -8341,8 +8433,8 @@ More info at: http://icanhazjs.com
 					])
 				);
 				var n;
-			})(g.a),
-			w = (n(102), n(39), n(0));
+			})(v.a),
+			S = (n(76), n(38), n(0));
 		function A(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -8415,7 +8507,7 @@ More info at: http://icanhazjs.com
 															return (
 																(n = this.getDataElements(e)),
 																(r = n.map(function (t) {
-																	var e = w(t).clone();
+																	var e = S(t).clone();
 																	return (
 																		e
 																			.find('script, style')
@@ -8459,10 +8551,10 @@ More info at: http://icanhazjs.com
 					])
 				);
 				var n;
-			})(g.a),
-			C = (n(99), n(121), n(88), n(96), n(30), n(65), n(25)),
-			E = n.n(C);
-		n(59), n(49), n(79);
+			})(v.a),
+			T = (n(90), n(102), n(89), n(99), n(31), n(60), n(24)),
+			C = n.n(T);
+		n(54), n(49), n(80);
 		function _(t, e) {
 			var n = ('undefined' != typeof Symbol && t[Symbol.iterator]) || t['@@iterator'];
 			if (!n) {
@@ -8470,7 +8562,7 @@ More info at: http://icanhazjs.com
 					Array.isArray(t) ||
 					(n = (function (t, e) {
 						if (t) {
-							if ('string' == typeof t) return T(t, e);
+							if ('string' == typeof t) return E(t, e);
 							var n = {}.toString.call(t).slice(8, -1);
 							return (
 								'Object' === n && t.constructor && (n = t.constructor.name),
@@ -8478,7 +8570,7 @@ More info at: http://icanhazjs.com
 									? Array.from(t)
 									: 'Arguments' === n ||
 									  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-									? T(t, e)
+									? E(t, e)
 									: void 0
 							);
 						}
@@ -8526,7 +8618,7 @@ More info at: http://icanhazjs.com
 				},
 			};
 		}
-		function T(t, e) {
+		function E(t, e) {
 			(null == e || e > t.length) && (e = t.length);
 			for (var n = 0, r = Array(e); n < e; n++) r[n] = t[n];
 			return r;
@@ -8649,7 +8741,7 @@ More info at: http://icanhazjs.com
 															break;
 														}
 														if (
-															((u = E()(s.value, 2)),
+															((u = C()(s.value, 2)),
 															(l = u[0]),
 															(c = u[1]),
 															(t.prev = 11),
@@ -8756,7 +8848,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n;
-		})(g.a);
+		})(v.a);
 		n(48);
 		function O(t, e) {
 			var n = ('undefined' != typeof Symbol && t[Symbol.iterator]) || t['@@iterator'];
@@ -8914,7 +9006,7 @@ More info at: http://icanhazjs.com
 														}
 														return (
 															(o = a.value),
-															(s = w(o).text()),
+															(s = S(o).text()),
 															(t.next = 12),
 															this.getPopupURL(o)
 														);
@@ -8966,7 +9058,7 @@ More info at: http://icanhazjs.com
 							var r = Math.ceil(5e3 / 30);
 							return new Promise(function (e) {
 								var i = setInterval(function () {
-									var a = w(t).data('web-scraper-extract-url');
+									var a = S(t).data('web-scraper-extract-url');
 									a && (clearInterval(i), n.remove(), e(a)),
 										--r || (clearInterval(i), n.remove());
 								}, 30);
@@ -8994,7 +9086,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n;
-		})(g.a);
+		})(v.a);
 		function P(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -9067,7 +9159,7 @@ More info at: http://icanhazjs.com
 														return (
 															this.getDataElements(e).forEach(
 																function (t) {
-																	return w(t).val(n.value);
+																	return S(t).val(n.value);
 																}
 															),
 															t.abrupt('return', [
@@ -9103,7 +9195,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n;
-		})(g.a);
+		})(v.a);
 		function j(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -9205,7 +9297,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n;
-		})(g.a);
+		})(v.a);
 		function B(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -9290,7 +9382,7 @@ More info at: http://icanhazjs.com
 														return t.abrupt(
 															'return',
 															n.map(function (t) {
-																var e = w(t),
+																var e = S(t),
 																	n = e.text(),
 																	i = r.extractAttribute
 																		? e.attr(r.extractAttribute)
@@ -9350,7 +9442,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n;
-		})(g.a);
+		})(v.a);
 		function U(t, e) {
 			var n = ('undefined' != typeof Symbol && t[Symbol.iterator]) || t['@@iterator'];
 			if (!n) {
@@ -9510,7 +9602,7 @@ More info at: http://icanhazjs.com
 																return (
 																	null == e &&
 																		((e =
-																			w(t).css(
+																			S(t).css(
 																				'background-image'
 																			)),
 																		(e = (e =
@@ -9546,7 +9638,7 @@ More info at: http://icanhazjs.com
 															break;
 														}
 														if (
-															((u = E()(s.value, 2))[0],
+															((u = C()(s.value, 2))[0],
 															(l = u[1]),
 															(t.prev = 11),
 															!l)
@@ -9651,7 +9743,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n;
-		})(g.a);
+		})(v.a);
 		function q(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -9725,14 +9817,14 @@ More info at: http://icanhazjs.com
 																(n = this.getDataElements(e)),
 																(r = this.outerHTML
 																	? n.map(function (t) {
-																			return w('<div>')
+																			return S('<div>')
 																				.append(
-																					w(t).clone()
+																					S(t).clone()
 																				)
 																				.html();
 																	  })
 																	: n.map(function (t) {
-																			return w(t).html();
+																			return S(t).html();
 																	  })),
 																this.multiple ||
 																	(r = r.length ? r[0] : null),
@@ -9775,8 +9867,8 @@ More info at: http://icanhazjs.com
 					])
 				);
 				var n;
-			})(g.a),
-			G = n(122),
+			})(v.a),
+			G = n(127),
 			K = n.n(G);
 		function Y(t, e, n) {
 			return (
@@ -9862,7 +9954,7 @@ More info at: http://icanhazjs.com
 													case 2:
 														return (
 															(r = t.sent),
-															(i = E()(r, 1)),
+															(i = C()(r, 1)),
 															(a = i[0][this.id]),
 															t.abrupt('return', [
 																{ [this.id]: JSON.stringify(a) },
@@ -9896,9 +9988,9 @@ More info at: http://icanhazjs.com
 												switch ((t.prev = t.next)) {
 													case 0:
 														return (
-															(n = w(this.selector, e)),
-															(r = w.map(n, function (t) {
-																var e = w(t),
+															(n = S(this.selector, e)),
+															(r = S.map(n, function (t) {
+																var e = S(t),
 																	n = { [i.id]: e.text() };
 																return (
 																	i.extractAttribute &&
@@ -9951,7 +10043,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n, r;
-		})(g.a);
+		})(v.a);
 		function X(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -10026,7 +10118,7 @@ More info at: http://icanhazjs.com
 															return (
 																(n = this.getDataElements(e)),
 																(r = n.map(function (t) {
-																	return w(t).css(i.extractStyle);
+																	return S(t).css(i.extractStyle);
 																})),
 																this.multiple ||
 																	(r = r.length ? r[0] : null),
@@ -10069,9 +10161,9 @@ More info at: http://icanhazjs.com
 					])
 				);
 				var n;
-			})(g.a),
-			tt = (n(219), n(84), n(66)),
-			et = n(109);
+			})(v.a),
+			tt = (n(228), n(85), n(68)),
+			et = n(115);
 		function nt(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -10195,7 +10287,7 @@ More info at: http://icanhazjs.com
 																this.getClickElementUniquenessType()
 															)),
 															(u = o),
-															(l = E()(u, 1)),
+															(l = C()(u, 1)),
 															(c = l[0]),
 															'clickOnce' === this.clickType &&
 																s.push(c),
@@ -10250,7 +10342,7 @@ More info at: http://icanhazjs.com
 																				else {
 																					i++;
 																					var d = o,
-																						p = E()(
+																						p = C()(
 																							d,
 																							1
 																						);
@@ -10338,7 +10430,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n, r;
-		})(g.a);
+		})(v.a);
 		function it(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -10536,7 +10628,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n, r;
-		})(g.a);
+		})(v.a);
 		function ot(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -10611,7 +10703,7 @@ More info at: http://icanhazjs.com
 															return (
 																(n = this.getDataElements(e)),
 																(r = n.map(function (t) {
-																	return w(t).attr(
+																	return S(t).attr(
 																		i.extractAttribute
 																	);
 																})),
@@ -10656,8 +10748,8 @@ More info at: http://icanhazjs.com
 					])
 				);
 				var n;
-			})(g.a),
-			ut = n(148);
+			})(v.a),
+			ut = n(151);
 		function lt(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -10758,7 +10850,7 @@ More info at: http://icanhazjs.com
 				])
 			);
 			var n;
-		})(g.a);
+		})(v.a);
 		function ft(t, e, n) {
 			return (
 				(e = c()(e)),
@@ -10795,7 +10887,7 @@ More info at: http://icanhazjs.com
 							key: 'push',
 							value: function (t) {
 								this.hasSelector(t.uuid) ||
-									(t instanceof g.a || (t = e.createSelector(t)),
+									(t instanceof v.a || (t = e.createSelector(t)),
 									Array.prototype.push.call(this, t));
 							},
 						},
@@ -11002,7 +11094,7 @@ More info at: http://icanhazjs.com
 							value: function (t) {
 								switch (t.type) {
 									case 'ConstantValue':
-										return new S(t);
+										return new w(t);
 									case 'SelectorPageURL':
 										return new ct(t);
 									case 'SelectorDocument':
@@ -11044,8 +11136,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(34),
-			i = n(42);
+		var r = n(33),
+			i = n(43);
 		t.exports = function (t, e) {
 			var n = t[e];
 			return i(n) ? void 0 : r(n);
@@ -11053,7 +11145,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(55),
+		var r = n(56),
 			i = Math.min;
 		t.exports = function (t) {
 			var e = r(t);
@@ -11068,28 +11160,21 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(90).PROPER,
-			i = n(28),
-			a = n(24),
-			o = n(27),
-			s = n(7),
-			u = n(209),
-			l = RegExp.prototype,
-			c = l.toString,
-			f = s(function () {
-				return '/a/b' !== c.call({ source: 'a', flags: 'b' });
-			}),
-			h = r && 'toString' !== c.name;
-		(f || h) &&
-			i(
-				l,
-				'toString',
-				function () {
-					var t = a(this);
-					return '/' + o(t.source) + '/' + o(u(t));
-				},
-				{ unsafe: !0 }
-			);
+		var r,
+			i,
+			a = n(9),
+			o = n(55),
+			s = a.process,
+			u = a.Deno,
+			l = (s && s.versions) || (u && u.version),
+			c = l && l.v8;
+		c && (i = (r = c.split('.'))[0] > 0 && r[0] < 4 ? 1 : +(r[0] + r[1])),
+			!i &&
+				o &&
+				(!(r = o.match(/Edge\/(\d+)/)) || r[1] >= 74) &&
+				(r = o.match(/Chrome\/(\d+)/)) &&
+				(i = +r[1]),
+			(t.exports = i);
 	},
 	function (t, e, n) {
 		'use strict';
@@ -11097,7 +11182,7 @@ More info at: http://icanhazjs.com
 			n.d(e, 'a', function () {
 				return r;
 			});
-			n(74), n(20), n(30), n(248), n(69), n(36);
+			n(75), n(20), n(31), n(253), n(62), n(35);
 			function r(e, n) {
 				var r = [],
 					i = function (t) {
@@ -11133,9 +11218,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		var r = n(5),
-			i = n(162),
-			a = n(286),
-			o = n(287);
+			i = n(167),
+			a = n(292),
+			o = n(293);
 		function s(e) {
 			var n = 'function' == typeof Map ? new Map() : void 0;
 			return (
@@ -11174,30 +11259,30 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(73),
+		var r = n(74),
 			i = n(18),
-			a = n(9),
-			o = n(131),
+			a = n(8),
+			o = n(134),
 			s = n(7),
-			u = n(24),
+			u = n(25),
 			l = n(15),
-			c = n(42),
-			f = n(55),
-			h = n(63),
+			c = n(43),
+			f = n(56),
+			h = n(65),
 			d = n(27),
-			p = n(40),
-			g = n(157),
-			v = n(62),
-			m = n(264),
-			y = n(132),
+			p = n(41),
+			v = n(160),
+			g = n(64),
+			m = n(270),
+			y = n(135),
 			b = n(17)('replace'),
 			x = Math.max,
-			S = Math.min,
-			w = a([].concat),
+			w = Math.min,
+			S = a([].concat),
 			A = a([].push),
 			k = a(''.indexOf),
-			C = a(''.slice),
-			E = '$0' === 'a'.replace(/./, '$0'),
+			T = a(''.slice),
+			C = '$0' === 'a'.replace(/./, '$0'),
 			_ = !!/./[b] && '' === /./[b]('a', '$0');
 		o(
 			'replace',
@@ -11206,7 +11291,7 @@ More info at: http://icanhazjs.com
 				return [
 					function (t, n) {
 						var r = p(this),
-							a = c(t) ? void 0 : v(t, b);
+							a = c(t) ? void 0 : g(t, b);
 						return a ? i(a, t, r, n) : i(e, d(r), t, n);
 					},
 					function (t, i) {
@@ -11218,31 +11303,31 @@ More info at: http://icanhazjs.com
 						}
 						var p = l(i);
 						p || (i = d(i));
-						var v,
+						var g,
 							b = o.global;
-						b && ((v = o.unicode), (o.lastIndex = 0));
-						for (var E, _ = []; null !== (E = y(o, s)) && (A(_, E), b); ) {
-							'' === d(E[0]) && (o.lastIndex = g(s, h(o.lastIndex), v));
+						b && ((g = o.unicode), (o.lastIndex = 0));
+						for (var C, _ = []; null !== (C = y(o, s)) && (A(_, C), b); ) {
+							'' === d(C[0]) && (o.lastIndex = v(s, h(o.lastIndex), g));
 						}
-						for (var T, M = '', I = 0, O = 0; O < _.length; O++) {
+						for (var E, M = '', I = 0, O = 0; O < _.length; O++) {
 							for (
 								var R,
-									D = d((E = _[O])[0]),
-									N = x(S(f(E.index), s.length), 0),
+									D = d((C = _[O])[0]),
+									N = x(w(f(C.index), s.length), 0),
 									P = [],
 									L = 1;
-								L < E.length;
+								L < C.length;
 								L++
 							)
-								A(P, void 0 === (T = E[L]) ? T : String(T));
-							var j = E.groups;
+								A(P, void 0 === (E = C[L]) ? E : String(E));
+							var j = C.groups;
 							if (p) {
-								var $ = w([D], P, N, s);
+								var $ = S([D], P, N, s);
 								void 0 !== j && A($, j), (R = d(r(i, void 0, $)));
 							} else R = m(D, s, N, P, j, i);
-							N >= I && ((M += C(s, I, N) + R), (I = N + D.length));
+							N >= I && ((M += T(s, I, N) + R), (I = N + D.length));
 						}
-						return M + C(s, I);
+						return M + T(s, I);
 					},
 				];
 			},
@@ -11256,28 +11341,15 @@ More info at: http://icanhazjs.com
 					'7' !== ''.replace(t, '$<a>')
 				);
 			}) ||
-				!E ||
+				!C ||
 				_
 		);
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(10),
-			i = n(178).trim;
-		r(
-			{ target: 'String', proto: !0, forced: n(277)('trim') },
-			{
-				trim: function () {
-					return i(this);
-				},
-			}
-		);
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(75),
+		var r = n(67),
 			i = n(7),
-			a = n(8).String;
+			a = n(9).String;
 		t.exports =
 			!!Object.getOwnPropertySymbols &&
 			!i(function () {
@@ -11287,7 +11359,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(103);
+		var r = n(107);
 		t.exports = function (t, e) {
 			return r[t] || (r[t] = e || {});
 		};
@@ -11303,7 +11375,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(76),
+		var r = n(77),
 			i = Function.prototype,
 			a = i.apply,
 			o = i.call;
@@ -11318,9 +11390,9 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(116),
-			a = n(97).indexOf,
-			o = n(130),
+			i = n(122),
+			a = n(100).indexOf,
+			o = n(112),
 			s = i([].indexOf),
 			u = !!s && 1 / s([1], 1, -0) < 0;
 		r(
@@ -11335,21 +11407,23 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r,
-			i,
-			a = n(8),
-			o = n(54),
-			s = a.process,
-			u = a.Deno,
-			l = (s && s.versions) || (u && u.version),
-			c = l && l.v8;
-		c && (i = (r = c.split('.'))[0] > 0 && r[0] < 4 ? 1 : +(r[0] + r[1])),
-			!i &&
-				o &&
-				(!(r = o.match(/Edge\/(\d+)/)) || r[1] >= 74) &&
-				(r = o.match(/Chrome\/(\d+)/)) &&
-				(i = +r[1]),
-			(t.exports = i);
+		var r = n(10),
+			i = n(37).find,
+			a = n(105),
+			o = !0;
+		'find' in [] &&
+			Array(1).find(function () {
+				o = !1;
+			}),
+			r(
+				{ target: 'Array', proto: !0, forced: o },
+				{
+					find: function (t) {
+						return i(this, t, arguments.length > 1 ? arguments[1] : void 0);
+					},
+				}
+			),
+			a('find');
 	},
 	function (t, e, n) {
 		'use strict';
@@ -11361,19 +11435,19 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8);
+		var r = n(9);
 		t.exports = r.Promise;
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(19),
 			i = n(18),
-			a = n(112),
-			o = n(64),
-			s = n(41),
-			u = n(100),
+			a = n(118),
+			o = n(66),
+			s = n(42),
+			u = n(103),
 			l = n(22),
-			c = n(149),
+			c = n(152),
 			f = Object.getOwnPropertyDescriptor;
 		e.f = r
 			? f
@@ -11387,12 +11461,12 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
-			i = n(199),
-			a = n(200),
+		var r = n(9),
+			i = n(203),
+			a = n(204),
 			o = n(49),
 			s = n(45),
-			u = n(57),
+			u = n(58),
 			l = n(17)('iterator'),
 			c = o.values,
 			f = function (t, e) {
@@ -11418,10 +11492,10 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(33),
+		var r = n(34),
 			i = n(15),
 			a = n(51),
-			o = n(140),
+			o = n(143),
 			s = Object;
 		t.exports = o
 			? function (t) {
@@ -11434,7 +11508,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = 0,
 			a = Math.random(),
 			o = r((1).toString);
@@ -11444,8 +11518,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(176),
-			i = n(142).concat('length', 'prototype');
+		var r = n(180),
+			i = n(145).concat('length', 'prototype');
 		e.f =
 			Object.getOwnPropertyNames ||
 			function (t) {
@@ -11454,7 +11528,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(55),
+		var r = n(56),
 			i = Math.max,
 			a = Math.min;
 		t.exports = function (t, e) {
@@ -11465,15 +11539,15 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(260);
+			i = n(266);
 		r({ global: !0, forced: parseInt !== i }, { parseInt: i });
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(234),
+		var r = n(241),
 			i = n(21),
-			a = n(40),
-			o = n(235);
+			a = n(41),
+			o = n(242);
 		t.exports =
 			Object.setPrototypeOf ||
 			('__proto__' in {}
@@ -11493,20 +11567,20 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
-			i = n(77),
+		var r = n(9),
+			i = n(78),
 			a = n(15),
-			o = n(111),
-			s = n(114),
+			o = n(117),
+			s = n(120),
 			u = n(17),
-			l = n(168),
-			c = n(37),
-			f = n(75),
+			l = n(172),
+			c = n(39),
+			f = n(67),
 			h = i && i.prototype,
 			d = u('species'),
 			p = !1,
-			g = a(r.PromiseRejectionEvent),
-			v = o('Promise', function () {
+			v = a(r.PromiseRejectionEvent),
+			g = o('Promise', function () {
 				var t = s(i),
 					e = t !== String(i);
 				if (!e && 66 === f) return !0;
@@ -11524,13 +11598,13 @@ More info at: http://icanhazjs.com
 					if ((((n.constructor = {})[d] = r), !(p = n.then(function () {}) instanceof r)))
 						return !0;
 				}
-				return !(e || ('BROWSER' !== l && 'DENO' !== l) || g);
+				return !(e || ('BROWSER' !== l && 'DENO' !== l) || v);
 			});
-		t.exports = { CONSTRUCTOR: v, REJECTION_EVENT: g, SUBCLASSING: p };
+		t.exports = { CONSTRUCTOR: g, REJECTION_EVENT: v, SUBCLASSING: p };
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(34),
+		var r = n(33),
 			i = TypeError,
 			a = function (t) {
 				var e, n;
@@ -11548,17 +11622,21 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(202);
+			i = n(206);
 		r(
 			{
 				target: 'Array',
 				stat: !0,
-				forced: !n(120)(function (t) {
+				forced: !n(126)(function (t) {
 					Array.from(t);
 				}),
 			},
 			{ from: i }
 		);
+	},
+	function (t, e, n) {
+		'use strict';
+		n(272), n(276), n(277), n(278), n(280);
 	},
 	function (t, e, n) {
 		'use strict';
@@ -11588,65 +11666,484 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(19),
 			i = n(32),
-			a = n(64);
+			a = n(66);
 		t.exports = function (t, e, n) {
 			r ? i.f(t, e, a(0, n)) : (t[e] = n);
 		};
 	},
 	function (t, e, n) {
 		'use strict';
+		n.d(e, 'a', function () {
+			return v;
+		}),
+			n.d(e, 'b', function () {
+				return y;
+			});
+		var r = n(114),
+			i = n.n(r),
+			a = n(128),
+			o = n.n(a),
+			s = n(24),
+			u = n.n(s),
+			l = n(3),
+			c = n.n(l),
+			f = n(4),
+			h = n.n(f);
+		n(90),
+			n(102),
+			n(54),
+			n(76),
+			n(207),
+			n(38),
+			n(341),
+			n(106),
+			n(256),
+			n(185),
+			n(20),
+			n(60),
+			n(62),
+			n(35);
+		function d(t, e) {
+			var n = Object.keys(t);
+			if (Object.getOwnPropertySymbols) {
+				var r = Object.getOwnPropertySymbols(t);
+				e &&
+					(r = r.filter(function (e) {
+						return Object.getOwnPropertyDescriptor(t, e).enumerable;
+					})),
+					n.push.apply(n, r);
+			}
+			return n;
+		}
+		function p(t) {
+			for (var e = 1; e < arguments.length; e++) {
+				var n = null != arguments[e] ? arguments[e] : {};
+				e % 2
+					? d(Object(n), !0).forEach(function (e) {
+							i()(t, e, n[e]);
+					  })
+					: Object.getOwnPropertyDescriptors
+					? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n))
+					: d(Object(n)).forEach(function (e) {
+							Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(n, e));
+					  });
+			}
+			return t;
+		}
+		var v = {
+				CLICK_ONE: 'click_one',
+				CLICK_ALL: 'click_all',
+				LOAD_MORE: 'load_more',
+				SCROLL: 'scroll',
+				WAIT: 'wait',
+				HOVER: 'hover',
+			},
+			g = (function () {
+				function t() {
+					var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+					c()(this, t),
+						(this.type = e.type || v.WAIT),
+						(this.selector = e.selector || ''),
+						(this.value = e.value || ''),
+						(this.repeat = e.repeat || 1),
+						(this.delay = e.delay || 0),
+						(this.enabled = !1 !== e.enabled);
+				}
+				return h()(
+					t,
+					[
+						{
+							key: 'toJSON',
+							value: function () {
+								return {
+									type: this.type,
+									selector: this.selector,
+									value: this.value,
+									repeat: this.repeat,
+									delay: this.delay,
+									enabled: this.enabled,
+								};
+							},
+						},
+					],
+					[
+						{
+							key: 'fromObj',
+							value: function (e) {
+								return new t(e);
+							},
+						},
+					]
+				);
+			})(),
+			m = (function () {
+				function t() {
+					var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+					c()(this, t),
+						(this.id = e.id || this.generateId()),
+						(this.name = e.name || ''),
+						(this.selector = e.selector || ''),
+						(this.attribute = e.attribute || 'text'),
+						(this.multiple = e.multiple || !1),
+						(this.regex = e.regex || ''),
+						(this.regexGroup = e.regexGroup || 0),
+						(this.transform = e.transform || ''),
+						(this.order = void 0 !== e.order ? e.order : 0),
+						(this.enabled = !1 !== e.enabled);
+				}
+				return h()(
+					t,
+					[
+						{
+							key: 'generateId',
+							value: function () {
+								return (
+									'col_' +
+									Date.now().toString(36) +
+									Math.random().toString(36).substr(2, 5)
+								);
+							},
+						},
+						{
+							key: 'toJSON',
+							value: function () {
+								return {
+									id: this.id,
+									name: this.name,
+									selector: this.selector,
+									attribute: this.attribute,
+									multiple: this.multiple,
+									regex: this.regex,
+									regexGroup: this.regexGroup,
+									transform: this.transform,
+									order: this.order,
+									enabled: this.enabled,
+								};
+							},
+						},
+					],
+					[
+						{
+							key: 'fromObj',
+							value: function (e) {
+								return new t(e);
+							},
+						},
+					]
+				);
+			})(),
+			y = (function () {
+				function t() {
+					var e,
+						n,
+						r,
+						i,
+						a,
+						o = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+					c()(this, t),
+						(this.id = o.id || this.generateId()),
+						(this.name = o.name || ''),
+						(this.description = o.description || ''),
+						(this.createdAt = o.createdAt || new Date().toISOString()),
+						(this.updatedAt = o.updatedAt || new Date().toISOString()),
+						(this.enabled = !1 !== o.enabled),
+						(this.preActions = (o.preActions || []).map(function (t) {
+							return g.fromObj(t);
+						})),
+						(this.columns = (o.columns || []).map(function (t) {
+							return m.fromObj(t);
+						})),
+						(this.pagination = {
+							enabled:
+								(null === (e = o.pagination) || void 0 === e
+									? void 0
+									: e.enabled) || !1,
+							type:
+								(null === (n = o.pagination) || void 0 === n ? void 0 : n.type) ||
+								'next_button',
+							selector:
+								(null === (r = o.pagination) || void 0 === r
+									? void 0
+									: r.selector) || '',
+							maxPages:
+								(null === (i = o.pagination) || void 0 === i
+									? void 0
+									: i.maxPages) || 10,
+							delay:
+								(null === (a = o.pagination) || void 0 === a ? void 0 : a.delay) ||
+								1e3,
+						});
+				}
+				return h()(
+					t,
+					[
+						{
+							key: 'generateId',
+							value: function () {
+								return (
+									'torch_' +
+									Date.now().toString(36) +
+									Math.random().toString(36).substr(2, 5)
+								);
+							},
+						},
+						{
+							key: 'addPreAction',
+							value: function (t) {
+								var e = new g(t);
+								return (
+									this.preActions.push(e),
+									(this.updatedAt = new Date().toISOString()),
+									e
+								);
+							},
+						},
+						{
+							key: 'removePreAction',
+							value: function (t) {
+								t >= 0 &&
+									t < this.preActions.length &&
+									(this.preActions.splice(t, 1),
+									(this.updatedAt = new Date().toISOString()));
+							},
+						},
+						{
+							key: 'reorderPreActions',
+							value: function (t, e) {
+								if (
+									t >= 0 &&
+									t < this.preActions.length &&
+									e >= 0 &&
+									e < this.preActions.length
+								) {
+									var n = this.preActions.splice(t, 1),
+										r = u()(n, 1)[0];
+									this.preActions.splice(e, 0, r),
+										(this.updatedAt = new Date().toISOString());
+								}
+							},
+						},
+						{
+							key: 'addColumn',
+							value: function (t) {
+								var e = new m(t);
+								return (
+									(e.order = this.columns.length),
+									this.columns.push(e),
+									(this.updatedAt = new Date().toISOString()),
+									e
+								);
+							},
+						},
+						{
+							key: 'removeColumn',
+							value: function (t) {
+								var e = this.columns.findIndex(function (e) {
+									return e.id === t;
+								});
+								-1 !== e &&
+									(this.columns.splice(e, 1),
+									this.columns.forEach(function (t, e) {
+										t.order = e;
+									}),
+									(this.updatedAt = new Date().toISOString()));
+							},
+						},
+						{
+							key: 'updateColumn',
+							value: function (t, e) {
+								var n = this.columns.find(function (e) {
+									return e.id === t;
+								});
+								return (
+									n &&
+										(Object.assign(n, e),
+										(this.updatedAt = new Date().toISOString())),
+									n
+								);
+							},
+						},
+						{
+							key: 'reorderColumns',
+							value: function (t, e) {
+								if (
+									t >= 0 &&
+									t < this.columns.length &&
+									e >= 0 &&
+									e < this.columns.length
+								) {
+									var n = this.columns.splice(t, 1),
+										r = u()(n, 1)[0];
+									this.columns.splice(e, 0, r),
+										this.columns.forEach(function (t, e) {
+											t.order = e;
+										}),
+										(this.updatedAt = new Date().toISOString());
+								}
+							},
+						},
+						{
+							key: 'getSortedColumns',
+							value: function () {
+								return o()(this.columns).sort(function (t, e) {
+									return t.order - e.order;
+								});
+							},
+						},
+						{
+							key: 'getEnabledColumns',
+							value: function () {
+								return this.getSortedColumns().filter(function (t) {
+									return t.enabled;
+								});
+							},
+						},
+						{
+							key: 'getEnabledPreActions',
+							value: function () {
+								return this.preActions.filter(function (t) {
+									return t.enabled;
+								});
+							},
+						},
+						{
+							key: 'validate',
+							value: function () {
+								var t = [];
+								return (
+									(this.name && '' !== this.name.trim()) ||
+										t.push({
+											field: 'name',
+											message: 'Torch name is required',
+										}),
+									0 === this.columns.length &&
+										t.push({
+											field: 'columns',
+											message: 'At least one column is required',
+										}),
+									this.columns.forEach(function (e, n) {
+										(e.name && '' !== e.name.trim()) ||
+											t.push({
+												field: `columns[${n}].name`,
+												message: `Column ${n + 1} name is required`,
+											}),
+											(e.selector && '' !== e.selector.trim()) ||
+												t.push({
+													field: `columns[${n}].selector`,
+													message: `Column ${n + 1} selector is required`,
+												});
+									}),
+									this.preActions.forEach(function (e, n) {
+										e.type === v.WAIT ||
+											(e.selector && '' !== e.selector.trim()) ||
+											t.push({
+												field: `preActions[${n}].selector`,
+												message: `Pre-action ${n + 1} selector is required`,
+											});
+									}),
+									{ valid: 0 === t.length, errors: t }
+								);
+							},
+						},
+						{
+							key: 'clone',
+							value: function () {
+								var e = new t(JSON.parse(JSON.stringify(this)));
+								return (
+									(e.id = this.generateId()),
+									(e.name = this.name + ' (copy)'),
+									(e.createdAt = new Date().toISOString()),
+									(e.updatedAt = new Date().toISOString()),
+									e
+								);
+							},
+						},
+						{
+							key: 'toJSON',
+							value: function () {
+								return {
+									id: this.id,
+									name: this.name,
+									description: this.description,
+									createdAt: this.createdAt,
+									updatedAt: this.updatedAt,
+									enabled: this.enabled,
+									preActions: this.preActions.map(function (t) {
+										return t.toJSON();
+									}),
+									columns: this.columns.map(function (t) {
+										return t.toJSON();
+									}),
+									pagination: p({}, this.pagination),
+								};
+							},
+						},
+					],
+					[
+						{
+							key: 'fromObj',
+							value: function (e) {
+								return new t(e);
+							},
+						},
+					]
+				);
+			})();
+	},
+	function (t, e, n) {
+		'use strict';
 		var r = n(46),
 			i = n(18),
-			a = n(24),
-			o = n(60),
-			s = n(146),
+			a = n(25),
+			o = n(61),
+			s = n(149),
 			u = n(29),
 			l = n(51),
-			c = n(119),
-			f = n(95),
-			h = n(180),
+			c = n(125),
+			f = n(98),
+			h = n(184),
 			d = TypeError,
 			p = function (t, e) {
 				(this.stopped = t), (this.result = e);
 			},
-			g = p.prototype;
+			v = p.prototype;
 		t.exports = function (t, e, n) {
-			var v,
+			var g,
 				m,
 				y,
 				b,
 				x,
-				S,
 				w,
+				S,
 				A = n && n.that,
 				k = !(!n || !n.AS_ENTRIES),
-				C = !(!n || !n.IS_RECORD),
-				E = !(!n || !n.IS_ITERATOR),
+				T = !(!n || !n.IS_RECORD),
+				C = !(!n || !n.IS_ITERATOR),
 				_ = !(!n || !n.INTERRUPTED),
-				T = r(e, A),
+				E = r(e, A),
 				M = function (t) {
-					return v && h(v, 'normal', t), new p(!0, t);
+					return g && h(g, 'normal', t), new p(!0, t);
 				},
 				I = function (t) {
-					return k ? (a(t), _ ? T(t[0], t[1], M) : T(t[0], t[1])) : _ ? T(t, M) : T(t);
+					return k ? (a(t), _ ? E(t[0], t[1], M) : E(t[0], t[1])) : _ ? E(t, M) : E(t);
 				};
-			if (C) v = t.iterator;
-			else if (E) v = t;
+			if (T) g = t.iterator;
+			else if (C) g = t;
 			else {
 				if (!(m = f(t))) throw new d(o(t) + ' is not iterable');
 				if (s(m)) {
-					for (y = 0, b = u(t); b > y; y++) if ((x = I(t[y])) && l(g, x)) return x;
+					for (y = 0, b = u(t); b > y; y++) if ((x = I(t[y])) && l(v, x)) return x;
 					return new p(!1);
 				}
-				v = c(t, m);
+				g = c(t, m);
 			}
-			for (S = C ? t.next : v.next; !(w = i(S, v)).done; ) {
+			for (w = T ? t.next : g.next; !(S = i(w, g)).done; ) {
 				try {
-					x = I(w.value);
+					x = I(S.value);
 				} catch (t) {
-					h(v, 'throw', t);
+					h(g, 'throw', t);
 				}
-				if ('object' == typeof x && x && l(g, x)) return x;
+				if ('object' == typeof x && x && l(v, x)) return x;
 			}
 			return new p(!1);
 		};
@@ -11658,9 +12155,9 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(52),
-			i = n(62),
-			a = n(42),
-			o = n(94),
+			i = n(64),
+			a = n(43),
+			o = n(97),
 			s = n(17)('iterator');
 		t.exports = function (t) {
 			if (!a(t)) return i(t, s) || i(t, '@@iterator') || o[r(t)];
@@ -11669,19 +12166,19 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(91),
-			a = n(117),
+			i = n(93),
+			a = n(123),
 			o = n(21),
-			s = n(83),
+			s = n(84),
 			u = n(29),
-			l = n(41),
-			c = n(92),
+			l = n(42),
+			c = n(94),
 			f = n(17),
-			h = n(106),
+			h = n(110),
 			d = n(53),
 			p = h('slice'),
-			g = f('species'),
-			v = Array,
+			v = f('species'),
+			g = Array,
 			m = Math.max;
 		r(
 			{ target: 'Array', proto: !0, forced: !p },
@@ -11697,12 +12194,12 @@ More info at: http://icanhazjs.com
 					if (
 						i(h) &&
 						((n = h.constructor),
-						((a(n) && (n === v || i(n.prototype))) || (o(n) && null === (n = n[g]))) &&
+						((a(n) && (n === g || i(n.prototype))) || (o(n) && null === (n = n[v]))) &&
 							(n = void 0),
-						n === v || void 0 === n)
+						n === g || void 0 === n)
 					)
 						return d(h, y, b);
-					for (r = new (void 0 === n ? v : n)(m(b - y, 0)), f = 0; y < b; y++, f++)
+					for (r = new (void 0 === n ? g : n)(m(b - y, 0)), f = 0; y < b; y++, f++)
 						y in h && c(r, f, h[y]);
 					return (r.length = f), r;
 				},
@@ -11711,8 +12208,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(41),
-			i = n(83),
+		var r = n(42),
+			i = n(84),
 			a = n(29),
 			o = function (t) {
 				return function (e, n, o) {
@@ -11754,12 +12251,52 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(267), n(271), n(272), n(273), n(275);
+		var r = n(10),
+			i = n(19),
+			a = n(9),
+			o = n(8),
+			s = n(22),
+			u = n(15),
+			l = n(51),
+			c = n(27),
+			f = n(59),
+			h = n(144),
+			d = a.Symbol,
+			p = d && d.prototype;
+		if (i && u(d) && (!('description' in p) || void 0 !== d().description)) {
+			var v = {},
+				g = function () {
+					var t =
+							arguments.length < 1 || void 0 === arguments[0]
+								? void 0
+								: c(arguments[0]),
+						e = l(p, this) ? new d(t) : void 0 === t ? d() : d(t);
+					return '' === t && (v[e] = !0), e;
+				};
+			h(g, d), (g.prototype = p), (p.constructor = g);
+			var m = 'Symbol(description detection)' === String(d('description detection')),
+				y = o(p.valueOf),
+				b = o(p.toString),
+				x = /^Symbol\((.*)\)[^)]+$/,
+				w = o(''.replace),
+				S = o(''.slice);
+			f(p, 'description', {
+				configurable: !0,
+				get: function () {
+					var t = y(this);
+					if (s(v, t)) return '';
+					var e = b(t),
+						n = m ? S(e, 7, -1) : w(e, x, '$1');
+					return '' === n ? void 0 : n;
+				},
+			}),
+				r({ global: !0, constructor: !0, forced: !0 }, { Symbol: g });
+		}
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(152),
-			i = n(80);
+		var r = n(155),
+			i = n(81);
 		t.exports = function (t) {
 			var e = r(t, 'string');
 			return i(e) ? e : e + '';
@@ -11767,7 +12304,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(21),
 			a = r.document,
 			o = i(a) && i(a.createElement);
@@ -11777,29 +12314,76 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(10),
-			i = n(38).find,
-			a = n(124),
-			o = !0;
-		'find' in [] &&
-			Array(1).find(function () {
-				o = !1;
-			}),
-			r(
-				{ target: 'Array', proto: !0, forced: o },
-				{
-					find: function (t) {
-						return i(this, t, arguments.length > 1 ? arguments[1] : void 0);
-					},
-				}
-			),
-			a('find');
+		var r = n(17),
+			i = n(57),
+			a = n(32).f,
+			o = r('unscopables'),
+			s = Array.prototype;
+		void 0 === s[o] && a(s, o, { configurable: !0, value: i(null) }),
+			(t.exports = function (t) {
+				s[o][t] = !0;
+			});
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(37),
-			i = n(8),
-			a = n(110),
+		var r = n(10),
+			i = n(30),
+			a = n(84),
+			o = n(56),
+			s = n(29),
+			u = n(281),
+			l = n(162),
+			c = n(129),
+			f = n(94),
+			h = n(164),
+			d = n(110)('splice'),
+			p = Math.max,
+			v = Math.min;
+		r(
+			{ target: 'Array', proto: !0, forced: !d },
+			{
+				splice: function (t, e) {
+					var n,
+						r,
+						d,
+						g,
+						m,
+						y,
+						b = i(this),
+						x = s(b),
+						w = a(t, x),
+						S = arguments.length;
+					for (
+						0 === S
+							? (n = r = 0)
+							: 1 === S
+							? ((n = 0), (r = x - w))
+							: ((n = S - 2), (r = v(p(o(e), 0), x - w))),
+							l(x + n - r),
+							d = c(b, r),
+							g = 0;
+						g < r;
+						g++
+					)
+						(m = w + g) in b && f(d, g, b[m]);
+					if (((d.length = r), n < r)) {
+						for (g = w; g < x - r; g++)
+							(y = g + n), (m = g + r) in b ? (b[y] = b[m]) : h(b, y);
+						for (g = x; g > x - r + n; g--) h(b, g - 1);
+					} else if (n > r)
+						for (g = x - r; g > w; g--)
+							(y = g + n - 1), (m = g + r - 1) in b ? (b[y] = b[m]) : h(b, y);
+					for (g = 0; g < n; g++) b[g + w] = arguments[g + 2];
+					return u(b, x - r + n), d;
+				},
+			}
+		);
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(39),
+			i = n(9),
+			a = n(116),
 			o = (t.exports = i['__core-js_shared__'] || a('__core-js_shared__', {}));
 		(o.versions || (o.versions = [])).push({
 			version: '3.38.1',
@@ -11811,8 +12395,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(71),
-			i = n(81),
+		var r = n(72),
+			i = n(82),
 			a = r('keys');
 		t.exports = function (t) {
 			return a[t] || (a[t] = i(t));
@@ -11827,7 +12411,7 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(7),
 			i = n(17),
-			a = n(75),
+			a = n(67),
 			o = i('species');
 		t.exports = function (t) {
 			return (
@@ -11846,16 +12430,36 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(168);
+		var r = n(172);
 		t.exports = 'NODE' === r;
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(7);
+		t.exports = function (t, e) {
+			var n = [][t];
+			return (
+				!!n &&
+				r(function () {
+					n.call(
+						null,
+						e ||
+							function () {
+								return 1;
+							},
+						1
+					);
+				})
+			);
+		};
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(22),
 			i = n(15),
-			a = n(31),
-			o = n(104),
-			s = n(265),
+			a = n(30),
+			o = n(108),
+			s = n(271),
 			u = o('IE_PROTO'),
 			l = Object,
 			c = l.prototype;
@@ -11869,12 +12473,30 @@ More info at: http://icanhazjs.com
 			  };
 	},
 	function (t, e, n) {
+		var r = n(159);
+		(t.exports = function (t, e, n) {
+			return (
+				(e = r(e)) in t
+					? Object.defineProperty(t, e, {
+							value: n,
+							enumerable: !0,
+							configurable: !0,
+							writable: !0,
+					  })
+					: (t[e] = n),
+				t
+			);
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
+	},
+	function (t, e, n) {
 		'use strict';
 		(function (t) {
 			n.d(e, 'a', function () {
 				return m;
 			});
-			n(26), n(250);
+			n(26), n(255);
 			var r = n(3),
 				i = n.n(r),
 				a = n(4),
@@ -11885,10 +12507,10 @@ More info at: http://icanhazjs.com
 				c = n.n(l),
 				f = n(12),
 				h = n.n(f),
-				d = n(67),
+				d = n(69),
 				p = n.n(d),
-				g = (n(59), n(20), n(30), n(69), n(147));
-			function v(t, e, n) {
+				v = (n(54), n(20), n(31), n(62), n(150));
+			function g(t, e, n) {
 				return (
 					(e = c()(e)),
 					u()(
@@ -11913,7 +12535,7 @@ More info at: http://icanhazjs.com
 					var e;
 					return (
 						i()(this, n),
-						((e = v(this, n)).clickElementUniquenessType = t),
+						((e = g(this, n)).clickElementUniquenessType = t),
 						(e.addedElements = {}),
 						e
 					);
@@ -11988,7 +12610,7 @@ More info at: http://icanhazjs.com
 									);
 								}
 								if ('uniqueCSSSelector' === this.clickElementUniquenessType)
-									return new g.a({
+									return new v.a({
 										enableSmartTableSelector: !1,
 										parent: t('body')[0],
 										enableResultStripping: !1,
@@ -12013,7 +12635,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = Object.defineProperty;
 		t.exports = function (t, e) {
 			try {
@@ -12055,7 +12677,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = n(7),
 			a = n(44),
 			o = Object,
@@ -12070,9 +12692,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = n(15),
-			a = n(103),
+			a = n(107),
 			o = r(Function.toString);
 		i(a.inspectSource) ||
 			(a.inspectSource = function (t) {
@@ -12087,19 +12709,19 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(44),
-			i = n(9);
+			i = n(8);
 		t.exports = function (t) {
 			if ('Function' === r(t)) return i(t);
 		};
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = n(7),
 			a = n(15),
 			o = n(52),
-			s = n(33),
-			u = n(114),
+			s = n(34),
+			u = n(120),
 			l = function () {},
 			c = s('Reflect', 'construct'),
 			f = /^\s*(?:class|function)\b/,
@@ -12113,7 +12735,7 @@ More info at: http://icanhazjs.com
 					return !1;
 				}
 			},
-			g = function (t) {
+			v = function (t) {
 				if (!a(t)) return !1;
 				switch (o(t)) {
 					case 'AsyncFunction':
@@ -12127,7 +12749,7 @@ More info at: http://icanhazjs.com
 					return !0;
 				}
 			};
-		(g.sham = !0),
+		(v.sham = !0),
 			(t.exports =
 				!c ||
 				i(function () {
@@ -12141,13 +12763,13 @@ More info at: http://icanhazjs.com
 						t
 					);
 				})
-					? g
+					? v
 					: p);
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(33),
-			i = n(58),
+		var r = n(34),
+			i = n(59),
 			a = n(17),
 			o = n(19),
 			s = a('species');
@@ -12167,10 +12789,10 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(18),
-			i = n(34),
-			a = n(24),
-			o = n(60),
-			s = n(95),
+			i = n(33),
+			a = n(25),
+			o = n(61),
+			s = n(98),
 			u = TypeError;
 		t.exports = function (t, e) {
 			var n = arguments.length < 2 ? s(t) : e;
@@ -12221,51 +12843,7 @@ More info at: http://icanhazjs.com
 		};
 	},
 	function (t, e, n) {
-		'use strict';
-		var r = n(10),
-			i = n(19),
-			a = n(8),
-			o = n(9),
-			s = n(22),
-			u = n(15),
-			l = n(51),
-			c = n(27),
-			f = n(58),
-			h = n(141),
-			d = a.Symbol,
-			p = d && d.prototype;
-		if (i && u(d) && (!('description' in p) || void 0 !== d().description)) {
-			var g = {},
-				v = function () {
-					var t =
-							arguments.length < 1 || void 0 === arguments[0]
-								? void 0
-								: c(arguments[0]),
-						e = l(p, this) ? new d(t) : void 0 === t ? d() : d(t);
-					return '' === t && (g[e] = !0), e;
-				};
-			h(v, d), (v.prototype = p), (p.constructor = v);
-			var m = 'Symbol(description detection)' === String(d('description detection')),
-				y = o(p.valueOf),
-				b = o(p.toString),
-				x = /^Symbol\((.*)\)[^)]+$/,
-				S = o(''.replace),
-				w = o(''.slice);
-			f(p, 'description', {
-				configurable: !0,
-				get: function () {
-					var t = y(this);
-					if (s(g, t)) return '';
-					var e = b(t),
-						n = m ? w(e, 7, -1) : S(e, x, '$1');
-					return '' === n ? void 0 : n;
-				},
-			}),
-				r({ global: !0, constructor: !0, forced: !0 }, { Symbol: v });
-		}
-	},
-	function (t, e, n) {
-		var r = n(332);
+		var r = n(335);
 		function i() {
 			return (
 				(t.exports = i =
@@ -12288,52 +12866,51 @@ More info at: http://icanhazjs.com
 		(t.exports = i), (t.exports.__esModule = !0), (t.exports.default = t.exports);
 	},
 	function (t, e, n) {
+		var r = n(338),
+			i = n(339),
+			a = n(217),
+			o = n(340);
+		(t.exports = function (t) {
+			return r(t) || i(t) || a(t) || o();
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
+	},
+	function (t, e, n) {
 		'use strict';
-		var r = n(259);
+		var r = n(265);
 		t.exports = function (t, e) {
 			return new (r(t))(0 === e ? 0 : e);
 		};
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(17),
-			i = n(56),
-			a = n(32).f,
-			o = r('unscopables'),
-			s = Array.prototype;
-		void 0 === s[o] && a(s, o, { configurable: !0, value: i(null) }),
-			(t.exports = function (t) {
-				s[o][t] = !0;
-			});
-	},
-	function (t, e, n) {
-		'use strict';
 		var r = n(10),
 			i = n(7),
-			a = n(91),
+			a = n(93),
 			o = n(21),
-			s = n(31),
+			s = n(30),
 			u = n(29),
-			l = n(159),
-			c = n(92),
-			f = n(123),
-			h = n(106),
+			l = n(162),
+			c = n(94),
+			f = n(129),
+			h = n(110),
 			d = n(17),
-			p = n(75),
-			g = d('isConcatSpreadable'),
-			v =
+			p = n(67),
+			v = d('isConcatSpreadable'),
+			g =
 				p >= 51 ||
 				!i(function () {
 					var t = [];
-					return (t[g] = !1), t.concat()[0] !== t;
+					return (t[v] = !1), t.concat()[0] !== t;
 				}),
 			m = function (t) {
 				if (!o(t)) return !1;
-				var e = t[g];
+				var e = t[v];
 				return void 0 !== e ? !!e : a(t);
 			};
 		r(
-			{ target: 'Array', proto: !0, arity: 1, forced: !v || !h('concat') },
+			{ target: 'Array', proto: !0, arity: 1, forced: !g || !h('concat') },
 			{
 				concat: function (t) {
 					var e,
@@ -12356,63 +12933,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(10),
-			i = n(31),
-			a = n(83),
-			o = n(55),
-			s = n(29),
-			u = n(266),
-			l = n(159),
-			c = n(123),
-			f = n(92),
-			h = n(205),
-			d = n(106)('splice'),
-			p = Math.max,
-			g = Math.min;
-		r(
-			{ target: 'Array', proto: !0, forced: !d },
-			{
-				splice: function (t, e) {
-					var n,
-						r,
-						d,
-						v,
-						m,
-						y,
-						b = i(this),
-						x = s(b),
-						S = a(t, x),
-						w = arguments.length;
-					for (
-						0 === w
-							? (n = r = 0)
-							: 1 === w
-							? ((n = 0), (r = x - S))
-							: ((n = w - 2), (r = g(p(o(e), 0), x - S))),
-							l(x + n - r),
-							d = c(b, r),
-							v = 0;
-						v < r;
-						v++
-					)
-						(m = S + v) in b && f(d, v, b[m]);
-					if (((d.length = r), n < r)) {
-						for (v = S; v < x - r; v++)
-							(y = v + n), (m = v + r) in b ? (b[y] = b[m]) : h(b, y);
-						for (v = x; v > x - r + n; v--) h(b, v - 1);
-					} else if (n > r)
-						for (v = x - r; v > S; v--)
-							(y = v + n - 1), (m = v + r - 1) in b ? (b[y] = b[m]) : h(b, y);
-					for (v = 0; v < n; v++) b[v + S] = arguments[v + 2];
-					return u(b, x - r + n), d;
-				},
-			}
-		);
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(176),
-			i = n(142);
+		var r = n(180),
+			i = n(145);
 		t.exports =
 			Object.keys ||
 			function (t) {
@@ -12421,9 +12943,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(24),
-			i = n(144),
-			a = n(42),
+		var r = n(25),
+			i = n(147),
+			a = n(43),
 			o = n(17)('species');
 		t.exports = function (t, e) {
 			var n,
@@ -12443,30 +12965,10 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(7);
-		t.exports = function (t, e) {
-			var n = [][t];
-			return (
-				!!n &&
-				r(function () {
-					n.call(
-						null,
-						e ||
-							function () {
-								return 1;
-							},
-						1
-					);
-				})
-			);
-		};
-	},
-	function (t, e, n) {
-		'use strict';
-		n(30);
+		n(31);
 		var r = n(18),
 			i = n(28),
-			a = n(154),
+			a = n(157),
 			o = n(7),
 			s = n(17),
 			u = n(45),
@@ -12504,16 +13006,16 @@ More info at: http://icanhazjs.com
 						);
 					});
 			if (!d || !p || n) {
-				var g = /./[h],
-					v = e(h, ''[t], function (t, e, n, i, o) {
+				var v = /./[h],
+					g = e(h, ''[t], function (t, e, n, i, o) {
 						var s = e.exec;
 						return s === a || s === c.exec
 							? d && !o
-								? { done: !0, value: r(g, e, n, i) }
+								? { done: !0, value: r(v, e, n, i) }
 								: { done: !0, value: r(t, n, e, i) }
 							: { done: !1 };
 					});
-				i(String.prototype, t, v[0]), i(c, h, v[1]);
+				i(String.prototype, t, g[0]), i(c, h, g[1]);
 			}
 			f && u(c[h], 'sham', !0);
 		};
@@ -12521,10 +13023,10 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(18),
-			i = n(24),
+			i = n(25),
 			a = n(15),
 			o = n(44),
-			s = n(154),
+			s = n(157),
 			u = TypeError;
 		t.exports = function (t, e) {
 			var n = t.exec;
@@ -12546,7 +13048,7 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(15),
 			i = n(21),
-			a = n(85);
+			a = n(86);
 		t.exports = function (t, e, n) {
 			var o, s;
 			return (
@@ -12563,15 +13065,15 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(18),
-			i = n(131),
-			a = n(24),
-			o = n(42),
-			s = n(63),
+			i = n(134),
+			a = n(25),
+			o = n(43),
+			s = n(65),
 			u = n(27),
-			l = n(40),
-			c = n(62),
-			f = n(157),
-			h = n(132);
+			l = n(41),
+			c = n(64),
+			f = n(160),
+			h = n(135);
 		i('match', function (t, e, n) {
 			return [
 				function (e) {
@@ -12588,8 +13090,8 @@ More info at: http://icanhazjs.com
 					var l = r.unicode;
 					r.lastIndex = 0;
 					for (var c, d = [], p = 0; null !== (c = h(r, i)); ) {
-						var g = u(c[0]);
-						(d[p] = g), '' === g && (r.lastIndex = f(i, s(r.lastIndex), l)), p++;
+						var v = u(c[0]);
+						(d[p] = v), '' === v && (r.lastIndex = f(i, s(r.lastIndex), l)), p++;
 					}
 					return 0 === p ? null : d;
 				},
@@ -12608,14 +13110,14 @@ More info at: http://icanhazjs.com
 			o = n.n(a),
 			s = n(12),
 			u = n.n(s),
-			l = n(67),
+			l = n(69),
 			c = n.n(l),
 			f = n(4),
 			h = n.n(f),
 			d = n(3),
 			p = n.n(d),
-			g = (n(20), n(36), n(6));
-		function v(t, e, n) {
+			v = (n(20), n(35), n(6));
+		function g(t, e, n) {
 			return (
 				(e = o()(e)),
 				i()(
@@ -12643,7 +13145,7 @@ More info at: http://icanhazjs.com
 					var n;
 					return (
 						p()(this, e),
-						(n = v(this, e)),
+						(n = g(this, e)),
 						(t || []).forEach(function (t) {
 							n.push(new m(t.entity, t.field, t.fieldName));
 						}),
@@ -12669,7 +13171,7 @@ More info at: http://icanhazjs.com
 									return void 0 === t
 										? {
 												message:
-													g.a.getTranslationByKey('model_empty_message'),
+													v.a.getTranslationByKey('model_empty_message'),
 												valid: !0,
 										  }
 										: Array.isArray(t)
@@ -12682,20 +13184,20 @@ More info at: http://icanhazjs.com
 										  })
 											? {
 													message:
-														g.a.getTranslationByKey(
+														v.a.getTranslationByKey(
 															'model_correct_message'
 														),
 													valid: !0,
 											  }
 											: {
 													valid: !1,
-													message: g.a.getTranslationByKey(
+													message: v.a.getTranslationByKey(
 														'model_json_error_message'
 													),
 											  }
 										: {
 												valid: !1,
-												message: g.a.getTranslationByKey(
+												message: v.a.getTranslationByKey(
 													'model_json_array_message'
 												),
 										  };
@@ -12716,9 +13218,9 @@ More info at: http://icanhazjs.com
 			a = n(4),
 			o = n.n(a),
 			s =
-				(n(39),
+				(n(38),
 				n(20),
-				n(36),
+				n(35),
 				[
 					function (t) {
 						var e = { _root: '0' };
@@ -12765,9 +13267,9 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(97).includes,
+			i = n(100).includes,
 			a = n(7),
-			o = n(124);
+			o = n(105);
 		r(
 			{
 				target: 'Array',
@@ -12787,11 +13289,11 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(9),
-			a = n(196),
-			o = n(40),
+			i = n(8),
+			a = n(200),
+			o = n(41),
 			s = n(27),
-			u = n(198),
+			u = n(202),
 			l = i(''.indexOf);
 		r(
 			{ target: 'String', proto: !0, forced: !u('includes') },
@@ -12804,14 +13306,14 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(70);
+		var r = n(71);
 		t.exports = r && !Symbol.sham && 'symbol' == typeof Symbol.iterator;
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(22),
-			i = n(175),
-			a = n(78),
+			i = n(179),
+			a = n(79),
 			o = n(32);
 		t.exports = function (t, e, n) {
 			for (var s = i(e), u = o.f, l = a.f, c = 0; c < s.length; c++) {
@@ -12838,8 +13340,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(117),
-			i = n(60),
+		var r = n(123),
+			i = n(61),
 			a = TypeError;
 		t.exports = function (t) {
 			if (r(t)) return t;
@@ -12857,7 +13359,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(17),
-			i = n(94),
+			i = n(97),
 			a = r('iterator'),
 			o = Array.prototype;
 		t.exports = function (t) {
@@ -12870,14 +13372,14 @@ More info at: http://icanhazjs.com
 			n.d(e, 'a', function () {
 				return h;
 			});
-			var i = n(25),
+			var i = n(24),
 				a = n.n(i),
 				o = n(3),
 				s = n.n(o),
 				u = n(4),
 				l = n.n(u),
-				c = (n(59), n(102), n(88), n(138), n(74), n(126), n(173), n(20), n(139), n(222)),
-				f = n(223),
+				c = (n(54), n(76), n(89), n(141), n(75), n(106), n(177), n(20), n(142), n(231)),
+				f = n(232),
 				h = (function () {
 					return l()(
 						function e(n) {
@@ -12956,21 +13458,21 @@ More info at: http://icanhazjs.com
 											r(this.query(p)) || (h.id = d);
 										}
 									}
-									for (var g = 0; g < t.length; g++) {
-										var v = t[g];
-										if (0 !== v.classes.length)
-											for (var m = v.classes.length - 1; m > 0; m--) {
-												var y = v.classes[m];
-												v.classes.splice(m, 1);
+									for (var v = 0; v < t.length; v++) {
+										var g = t[v];
+										if (0 !== g.classes.length)
+											for (var m = g.classes.length - 1; m > 0; m--) {
+												var y = g.classes[m];
+												g.classes.splice(m, 1);
 												var b = t.getCssSelector();
-												r(this.query(b)) || v.classes.splice(m, 0, y);
+												r(this.query(b)) || g.classes.splice(m, 0, y);
 											}
 									}
 									for (var x = t.length - 1; x > 0; x--) {
-										var S = t[x];
+										var w = t[x];
 										t.splice(x, 1);
-										var w = t.getCssSelector();
-										r(this.query(w)) || t.splice(x, 0, S);
+										var S = t.getCssSelector();
+										r(this.query(S)) || t.splice(x, 0, w);
 									}
 									return t;
 								},
@@ -13169,9 +13671,9 @@ More info at: http://icanhazjs.com
 										if (1 !== i.length)
 											throw 'found multiple element groups, but allowMultipleSelectors disabled';
 										var p = this.getElementSelectors(t, e),
-											g = this.mergeElementSelectors(p);
-										this.enableResultStripping && (g = this.stripSelector(g)),
-											(r = g.getCssSelector());
+											v = this.mergeElementSelectors(p);
+										this.enableResultStripping && (v = this.stripSelector(v)),
+											(r = v.getCssSelector());
 									}
 									return (this.enableSmartTableSelector = n), r;
 								},
@@ -13190,12 +13692,12 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		n.d(e, 'a', function () {
-			return E;
+			return C;
 		});
-		n(99), n(121), n(96), n(26), n(65), n(79);
+		n(90), n(102), n(99), n(26), n(60), n(80);
 		var r = n(2),
 			i = n.n(r),
-			a = n(25),
+			a = n(24),
 			o = n.n(a),
 			s = n(3),
 			u = n.n(s),
@@ -13205,31 +13707,31 @@ More info at: http://icanhazjs.com
 			h = n.n(f),
 			d = n(5),
 			p = n.n(d),
-			g = n(122),
-			v = n.n(g),
+			v = n(127),
+			g = n.n(v),
 			m = n(12),
 			y = n.n(m),
 			b = n(1),
 			x = n.n(b),
-			S =
-				(n(59),
-				n(102),
-				n(230),
-				n(88),
-				n(138),
+			w =
+				(n(54),
+				n(76),
+				n(237),
+				n(89),
+				n(141),
 				n(49),
-				n(39),
-				n(231),
-				n(173),
-				n(334),
+				n(38),
+				n(238),
+				n(177),
+				n(337),
 				n(20),
-				n(30),
-				n(139),
-				n(68),
-				n(69),
-				n(36),
+				n(31),
+				n(142),
+				n(70),
+				n(62),
+				n(35),
 				n(0));
-		function w(t, e) {
+		function S(t, e) {
 			var n = ('undefined' != typeof Symbol && t[Symbol.iterator]) || t['@@iterator'];
 			if (!n) {
 				if (
@@ -13317,15 +13819,15 @@ More info at: http://icanhazjs.com
 				)
 			);
 		}
-		function C(t, e, n, r) {
-			var i = v()(p()(1 & r ? t.prototype : t), e, n);
+		function T(t, e, n, r) {
+			var i = g()(p()(1 & r ? t.prototype : t), e, n);
 			return 2 & r && 'function' == typeof i
 				? function (t) {
 						return i.apply(n, t);
 				  }
 				: i;
 		}
-		var E = (function (t) {
+		var C = (function (t) {
 			function e(t) {
 				var n;
 				return u()(this, e), (n = k(this, e, [t])).updateData(t, n.getFeatures()), n;
@@ -13387,10 +13889,10 @@ More info at: http://icanhazjs.com
 							key: 'getVerticalDataCells',
 							value: function (t) {
 								var e = this,
-									n = this.getTableHeaderColumns(S(t)),
+									n = this.getTableHeaderColumns(w(t)),
 									r = this.getTableDataRowSelector(),
 									i = this.getDataColumns(),
-									a = S(t).find(r),
+									a = w(t).find(r),
 									s = 'TR' === a[0].nodeName,
 									u = [];
 								if (s)
@@ -13424,7 +13926,7 @@ More info at: http://icanhazjs.com
 										o && (u[n.cellIndex - l][o.name] = n.innerHTML);
 									}),
 									u.filter(function (t) {
-										return !S.isEmptyObject(t);
+										return !w.isEmptyObject(t);
 									})
 								);
 							},
@@ -13432,15 +13934,15 @@ More info at: http://icanhazjs.com
 						{
 							key: 'getCellRowIndex',
 							value: function (t) {
-								return S(t).closest('tr')[0].rowIndex;
+								return w(t).closest('tr')[0].rowIndex;
 							},
 						},
 						{
 							key: 'getHorizontalDataCells',
 							value: function (t) {
-								var e = this.getTableHeaderColumns(S(t)),
+								var e = this.getTableHeaderColumns(w(t)),
 									n = this.getDataColumns(),
-									r = S(t).find(this.getTableDataRowSelector()),
+									r = w(t).find(this.getTableDataRowSelector()),
 									i = Array.from({ length: r.length }).map(function (t) {
 										return Object();
 									});
@@ -13458,7 +13960,7 @@ More info at: http://icanhazjs.com
 											return !(e.name in i[t]);
 										}).forEach(function (e) {
 											var n = a(e),
-												s = S(r)[0].children;
+												s = w(r)[0].children;
 											if (s.length) {
 												var u = s[n - o[n]];
 												if (u) {
@@ -13474,7 +13976,7 @@ More info at: http://icanhazjs.com
 										});
 									}),
 									i.filter(function (t) {
-										return !S.isEmptyObject(t);
+										return !w.isEmptyObject(t);
 									})
 								);
 							},
@@ -13558,7 +14060,7 @@ More info at: http://icanhazjs.com
 						{
 							key: 'getTableHeaderRowSelectorFromTableHTML',
 							value: function (t) {
-								var e = S(t);
+								var e = w(t);
 								if (
 									e.find(
 										'>thead>tr:has(>td:not(:empty)), >thead>tr:has(>th:not(:empty))'
@@ -13609,7 +14111,7 @@ More info at: http://icanhazjs.com
 						{
 							key: 'getTableDataRowSelectorFromTableHTML',
 							value: function (t) {
-								var e = S(t);
+								var e = w(t);
 								if (
 									e.find(
 										'>thead>tr:has(>td:not(:empty)), >thead>tr:has(>th:not(:empty))'
@@ -13653,13 +14155,13 @@ More info at: http://icanhazjs.com
 										var u,
 											l = a in r ? r[a] : 0,
 											c = 0,
-											f = w(t[a].children);
+											f = S(t[a].children);
 										try {
 											for (f.s(); !(u = f.n()).done; ) {
 												var h = u.value,
 													d = 'colSpan' in h ? h.colSpan : 1;
 												if (!((c += d) < l + 1)) {
-													var p = (o ? o + ' ' : '') + S(h).text();
+													var p = (o ? o + ' ' : '') + w(h).text();
 													if (
 														(d < 2
 															? (n[e.trimHeader(p)] =
@@ -13686,14 +14188,14 @@ More info at: http://icanhazjs.com
 							value: function (t) {
 								var n,
 									r = this,
-									i = S(t),
+									i = w(t),
 									a = this.getTableHeaderRowSelector(),
 									o = i.find(`${a}, >tbody ${a}`);
 								return (
 									this.verticalTable
 										? ((n = {}),
 										  o.each(function (t, i) {
-												var a = e.trimHeader(S(i).text());
+												var a = e.trimHeader(w(i).text());
 												n[a] = r.getCellRowIndex(i);
 										  }))
 										: (n = this.horizontalColumnsMaker(o)),
@@ -13727,7 +14229,7 @@ More info at: http://icanhazjs.com
 														case 0:
 															return (
 																(t.next = 2),
-																C(e, 'afterSelect', this, 3)([n, r])
+																T(e, 'afterSelect', this, 3)([n, r])
 															);
 														case 2:
 															return (
@@ -13781,7 +14283,7 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(19),
 			i = n(7),
-			a = n(101);
+			a = n(104);
 		t.exports =
 			!r &&
 			!i(function () {
@@ -13797,20 +14299,20 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = n(7),
 			a = n(15),
 			o = n(22),
 			s = n(19),
-			u = n(90).CONFIGURABLE,
-			l = n(114),
-			c = n(35),
+			u = n(92).CONFIGURABLE,
+			l = n(120),
+			c = n(36),
 			f = c.enforce,
 			h = c.get,
 			d = String,
 			p = Object.defineProperty,
-			g = r(''.slice),
-			v = r(''.replace),
+			v = r(''.slice),
+			g = r(''.replace),
 			m = r([].join),
 			y =
 				s &&
@@ -13819,8 +14321,8 @@ More info at: http://icanhazjs.com
 				}),
 			b = String(String).split('String'),
 			x = (t.exports = function (t, e, n) {
-				'Symbol(' === g(d(e), 0, 7) &&
-					(e = '[' + v(d(e), /^Symbol\(([^)]*)\).*$/, '$1') + ']'),
+				'Symbol(' === v(d(e), 0, 7) &&
+					(e = '[' + g(d(e), /^Symbol\(([^)]*)\).*$/, '$1') + ']'),
 					n && n.getter && (e = 'get ' + e),
 					n && n.setter && (e = 'set ' + e),
 					(!o(t, 'name') || (u && t.name !== e)) &&
@@ -13845,31 +14347,31 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(19),
-			i = n(8),
-			a = n(9),
-			o = n(111),
-			s = n(134),
+			i = n(9),
+			a = n(8),
+			o = n(117),
+			s = n(137),
 			u = n(45),
-			l = n(56),
-			c = n(82).f,
+			l = n(57),
+			c = n(83).f,
 			f = n(51),
-			h = n(197),
+			h = n(201),
 			d = n(27),
-			p = n(209),
-			g = n(155),
-			v = n(276),
+			p = n(213),
+			v = n(158),
+			g = n(282),
 			m = n(28),
 			y = n(7),
 			b = n(22),
-			x = n(35).enforce,
-			S = n(118),
-			w = n(17),
-			A = n(193),
-			k = n(194),
-			C = w('match'),
-			E = i.RegExp,
-			_ = E.prototype,
-			T = i.SyntaxError,
+			x = n(36).enforce,
+			w = n(124),
+			S = n(17),
+			A = n(197),
+			k = n(198),
+			T = S('match'),
+			C = i.RegExp,
+			_ = C.prototype,
+			E = i.SyntaxError,
 			M = a(_.exec),
 			I = a(''.charAt),
 			O = a(''.replace),
@@ -13878,9 +14380,9 @@ More info at: http://icanhazjs.com
 			N = /^\?<[^\s\d!#%&*+<=>@^][^\s!#%&*+<=>@^]*>/,
 			P = /a/g,
 			L = /a/g,
-			j = new E(P) !== P,
-			$ = g.MISSED_STICKY,
-			B = g.UNSUPPORTED_Y,
+			j = new C(P) !== P,
+			$ = v.MISSED_STICKY,
+			B = v.UNSUPPORTED_Y,
 			F =
 				r &&
 				(!j ||
@@ -13889,7 +14391,7 @@ More info at: http://icanhazjs.com
 					k ||
 					y(function () {
 						return (
-							(L[C] = !1), E(P) !== P || E(L) === L || '/a/i' !== String(E(P, 'i'))
+							(L[T] = !1), C(P) !== P || C(L) === L || '/a/i' !== String(C(P, 'i'))
 						);
 					}));
 		if (o('RegExp', F)) {
@@ -13901,17 +14403,17 @@ More info at: http://icanhazjs.com
 							a,
 							o,
 							c,
-							g = f(_, this),
-							v = h(t),
+							v = f(_, this),
+							g = h(t),
 							m = void 0 === e,
 							y = [],
-							S = t;
-						if (!g && v && m && t.constructor === U) return t;
+							w = t;
+						if (!v && g && m && t.constructor === U) return t;
 						if (
-							((v || f(_, t)) && ((t = t.source), m && (e = p(S))),
+							((g || f(_, t)) && ((t = t.source), m && (e = p(w))),
 							(t = void 0 === t ? '' : d(t)),
 							(e = void 0 === e ? '' : d(e)),
-							(S = t),
+							(w = t),
 							A &&
 								('dotAll' in P) &&
 								(r = !!e && R(e, 's') > -1) &&
@@ -13952,7 +14454,7 @@ More info at: http://icanhazjs.com
 													continue;
 												case '>' === e && u:
 													if ('' === f || b(o, f))
-														throw new T('Invalid capture group name');
+														throw new E('Invalid capture group name');
 													(o[f] = !0),
 														(a[a.length] = [f, c]),
 														(u = !1),
@@ -13964,7 +14466,7 @@ More info at: http://icanhazjs.com
 									return [i, a];
 								})(t))[0]),
 								(y = a[1])),
-							(o = s(E(t, e), g ? this : _, U)),
+							(o = s(C(t, e), v ? this : _, U)),
 							(r || i || y.length) &&
 								((c = x(o)),
 								r &&
@@ -13990,30 +14492,30 @@ More info at: http://icanhazjs.com
 									))),
 								i && (c.sticky = !0),
 								y.length && (c.groups = y)),
-							t !== S)
+							t !== w)
 						)
 							try {
-								u(o, 'source', '' === S ? '(?:)' : S);
+								u(o, 'source', '' === w ? '(?:)' : w);
 							} catch (t) {}
 						return o;
 					},
-					V = c(E),
+					V = c(C),
 					H = 0;
 				V.length > H;
 
 			)
-				v(U, E, V[H++]);
+				g(U, C, V[H++]);
 			(_.constructor = U), (U.prototype = _), m(i, 'RegExp', U, { constructor: !0 });
 		}
-		S('RegExp');
+		w('RegExp');
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(18),
 			i = n(21),
-			a = n(80),
-			o = n(62),
-			s = n(187),
+			a = n(81),
+			o = n(64),
+			s = n(191),
 			u = n(17),
 			l = TypeError,
 			c = u('toPrimitive');
@@ -14047,30 +14549,30 @@ More info at: http://icanhazjs.com
 		var r,
 			i,
 			a = n(18),
-			o = n(9),
+			o = n(8),
 			s = n(27),
-			u = n(192),
-			l = n(155),
-			c = n(71),
-			f = n(56),
-			h = n(35).get,
-			d = n(193),
-			p = n(194),
-			g = c('native-string-replace', String.prototype.replace),
-			v = RegExp.prototype.exec,
-			m = v,
+			u = n(196),
+			l = n(158),
+			c = n(72),
+			f = n(57),
+			h = n(36).get,
+			d = n(197),
+			p = n(198),
+			v = c('native-string-replace', String.prototype.replace),
+			g = RegExp.prototype.exec,
+			m = g,
 			y = o(''.charAt),
 			b = o(''.indexOf),
 			x = o(''.replace),
-			S = o(''.slice),
-			w =
+			w = o(''.slice),
+			S =
 				((i = /b*/g),
-				a(v, (r = /a/), 'a'),
-				a(v, i, 'a'),
+				a(g, (r = /a/), 'a'),
+				a(g, i, 'a'),
 				0 !== r.lastIndex || 0 !== i.lastIndex),
 			A = l.BROKEN_CARET,
 			k = void 0 !== /()??/.exec('')[1];
-		(w || k || A || d || p) &&
+		(S || k || A || d || p) &&
 			(m = function (t) {
 				var e,
 					n,
@@ -14081,45 +14583,45 @@ More info at: http://icanhazjs.com
 					c,
 					d = this,
 					p = h(d),
-					C = s(t),
-					E = p.raw;
-				if (E)
+					T = s(t),
+					C = p.raw;
+				if (C)
 					return (
-						(E.lastIndex = d.lastIndex),
-						(e = a(m, E, C)),
-						(d.lastIndex = E.lastIndex),
+						(C.lastIndex = d.lastIndex),
+						(e = a(m, C, T)),
+						(d.lastIndex = C.lastIndex),
 						e
 					);
 				var _ = p.groups,
-					T = A && d.sticky,
+					E = A && d.sticky,
 					M = a(u, d),
 					I = d.source,
 					O = 0,
-					R = C;
+					R = T;
 				if (
-					(T &&
+					(E &&
 						((M = x(M, 'y', '')),
 						-1 === b(M, 'g') && (M += 'g'),
-						(R = S(C, d.lastIndex)),
+						(R = w(T, d.lastIndex)),
 						d.lastIndex > 0 &&
-							(!d.multiline || (d.multiline && '\n' !== y(C, d.lastIndex - 1))) &&
+							(!d.multiline || (d.multiline && '\n' !== y(T, d.lastIndex - 1))) &&
 							((I = '(?: ' + I + ')'), (R = ' ' + R), O++),
 						(n = new RegExp('^(?:' + I + ')', M))),
 					k && (n = new RegExp('^' + I + '$(?!\\s)', M)),
-					w && (r = d.lastIndex),
-					(i = a(v, T ? n : d, R)),
-					T
+					S && (r = d.lastIndex),
+					(i = a(g, E ? n : d, R)),
+					E
 						? i
-							? ((i.input = S(i.input, O)),
-							  (i[0] = S(i[0], O)),
+							? ((i.input = w(i.input, O)),
+							  (i[0] = w(i[0], O)),
 							  (i.index = d.lastIndex),
 							  (d.lastIndex += i[0].length))
 							: (d.lastIndex = 0)
-						: w && i && (d.lastIndex = d.global ? i.index + i[0].length : r),
+						: S && i && (d.lastIndex = d.global ? i.index + i[0].length : r),
 					k &&
 						i &&
 						i.length > 1 &&
-						a(g, i[0], n, function () {
+						a(v, i[0], n, function () {
 							for (o = 1; o < arguments.length - 2; o++)
 								void 0 === arguments[o] && (i[o] = void 0);
 						}),
@@ -14134,7 +14636,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(7),
-			i = n(8).RegExp,
+			i = n(9).RegExp,
 			a = r(function () {
 				var t = i('a', 'y');
 				return (t.lastIndex = 2), null !== t.exec('abcd');
@@ -14153,8 +14655,8 @@ More info at: http://icanhazjs.com
 		t.exports = { BROKEN_CARET: s, MISSED_STICKY: o, UNSUPPORTED_Y: a };
 	},
 	function (t, e, n) {
-		var r = n(98).default,
-			i = n(201);
+		var r = n(101).default,
+			i = n(205);
 		(t.exports = function (t) {
 			var e = i(t, 'string');
 			return 'symbol' == r(e) ? e : e + '';
@@ -14164,17 +14666,17 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(158).charAt;
+		var r = n(161).charAt;
 		t.exports = function (t, e, n) {
 			return e + (n ? r(t, e).length : 1);
 		};
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
-			i = n(55),
+		var r = n(8),
+			i = n(56),
 			a = n(27),
-			o = n(40),
+			o = n(41),
 			s = r(''.charAt),
 			u = r(''.charCodeAt),
 			l = r(''.slice),
@@ -14216,31 +14718,31 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(10),
 			i = n(18),
-			a = n(37),
-			o = n(90),
+			a = n(39),
+			o = n(92),
 			s = n(15),
-			u = n(203),
-			l = n(108),
-			c = n(85),
-			f = n(57),
+			u = n(208),
+			l = n(113),
+			c = n(86),
+			f = n(58),
 			h = n(45),
 			d = n(28),
 			p = n(17),
-			g = n(94),
-			v = n(204),
+			v = n(97),
+			g = n(209),
 			m = o.PROPER,
 			y = o.CONFIGURABLE,
-			b = v.IteratorPrototype,
-			x = v.BUGGY_SAFARI_ITERATORS,
-			S = p('iterator'),
-			w = function () {
+			b = g.IteratorPrototype,
+			x = g.BUGGY_SAFARI_ITERATORS,
+			w = p('iterator'),
+			S = function () {
 				return this;
 			};
-		t.exports = function (t, e, n, o, p, v, A) {
+		t.exports = function (t, e, n, o, p, g, A) {
 			u(n, e, o);
 			var k,
+				T,
 				C,
-				E,
 				_ = function (t) {
 					if (t === p && R) return R;
 					if (!x && t && t in I) return I[t];
@@ -14256,19 +14758,19 @@ More info at: http://icanhazjs.com
 						return new n(this);
 					};
 				},
-				T = e + ' Iterator',
+				E = e + ' Iterator',
 				M = !1,
 				I = t.prototype,
-				O = I[S] || I['@@iterator'] || (p && I[p]),
+				O = I[w] || I['@@iterator'] || (p && I[p]),
 				R = (!x && O) || _(p),
 				D = ('Array' === e && I.entries) || O;
 			if (
 				(D &&
 					(k = l(D.call(new t()))) !== Object.prototype &&
 					k.next &&
-					(a || l(k) === b || (c ? c(k, b) : s(k[S]) || d(k, S, w)),
-					f(k, T, !0, !0),
-					a && (g[T] = w)),
+					(a || l(k) === b || (c ? c(k, b) : s(k[w]) || d(k, w, S)),
+					f(k, E, !0, !0),
+					a && (v[E] = S)),
 				m &&
 					'values' === p &&
 					O &&
@@ -14282,12 +14784,20 @@ More info at: http://icanhazjs.com
 				p)
 			)
 				if (
-					((C = { values: _('values'), keys: v ? R : _('keys'), entries: _('entries') }),
+					((T = { values: _('values'), keys: g ? R : _('keys'), entries: _('entries') }),
 					A)
 				)
-					for (E in C) (x || M || !(E in I)) && d(I, E, C[E]);
-				else r({ target: e, proto: !0, forced: x || M }, C);
-			return (a && !A) || I[S] === R || d(I, S, R, { name: p }), (g[e] = R), C;
+					for (C in T) (x || M || !(C in I)) && d(I, C, T[C]);
+				else r({ target: e, proto: !0, forced: x || M }, T);
+			return (a && !A) || I[w] === R || d(I, w, R, { name: p }), (v[e] = R), T;
+		};
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(61),
+			i = TypeError;
+		t.exports = function (t, e) {
+			if (!delete t[e]) throw new i('Cannot delete property ' + r(e) + ' of ' + r(t));
 		};
 	},
 	function (t, e, n) {
@@ -14297,6 +14807,41 @@ More info at: http://icanhazjs.com
 			for (var i in e) r(t, i, e[i], n);
 			return t;
 		};
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(53),
+			i = Math.floor,
+			a = function (t, e) {
+				var n = t.length;
+				if (n < 8)
+					for (var o, s, u = 1; u < n; ) {
+						for (s = u, o = t[u]; s && e(t[s - 1], o) > 0; ) t[s] = t[--s];
+						s !== u++ && (t[s] = o);
+					}
+				else
+					for (
+						var l = i(n / 2),
+							c = a(r(t, 0, l), e),
+							f = a(r(t, l), e),
+							h = c.length,
+							d = f.length,
+							p = 0,
+							v = 0;
+						p < h || v < d;
+
+					)
+						t[p + v] =
+							p < h && v < d
+								? e(c[p], f[v]) <= 0
+									? c[p++]
+									: f[v++]
+								: p < h
+								? c[p++]
+								: f[v++];
+				return t;
+			};
+		t.exports = a;
 	},
 	function (t, e) {
 		function n(e, r) {
@@ -14317,7 +14862,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(128),
+			i = n(132),
 			a = r.aTypedArrayConstructor,
 			o = r.getTypedArrayConstructor;
 		t.exports = function (t) {
@@ -14326,9 +14871,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(34),
-			i = n(31),
-			a = n(113),
+		var r = n(33),
+			i = n(30),
+			a = n(119),
 			o = n(29),
 			s = TypeError,
 			u = 'Reduce of empty array with no initial value',
@@ -14339,38 +14884,20 @@ More info at: http://icanhazjs.com
 						d = o(f);
 					if ((r(n), 0 === d && l < 2)) throw new s(u);
 					var p = t ? d - 1 : 0,
-						g = t ? -1 : 1;
+						v = t ? -1 : 1;
 					if (l < 2)
 						for (;;) {
 							if (p in h) {
-								(c = h[p]), (p += g);
+								(c = h[p]), (p += v);
 								break;
 							}
-							if (((p += g), t ? p < 0 : d <= p)) throw new s(u);
+							if (((p += v), t ? p < 0 : d <= p)) throw new s(u);
 						}
-					for (; t ? p >= 0 : d > p; p += g) p in h && (c = n(c, h[p], p, f));
+					for (; t ? p >= 0 : d > p; p += v) p in h && (c = n(c, h[p], p, f));
 					return c;
 				};
 			};
 		t.exports = { left: l(!1), right: l(!0) };
-	},
-	function (t, e, n) {
-		var r = n(156);
-		(t.exports = function (t, e, n) {
-			return (
-				(e = r(e)) in t
-					? Object.defineProperty(t, e, {
-							value: n,
-							enumerable: !0,
-							configurable: !0,
-							writable: !0,
-					  })
-					: (t[e] = n),
-				t
-			);
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
 	},
 	function (t, e, n) {
 		t.exports = (function (t) {
@@ -15293,8 +15820,8 @@ More info at: http://icanhazjs.com
 	,
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
-			i = n(54),
+		var r = n(9),
+			i = n(55),
 			a = n(44),
 			o = function (t) {
 				return i.slice(0, t.length) === t;
@@ -15323,31 +15850,31 @@ More info at: http://icanhazjs.com
 			i,
 			a,
 			o,
-			s = n(8),
-			u = n(73),
+			s = n(9),
+			u = n(74),
 			l = n(46),
 			c = n(15),
 			f = n(22),
 			h = n(7),
-			d = n(177),
+			d = n(181),
 			p = n(53),
-			g = n(101),
-			v = n(145),
-			m = n(170),
-			y = n(107),
+			v = n(104),
+			g = n(148),
+			m = n(174),
+			y = n(111),
 			b = s.setImmediate,
 			x = s.clearImmediate,
-			S = s.process,
-			w = s.Dispatch,
+			w = s.process,
+			S = s.Dispatch,
 			A = s.Function,
 			k = s.MessageChannel,
-			C = s.String,
-			E = 0,
+			T = s.String,
+			C = 0,
 			_ = {};
 		h(function () {
 			r = s.location;
 		});
-		var T = function (t) {
+		var E = function (t) {
 				if (f(_, t)) {
 					var e = _[t];
 					delete _[t], e();
@@ -15355,26 +15882,26 @@ More info at: http://icanhazjs.com
 			},
 			M = function (t) {
 				return function () {
-					T(t);
+					E(t);
 				};
 			},
 			I = function (t) {
-				T(t.data);
+				E(t.data);
 			},
 			O = function (t) {
-				s.postMessage(C(t), r.protocol + '//' + r.host);
+				s.postMessage(T(t), r.protocol + '//' + r.host);
 			};
 		(b && x) ||
 			((b = function (t) {
-				v(arguments.length, 1);
+				g(arguments.length, 1);
 				var e = c(t) ? t : A(t),
 					n = p(arguments, 1);
 				return (
-					(_[++E] = function () {
+					(_[++C] = function () {
 						u(e, void 0, n);
 					}),
-					i(E),
-					E
+					i(C),
+					C
 				);
 			}),
 			(x = function (t) {
@@ -15382,11 +15909,11 @@ More info at: http://icanhazjs.com
 			}),
 			y
 				? (i = function (t) {
-						S.nextTick(M(t));
+						w.nextTick(M(t));
 				  })
-				: w && w.now
+				: S && S.now
 				? (i = function (t) {
-						w.now(M(t));
+						S.now(M(t));
 				  })
 				: k && !m
 				? ((o = (a = new k()).port2), (a.port1.onmessage = I), (i = l(o.postMessage, o)))
@@ -15398,10 +15925,10 @@ More info at: http://icanhazjs.com
 				  !h(O)
 				? ((i = O), s.addEventListener('message', I, !1))
 				: (i =
-						'onreadystatechange' in g('script')
+						'onreadystatechange' in v('script')
 							? function (t) {
-									d.appendChild(g('script')).onreadystatechange = function () {
-										d.removeChild(this), T(t);
+									d.appendChild(v('script')).onreadystatechange = function () {
+										d.removeChild(this), E(t);
 									};
 							  }
 							: function (t) {
@@ -15411,7 +15938,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(54);
+		var r = n(55);
 		t.exports = /(?:ipad|iphone|ipod).*applewebkit/i.test(r);
 	},
 	function (t, e, n) {
@@ -15434,9 +15961,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(77),
-			i = n(120),
-			a = n(86).CONSTRUCTOR;
+		var r = n(78),
+			i = n(126),
+			a = n(87).CONSTRUCTOR;
 		t.exports =
 			a ||
 			!i(function (t) {
@@ -15446,7 +15973,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(333).entries;
+			i = n(336).entries;
 		r(
 			{ target: 'Object', stat: !0 },
 			{
@@ -15465,7 +15992,7 @@ More info at: http://icanhazjs.com
 			i = n.n(r),
 			a = n(1),
 			o = n.n(a),
-			s = (n(102), n(20), n(48), n(30), n(195), n(36), n(13)),
+			s = (n(76), n(20), n(48), n(31), n(199), n(35), n(13)),
 			u = [
 				/^chrome:\/\//,
 				/^chrome-extension:\/\//,
@@ -15566,11 +16093,11 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(33),
-			i = n(9),
-			a = n(82),
-			o = n(115),
-			s = n(24),
+		var r = n(34),
+			i = n(8),
+			a = n(83),
+			o = n(121),
+			s = n(25),
 			u = i([].concat);
 		t.exports =
 			r('Reflect', 'ownKeys') ||
@@ -15582,11 +16109,11 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = n(22),
-			a = n(41),
-			o = n(97).indexOf,
-			s = n(89),
+			a = n(42),
+			o = n(100).indexOf,
+			s = n(91),
 			u = r([].push);
 		t.exports = function (t, e) {
 			var n,
@@ -15600,15 +16127,15 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(33);
+		var r = n(34);
 		t.exports = r('document', 'documentElement');
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
-			i = n(40),
+		var r = n(8),
+			i = n(41),
 			a = n(27),
-			o = n(143),
+			o = n(146),
 			s = r(''.replace),
 			u = RegExp('^[' + o + ']+'),
 			l = RegExp('(^|[^' + o + '])[' + o + ']+$'),
@@ -15622,7 +16149,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(19),
 			a = Object.getOwnPropertyDescriptor;
 		t.exports = function (t) {
@@ -15634,8 +16161,8 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(18),
-			i = n(24),
-			a = n(62);
+			i = n(25),
+			a = n(64);
 		t.exports = function (t, e, n) {
 			var o, s;
 			i(t);
@@ -15655,7 +16182,26 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(278);
+		var r = n(10),
+			i = n(19),
+			a = n(179),
+			o = n(42),
+			s = n(79),
+			u = n(94);
+		r(
+			{ target: 'Object', stat: !0, sham: !i },
+			{
+				getOwnPropertyDescriptors: function (t) {
+					for (var e, n, r = o(t), i = s.f, l = a(r), c = {}, f = 0; l.length > f; )
+						void 0 !== (n = i(r, (e = l[f++]))) && u(c, e, n);
+					return c;
+				},
+			}
+		);
+	},
+	function (t, e, n) {
+		'use strict';
+		n(284);
 	},
 	function (t, e, n) {
 		'use strict';
@@ -15672,18 +16218,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(211);
-	},
-	function (t, e, n) {
-		var r = n(348),
-			i = n(349),
-			a = n(228),
-			o = n(350);
-		(t.exports = function (t) {
-			return r(t) || i(t) || a(t) || o();
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
+		n(216);
 	},
 	,
 	,
@@ -15703,7 +16238,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(15),
 			a = r.WeakMap;
 		t.exports = i(a) && /native code/.test(String(a));
@@ -15711,11 +16246,11 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(19),
-			i = n(153),
+			i = n(156),
 			a = n(32),
-			o = n(24),
-			s = n(41),
-			u = n(127);
+			o = n(25),
+			s = n(42),
+			u = n(131);
 		e.f =
 			r && !i
 				? Object.defineProperties
@@ -15728,7 +16263,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(105),
+		var r = n(109),
 			i = n(52);
 		t.exports = r
 			? {}.toString
@@ -15738,9 +16273,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(24),
+		var r = n(25),
 			i = n(21),
-			a = n(87);
+			a = n(88);
 		t.exports = function (t, e) {
 			if ((r(t), i(e) && e.constructor === t)) return e;
 			var n = a.f(t);
@@ -15749,7 +16284,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(24);
+		var r = n(25);
 		t.exports = function () {
 			var t = r(this),
 				e = '';
@@ -15769,7 +16304,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(7),
-			i = n(8).RegExp;
+			i = n(9).RegExp;
 		t.exports = r(function () {
 			var t = i('.', 's');
 			return !(t.dotAll && t.test('\n') && 's' === t.flags);
@@ -15778,7 +16313,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(7),
-			i = n(8).RegExp;
+			i = n(9).RegExp;
 		t.exports = r(function () {
 			var t = i('(?<a>b)', 'g');
 			return 'b' !== t.exec('b').groups.a || 'bc' !== 'b'.replace(t, '$<a>c');
@@ -15788,23 +16323,23 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r,
 			i = n(10),
-			a = n(116),
-			o = n(78).f,
-			s = n(63),
+			a = n(122),
+			o = n(79).f,
+			s = n(65),
 			u = n(27),
-			l = n(196),
-			c = n(40),
-			f = n(198),
-			h = n(37),
+			l = n(200),
+			c = n(41),
+			f = n(202),
+			h = n(39),
 			d = a(''.slice),
 			p = Math.min,
-			g = f('startsWith');
+			v = f('startsWith');
 		i(
 			{
 				target: 'String',
 				proto: !0,
 				forced:
-					!!(h || g || ((r = o(String.prototype, 'startsWith')), !r || r.writable)) && !g,
+					!!(h || v || ((r = o(String.prototype, 'startsWith')), !r || r.writable)) && !v,
 			},
 			{
 				startsWith: function (t) {
@@ -15819,7 +16354,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(197),
+		var r = n(201),
 			i = TypeError;
 		t.exports = function (t) {
 			if (r(t)) throw new i("The method doesn't accept regular expressions");
@@ -15889,12 +16424,12 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(101)('span').classList,
+		var r = n(104)('span').classList,
 			i = r && r.constructor && r.constructor.prototype;
 		t.exports = i === Object.prototype ? void 0 : i;
 	},
 	function (t, e, n) {
-		var r = n(98).default;
+		var r = n(101).default;
 		(t.exports = function (t, e) {
 			if ('object' != r(t) || !t) return t;
 			var n = t[Symbol.toPrimitive];
@@ -15912,46 +16447,66 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(46),
 			i = n(18),
-			a = n(31),
-			o = n(263),
-			s = n(146),
-			u = n(117),
+			a = n(30),
+			o = n(269),
+			s = n(149),
+			u = n(123),
 			l = n(29),
-			c = n(92),
-			f = n(119),
-			h = n(95),
+			c = n(94),
+			f = n(125),
+			h = n(98),
 			d = Array;
 		t.exports = function (t) {
 			var e = a(t),
 				n = u(this),
 				p = arguments.length,
-				g = p > 1 ? arguments[1] : void 0,
-				v = void 0 !== g;
-			v && (g = r(g, p > 2 ? arguments[2] : void 0));
+				v = p > 1 ? arguments[1] : void 0,
+				g = void 0 !== v;
+			g && (v = r(v, p > 2 ? arguments[2] : void 0));
 			var m,
 				y,
 				b,
 				x,
-				S,
 				w,
+				S,
 				A = h(e),
 				k = 0;
 			if (!A || (this === d && s(A)))
 				for (m = l(e), y = n ? new this(m) : d(m); m > k; k++)
-					(w = v ? g(e[k], k) : e[k]), c(y, k, w);
+					(S = g ? v(e[k], k) : e[k]), c(y, k, S);
 			else
-				for (y = n ? new this() : [], S = (x = f(e, A)).next; !(b = i(S, x)).done; k++)
-					(w = v ? o(x, g, [b.value, k], !0) : b.value), c(y, k, w);
+				for (y = n ? new this() : [], w = (x = f(e, A)).next; !(b = i(w, x)).done; k++)
+					(S = g ? o(x, v, [b.value, k], !0) : b.value), c(y, k, S);
 			return (y.length = k), y;
 		};
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(204).IteratorPrototype,
-			i = n(56),
-			a = n(64),
-			o = n(57),
-			s = n(94),
+		var r = n(10),
+			i = n(37).findIndex,
+			a = n(105),
+			o = !0;
+		'findIndex' in [] &&
+			Array(1).findIndex(function () {
+				o = !1;
+			}),
+			r(
+				{ target: 'Array', proto: !0, forced: o },
+				{
+					findIndex: function (t) {
+						return i(this, t, arguments.length > 1 ? arguments[1] : void 0);
+					},
+				}
+			),
+			a('findIndex');
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(209).IteratorPrototype,
+			i = n(57),
+			a = n(66),
+			o = n(58),
+			s = n(97),
 			u = function () {
 				return this;
 			};
@@ -15968,15 +16523,15 @@ More info at: http://icanhazjs.com
 			o = n(7),
 			s = n(15),
 			u = n(21),
-			l = n(56),
-			c = n(108),
+			l = n(57),
+			c = n(113),
 			f = n(28),
 			h = n(17),
-			d = n(37),
+			d = n(39),
 			p = h('iterator'),
-			g = !1;
+			v = !1;
 		[].keys &&
-			('next' in (a = [].keys()) ? (i = c(c(a))) !== Object.prototype && (r = i) : (g = !0)),
+			('next' in (a = [].keys()) ? (i = c(c(a))) !== Object.prototype && (r = i) : (v = !0)),
 			!u(r) ||
 			o(function () {
 				var t = {};
@@ -15988,21 +16543,13 @@ More info at: http://icanhazjs.com
 				f(r, p, function () {
 					return this;
 				}),
-			(t.exports = { IteratorPrototype: r, BUGGY_SAFARI_ITERATORS: g });
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(60),
-			i = TypeError;
-		t.exports = function (t, e) {
-			if (!delete t[e]) throw new i('Cannot delete property ' + r(e) + ' of ' + r(t));
-		};
+			(t.exports = { IteratorPrototype: r, BUGGY_SAFARI_ITERATORS: v });
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(44),
-			i = n(41),
-			a = n(82).f,
+			i = n(42),
+			a = n(83).f,
 			o = n(53),
 			s =
 				'object' == typeof window && window && Object.getOwnPropertyNames
@@ -16027,7 +16574,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(70);
+		var r = n(71);
 		t.exports = r && !!Symbol.for && !!Symbol.keyFor;
 	},
 	function (t, e, n) {
@@ -16035,7 +16582,7 @@ More info at: http://icanhazjs.com
 		var r = n(18),
 			i = n(22),
 			a = n(51),
-			o = n(192),
+			o = n(196),
 			s = RegExp.prototype;
 		t.exports = function (t) {
 			var e = t.flags;
@@ -16047,7 +16594,7 @@ More info at: http://icanhazjs.com
 		var r = n(7),
 			i = n(17),
 			a = n(19),
-			o = n(37),
+			o = n(39),
 			s = i('iterator');
 		t.exports = !r(function () {
 			var t = new URL('b?a=1&b=2&c=3', 'https://a'),
@@ -16084,41 +16631,102 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(49), n(281);
-		var r = n(10),
+		var r = n(19),
 			i = n(8),
-			a = n(179),
-			o = n(33),
+			a = n(18),
+			o = n(7),
+			s = n(131),
+			u = n(121),
+			l = n(118),
+			c = n(30),
+			f = n(119),
+			h = Object.assign,
+			d = Object.defineProperty,
+			p = i([].concat);
+		t.exports =
+			!h ||
+			o(function () {
+				if (
+					r &&
+					1 !==
+						h(
+							{ b: 1 },
+							h(
+								d({}, 'a', {
+									enumerable: !0,
+									get: function () {
+										d(this, 'b', { value: 3, enumerable: !1 });
+									},
+								}),
+								{ b: 2 }
+							)
+						).b
+				)
+					return !0;
+				var t = {},
+					e = {},
+					n = Symbol('assign detection');
+				return (
+					(t[n] = 7),
+					'abcdefghijklmnopqrst'.split('').forEach(function (t) {
+						e[t] = t;
+					}),
+					7 !== h({}, t)[n] || 'abcdefghijklmnopqrst' !== s(h({}, e)).join('')
+				);
+			})
+				? function (t, e) {
+						for (var n = c(t), i = arguments.length, o = 1, h = u.f, d = l.f; i > o; )
+							for (
+								var v,
+									g = f(arguments[o++]),
+									m = h ? p(s(g), h(g)) : s(g),
+									y = m.length,
+									b = 0;
+								y > b;
+
+							)
+								(v = m[b++]), (r && !a(d, g, v)) || (n[v] = g[v]);
+						return n;
+				  }
+				: h;
+	},
+	function (t, e, n) {
+		'use strict';
+		n(49), n(287);
+		var r = n(10),
+			i = n(9),
+			a = n(183),
+			o = n(34),
 			s = n(18),
-			u = n(9),
+			u = n(8),
 			l = n(19),
-			c = n(210),
+			c = n(214),
 			f = n(28),
-			h = n(58),
-			d = n(161),
-			p = n(57),
-			g = n(203),
-			v = n(35),
-			m = n(72),
+			h = n(59),
+			d = n(165),
+			p = n(58),
+			v = n(208),
+			g = n(36),
+			m = n(73),
 			y = n(15),
 			b = n(22),
 			x = n(46),
-			S = n(52),
-			w = n(24),
+			w = n(52),
+			S = n(25),
 			A = n(21),
 			k = n(27),
-			C = n(56),
-			E = n(64),
-			_ = n(119),
-			T = n(95),
-			M = n(133),
-			I = n(145),
+			T = n(57),
+			C = n(66),
+			_ = n(125),
+			E = n(98),
+			M = n(136),
+			I = n(148),
 			O = n(17),
-			R = n(212),
+			R = n(166),
 			D = O('iterator'),
-			N = v.set,
-			P = v.getterFor('URLSearchParams'),
-			L = v.getterFor('URLSearchParamsIterator'),
+			N = g.set,
+			P = g.getterFor('URLSearchParams'),
+			L = g.getterFor('URLSearchParamsIterator'),
 			j = a('fetch'),
 			$ = a('Request'),
 			B = a('Headers'),
@@ -16219,7 +16827,7 @@ More info at: http://icanhazjs.com
 			ft = function (t) {
 				return Z(H(t), ut, ct);
 			},
-			ht = g(
+			ht = v(
 				function (t, e) {
 					N(this, {
 						type: 'URLSearchParamsIterator',
@@ -16269,11 +16877,11 @@ More info at: http://icanhazjs.com
 					o,
 					u,
 					l = this.entries,
-					c = T(t);
+					c = E(t);
 				if (c)
 					for (n = (e = _(t, c)).next; !(r = s(n, e)).done; ) {
 						if (
-							((a = (i = _(w(r.value))).next),
+							((a = (i = _(S(r.value))).next),
 							(o = s(a, i)).done || (u = s(a, i)).done || !s(a, i).done)
 						)
 							throw new V('Expected sequence with length 2');
@@ -16300,15 +16908,15 @@ More info at: http://icanhazjs.com
 			},
 		};
 		var pt = function () {
-				m(this, gt);
+				m(this, vt);
 				var t = arguments.length > 0 ? arguments[0] : void 0,
 					e = N(this, new dt(t));
 				l || (this.size = e.entries.length);
 			},
-			gt = pt.prototype;
+			vt = pt.prototype;
 		if (
 			(d(
-				gt,
+				vt,
 				{
 					append: function (t, e) {
 						var n = P(this);
@@ -16406,9 +17014,9 @@ More info at: http://icanhazjs.com
 				},
 				{ enumerable: !0 }
 			),
-			f(gt, D, gt.entries, { name: 'entries' }),
+			f(vt, D, vt.entries, { name: 'entries' }),
 			f(
-				gt,
+				vt,
 				'toString',
 				function () {
 					return P(this).serialize();
@@ -16416,7 +17024,7 @@ More info at: http://icanhazjs.com
 				{ enumerable: !0 }
 			),
 			l &&
-				h(gt, 'size', {
+				h(vt, 'size', {
 					get: function () {
 						return P(this).entries.length;
 					},
@@ -16427,22 +17035,22 @@ More info at: http://icanhazjs.com
 			r({ global: !0, constructor: !0, forced: !c }, { URLSearchParams: pt }),
 			!c && y(B))
 		) {
-			var vt = u(U.has),
+			var gt = u(U.has),
 				mt = u(U.set),
 				yt = function (t) {
 					if (A(t)) {
 						var e,
 							n = t.body;
-						if ('URLSearchParams' === S(n))
+						if ('URLSearchParams' === w(n))
 							return (
 								(e = t.headers ? new B(t.headers) : new B()),
-								vt(e, 'content-type') ||
+								gt(e, 'content-type') ||
 									mt(
 										e,
 										'content-type',
 										'application/x-www-form-urlencoded;charset=UTF-8'
 									),
-								C(t, { body: E(0, k(n)), headers: E(0, e) })
+								T(t, { body: C(0, k(n)), headers: C(0, e) })
 							);
 					}
 					return t;
@@ -16473,39 +17081,32 @@ More info at: http://icanhazjs.com
 		t.exports = { URLSearchParams: pt, getState: P };
 	},
 	function (t, e, n) {
-		'use strict';
-		var r = n(53),
-			i = Math.floor,
-			a = function (t, e) {
-				var n = t.length;
-				if (n < 8)
-					for (var o, s, u = 1; u < n; ) {
-						for (s = u, o = t[u]; s && e(t[s - 1], o) > 0; ) t[s] = t[--s];
-						s !== u++ && (t[s] = o);
-					}
-				else
-					for (
-						var l = i(n / 2),
-							c = a(r(t, 0, l), e),
-							f = a(r(t, l), e),
-							h = c.length,
-							d = f.length,
-							p = 0,
-							g = 0;
-						p < h || g < d;
-
-					)
-						t[p + g] =
-							p < h && g < d
-								? e(c[p], f[g]) <= 0
-									? c[p++]
-									: f[g++]
-								: p < h
-								? c[p++]
-								: f[g++];
-				return t;
-			};
-		t.exports = a;
+		var r = n(218);
+		(t.exports = function (t, e) {
+			if (t) {
+				if ('string' == typeof t) return r(t, e);
+				var n = {}.toString.call(t).slice(8, -1);
+				return (
+					'Object' === n && t.constructor && (n = t.constructor.name),
+					'Map' === n || 'Set' === n
+						? Array.from(t)
+						: 'Arguments' === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
+						? r(t, e)
+						: void 0
+				);
+			}
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
+	},
+	function (t, e) {
+		(t.exports = function (t, e) {
+			(null == e || e > t.length) && (e = t.length);
+			for (var n = 0, r = Array(e); n < e; n++) r[n] = t[n];
+			return r;
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
 	},
 	function (t, e, n) {
 		'use strict';
@@ -16513,8 +17114,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(55),
-			i = n(63),
+		var r = n(56),
+			i = n(65),
 			a = RangeError;
 		t.exports = function (t) {
 			if (void 0 === t) return 0;
@@ -16526,8 +17127,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(31),
-			i = n(83),
+		var r = n(30),
+			i = n(84),
 			a = n(29);
 		t.exports = function (t) {
 			for (
@@ -16546,7 +17147,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(301),
+		var r = n(307),
 			i = RangeError;
 		t.exports = function (t, e) {
 			var n = r(t);
@@ -16556,7 +17157,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(152),
+		var r = n(155),
 			i = TypeError;
 		t.exports = function (t) {
 			var e = r(t, 'number');
@@ -16575,12 +17176,27 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
+		var r = n(55).match(/firefox\/(\d+)/i);
+		t.exports = !!r && +r[1];
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(55);
+		t.exports = /MSIE|Trident/.test(r);
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(55).match(/AppleWebKit\/(\d+)\./);
+		t.exports = !!r && +r[1];
+	},
+	function (t, e, n) {
+		'use strict';
 		var r = n(10),
-			i = n(164).left,
-			a = n(130),
-			o = n(75);
+			i = n(169).left,
+			a = n(112),
+			o = n(67);
 		r(
-			{ target: 'Array', proto: !0, forced: (!n(107) && o > 79 && o < 83) || !a('reduce') },
+			{ target: 'Array', proto: !0, forced: (!n(111) && o > 79 && o < 83) || !a('reduce') },
 			{
 				reduce: function (t) {
 					var e = arguments.length;
@@ -16592,21 +17208,21 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(9),
-			a = n(89),
+			i = n(8),
+			a = n(91),
 			o = n(21),
 			s = n(22),
 			u = n(32).f,
-			l = n(82),
-			c = n(206),
-			f = n(341),
-			h = n(81),
-			d = n(343),
+			l = n(83),
+			c = n(210),
+			f = n(348),
+			h = n(82),
+			d = n(350),
 			p = !1,
-			g = h('meta'),
-			v = 0,
+			v = h('meta'),
+			g = 0,
 			m = function (t) {
-				u(t, g, { value: { objectID: 'O' + v++, weakData: {} } });
+				u(t, v, { value: { objectID: 'O' + g++, weakData: {} } });
 			},
 			y = (t.exports = {
 				enable: function () {
@@ -16614,11 +17230,11 @@ More info at: http://icanhazjs.com
 					var t = l.f,
 						e = i([].splice),
 						n = {};
-					(n[g] = 1),
+					(n[v] = 1),
 						t(n).length &&
 							((l.f = function (n) {
 								for (var r = t(n), i = 0, a = r.length; i < a; i++)
-									if (r[i] === g) {
+									if (r[i] === v) {
 										e(r, i, 1);
 										break;
 									}
@@ -16632,26 +17248,26 @@ More info at: http://icanhazjs.com
 				fastKey: function (t, e) {
 					if (!o(t))
 						return 'symbol' == typeof t ? t : ('string' == typeof t ? 'S' : 'P') + t;
-					if (!s(t, g)) {
+					if (!s(t, v)) {
 						if (!f(t)) return 'F';
 						if (!e) return 'E';
 						m(t);
 					}
-					return t[g].objectID;
+					return t[v].objectID;
 				},
 				getWeakData: function (t, e) {
-					if (!s(t, g)) {
+					if (!s(t, v)) {
 						if (!f(t)) return !0;
 						if (!e) return !1;
 						m(t);
 					}
-					return t[g].weakData;
+					return t[v].weakData;
 				},
 				onFreeze: function (t) {
-					return d && p && f(t) && !s(t, g) && m(t), t;
+					return d && p && f(t) && !s(t, v) && m(t), t;
 				},
 			});
-		a[g] = !0;
+		a[v] = !0;
 	},
 	function (t, e, n) {
 		'use strict';
@@ -16666,17 +17282,11 @@ More info at: http://icanhazjs.com
 				(n(49),
 				n(20),
 				n(48),
-				n(292),
-				n(305),
-				n(307),
-				n(308),
-				n(309),
+				n(298),
 				n(311),
-				n(312),
 				n(313),
 				n(314),
 				n(315),
-				n(316),
 				n(317),
 				n(318),
 				n(319),
@@ -16687,8 +17297,14 @@ More info at: http://icanhazjs.com
 				n(324),
 				n(325),
 				n(326),
+				n(327),
+				n(328),
+				n(329),
 				n(330),
 				n(331),
+				n(332),
+				n(333),
+				n(334),
 				(function () {
 					return o()(
 						function t() {
@@ -16738,9 +17354,9 @@ More info at: http://icanhazjs.com
 			a = n(4),
 			o = n.n(a),
 			s =
-				(n(74),
-				n(30),
-				n(68),
+				(n(75),
+				n(31),
+				n(70),
 				(function () {
 					return o()(
 						function t(e, n) {
@@ -16831,7 +17447,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		n.d(e, 'a', function () {
-			return v;
+			return g;
 		});
 		n(26);
 		var r = n(3),
@@ -16844,10 +17460,10 @@ More info at: http://icanhazjs.com
 			c = n.n(l),
 			f = n(12),
 			h = n.n(f),
-			d = n(67),
+			d = n(69),
 			p = n.n(d);
-		n(30), n(68), n(69);
-		function g(t, e, n) {
+		n(31), n(70), n(62);
+		function v(t, e, n) {
 			return (
 				(e = c()(e)),
 				u()(
@@ -16867,10 +17483,10 @@ More info at: http://icanhazjs.com
 				)
 			);
 		}
-		var v = (function (t) {
+		var g = (function (t) {
 			function e(t) {
 				var n;
-				return i()(this, e), ((n = g(this, e)).CssSelector = t), n;
+				return i()(this, e), ((n = v(this, e)).CssSelector = t), n;
 			}
 			return (
 				h()(e, t),
@@ -16917,9 +17533,9 @@ More info at: http://icanhazjs.com
 			o = n.n(a),
 			s =
 				(n(20),
-				n(30),
-				n(135),
-				n(36),
+				n(31),
+				n(138),
+				n(35),
 				(function () {
 					return o()(
 						function t() {
@@ -16949,10 +17565,10 @@ More info at: http://icanhazjs.com
 					);
 				})()),
 			u =
-				(n(84),
-				n(65),
-				n(68),
-				n(282),
+				(n(85),
+				n(60),
+				n(70),
+				n(288),
 				(function () {
 					return o()(
 						function t(e) {
@@ -17098,7 +17714,7 @@ More info at: http://icanhazjs.com
 			})();
 	},
 	function (t, e, n) {
-		var r = n(345);
+		var r = n(352);
 		(t.exports = function (t, e) {
 			if (null == t) return {};
 			var n,
@@ -17119,7 +17735,7 @@ More info at: http://icanhazjs.com
 		'use strict';
 		(function (t, r) {
 			n.d(e, 'a', function () {
-				return v;
+				return g;
 			});
 			var i = n(2),
 				a = n.n(i),
@@ -17129,11 +17745,11 @@ More info at: http://icanhazjs.com
 				l = n.n(u),
 				c = n(1),
 				f = n.n(c),
-				h = (n(59), n(74), n(96), n(126), n(20), n(48), n(69), n(13)),
-				d = n(147),
-				p = n(66),
-				g = n(6),
-				v = (function () {
+				h = (n(54), n(75), n(99), n(106), n(20), n(48), n(62), n(13)),
+				d = n(150),
+				p = n(68),
+				v = n(6),
+				g = (function () {
 					return l()(
 						function e(n) {
 							s()(this, e),
@@ -17269,7 +17885,7 @@ More info at: http://icanhazjs.com
 															case 8:
 																this.bindMatchingModeDropdown(),
 																	this.bindMoveImagesToTop(),
-																	g.a.translatePage();
+																	v.a.translatePage();
 															case 11:
 															case 'end':
 																return e.stop();
@@ -17588,41 +18204,13 @@ More info at: http://icanhazjs.com
 	},
 	,
 	function (t, e, n) {
-		var r = n(229);
-		(t.exports = function (t, e) {
-			if (t) {
-				if ('string' == typeof t) return r(t, e);
-				var n = {}.toString.call(t).slice(8, -1);
-				return (
-					'Object' === n && t.constructor && (n = t.constructor.name),
-					'Map' === n || 'Set' === n
-						? Array.from(t)
-						: 'Arguments' === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-						? r(t, e)
-						: void 0
-				);
-			}
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
-	},
-	function (t, e) {
-		(t.exports = function (t, e) {
-			(null == e || e > t.length) && (e = t.length);
-			for (var n = 0, r = Array(e); n < e; n++) r[n] = t[n];
-			return r;
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
-	},
-	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(255),
-			a = n(34),
-			o = n(31),
+			i = n(261),
+			a = n(33),
+			o = n(30),
 			s = n(29),
-			u = n(123);
+			u = n(129);
 		r(
 			{ target: 'Array', proto: !0 },
 			{
@@ -17650,7 +18238,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(124)('flatMap');
+		n(105)('flatMap');
 	},
 	function (t, e, n) {
 		'use strict';
@@ -17669,45 +18257,45 @@ More info at: http://icanhazjs.com
 			i,
 			a,
 			o = n(10),
-			s = n(37),
-			u = n(107),
-			l = n(8),
+			s = n(39),
+			u = n(111),
+			l = n(9),
 			c = n(18),
 			f = n(28),
-			h = n(85),
-			d = n(57),
-			p = n(118),
-			g = n(34),
-			v = n(15),
+			h = n(86),
+			d = n(58),
+			p = n(124),
+			v = n(33),
+			g = n(15),
 			m = n(21),
-			y = n(72),
-			b = n(128),
-			x = n(169).set,
-			S = n(237),
-			w = n(240),
-			A = n(129),
-			k = n(171),
-			C = n(35),
-			E = n(77),
-			_ = n(86),
-			T = n(87),
+			y = n(73),
+			b = n(132),
+			x = n(173).set,
+			w = n(244),
+			S = n(247),
+			A = n(133),
+			k = n(175),
+			T = n(36),
+			C = n(78),
+			_ = n(87),
+			E = n(88),
 			M = _.CONSTRUCTOR,
 			I = _.REJECTION_EVENT,
 			O = _.SUBCLASSING,
-			R = C.getterFor('Promise'),
-			D = C.set,
-			N = E && E.prototype,
-			P = E,
+			R = T.getterFor('Promise'),
+			D = T.set,
+			N = C && C.prototype,
+			P = C,
 			L = N,
 			j = l.TypeError,
 			$ = l.document,
 			B = l.process,
-			F = T.f,
+			F = E.f,
 			U = F,
 			V = !!($ && $.createEvent && l.dispatchEvent),
 			H = function (t) {
 				var e;
-				return !(!m(t) || !v((e = t.then))) && e;
+				return !(!m(t) || !g((e = t.then))) && e;
 			},
 			z = function (t, e) {
 				var n,
@@ -17738,7 +18326,7 @@ More info at: http://icanhazjs.com
 			q = function (t, e) {
 				t.notified ||
 					((t.notified = !0),
-					S(function () {
+					w(function () {
 						for (var n, r = t.reactions; (n = r.get()); ) z(n, t);
 						(t.notified = !1), e && !t.rejection && G(t);
 					}));
@@ -17753,7 +18341,7 @@ More info at: http://icanhazjs.com
 					: (r = { promise: e, reason: n }),
 					!I && (i = l['on' + t])
 						? i(r)
-						: 'unhandledrejection' === t && w('Unhandled promise rejection', n);
+						: 'unhandledrejection' === t && S('Unhandled promise rejection', n);
 			},
 			G = function (t) {
 				c(x, l, function () {
@@ -17795,7 +18383,7 @@ More info at: http://icanhazjs.com
 						if (t.facade === e) throw new j("Promise can't be resolved itself");
 						var r = H(e);
 						r
-							? S(function () {
+							? w(function () {
 									var n = { done: !1 };
 									try {
 										c(r, e, Z(X, n, t), Z(J, n, t));
@@ -17812,7 +18400,7 @@ More info at: http://icanhazjs.com
 		if (
 			M &&
 			((L = (P = function (t) {
-				y(this, L), g(t), c(r, this);
+				y(this, L), v(t), c(r, this);
 				var e = R(this);
 				try {
 					t(Z(X, e), Z(J, e));
@@ -17836,12 +18424,12 @@ More info at: http://icanhazjs.com
 					r = F(b(this, P));
 				return (
 					(n.parent = !0),
-					(r.ok = !v(t) || t),
-					(r.fail = v(e) && e),
+					(r.ok = !g(t) || t),
+					(r.fail = g(e) && e),
 					(r.domain = u ? B.domain : void 0),
 					0 === n.state
 						? n.reactions.add(r)
-						: S(function () {
+						: w(function () {
 								z(r, n);
 						  }),
 					r.promise
@@ -17852,11 +18440,11 @@ More info at: http://icanhazjs.com
 					e = R(t);
 				(this.promise = t), (this.resolve = Z(X, e)), (this.reject = Z(J, e));
 			}),
-			(T.f = F =
+			(E.f = F =
 				function (t) {
 					return t === P || void 0 === t ? new i(t) : U(t);
 				}),
-			!s && v(E) && N !== Object.prototype)
+			!s && g(C) && N !== Object.prototype)
 		) {
 			(a = N.then),
 				O ||
@@ -17882,8 +18470,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
-			i = n(34);
+		var r = n(8),
+			i = n(33);
 		t.exports = function (t, e, n) {
 			try {
 				return r(i(Object.getOwnPropertyDescriptor(t, e)[n]));
@@ -17892,7 +18480,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(236),
+		var r = n(243),
 			i = String,
 			a = TypeError;
 		t.exports = function (t) {
@@ -17914,40 +18502,40 @@ More info at: http://icanhazjs.com
 			a,
 			o,
 			s,
-			u = n(8),
-			l = n(179),
+			u = n(9),
+			l = n(183),
 			c = n(46),
-			f = n(169).set,
-			h = n(171),
-			d = n(170),
-			p = n(238),
-			g = n(239),
-			v = n(107),
+			f = n(173).set,
+			h = n(175),
+			d = n(174),
+			p = n(245),
+			v = n(246),
+			g = n(111),
 			m = u.MutationObserver || u.WebKitMutationObserver,
 			y = u.document,
 			b = u.process,
 			x = u.Promise,
-			S = l('queueMicrotask');
-		if (!S) {
-			var w = new h(),
+			w = l('queueMicrotask');
+		if (!w) {
+			var S = new h(),
 				A = function () {
 					var t, e;
-					for (v && (t = b.domain) && t.exit(); (e = w.get()); )
+					for (g && (t = b.domain) && t.exit(); (e = S.get()); )
 						try {
 							e();
 						} catch (t) {
-							throw (w.head && r(), t);
+							throw (S.head && r(), t);
 						}
 					t && t.enter();
 				};
-			d || v || g || !m || !y
+			d || g || v || !m || !y
 				? !p && x && x.resolve
 					? (((o = x.resolve(void 0)).constructor = x),
 					  (s = c(o.then, o)),
 					  (r = function () {
 							s(A);
 					  }))
-					: v
+					: g
 					? (r = function () {
 							b.nextTick(A);
 					  })
@@ -17961,20 +18549,20 @@ More info at: http://icanhazjs.com
 				  (r = function () {
 						a.data = i = !i;
 				  })),
-				(S = function (t) {
-					w.head || r(), w.add(t);
+				(w = function (t) {
+					S.head || r(), S.add(t);
 				});
 		}
-		t.exports = S;
+		t.exports = w;
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(54);
+		var r = n(55);
 		t.exports = /ipad|iphone|ipod/i.test(r) && 'undefined' != typeof Pebble;
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(54);
+		var r = n(55);
 		t.exports = /web0s(?!.*chrome)/i.test(r);
 	},
 	function (t, e, n) {
@@ -17989,12 +18577,12 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(10),
 			i = n(18),
-			a = n(34),
-			o = n(87),
-			s = n(129),
-			u = n(93);
+			a = n(33),
+			o = n(88),
+			s = n(133),
+			u = n(96);
 		r(
-			{ target: 'Promise', stat: !0, forced: n(172) },
+			{ target: 'Promise', stat: !0, forced: n(176) },
 			{
 				all: function (t) {
 					var e = this,
@@ -18024,10 +18612,10 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(37),
-			a = n(86).CONSTRUCTOR,
-			o = n(77),
-			s = n(33),
+			i = n(39),
+			a = n(87).CONSTRUCTOR,
+			o = n(78),
+			s = n(34),
 			u = n(15),
 			l = n(28),
 			c = o && o.prototype;
@@ -18050,12 +18638,12 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(10),
 			i = n(18),
-			a = n(34),
-			o = n(87),
-			s = n(129),
-			u = n(93);
+			a = n(33),
+			o = n(88),
+			s = n(133),
+			u = n(96);
 		r(
-			{ target: 'Promise', stat: !0, forced: n(172) },
+			{ target: 'Promise', stat: !0, forced: n(176) },
 			{
 				race: function (t) {
 					var e = this,
@@ -18075,9 +18663,9 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(87);
+			i = n(88);
 		r(
-			{ target: 'Promise', stat: !0, forced: n(86).CONSTRUCTOR },
+			{ target: 'Promise', stat: !0, forced: n(87).CONSTRUCTOR },
 			{
 				reject: function (t) {
 					var e = i.f(this);
@@ -18089,11 +18677,11 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(33),
-			a = n(37),
-			o = n(77),
-			s = n(86).CONSTRUCTOR,
-			u = n(191),
+			i = n(34),
+			a = n(39),
+			o = n(78),
+			s = n(87).CONSTRUCTOR,
+			u = n(195),
 			l = i('Promise'),
 			c = a && !s;
 		r(
@@ -18107,105 +18695,25 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(10),
-			i = n(19),
-			a = n(175),
-			o = n(41),
-			s = n(78),
-			u = n(92);
-		r(
-			{ target: 'Object', stat: !0, sham: !i },
-			{
-				getOwnPropertyDescriptors: function (t) {
-					for (var e, n, r = o(t), i = s.f, l = a(r), c = {}, f = 0; l.length > f; )
-						void 0 !== (n = i(r, (e = l[f++]))) && u(c, e, n);
-					return c;
-				},
-			}
-		);
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(19),
-			i = n(9),
-			a = n(18),
-			o = n(7),
-			s = n(127),
-			u = n(115),
-			l = n(112),
-			c = n(31),
-			f = n(113),
-			h = Object.assign,
-			d = Object.defineProperty,
-			p = i([].concat);
-		t.exports =
-			!h ||
-			o(function () {
-				if (
-					r &&
-					1 !==
-						h(
-							{ b: 1 },
-							h(
-								d({}, 'a', {
-									enumerable: !0,
-									get: function () {
-										d(this, 'b', { value: 3, enumerable: !1 });
-									},
-								}),
-								{ b: 2 }
-							)
-						).b
-				)
-					return !0;
-				var t = {},
-					e = {},
-					n = Symbol('assign detection');
-				return (
-					(t[n] = 7),
-					'abcdefghijklmnopqrst'.split('').forEach(function (t) {
-						e[t] = t;
-					}),
-					7 !== h({}, t)[n] || 'abcdefghijklmnopqrst' !== s(h({}, e)).join('')
-				);
-			})
-				? function (t, e) {
-						for (var n = c(t), i = arguments.length, o = 1, h = u.f, d = l.f; i > o; )
-							for (
-								var g,
-									v = f(arguments[o++]),
-									m = h ? p(s(v), h(v)) : s(v),
-									y = m.length,
-									b = 0;
-								y > b;
-
-							)
-								(g = m[b++]), (r && !a(d, v, g)) || (n[g] = v[g]);
-						return n;
-				  }
-				: h;
-	},
-	function (t, e, n) {
-		'use strict';
 		var r = n(18),
-			i = n(9),
-			a = n(131),
-			o = n(24),
-			s = n(42),
-			u = n(40),
-			l = n(128),
-			c = n(157),
-			f = n(63),
+			i = n(8),
+			a = n(134),
+			o = n(25),
+			s = n(43),
+			u = n(41),
+			l = n(132),
+			c = n(160),
+			f = n(65),
 			h = n(27),
-			d = n(62),
-			p = n(132),
-			g = n(155),
-			v = n(7),
-			m = g.UNSUPPORTED_Y,
+			d = n(64),
+			p = n(135),
+			v = n(158),
+			g = n(7),
+			m = v.UNSUPPORTED_Y,
 			y = Math.min,
 			b = i([].push),
 			x = i(''.slice),
-			S = !v(function () {
+			w = !g(function () {
 				var t = /(?:)/,
 					e = t.exec;
 				t.exec = function () {
@@ -18214,7 +18722,7 @@ More info at: http://icanhazjs.com
 				var n = 'ab'.split(t);
 				return 2 !== n.length || 'a' !== n[0] || 'b' !== n[1];
 			}),
-			w =
+			S =
 				'c' === 'abbc'.split(/(b)*/)[1] ||
 				4 !== 'test'.split(/(?:)/, -1).length ||
 				2 !== 'ab'.split(/(?:ab)*/).length ||
@@ -18238,49 +18746,49 @@ More info at: http://icanhazjs.com
 					function (t, r) {
 						var a = o(this),
 							s = h(t);
-						if (!w) {
+						if (!S) {
 							var u = n(i, a, s, r, i !== e);
 							if (u.done) return u.value;
 						}
 						var d = l(a, RegExp),
-							g = a.unicode,
-							v =
+							v = a.unicode,
+							g =
 								(a.ignoreCase ? 'i' : '') +
 								(a.multiline ? 'm' : '') +
 								(a.unicode ? 'u' : '') +
 								(m ? 'g' : 'y'),
-							S = new d(m ? '^(?:' + a.source + ')' : a, v),
+							w = new d(m ? '^(?:' + a.source + ')' : a, g),
 							A = void 0 === r ? 4294967295 : r >>> 0;
 						if (0 === A) return [];
-						if (0 === s.length) return null === p(S, s) ? [s] : [];
-						for (var k = 0, C = 0, E = []; C < s.length; ) {
-							S.lastIndex = m ? 0 : C;
+						if (0 === s.length) return null === p(w, s) ? [s] : [];
+						for (var k = 0, T = 0, C = []; T < s.length; ) {
+							w.lastIndex = m ? 0 : T;
 							var _,
-								T = p(S, m ? x(s, C) : s);
-							if (null === T || (_ = y(f(S.lastIndex + (m ? C : 0)), s.length)) === k)
-								C = c(s, C, g);
+								E = p(w, m ? x(s, T) : s);
+							if (null === E || (_ = y(f(w.lastIndex + (m ? T : 0)), s.length)) === k)
+								T = c(s, T, v);
 							else {
-								if ((b(E, x(s, k, C)), E.length === A)) return E;
-								for (var M = 1; M <= T.length - 1; M++)
-									if ((b(E, T[M]), E.length === A)) return E;
-								C = k = _;
+								if ((b(C, x(s, k, T)), C.length === A)) return C;
+								for (var M = 1; M <= E.length - 1; M++)
+									if ((b(C, E[M]), C.length === A)) return C;
+								T = k = _;
 							}
 						}
-						return b(E, x(s, k)), E;
+						return b(C, x(s, k)), C;
 					},
 				];
 			},
-			w || !S,
+			S || !w,
 			m
 		);
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(73),
-			i = n(41),
-			a = n(55),
+		var r = n(74),
+			i = n(42),
+			a = n(56),
 			o = n(29),
-			s = n(130),
+			s = n(112),
 			u = Math.min,
 			l = [].lastIndexOf,
 			c = !!l && 1 / [1].lastIndexOf(1, -0) < 0,
@@ -18313,32 +18821,38 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(8),
-			a = n(9),
-			o = n(111),
+			i = n(215);
+		r({ target: 'Object', stat: !0, arity: 2, forced: Object.assign !== i }, { assign: i });
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(10),
+			i = n(9),
+			a = n(8),
+			o = n(117),
 			s = n(28),
-			u = n(220),
-			l = n(93),
-			c = n(72),
+			u = n(229),
+			l = n(96),
+			c = n(73),
 			f = n(15),
-			h = n(42),
+			h = n(43),
 			d = n(21),
 			p = n(7),
-			g = n(120),
-			v = n(57),
-			m = n(134);
+			v = n(126),
+			g = n(58),
+			m = n(137);
 		t.exports = function (t, e, n) {
 			var y = -1 !== t.indexOf('Map'),
 				b = -1 !== t.indexOf('Weak'),
 				x = y ? 'set' : 'add',
-				S = i[t],
-				w = S && S.prototype,
-				A = S,
+				w = i[t],
+				S = w && w.prototype,
+				A = w,
 				k = {},
-				C = function (t) {
-					var e = a(w[t]);
+				T = function (t) {
+					var e = a(S[t]);
 					s(
-						w,
+						S,
 						t,
 						'add' === t
 							? function (t) {
@@ -18364,47 +18878,47 @@ More info at: http://icanhazjs.com
 			if (
 				o(
 					t,
-					!f(S) ||
+					!f(w) ||
 						!(
 							b ||
-							(w.forEach &&
+							(S.forEach &&
 								!p(function () {
-									new S().entries().next();
+									new w().entries().next();
 								}))
 						)
 				)
 			)
 				(A = n.getConstructor(e, t, y, x)), u.enable();
 			else if (o(t, !0)) {
-				var E = new A(),
-					_ = E[x](b ? {} : -0, 1) !== E,
-					T = p(function () {
-						E.has(1);
+				var C = new A(),
+					_ = C[x](b ? {} : -0, 1) !== C,
+					E = p(function () {
+						C.has(1);
 					}),
-					M = g(function (t) {
-						new S(t);
+					M = v(function (t) {
+						new w(t);
 					}),
 					I =
 						!b &&
 						p(function () {
-							for (var t = new S(), e = 5; e--; ) t[x](e, e);
+							for (var t = new w(), e = 5; e--; ) t[x](e, e);
 							return !t.has(-0);
 						});
 				M ||
 					(((A = e(function (t, e) {
-						c(t, w);
-						var n = m(new S(), t, A);
+						c(t, S);
+						var n = m(new w(), t, A);
 						return h(e) || l(e, n[x], { that: n, AS_ENTRIES: y }), n;
-					})).prototype = w),
-					(w.constructor = A)),
-					(T || I) && (C('delete'), C('has'), y && C('get')),
-					(I || _) && C(x),
-					b && w.clear && delete w.clear;
+					})).prototype = S),
+					(S.constructor = A)),
+					(E || I) && (T('delete'), T('has'), y && T('get')),
+					(I || _) && T(x),
+					b && S.clear && delete S.clear;
 			}
 			return (
 				(k[t] = A),
-				r({ global: !0, constructor: !0, forced: A !== S }, k),
-				v(A, t),
+				r({ global: !0, constructor: !0, forced: A !== w }, k),
+				g(A, t),
 				b || n.setStrong(A, t, y),
 				A
 			);
@@ -18412,35 +18926,35 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(56),
-			i = n(58),
-			a = n(161),
+		var r = n(57),
+			i = n(59),
+			a = n(165),
 			o = n(46),
-			s = n(72),
-			u = n(42),
-			l = n(93),
-			c = n(160),
-			f = n(133),
-			h = n(118),
+			s = n(73),
+			u = n(43),
+			l = n(96),
+			c = n(163),
+			f = n(136),
+			h = n(124),
 			d = n(19),
-			p = n(220).fastKey,
-			g = n(35),
-			v = g.set,
-			m = g.getterFor;
+			p = n(229).fastKey,
+			v = n(36),
+			g = v.set,
+			m = v.getterFor;
 		t.exports = {
 			getConstructor: function (t, e, n, c) {
 				var f = t(function (t, i) {
 						s(t, h),
-							v(t, { type: e, index: r(null), first: null, last: null, size: 0 }),
+							g(t, { type: e, index: r(null), first: null, last: null, size: 0 }),
 							d || (t.size = 0),
 							u(i) || l(i, t[c], { that: t, AS_ENTRIES: n });
 					}),
 					h = f.prototype,
-					g = m(e),
+					v = m(e),
 					y = function (t, e, n) {
 						var r,
 							i,
-							a = g(t),
+							a = v(t),
 							o = b(t, e);
 						return (
 							o
@@ -18463,7 +18977,7 @@ More info at: http://icanhazjs.com
 					},
 					b = function (t, e) {
 						var n,
-							r = g(t),
+							r = v(t),
 							i = p(e);
 						if ('F' !== i) return r.index[i];
 						for (n = r.first; n; n = n.next) if (n.key === e) return n;
@@ -18471,7 +18985,7 @@ More info at: http://icanhazjs.com
 				return (
 					a(h, {
 						clear: function () {
-							for (var t = g(this), e = t.first; e; )
+							for (var t = v(this), e = t.first; e; )
 								(e.removed = !0),
 									e.previous && (e.previous = e.previous.next = null),
 									(e = e.next);
@@ -18480,7 +18994,7 @@ More info at: http://icanhazjs.com
 								d ? (t.size = 0) : (this.size = 0);
 						},
 						delete: function (t) {
-							var e = g(this),
+							var e = v(this),
 								n = b(this, t);
 							if (n) {
 								var r = n.next,
@@ -18498,7 +19012,7 @@ More info at: http://icanhazjs.com
 						forEach: function (t) {
 							for (
 								var e,
-									n = g(this),
+									n = v(this),
 									r = o(t, arguments.length > 1 ? arguments[1] : void 0);
 								(e = e ? e.next : n.first);
 
@@ -18531,7 +19045,7 @@ More info at: http://icanhazjs.com
 						i(h, 'size', {
 							configurable: !0,
 							get: function () {
-								return g(this).size;
+								return v(this).size;
 							},
 						}),
 					f
@@ -18545,7 +19059,7 @@ More info at: http://icanhazjs.com
 					t,
 					e,
 					function (t, e) {
-						v(this, { type: r, target: t, state: i(t), kind: e, last: null });
+						g(this, { type: r, target: t, state: i(t), kind: e, last: null });
 					},
 					function () {
 						for (var t = a(this), e = t.kind, n = t.last; n && n.removed; )
@@ -18580,7 +19094,7 @@ More info at: http://icanhazjs.com
 			o = n.n(a),
 			s = n(4),
 			u = n.n(s),
-			l = (n(59), n(88), n(20), n(1)),
+			l = (n(54), n(89), n(20), n(1)),
 			c = n.n(l),
 			f = n(13),
 			h = n(50),
@@ -18795,7 +19309,7 @@ More info at: http://icanhazjs.com
 						h = f.setAttribute,
 						d = f.setAttributeNS,
 						p = this.CSSStyleDeclaration.prototype,
-						g = p.setProperty;
+						v = p.setProperty;
 					(f.setAttribute = function (t, e) {
 						h.call(this, t, e + '');
 					}),
@@ -18803,10 +19317,10 @@ More info at: http://icanhazjs.com
 							d.call(this, t, e, n + '');
 						}),
 						(p.setProperty = function (t, e, n) {
-							g.call(this, t, e + '', n);
+							v.call(this, t, e + '', n);
 						});
 				}
-			function v(t, e) {
+			function g(t, e) {
 				return t < e ? -1 : t > e ? 1 : t >= e ? 0 : NaN;
 			}
 			function m(t) {
@@ -18841,7 +19355,7 @@ More info at: http://icanhazjs.com
 					},
 				};
 			}
-			(a.ascending = v),
+			(a.ascending = g),
 				(a.descending = function (t, e) {
 					return e < t ? -1 : e > t ? 1 : e >= t ? 0 : NaN;
 				}),
@@ -18948,7 +19462,7 @@ More info at: http://icanhazjs.com
 						o = -1;
 					if (1 === arguments.length) for (; ++o < i; ) y((n = m(t[o]))) && r.push(n);
 					else for (; ++o < i; ) y((n = m(e.call(t, t[o], o)))) && r.push(n);
-					if (r.length) return a.quantile(r.sort(v), 0.5);
+					if (r.length) return a.quantile(r.sort(g), 0.5);
 				}),
 				(a.variance = function (t, e) {
 					var n,
@@ -18971,8 +19485,8 @@ More info at: http://icanhazjs.com
 					var t = a.variance.apply(this, arguments);
 					return t ? Math.sqrt(t) : t;
 				});
-			var x = b(v);
-			function S(t) {
+			var x = b(g);
+			function w(t) {
 				return t.length;
 			}
 			(a.bisectLeft = x.left),
@@ -18981,7 +19495,7 @@ More info at: http://icanhazjs.com
 					return b(
 						1 === t.length
 							? function (e, n) {
-									return v(t(e), n);
+									return g(t(e), n);
 							  }
 							: t
 					);
@@ -19010,7 +19524,7 @@ More info at: http://icanhazjs.com
 				}),
 				(a.transpose = function (t) {
 					if (!(i = t.length)) return [];
-					for (var e = -1, n = a.min(t, S), r = new Array(n); ++e < n; )
+					for (var e = -1, n = a.min(t, w), r = new Array(n); ++e < n; )
 						for (var i, o = -1, s = (r[e] = new Array(i)); ++o < i; ) s[o] = t[o][e];
 					return r;
 				}),
@@ -19038,7 +19552,7 @@ More info at: http://icanhazjs.com
 						for (e = (r = t[i]).length; --e >= 0; ) n[--o] = r[e];
 					return n;
 				});
-			var w = Math.abs;
+			var S = Math.abs;
 			function A(t) {
 				for (var e = 1; (t * e) % 1; ) e *= 10;
 				return e;
@@ -19047,7 +19561,7 @@ More info at: http://icanhazjs.com
 				for (var n in e)
 					Object.defineProperty(t.prototype, n, { value: e[n], enumerable: !1 });
 			}
-			function C() {
+			function T() {
 				this._ = Object.create(null);
 			}
 			(a.range = function (t, e, n) {
@@ -19058,7 +19572,7 @@ More info at: http://icanhazjs.com
 					throw new Error('infinite range');
 				var r,
 					i = [],
-					a = A(w(n)),
+					a = A(S(n)),
 					o = -1;
 				if (((t *= a), (e *= a), (n *= a) < 0))
 					for (; (r = t + n * ++o) > e; ) i.push(r / a);
@@ -19066,8 +19580,8 @@ More info at: http://icanhazjs.com
 				return i;
 			}),
 				(a.map = function (t, e) {
-					var n = new C();
-					if (t instanceof C)
+					var n = new T();
+					if (t instanceof T)
 						t.forEach(function (t, e) {
 							n.set(t, e);
 						});
@@ -19080,17 +19594,17 @@ More info at: http://icanhazjs.com
 					} else for (var o in t) n.set(o, t[o]);
 					return n;
 				});
-			function E(t) {
+			function C(t) {
 				return '__proto__' == (t += '') || '\0' === t[0] ? '\0' + t : t;
 			}
 			function _(t) {
 				return '\0' === (t += '')[0] ? t.slice(1) : t;
 			}
-			function T(t) {
-				return E(t) in this._;
+			function E(t) {
+				return C(t) in this._;
 			}
 			function M(t) {
-				return (t = E(t)) in this._ && delete this._[t];
+				return (t = C(t)) in this._ && delete this._[t];
 			}
 			function I() {
 				var t = [];
@@ -19126,13 +19640,13 @@ More info at: http://icanhazjs.com
 					if (i in t) return i;
 				}
 			}
-			k(C, {
-				has: T,
+			k(T, {
+				has: E,
 				get: function (t) {
-					return this._[E(t)];
+					return this._[C(t)];
 				},
 				set: function (t, e) {
-					return (this._[E(t)] = e);
+					return (this._[C(t)] = e);
 				},
 				remove: M,
 				keys: I,
@@ -19161,11 +19675,11 @@ More info at: http://icanhazjs.com
 					function o(i, a, s) {
 						if (s >= r.length) return e ? e.call(n, a) : t ? a.sort(t) : a;
 						for (
-							var u, l, c, f, h = -1, d = a.length, p = r[s++], g = new C();
+							var u, l, c, f, h = -1, d = a.length, p = r[s++], v = new T();
 							++h < d;
 
 						)
-							(f = g.get((u = p((l = a[h]))))) ? f.push(l) : g.set(u, [l]);
+							(f = v.get((u = p((l = a[h]))))) ? f.push(l) : v.set(u, [l]);
 						return (
 							i
 								? ((l = i()),
@@ -19176,7 +19690,7 @@ More info at: http://icanhazjs.com
 								  (c = function (t, e) {
 										l[t] = o(i, e, s);
 								  })),
-							g.forEach(c),
+							v.forEach(c),
 							l
 						);
 					}
@@ -19222,9 +19736,9 @@ More info at: http://icanhazjs.com
 					return e;
 				}),
 				k(D, {
-					has: T,
+					has: E,
 					add: function (t) {
-						return (this._[E((t += ''))] = !0), t;
+						return (this._[C((t += ''))] = !0), t;
 					},
 					remove: M,
 					values: I,
@@ -19245,7 +19759,7 @@ More info at: http://icanhazjs.com
 			function B() {}
 			function F(t) {
 				var e = [],
-					n = new C();
+					n = new T();
 				function r() {
 					for (var n, r = e, i = -1, a = r.length; ++i < a; )
 						(n = r[i].on) && n.apply(this, arguments);
@@ -19514,7 +20028,7 @@ More info at: http://icanhazjs.com
 			}
 			function dt(t) {
 				return (
-					arguments.length || (t = v),
+					arguments.length || (t = g),
 					function (e, n) {
 						return e && n ? t(e.__data__, n.__data__) : !e - !n;
 					}
@@ -19525,8 +20039,8 @@ More info at: http://icanhazjs.com
 					for (var i, a = t[n], o = 0, s = a.length; o < s; o++) (i = a[o]) && e(i, o, n);
 				return t;
 			}
-			function gt(t) {
-				return q(t, vt), t;
+			function vt(t) {
+				return q(t, gt), t;
 			}
 			(a.ns = {
 				prefix: tt,
@@ -19673,21 +20187,21 @@ More info at: http://icanhazjs.com
 							d = new Array(c),
 							p = new Array(o);
 						if (e) {
-							var g,
-								v = new C(),
+							var v,
+								g = new T(),
 								m = new Array(o);
 							for (r = -1; ++r < o; )
 								(i = t[r]) &&
-									(v.has((g = e.call(i, i.__data__, r)))
+									(g.has((v = e.call(i, i.__data__, r)))
 										? (p[r] = i)
-										: v.set(g, i),
-									(m[r] = g));
+										: g.set(v, i),
+									(m[r] = v));
 							for (r = -1; ++r < c; )
-								(i = v.get((g = e.call(n, (a = n[r]), r))))
+								(i = g.get((v = e.call(n, (a = n[r]), r))))
 									? !0 !== i && ((h[r] = i), (i.__data__ = a))
 									: (d[r] = ft(a)),
-									v.set(g, !0);
-							for (r = -1; ++r < o; ) r in m && !0 !== v.get(m[r]) && (p[r] = t[r]);
+									g.set(v, !0);
+							for (r = -1; ++r < o; ) r in m && !0 !== g.get(m[r]) && (p[r] = t[r]);
 						} else {
 							for (r = -1; ++r < f; )
 								(i = t[r]),
@@ -19702,7 +20216,7 @@ More info at: http://icanhazjs.com
 							u.push(h),
 							l.push(p);
 					}
-					var s = gt([]),
+					var s = vt([]),
 						u = W([]),
 						l = W([]);
 					if ('function' == typeof t)
@@ -19778,7 +20292,7 @@ More info at: http://icanhazjs.com
 						t
 					);
 				});
-			var vt = [];
+			var gt = [];
 			function mt(t) {
 				var e, n;
 				return function (r, i, a) {
@@ -19804,7 +20318,7 @@ More info at: http://icanhazjs.com
 					e && (this.removeEventListener(t, e, e.$), delete this[r]);
 				}
 				return (
-					u && ((t = u), (o = St)),
+					u && ((t = u), (o = wt)),
 					i
 						? e
 							? function () {
@@ -19827,14 +20341,14 @@ More info at: http://icanhazjs.com
 						  }
 				);
 			}
-			(a.selection.enter = gt),
-				(a.selection.enter.prototype = vt),
-				(vt.append = Z.append),
-				(vt.empty = Z.empty),
-				(vt.node = Z.node),
-				(vt.call = Z.call),
-				(vt.size = Z.size),
-				(vt.select = function (t) {
+			(a.selection.enter = vt),
+				(a.selection.enter.prototype = gt),
+				(gt.append = Z.append),
+				(gt.empty = Z.empty),
+				(gt.node = Z.node),
+				(gt.call = Z.call),
+				(gt.size = Z.size),
+				(gt.select = function (t) {
 					for (var e, n, r, i, a, o = [], s = -1, u = this.length; ++s < u; ) {
 						(r = (i = this[s]).update), o.push((e = [])), (e.parentNode = i.parentNode);
 						for (var l = -1, c = i.length; ++l < c; )
@@ -19845,7 +20359,7 @@ More info at: http://icanhazjs.com
 					}
 					return W(o);
 				}),
-				(vt.insert = function (t, e) {
+				(gt.insert = function (t, e) {
 					return arguments.length < 2 && (e = mt(this)), Z.insert.call(this, t, e);
 				}),
 				(a.select = function (t) {
@@ -19890,7 +20404,7 @@ More info at: http://icanhazjs.com
 					}
 				};
 			}
-			function St(t, e) {
+			function wt(t, e) {
 				var n = xt(t, e);
 				return function (t) {
 					var e = t.relatedTarget;
@@ -19901,7 +20415,7 @@ More info at: http://icanhazjs.com
 				bt.forEach(function (t) {
 					'on' + t in u && bt.remove(t);
 				});
-			var wt,
+			var St,
 				At = 0;
 			function kt(t) {
 				var e = '.dragsuppress-' + ++At,
@@ -19912,14 +20426,14 @@ More info at: http://icanhazjs.com
 						.on('dragstart' + e, U)
 						.on('selectstart' + e, U);
 				if (
-					(null == wt && (wt = !('onselectstart' in t) && L(t.style, 'userSelect')), wt)
+					(null == St && (St = !('onselectstart' in t) && L(t.style, 'userSelect')), St)
 				) {
 					var i = l(t).style,
-						o = i[wt];
-					i[wt] = 'none';
+						o = i[St];
+					i[St] = 'none';
 				}
 				return function (t) {
-					if ((r.on(e, null), wt && (i[wt] = o), t)) {
+					if ((r.on(e, null), St && (i[St] = o), t)) {
 						var a = function () {
 							r.on(n, null);
 						};
@@ -19935,15 +20449,15 @@ More info at: http://icanhazjs.com
 				};
 			}
 			a.mouse = function (t) {
-				return Et(t, V());
+				return Ct(t, V());
 			};
-			var Ct = this.navigator && /WebKit/.test(this.navigator.userAgent) ? -1 : 0;
-			function Et(t, e) {
+			var Tt = this.navigator && /WebKit/.test(this.navigator.userAgent) ? -1 : 0;
+			function Ct(t, e) {
 				e.changedTouches && (e = e.changedTouches[0]);
 				var n = t.ownerSVGElement || t;
 				if (n.createSVGPoint) {
 					var r = n.createSVGPoint();
-					if (Ct < 0) {
+					if (Tt < 0) {
 						var i = c(t);
 						if (i.scrollX || i.scrollY) {
 							var o = (n = a
@@ -19960,11 +20474,11 @@ More info at: http://icanhazjs.com
 									},
 									'important'
 								))[0][0].getScreenCTM();
-							(Ct = !(o.f || o.e)), n.remove();
+							(Tt = !(o.f || o.e)), n.remove();
 						}
 					}
 					return (
-						Ct
+						Tt
 							? ((r.x = e.pageX), (r.y = e.pageY))
 							: ((r.x = e.clientX), (r.y = e.clientY)),
 						[(r = r.matrixTransform(t.getScreenCTM().inverse())).x, r.y]
@@ -19979,7 +20493,7 @@ More info at: http://icanhazjs.com
 			(a.touch = function (t, e, n) {
 				if ((arguments.length < 3 && ((n = e), (e = V().changedTouches)), e))
 					for (var r, i = 0, a = e.length; i < a; ++i)
-						if ((r = e[i]).identifier === n) return Et(t, r);
+						if ((r = e[i]).identifier === n) return Ct(t, r);
 			}),
 				(a.behavior.drag = function () {
 					var t = H(i, 'drag', 'dragstart', 'dragend'),
@@ -19998,11 +20512,11 @@ More info at: http://icanhazjs.com
 								h = t.of(l, arguments),
 								d = 0,
 								p = n(),
-								g = '.drag' + (null == p ? '' : '-' + p),
-								v = a
+								v = '.drag' + (null == p ? '' : '-' + p),
+								g = a
 									.select(i(c))
-									.on(o + g, b)
-									.on(s + g, x),
+									.on(o + v, b)
+									.on(s + v, x),
 								m = kt(c),
 								y = r(f, p);
 							function b() {
@@ -20024,7 +20538,7 @@ More info at: http://icanhazjs.com
 							}
 							function x() {
 								r(f, p) &&
-									(v.on(o + g, null).on(s + g, null),
+									(g.on(o + v, null).on(s + v, null),
 									m(d),
 									h({ type: 'dragend' }));
 							}
@@ -20044,17 +20558,17 @@ More info at: http://icanhazjs.com
 						arguments.length < 2 && (e = V().touches),
 						e
 							? s(e).map(function (e) {
-									var n = Et(t, e);
+									var n = Ct(t, e);
 									return (n.identifier = e.identifier), n;
 							  })
 							: []
 					);
 				});
-			var Tt = 1e-6,
+			var Et = 1e-6,
 				Mt = 1e-12,
 				It = Math.PI,
 				Ot = 2 * It,
-				Rt = Ot - Tt,
+				Rt = Ot - Et,
 				Dt = It / 2,
 				Nt = It / 180,
 				Pt = 180 / It;
@@ -20097,21 +20611,21 @@ More info at: http://icanhazjs.com
 				else {
 					var d = Math.sqrt(h),
 						p = (l * l - o * o + 4 * h) / (2 * o * 2 * d),
-						g = (l * l - o * o - 4 * h) / (2 * l * 2 * d),
-						v = Math.log(Math.sqrt(p * p + 1) - p),
-						m = Math.log(Math.sqrt(g * g + 1) - g);
-					(r = (m - v) / Vt),
+						v = (l * l - o * o - 4 * h) / (2 * l * 2 * d),
+						g = Math.log(Math.sqrt(p * p + 1) - p),
+						m = Math.log(Math.sqrt(v * v + 1) - v);
+					(r = (m - g) / Vt),
 						(n = function (t) {
 							var e,
 								n = t * r,
-								s = Ft(v),
+								s = Ft(g),
 								u =
 									(o / (2 * d)) *
-									(s * ((e = Vt * n + v), ((e = Math.exp(2 * e)) - 1) / (e + 1)) -
+									(s * ((e = Vt * n + g), ((e = Math.exp(2 * e)) - 1) / (e + 1)) -
 										(function (t) {
 											return ((t = Math.exp(t)) - 1 / t) / 2;
-										})(v));
-							return [i + u * c, a + u * f, (o * s) / Ft(Vt * n + v)];
+										})(g));
+							return [i + u * c, a + u * f, (o * s) / Ft(Vt * n + g)];
 						});
 				}
 				return (n.duration = 1e3 * r), n;
@@ -20129,14 +20643,14 @@ More info at: http://icanhazjs.com
 						h = { x: 0, y: 0, k: 1 },
 						d = [960, 500],
 						p = qt,
-						g = 250,
-						v = 0,
+						v = 250,
+						g = 0,
 						m = 'mousedown.zoom',
 						y = 'mousemove.zoom',
 						b = 'mouseup.zoom',
 						x = 'touchstart.zoom',
-						S = H(w, 'zoomstart', 'zoom', 'zoomend');
-					function w(t) {
+						w = H(S, 'zoomstart', 'zoom', 'zoomend');
+					function S(t) {
 						t.on(m, O)
 							.on(zt + '.zoom', D)
 							.on('dblclick.zoom', N)
@@ -20148,20 +20662,20 @@ More info at: http://icanhazjs.com
 					function k(t) {
 						h.k = Math.max(p[0], Math.min(p[1], t));
 					}
-					function C(t, e) {
+					function T(t, e) {
 						(e = (function (t) {
 							return [t[0] * h.k + h.x, t[1] * h.k + h.y];
 						})(e)),
 							(h.x += t[0] - e[0]),
 							(h.y += t[1] - e[1]);
 					}
-					function E(t, n, r, i) {
+					function C(t, n, r, i) {
 						(t.__chart__ = { x: h.x, y: h.y, k: h.k }),
 							k(Math.pow(2, i)),
-							C((e = n), r),
+							T((e = n), r),
 							(t = a.select(t)),
-							g > 0 && (t = t.transition().duration(g)),
-							t.call(w.event);
+							v > 0 && (t = t.transition().duration(v)),
+							t.call(S.event);
 					}
 					function _() {
 						s &&
@@ -20183,34 +20697,34 @@ More info at: http://icanhazjs.com
 										.map(l.invert)
 								);
 					}
-					function T(t) {
-						v++ || t({ type: 'zoomstart' });
+					function E(t) {
+						g++ || t({ type: 'zoomstart' });
 					}
 					function M(t) {
 						_(), t({ type: 'zoom', scale: h.k, translate: [h.x, h.y] });
 					}
 					function I(t) {
-						--v || (t({ type: 'zoomend' }), (e = null));
+						--g || (t({ type: 'zoomend' }), (e = null));
 					}
 					function O() {
 						var t = this,
-							e = S.of(t, arguments),
+							e = w.of(t, arguments),
 							n = 0,
 							r = a.select(c(t)).on(y, s).on(b, u),
 							i = A(a.mouse(t)),
 							o = kt(t);
 						function s() {
-							(n = 1), C(a.mouse(t), i), M(e);
+							(n = 1), T(a.mouse(t), i), M(e);
 						}
 						function u() {
 							r.on(y, null).on(b, null), o(n), I(e);
 						}
-						Ss.call(t), T(e);
+						ws.call(t), E(e);
 					}
 					function R() {
 						var t,
 							e = this,
-							n = S.of(e, arguments),
+							n = w.of(e, arguments),
 							r = {},
 							o = 0,
 							s = '.zoom-' + a.event.changedTouches[0].identifier,
@@ -20229,17 +20743,17 @@ More info at: http://icanhazjs.com
 								n
 							);
 						}
-						function g() {
+						function v() {
 							var t = a.event.target;
-							a.select(t).on(u, v).on(l, y), c.push(t);
+							a.select(t).on(u, g).on(l, y), c.push(t);
 							for (var n = a.event.changedTouches, s = 0, f = n.length; s < f; ++s)
 								r[n[s].identifier] = null;
 							var d = p(),
-								g = Date.now();
+								v = Date.now();
 							if (1 === d.length) {
-								if (g - i < 500) {
+								if (v - i < 500) {
 									var m = d[0];
-									E(
+									C(
 										e,
 										m,
 										r[m.identifier],
@@ -20247,22 +20761,22 @@ More info at: http://icanhazjs.com
 									),
 										U();
 								}
-								i = g;
+								i = v;
 							} else if (d.length > 1) {
 								m = d[0];
 								var b = d[1],
 									x = m[0] - b[0],
-									S = m[1] - b[1];
-								o = x * x + S * S;
+									w = m[1] - b[1];
+								o = x * x + w * w;
 							}
 						}
-						function v() {
+						function g() {
 							var s,
 								u,
 								l,
 								c,
 								f = a.touches(e);
-							Ss.call(e);
+							ws.call(e);
 							for (var h = 0, d = f.length; h < d; ++h, c = null)
 								if (((l = f[h]), (c = r[l.identifier]))) {
 									if (u) break;
@@ -20270,12 +20784,12 @@ More info at: http://icanhazjs.com
 								}
 							if (c) {
 								var p = (p = l[0] - s[0]) * p + (p = l[1] - s[1]) * p,
-									g = o && Math.sqrt(p / o);
+									v = o && Math.sqrt(p / o);
 								(s = [(s[0] + l[0]) / 2, (s[1] + l[1]) / 2]),
 									(u = [(u[0] + c[0]) / 2, (u[1] + c[1]) / 2]),
-									k(g * t);
+									k(v * t);
 							}
-							(i = null), C(s, u), M(n);
+							(i = null), T(s, u), M(n);
 						}
 						function y() {
 							if (a.event.touches.length) {
@@ -20289,25 +20803,25 @@ More info at: http://icanhazjs.com
 							}
 							a.selectAll(c).on(s, null), f.on(m, O).on(x, R), d(), I(n);
 						}
-						g(), T(n), f.on(m, null).on(x, g);
+						v(), E(n), f.on(m, null).on(x, v);
 					}
 					function D() {
-						var i = S.of(this, arguments);
+						var i = w.of(this, arguments);
 						r
 							? clearTimeout(r)
-							: (Ss.call(this), (t = A((e = n || a.mouse(this)))), T(i)),
+							: (ws.call(this), (t = A((e = n || a.mouse(this)))), E(i)),
 							(r = setTimeout(function () {
 								(r = null), I(i);
 							}, 50)),
 							U(),
 							k(Math.pow(2, 0.002 * Ht()) * h.k),
-							C(e, t),
+							T(e, t),
 							M(i);
 					}
 					function N() {
 						var t = a.mouse(this),
 							e = Math.log(h.k) / Math.LN2;
-						E(this, t, A(t), a.event.shiftKey ? Math.ceil(e) - 1 : Math.floor(e) + 1);
+						C(this, t, A(t), a.event.shiftKey ? Math.ceil(e) - 1 : Math.floor(e) + 1);
 					}
 					return (
 						zt ||
@@ -20326,16 +20840,16 @@ More info at: http://icanhazjs.com
 											return -a.event.detail;
 									  }),
 									  'MozMousePixelScroll')),
-						(w.event = function (t) {
+						(S.event = function (t) {
 							t.each(function () {
-								var t = S.of(this, arguments),
+								var t = w.of(this, arguments),
 									n = h;
 								ks
 									? a
 											.select(this)
 											.transition()
 											.each('start.zoom', function () {
-												(h = this.__chart__ || { x: 0, y: 0, k: 1 }), T(t);
+												(h = this.__chart__ || { x: 0, y: 0, k: 1 }), E(t);
 											})
 											.tween('zoom:zoom', function () {
 												var r = d[0],
@@ -20360,44 +20874,44 @@ More info at: http://icanhazjs.com
 											.each('end.zoom', function () {
 												I(t);
 											})
-									: ((this.__chart__ = h), T(t), M(t), I(t));
+									: ((this.__chart__ = h), E(t), M(t), I(t));
 							});
 						}),
-						(w.translate = function (t) {
+						(S.translate = function (t) {
 							return arguments.length
-								? ((h = { x: +t[0], y: +t[1], k: h.k }), _(), w)
+								? ((h = { x: +t[0], y: +t[1], k: h.k }), _(), S)
 								: [h.x, h.y];
 						}),
-						(w.scale = function (t) {
+						(S.scale = function (t) {
 							return arguments.length
-								? ((h = { x: h.x, y: h.y, k: null }), k(+t), _(), w)
+								? ((h = { x: h.x, y: h.y, k: null }), k(+t), _(), S)
 								: h.k;
 						}),
-						(w.scaleExtent = function (t) {
+						(S.scaleExtent = function (t) {
 							return arguments.length
-								? ((p = null == t ? qt : [+t[0], +t[1]]), w)
+								? ((p = null == t ? qt : [+t[0], +t[1]]), S)
 								: p;
 						}),
-						(w.center = function (t) {
-							return arguments.length ? ((n = t && [+t[0], +t[1]]), w) : n;
+						(S.center = function (t) {
+							return arguments.length ? ((n = t && [+t[0], +t[1]]), S) : n;
 						}),
-						(w.size = function (t) {
-							return arguments.length ? ((d = t && [+t[0], +t[1]]), w) : d;
+						(S.size = function (t) {
+							return arguments.length ? ((d = t && [+t[0], +t[1]]), S) : d;
 						}),
-						(w.duration = function (t) {
-							return arguments.length ? ((g = +t), w) : g;
+						(S.duration = function (t) {
+							return arguments.length ? ((v = +t), S) : v;
 						}),
-						(w.x = function (t) {
+						(S.x = function (t) {
 							return arguments.length
-								? ((s = t), (o = t.copy()), (h = { x: 0, y: 0, k: 1 }), w)
+								? ((s = t), (o = t.copy()), (h = { x: 0, y: 0, k: 1 }), S)
 								: s;
 						}),
-						(w.y = function (t) {
+						(S.y = function (t) {
 							return arguments.length
-								? ((f = t), (l = t.copy()), (h = { x: 0, y: 0, k: 1 }), w)
+								? ((f = t), (l = t.copy()), (h = { x: 0, y: 0, k: 1 }), S)
 								: f;
 						}),
-						a.rebind(w, S, 'on')
+						a.rebind(S, w, 'on')
 					);
 				});
 			var Ht,
@@ -20598,7 +21112,7 @@ More info at: http://icanhazjs.com
 								parseFloat(i[2]) / 100
 							);
 						case 'rgb':
-							return e(ve(i[0]), ve(i[1]), ve(i[2]));
+							return e(ge(i[0]), ge(i[1]), ge(i[2]));
 					}
 				return (a = me.get(t))
 					? e(a.r, a.g, a.b)
@@ -20641,9 +21155,9 @@ More info at: http://icanhazjs.com
 			}
 			function pe(t, e, n) {
 				var r = ae(
-						(0.4124564 * (t = ge(t)) +
-							0.3575761 * (e = ge(e)) +
-							0.1804375 * (n = ge(n))) /
+						(0.4124564 * (t = ve(t)) +
+							0.3575761 * (e = ve(e)) +
+							0.1804375 * (n = ve(n))) /
 							0.95047
 					),
 					i = ae((0.2126729 * t + 0.7151522 * e + 0.072175 * n) / 1);
@@ -20653,10 +21167,10 @@ More info at: http://icanhazjs.com
 					200 * (i - ae((0.0193339 * t + 0.119192 * e + 0.9503041 * n) / 1.08883))
 				);
 			}
-			function ge(t) {
+			function ve(t) {
 				return (t /= 255) <= 0.04045 ? t / 12.92 : Math.pow((t + 0.055) / 1.055, 2.4);
 			}
-			function ve(t) {
+			function ge(t) {
 				var e = parseFloat(t);
 				return '%' === t.charAt(t.length - 1) ? Math.round(2.55 * e) : e;
 			}
@@ -21086,54 +21600,54 @@ More info at: http://icanhazjs.com
 				}),
 				(a.csv = a.dsv(',', 'text/csv')),
 				(a.tsv = a.dsv('\t', 'text/tab-separated-values'));
-			var Se,
-				we,
+			var we,
+				Se,
 				Ae,
 				ke,
-				Ce =
+				Te =
 					this[L(this, 'requestAnimationFrame')] ||
 					function (t) {
 						setTimeout(t, 17);
 					};
-			function Ee(t, e, n) {
+			function Ce(t, e, n) {
 				var r = arguments.length;
 				r < 2 && (e = 0), r < 3 && (n = Date.now());
 				var i = n + e,
 					a = { c: t, t: i, n: null };
 				return (
-					we ? (we.n = a) : (Se = a),
-					(we = a),
-					Ae || ((ke = clearTimeout(ke)), (Ae = 1), Ce(_e)),
+					Se ? (Se.n = a) : (we = a),
+					(Se = a),
+					Ae || ((ke = clearTimeout(ke)), (Ae = 1), Te(_e)),
 					a
 				);
 			}
 			function _e() {
-				var t = Te(),
+				var t = Ee(),
 					e = Me() - t;
 				e > 24
 					? (isFinite(e) && (clearTimeout(ke), (ke = setTimeout(_e, e))), (Ae = 0))
-					: ((Ae = 1), Ce(_e));
+					: ((Ae = 1), Te(_e));
 			}
-			function Te() {
-				for (var t = Date.now(), e = Se; e; )
+			function Ee() {
+				for (var t = Date.now(), e = we; e; )
 					t >= e.t && e.c(t - e.t) && (e.c = null), (e = e.n);
 				return t;
 			}
 			function Me() {
-				for (var t, e = Se, n = 1 / 0; e; )
+				for (var t, e = we, n = 1 / 0; e; )
 					e.c
 						? (e.t < n && (n = e.t), (e = (t = e).n))
-						: (e = t ? (t.n = e.n) : (Se = e.n));
-				return (we = t), n;
+						: (e = t ? (t.n = e.n) : (we = e.n));
+				return (Se = t), n;
 			}
 			function Ie(t, e) {
 				return e - (t ? Math.ceil(Math.log(t) / Math.LN10) : 1);
 			}
 			(a.timer = function () {
-				Ee.apply(this, arguments);
+				Ce.apply(this, arguments);
 			}),
 				(a.timer.flush = function () {
-					Te(), Me();
+					Ee(), Me();
 				}),
 				(a.round = function (t, e) {
 					return e ? Math.round(t * (e = Math.pow(10, e))) / e : Math.round(t);
@@ -21157,7 +21671,7 @@ More info at: http://icanhazjs.com
 				'Z',
 				'Y',
 			].map(function (t, e) {
-				var n = Math.pow(10, 3 * w(8 - e));
+				var n = Math.pow(10, 3 * S(8 - e));
 				return {
 					scale:
 						e > 8
@@ -21202,8 +21716,8 @@ More info at: http://icanhazjs.com
 						h = n[7],
 						d = n[8],
 						p = n[9],
-						g = 1,
-						v = '',
+						v = 1,
+						g = '',
 						m = '',
 						y = !1,
 						b = !0;
@@ -21216,25 +21730,25 @@ More info at: http://icanhazjs.com
 							(h = !0), (p = 'g');
 							break;
 						case '%':
-							(g = 100), (m = '%'), (p = 'f');
+							(v = 100), (m = '%'), (p = 'f');
 							break;
 						case 'p':
-							(g = 100), (m = '%'), (p = 'r');
+							(v = 100), (m = '%'), (p = 'r');
 							break;
 						case 'b':
 						case 'o':
 						case 'x':
 						case 'X':
-							'#' === l && (v = '0' + p.toLowerCase());
+							'#' === l && (g = '0' + p.toLowerCase());
 						case 'c':
 							b = !1;
 						case 'd':
 							(y = !0), (d = 0);
 							break;
 						case 's':
-							(g = -1), (p = 'r');
+							(v = -1), (p = 'r');
 					}
-					'$' === l && ((v = i[0]), (m = i[1])),
+					'$' === l && ((g = i[0]), (m = i[1])),
 						'r' != p || d || (p = 'g'),
 						null != d &&
 							('g' == p
@@ -21247,33 +21761,33 @@ More info at: http://icanhazjs.com
 						if (y && t % 1) return '';
 						var i =
 							t < 0 || (0 === t && 1 / t < 0) ? ((t = -t), '-') : '-' === u ? '' : u;
-						if (g < 0) {
+						if (v < 0) {
 							var l = a.formatPrefix(t, d);
 							(t = l.scale(t)), (n = l.symbol + m);
-						} else t *= g;
-						var S,
-							w,
+						} else t *= v;
+						var w,
+							S,
 							A = (t = p(t, d)).lastIndexOf('.');
 						if (A < 0) {
 							var k = b ? t.lastIndexOf('e') : -1;
 							k < 0
-								? ((S = t), (w = ''))
-								: ((S = t.substring(0, k)), (w = t.substring(k)));
-						} else (S = t.substring(0, A)), (w = e + t.substring(A + 1));
-						!c && h && (S = o(S, 1 / 0));
-						var C = v.length + S.length + w.length + (x ? 0 : i.length),
-							E = C < f ? new Array((C = f - C + 1)).join(r) : '';
+								? ((w = t), (S = ''))
+								: ((w = t.substring(0, k)), (S = t.substring(k)));
+						} else (w = t.substring(0, A)), (S = e + t.substring(A + 1));
+						!c && h && (w = o(w, 1 / 0));
+						var T = g.length + w.length + S.length + (x ? 0 : i.length),
+							C = T < f ? new Array((T = f - T + 1)).join(r) : '';
 						return (
-							x && (S = o(E + S, E.length ? f - w.length : 1 / 0)),
-							(i += v),
-							(t = S + w),
+							x && (w = o(C + w, C.length ? f - S.length : 1 / 0)),
+							(i += g),
+							(t = w + S),
 							('<' === s
-								? i + t + E
+								? i + t + C
 								: '>' === s
-								? E + i + t
+								? C + i + t
 								: '^' === s
-								? E.substring(0, (C >>= 1)) + i + t + E.substring(C)
-								: i + (x ? t : E + t)) + n
+								? C.substring(0, (T >>= 1)) + i + t + C.substring(T)
+								: i + (x ? t : C + t)) + n
 						);
 					};
 				};
@@ -21459,7 +21973,7 @@ More info at: http://icanhazjs.com
 							37 === t.charCodeAt(s) &&
 								(o.push(t.slice(u, s)),
 								null != (i = He[(r = t.charAt(++s))]) && (r = t.charAt(++s)),
-								(a = S[r]) && (r = a(n, null == i ? ('e' === r ? ' ' : '0') : i)),
+								(a = w[r]) && (r = a(n, null == i ? ('e' === r ? ' ' : '0') : i)),
 								o.push(r),
 								(u = s + 1));
 						return o.push(t.slice(u, s)), o.join('');
@@ -21501,7 +22015,7 @@ More info at: http://icanhazjs.com
 						if (37 === (i = e.charCodeAt(s++))) {
 							if (
 								((o = e.charAt(s++)),
-								!(a = w[o in He ? e.charAt(s++) : o]) || (r = a(t, n, r)) < 0)
+								!(a = S[o in He ? e.charAt(s++) : o]) || (r = a(t, n, r)) < 0)
 							)
 								return -1;
 						} else if (i != n.charCodeAt(r++)) return -1;
@@ -21536,8 +22050,8 @@ More info at: http://icanhazjs.com
 				var h = a.map(),
 					d = Ge(o),
 					p = Ke(o),
-					g = Ge(s),
-					v = Ke(s),
+					v = Ge(s),
+					g = Ke(s),
 					m = Ge(u),
 					y = Ke(u),
 					b = Ge(l),
@@ -21545,7 +22059,7 @@ More info at: http://icanhazjs.com
 				i.forEach(function (t, e) {
 					h.set(t.toLowerCase(), e);
 				});
-				var S = {
+				var w = {
 						a: function (t) {
 							return s[t.getDay()];
 						},
@@ -21611,11 +22125,11 @@ More info at: http://icanhazjs.com
 							return '%';
 						},
 					},
-					w = {
+					S = {
 						a: function (t, e, n) {
-							g.lastIndex = 0;
-							var r = g.exec(e.slice(n));
-							return r ? ((t.w = v.get(r[0].toLowerCase())), n + r[0].length) : -1;
+							v.lastIndex = 0;
+							var r = v.exec(e.slice(n));
+							return r ? ((t.w = g.get(r[0].toLowerCase())), n + r[0].length) : -1;
 						},
 						A: function (t, e, n) {
 							d.lastIndex = 0;
@@ -21633,7 +22147,7 @@ More info at: http://icanhazjs.com
 							return r ? ((t.m = y.get(r[0].toLowerCase())), n + r[0].length) : -1;
 						},
 						c: function (t, e, n) {
-							return f(t, S.c.toString(), e, n);
+							return f(t, w.c.toString(), e, n);
 						},
 						d: nn,
 						e: nn,
@@ -21652,10 +22166,10 @@ More info at: http://icanhazjs.com
 						w: Ye,
 						W: Je,
 						x: function (t, e, n) {
-							return f(t, S.x.toString(), e, n);
+							return f(t, w.x.toString(), e, n);
 						},
 						X: function (t, e, n) {
-							return f(t, S.X.toString(), e, n);
+							return f(t, w.X.toString(), e, n);
 						},
 						y: Qe,
 						Y: Xe,
@@ -21743,7 +22257,7 @@ More info at: http://icanhazjs.com
 				return new RegExp('^(?:' + t.map(a.requote).join('|') + ')', 'i');
 			}
 			function Ke(t) {
-				for (var e = new C(), n = -1, r = t.length; ++n < r; ) e.set(t[n].toLowerCase(), n);
+				for (var e = new T(), n = -1, r = t.length; ++n < r; ) e.set(t[n].toLowerCase(), n);
 				return e;
 			}
 			function Ye(t, e, n) {
@@ -21813,8 +22327,8 @@ More info at: http://icanhazjs.com
 			function ln(t) {
 				var e = t.getTimezoneOffset(),
 					n = e > 0 ? '-' : '+',
-					r = (w(e) / 60) | 0,
-					i = w(e) % 60;
+					r = (S(e) / 60) | 0,
+					i = S(e) % 60;
 				return n + We(r, '0', 2) + We(i, '0', 2);
 			}
 			function cn(t, e, n) {
@@ -21887,8 +22401,8 @@ More info at: http://icanhazjs.com
 					s: 0,
 					t: 0,
 					add: function (t) {
-						gn(t, this.t, pn),
-							gn(pn.s, this.s, this),
+						vn(t, this.t, pn),
+							vn(pn.s, this.s, this),
 							this.s ? (this.t += pn.t) : (this.s = pn.t);
 					},
 					reset: function () {
@@ -21899,25 +22413,25 @@ More info at: http://icanhazjs.com
 					},
 				});
 			var pn = new dn();
-			function gn(t, e, n) {
+			function vn(t, e, n) {
 				var r = (n.s = t + e),
 					i = r - t,
 					a = r - i;
 				n.t = t - a + (e - i);
 			}
-			function vn(t, e) {
+			function gn(t, e) {
 				t && yn.hasOwnProperty(t.type) && yn[t.type](t, e);
 			}
 			a.geo.stream = function (t, e) {
-				t && mn.hasOwnProperty(t.type) ? mn[t.type](t, e) : vn(t, e);
+				t && mn.hasOwnProperty(t.type) ? mn[t.type](t, e) : gn(t, e);
 			};
 			var mn = {
 					Feature: function (t, e) {
-						vn(t.geometry, e);
+						gn(t.geometry, e);
 					},
 					FeatureCollection: function (t, e) {
 						for (var n = t.features, r = -1, i = n.length; ++r < i; )
-							vn(n[r].geometry, e);
+							gn(n[r].geometry, e);
 					},
 				},
 				yn = {
@@ -21944,7 +22458,7 @@ More info at: http://icanhazjs.com
 						for (var n = t.coordinates, r = -1, i = n.length; ++r < i; ) xn(n[r], e);
 					},
 					GeometryCollection: function (t, e) {
-						for (var n = t.geometries, r = -1, i = n.length; ++r < i; ) vn(n[r], e);
+						for (var n = t.geometries, r = -1, i = n.length; ++r < i; ) gn(n[r], e);
 					},
 				};
 			function bn(t, e, n) {
@@ -21961,16 +22475,16 @@ More info at: http://icanhazjs.com
 				e.polygonEnd();
 			}
 			a.geo.area = function (t) {
-				return (Sn = 0), a.geo.stream(t, Nn), Sn;
+				return (wn = 0), a.geo.stream(t, Nn), wn;
 			};
-			var Sn,
-				wn,
+			var wn,
+				Sn,
 				An,
 				kn,
-				Cn,
-				En,
-				_n,
 				Tn,
+				Cn,
+				_n,
+				En,
 				Mn,
 				In,
 				On,
@@ -21978,7 +22492,7 @@ More info at: http://icanhazjs.com
 				Dn = new dn(),
 				Nn = {
 					sphere: function () {
-						Sn += 4 * It;
+						wn += 4 * It;
 					},
 					point: $,
 					lineStart: $,
@@ -21988,7 +22502,7 @@ More info at: http://icanhazjs.com
 					},
 					polygonEnd: function () {
 						var t = 2 * Dn;
-						(Sn += t < 0 ? 4 * It + t : t), (Nn.lineStart = Nn.lineEnd = Nn.point = $);
+						(wn += t < 0 ? 4 * It + t : t), (Nn.lineStart = Nn.lineEnd = Nn.point = $);
 					},
 				};
 			function Pn() {
@@ -22045,7 +22559,7 @@ More info at: http://icanhazjs.com
 				return [Math.atan2(t[1], t[0]), Bt(t[2])];
 			}
 			function Hn(t, e) {
-				return w(t[0] - e[0]) < Tt && w(t[1] - e[1]) < Tt;
+				return S(t[0] - e[0]) < Et && S(t[1] - e[1]) < Et;
 			}
 			(a.geo.bounds = (function () {
 				var t,
@@ -22061,8 +22575,8 @@ More info at: http://icanhazjs.com
 					f,
 					h = {
 						point: d,
-						lineStart: g,
-						lineEnd: v,
+						lineStart: v,
+						lineEnd: g,
 						polygonStart: function () {
 							(h.point = m),
 								(h.lineStart = y),
@@ -22073,13 +22587,13 @@ More info at: http://icanhazjs.com
 						polygonEnd: function () {
 							Nn.polygonEnd(),
 								(h.point = d),
-								(h.lineStart = g),
-								(h.lineEnd = v),
+								(h.lineStart = v),
+								(h.lineEnd = g),
 								Dn < 0
 									? ((t = -(n = 180)), (e = -(r = 90)))
-									: l > Tt
+									: l > Et
 									? (r = 90)
-									: l < -Tt && (e = -90),
+									: l < -Et && (e = -90),
 								(f[0] = t),
 								(f[1] = n);
 						},
@@ -22096,13 +22610,13 @@ More info at: http://icanhazjs.com
 						var f = a - i,
 							h = f > 0 ? 1 : -1,
 							p = c[0] * Pt * h,
-							g = w(f) > 180;
-						if (g ^ (h * i < p && p < h * a)) (v = c[1] * Pt) > r && (r = v);
-						else if (g ^ (h * i < (p = ((p + 360) % 360) - 180) && p < h * a)) {
-							var v;
-							(v = -c[1] * Pt) < e && (e = v);
+							v = S(f) > 180;
+						if (v ^ (h * i < p && p < h * a)) (g = c[1] * Pt) > r && (r = g);
+						else if (v ^ (h * i < (p = ((p + 360) % 360) - 180) && p < h * a)) {
+							var g;
+							(g = -c[1] * Pt) < e && (e = g);
 						} else o < e && (e = o), o > r && (r = o);
-						g
+						v
 							? a < i
 								? x(t, a) > x(t, n) && (n = a)
 								: x(a, n) > x(t, n) && (t = a)
@@ -22114,16 +22628,16 @@ More info at: http://icanhazjs.com
 					} else d(a, o);
 					(u = s), (i = a);
 				}
-				function g() {
+				function v() {
 					h.point = p;
 				}
-				function v() {
+				function g() {
 					(f[0] = t), (f[1] = n), (h.point = d), (u = null);
 				}
 				function m(t, e) {
 					if (u) {
 						var n = t - i;
-						l += w(n) > 180 ? n + (n > 0 ? 360 : -360) : n;
+						l += S(n) > 180 ? n + (n > 0 ? 360 : -360) : n;
 					} else (o = t), (s = e);
 					Nn.point(t, e), p(t, e);
 				}
@@ -22133,7 +22647,7 @@ More info at: http://icanhazjs.com
 				function b() {
 					m(o, s),
 						Nn.lineEnd(),
-						w(l) > Tt && (t = -(n = 180)),
+						S(l) > Et && (t = -(n = 180)),
 						(f[0] = t),
 						(f[1] = n),
 						(u = null);
@@ -22141,7 +22655,7 @@ More info at: http://icanhazjs.com
 				function x(t, e) {
 					return (e -= t) < 0 ? e + 360 : e;
 				}
-				function S(t, e) {
+				function w(t, e) {
 					return t[0] - e[0];
 				}
 				function A(t, e) {
@@ -22151,19 +22665,19 @@ More info at: http://icanhazjs.com
 					if (
 						((r = n = -(t = e = 1 / 0)), (c = []), a.geo.stream(i, h), (l = c.length))
 					) {
-						c.sort(S);
-						for (var o = 1, s = [(g = c[0])]; o < l; ++o)
-							A((d = c[o])[0], g) || A(d[1], g)
-								? (x(g[0], d[1]) > x(g[0], g[1]) && (g[1] = d[1]),
-								  x(d[0], g[1]) > x(g[0], g[1]) && (g[0] = d[0]))
-								: s.push((g = d));
+						c.sort(w);
+						for (var o = 1, s = [(v = c[0])]; o < l; ++o)
+							A((d = c[o])[0], v) || A(d[1], v)
+								? (x(v[0], d[1]) > x(v[0], v[1]) && (v[1] = d[1]),
+								  x(d[0], v[1]) > x(v[0], v[1]) && (v[0] = d[0]))
+								: s.push((v = d));
 						for (
-							var u, l, d, p = -1 / 0, g = ((o = 0), s[(l = s.length - 1)]);
+							var u, l, d, p = -1 / 0, v = ((o = 0), s[(l = s.length - 1)]);
 							o <= l;
-							g = d, ++o
+							v = d, ++o
 						)
 							(d = s[o]),
-								(u = x(g[1], d[0])) > p && ((p = u), (t = d[0]), (n = g[1]));
+								(u = x(v[1], d[0])) > p && ((p = u), (t = d[0]), (n = v[1]));
 					}
 					return (
 						(c = f = null),
@@ -22180,16 +22694,16 @@ More info at: http://icanhazjs.com
 				};
 			})()),
 				(a.geo.centroid = function (t) {
-					(wn = An = kn = Cn = En = _n = Tn = Mn = In = On = Rn = 0), a.geo.stream(t, zn);
+					(Sn = An = kn = Tn = Cn = _n = En = Mn = In = On = Rn = 0), a.geo.stream(t, zn);
 					var e = In,
 						n = On,
 						r = Rn,
 						i = e * e + n * n + r * r;
 					return i < Mt &&
 						((e = _n),
-						(n = Tn),
+						(n = En),
 						(r = Mn),
-						An < Tt && ((e = kn), (n = Cn), (r = En)),
+						An < Et && ((e = kn), (n = Tn), (r = Cn)),
 						(i = e * e + n * n + r * r) < Mt)
 						? [NaN, NaN]
 						: [Math.atan2(n, e) * Pt, Bt(r / Math.sqrt(i)) * Pt];
@@ -22212,7 +22726,7 @@ More info at: http://icanhazjs.com
 				Wn(n * Math.cos(t), n * Math.sin(t), Math.sin(e));
 			}
 			function Wn(t, e, n) {
-				++wn, (kn += (t - kn) / wn), (Cn += (e - Cn) / wn), (En += (n - En) / wn);
+				++Sn, (kn += (t - kn) / Sn), (Tn += (e - Tn) / Sn), (Cn += (n - Cn) / Sn);
 			}
 			function Gn() {
 				var t, e, n;
@@ -22232,7 +22746,7 @@ More info at: http://icanhazjs.com
 						);
 					(An += l),
 						(_n += l * (t + (t = o))),
-						(Tn += l * (e + (e = s))),
+						(En += l * (e + (e = s))),
 						(Mn += l * (n + (n = u))),
 						Wn(t, e, n);
 				}
@@ -22263,14 +22777,14 @@ More info at: http://icanhazjs.com
 						h = Math.sqrt(l * l + c * c + f * f),
 						d = n * o + r * s + i * u,
 						p = h && -$t(d) / h,
-						g = Math.atan2(h, d);
+						v = Math.atan2(h, d);
 					(In += p * l),
 						(On += p * c),
 						(Rn += p * f),
-						(An += g),
-						(_n += g * (n + (n = o))),
-						(Tn += g * (r + (r = s))),
-						(Mn += g * (i + (i = u))),
+						(An += v),
+						(_n += v * (n + (n = o))),
+						(En += v * (r + (r = s))),
+						(Mn += v * (i + (i = u))),
 						Wn(n, r, i);
 				}
 				(zn.point = function (o, s) {
@@ -22379,10 +22893,10 @@ More info at: http://icanhazjs.com
 							lineEnd: p,
 							polygonStart: function () {
 								(c.point = x),
-									(c.lineStart = S),
-									(c.lineEnd = w),
+									(c.lineStart = w),
+									(c.lineEnd = S),
 									(s = []),
-									(g = []);
+									(v = []);
 							},
 							polygonEnd: function () {
 								(c.point = f), (c.lineStart = d), (c.lineEnd = p), (s = a.merge(s));
@@ -22402,45 +22916,45 @@ More info at: http://icanhazjs.com
 													h = f[0],
 													d = f[1] / 2 + It / 4,
 													p = Math.sin(d),
-													g = Math.cos(d),
-													v = 1;
+													v = Math.cos(d),
+													g = 1;
 												;
 
 											) {
-												v === c && (v = 0);
-												var m = (t = l[v])[0],
+												g === c && (g = 0);
+												var m = (t = l[g])[0],
 													y = t[1] / 2 + It / 4,
 													b = Math.sin(y),
 													x = Math.cos(y),
-													S = m - h,
-													w = S >= 0 ? 1 : -1,
-													A = w * S,
+													w = m - h,
+													S = w >= 0 ? 1 : -1,
+													A = S * w,
 													k = A > It,
-													C = p * b;
+													T = p * b;
 												if (
 													(Dn.add(
 														Math.atan2(
-															C * w * Math.sin(A),
-															g * x + C * Math.cos(A)
+															T * S * Math.sin(A),
+															v * x + T * Math.cos(A)
 														)
 													),
-													(a += k ? S + w * Ot : S),
+													(a += k ? w + S * Ot : w),
 													k ^ (h >= n) ^ (m >= n))
 												) {
-													var E = $n(Ln(f), Ln(t));
-													Un(E);
-													var _ = $n(i, E);
+													var C = $n(Ln(f), Ln(t));
+													Un(C);
+													var _ = $n(i, C);
 													Un(_);
-													var T = (k ^ (S >= 0) ? -1 : 1) * Bt(_[2]);
-													(r > T || (r === T && (E[0] || E[1]))) &&
-														(o += k ^ (S >= 0) ? 1 : -1);
+													var E = (k ^ (w >= 0) ? -1 : 1) * Bt(_[2]);
+													(r > E || (r === E && (C[0] || C[1]))) &&
+														(o += k ^ (w >= 0) ? 1 : -1);
 												}
-												if (!v++) break;
-												(h = m), (p = b), (g = x), (f = t);
+												if (!g++) break;
+												(h = m), (p = b), (v = x), (f = t);
 											}
 									}
-									return (a < -Tt || (a < Tt && Dn < -Tt)) ^ (1 & o);
-								})(l, g);
+									return (a < -Et || (a < Et && Dn < -Et)) ^ (1 & o);
+								})(l, v);
 								s.length
 									? (b || (o.polygonStart(), (b = !0)), Xn(s, ir, t, n, o))
 									: t &&
@@ -22449,7 +22963,7 @@ More info at: http://icanhazjs.com
 									  n(null, null, 1, o),
 									  o.lineEnd()),
 									b && (o.polygonEnd(), (b = !1)),
-									(s = g = null);
+									(s = v = null);
 							},
 							sphere: function () {
 								o.polygonStart(),
@@ -22473,26 +22987,26 @@ More info at: http://icanhazjs.com
 					function p() {
 						(c.point = f), u.lineEnd();
 					}
-					var g,
-						v,
+					var v,
+						g,
 						m = rr(),
 						y = e(m),
 						b = !1;
 					function x(t, e) {
-						v.push([t, e]);
+						g.push([t, e]);
 						var n = i(t, e);
 						y.point(n[0], n[1]);
 					}
-					function S() {
-						y.lineStart(), (v = []);
-					}
 					function w() {
-						x(v[0][0], v[0][1]), y.lineEnd();
+						y.lineStart(), (g = []);
+					}
+					function S() {
+						x(g[0][0], g[0][1]), y.lineEnd();
 						var t,
 							e = y.clean(),
 							n = m.buffer(),
 							r = n.length;
-						if ((v.pop(), g.push(v), (v = null), r))
+						if ((g.pop(), v.push(g), (g = null), r))
 							if (1 & e) {
 								var i,
 									a = -1;
@@ -22537,8 +23051,8 @@ More info at: http://icanhazjs.com
 			}
 			function ir(t, e) {
 				return (
-					((t = t.x)[0] < 0 ? t[1] - Dt - Tt : Dt - t[1]) -
-					((e = e.x)[0] < 0 ? e[1] - Dt - Tt : Dt - e[1])
+					((t = t.x)[0] < 0 ? t[1] - Dt - Et : Dt - t[1]) -
+					((e = e.x)[0] < 0 ? e[1] - Dt - Et : Dt - e[1])
 				);
 			}
 			var ar = er(
@@ -22554,8 +23068,8 @@ More info at: http://icanhazjs.com
 						},
 						point: function (a, o) {
 							var s = a > 0 ? It : -It,
-								u = w(a - n);
-							w(u - It) < Tt
+								u = S(a - n);
+							S(u - It) < Et
 								? (t.point(n, (r = (r + o) / 2 > 0 ? Dt : -Dt)),
 								  t.point(i, r),
 								  t.lineEnd(),
@@ -22565,13 +23079,13 @@ More info at: http://icanhazjs.com
 								  (e = 0))
 								: i !== s &&
 								  u >= It &&
-								  (w(n - i) < Tt && (n -= i * Tt),
-								  w(a - s) < Tt && (a -= s * Tt),
+								  (S(n - i) < Et && (n -= i * Et),
+								  S(a - s) < Et && (a -= s * Et),
 								  (r = (function (t, e, n, r) {
 										var i,
 											a,
 											o = Math.sin(t - n);
-										return w(o) > Tt
+										return S(o) > Et
 											? Math.atan(
 													(Math.sin(e) * (a = Math.cos(r)) * Math.sin(n) -
 														Math.sin(r) *
@@ -22610,7 +23124,7 @@ More info at: http://icanhazjs.com
 							r.point(-It, -i),
 							r.point(-It, 0),
 							r.point(-It, i);
-					else if (w(t[0] - e[0]) > Tt) {
+					else if (S(t[0] - e[0]) > Et) {
 						var a = t[0] < e[0] ? It : -It;
 						(i = (n * a) / 2), r.point(-a, i), r.point(0, i), r.point(a, i);
 					} else r.point(e[0], e[1]);
@@ -22620,7 +23134,7 @@ More info at: http://icanhazjs.com
 			function or(t) {
 				var e = Math.cos(t),
 					n = e > 0,
-					r = w(e) > Tt;
+					r = S(e) > Et;
 				return er(
 					i,
 					function (t) {
@@ -22632,30 +23146,30 @@ More info at: http://icanhazjs.com
 							point: function (f, h) {
 								var d,
 									p = [f, h],
-									g = i(f, h),
-									v = n
-										? g
+									v = i(f, h),
+									g = n
+										? v
 											? 0
 											: o(f, h)
-										: g
+										: v
 										? o(f + (f < 0 ? It : -It), h)
 										: 0;
 								if (
-									(!e && (l = u = g) && t.lineStart(),
-									g !== u &&
+									(!e && (l = u = v) && t.lineStart(),
+									v !== u &&
 										((d = a(e, p)),
 										(Hn(e, d) || Hn(p, d)) &&
-											((p[0] += Tt), (p[1] += Tt), (g = i(p[0], p[1])))),
-									g !== u)
+											((p[0] += Et), (p[1] += Et), (v = i(p[0], p[1])))),
+									v !== u)
 								)
 									(c = 0),
-										g
+										v
 											? (t.lineStart(), (d = a(p, e)), t.point(d[0], d[1]))
 											: ((d = a(e, p)), t.point(d[0], d[1]), t.lineEnd()),
 										(e = d);
-								else if (r && e && n ^ g) {
+								else if (r && e && n ^ v) {
 									var m;
-									v & s ||
+									g & s ||
 										!(m = a(p, e, !0)) ||
 										((c = 0),
 										n
@@ -22668,10 +23182,10 @@ More info at: http://icanhazjs.com
 											  t.lineStart(),
 											  t.point(m[0][0], m[0][1])));
 								}
-								!g || (e && Hn(e, p)) || t.point(p[0], p[1]),
+								!v || (e && Hn(e, p)) || t.point(p[0], p[1]),
 									(e = p),
-									(u = g),
-									(s = v);
+									(u = v),
+									(s = g);
 							},
 							lineEnd: function () {
 								u && t.lineEnd(), (e = null);
@@ -22701,29 +23215,29 @@ More info at: http://icanhazjs.com
 					Bn(h, Fn(a, c));
 					var d = f,
 						p = jn(h, d),
-						g = jn(d, d),
-						v = p * p - g * (jn(h, h) - 1);
-					if (!(v < 0)) {
-						var m = Math.sqrt(v),
-							y = Fn(d, (-p - m) / g);
+						v = jn(d, d),
+						g = p * p - v * (jn(h, h) - 1);
+					if (!(g < 0)) {
+						var m = Math.sqrt(g),
+							y = Fn(d, (-p - m) / v);
 						if ((Bn(y, h), (y = Vn(y)), !r)) return y;
 						var b,
 							x = t[0],
-							S = n[0],
+							w = n[0],
 							A = t[1],
 							k = n[1];
-						S < x && ((b = x), (x = S), (S = b));
-						var C = S - x,
-							E = w(C - It) < Tt;
+						w < x && ((b = x), (x = w), (w = b));
+						var T = w - x,
+							C = S(T - It) < Et;
 						if (
-							(!E && k < A && ((b = A), (A = k), (k = b)),
-							E || C < Tt
-								? E
-									? (A + k > 0) ^ (y[1] < (w(y[0] - x) < Tt ? A : k))
+							(!C && k < A && ((b = A), (A = k), (k = b)),
+							C || T < Et
+								? C
+									? (A + k > 0) ^ (y[1] < (S(y[0] - x) < Et ? A : k))
 									: A <= y[1] && y[1] <= k
-								: (C > It) ^ (x <= y[0] && y[0] <= S))
+								: (T > It) ^ (x <= y[0] && y[0] <= w))
 						) {
-							var _ = Fn(d, (-p + m) / g);
+							var _ = Fn(d, (-p + m) / v);
 							return Bn(_, h), [y, Vn(_)];
 						}
 					}
@@ -22800,26 +23314,26 @@ More info at: http://icanhazjs.com
 						h,
 						d,
 						p,
-						g,
 						v,
+						g,
 						m,
 						y,
 						b,
 						x = u,
-						S = rr(),
-						w = sr(t, e, n, r),
+						w = rr(),
+						S = sr(t, e, n, r),
 						A = {
-							point: E,
+							point: C,
 							lineStart: function () {
 								(A.point = _), c && c.push((f = []));
-								(y = !0), (m = !1), (g = v = NaN);
+								(y = !0), (m = !1), (v = g = NaN);
 							},
 							lineEnd: function () {
-								l && (_(h, d), p && m && S.rejoin(), l.push(S.buffer()));
-								(A.point = E), m && u.lineEnd();
+								l && (_(h, d), p && m && w.rejoin(), l.push(w.buffer()));
+								(A.point = C), m && u.lineEnd();
 							},
 							polygonStart: function () {
-								(u = S), (l = []), (c = []), (b = !0);
+								(u = w), (l = []), (c = []), (b = !0);
 							},
 							polygonEnd: function () {
 								(u = x), (l = a.merge(l));
@@ -22856,14 +23370,14 @@ More info at: http://icanhazjs.com
 							} while ((c = (c + u + 4) % 4) !== f);
 						else l.point(o[0], o[1]);
 					}
-					function C(i, a) {
+					function T(i, a) {
 						return t <= i && i <= n && e <= a && a <= r;
 					}
-					function E(t, e) {
-						C(t, e) && u.point(t, e);
+					function C(t, e) {
+						T(t, e) && u.point(t, e);
 					}
 					function _(t, e) {
-						var n = C(
+						var n = T(
 							(t = Math.max(-1e9, Math.min(1e9, t))),
 							(e = Math.max(-1e9, Math.min(1e9, e)))
 						);
@@ -22875,28 +23389,28 @@ More info at: http://icanhazjs.com
 								n && (u.lineStart(), u.point(t, e));
 						else if (n && m) u.point(t, e);
 						else {
-							var r = { a: { x: g, y: v }, b: { x: t, y: e } };
-							w(r)
+							var r = { a: { x: v, y: g }, b: { x: t, y: e } };
+							S(r)
 								? (m || (u.lineStart(), u.point(r.a.x, r.a.y)),
 								  u.point(r.b.x, r.b.y),
 								  n || u.lineEnd(),
 								  (b = !1))
 								: n && (u.lineStart(), u.point(t, e), (b = !1));
 						}
-						(g = t), (v = e), (m = n);
+						(v = t), (g = e), (m = n);
 					}
 					return A;
 				};
 				function i(r, i) {
-					return w(r[0] - t) < Tt
+					return S(r[0] - t) < Et
 						? i > 0
 							? 0
 							: 3
-						: w(r[0] - n) < Tt
+						: S(r[0] - n) < Et
 						? i > 0
 							? 2
 							: 1
-						: w(r[1] - e) < Tt
+						: S(r[1] - e) < Et
 						? i > 0
 							? 1
 							: 0
@@ -23089,15 +23603,15 @@ More info at: http://icanhazjs.com
 								(n = o
 									.translate([c - 0.307 * a, f + 0.201 * a])
 									.clipExtent([
-										[c - 0.425 * a + Tt, f + 0.12 * a + Tt],
-										[c - 0.214 * a - Tt, f + 0.234 * a - Tt],
+										[c - 0.425 * a + Et, f + 0.12 * a + Et],
+										[c - 0.214 * a - Et, f + 0.234 * a - Et],
 									])
 									.stream(u).point),
 								(r = s
 									.translate([c - 0.205 * a, f + 0.212 * a])
 									.clipExtent([
-										[c - 0.214 * a + Tt, f + 0.166 * a + Tt],
-										[c - 0.115 * a - Tt, f + 0.234 * a - Tt],
+										[c - 0.214 * a + Et, f + 0.166 * a + Et],
+										[c - 0.115 * a - Et, f + 0.234 * a - Et],
 									])
 									.stream(u).point),
 								l
@@ -23110,8 +23624,8 @@ More info at: http://icanhazjs.com
 				hr,
 				dr,
 				pr,
-				gr,
 				vr,
+				gr,
 				mr = {
 					point: $,
 					lineStart: $,
@@ -23120,7 +23634,7 @@ More info at: http://icanhazjs.com
 						(hr = 0), (mr.lineStart = yr);
 					},
 					polygonEnd: function () {
-						(mr.lineStart = mr.lineEnd = mr.point = $), (fr += w(hr / 2));
+						(mr.lineStart = mr.lineEnd = mr.point = $), (fr += S(hr / 2));
 					},
 				};
 			function yr() {
@@ -23138,9 +23652,9 @@ More info at: http://icanhazjs.com
 			var br = {
 				point: function (t, e) {
 					t < dr && (dr = t);
-					t > gr && (gr = t);
+					t > vr && (vr = t);
 					e < pr && (pr = e);
-					e > vr && (vr = e);
+					e > gr && (gr = e);
 				},
 				lineStart: $,
 				lineEnd: $,
@@ -23148,7 +23662,7 @@ More info at: http://icanhazjs.com
 				polygonEnd: $,
 			};
 			function xr() {
-				var t = Sr(4.5),
+				var t = wr(4.5),
 					e = [],
 					n = {
 						point: r,
@@ -23163,7 +23677,7 @@ More info at: http://icanhazjs.com
 							(n.lineEnd = o), (n.point = r);
 						},
 						pointRadius: function (e) {
-							return (t = Sr(e)), n;
+							return (t = wr(e)), n;
 						},
 						result: function () {
 							if (e.length) {
@@ -23189,7 +23703,7 @@ More info at: http://icanhazjs.com
 				}
 				return n;
 			}
-			function Sr(t) {
+			function wr(t) {
 				return (
 					'm0,' +
 					t +
@@ -23208,29 +23722,29 @@ More info at: http://icanhazjs.com
 					'z'
 				);
 			}
-			var wr,
+			var Sr,
 				Ar = {
 					point: kr,
-					lineStart: Cr,
-					lineEnd: Er,
+					lineStart: Tr,
+					lineEnd: Cr,
 					polygonStart: function () {
 						Ar.lineStart = _r;
 					},
 					polygonEnd: function () {
-						(Ar.point = kr), (Ar.lineStart = Cr), (Ar.lineEnd = Er);
+						(Ar.point = kr), (Ar.lineStart = Tr), (Ar.lineEnd = Cr);
 					},
 				};
 			function kr(t, e) {
-				(kn += t), (Cn += e), ++En;
+				(kn += t), (Tn += e), ++Cn;
 			}
-			function Cr() {
+			function Tr() {
 				var t, e;
 				function n(n, r) {
 					var i = n - t,
 						a = r - e,
 						o = Math.sqrt(i * i + a * a);
 					(_n += (o * (t + n)) / 2),
-						(Tn += (o * (e + r)) / 2),
+						(En += (o * (e + r)) / 2),
 						(Mn += o),
 						kr((t = n), (e = r));
 				}
@@ -23238,7 +23752,7 @@ More info at: http://icanhazjs.com
 					(Ar.point = n), kr((t = r), (e = i));
 				};
 			}
-			function Er() {
+			function Cr() {
 				Ar.point = kr;
 			}
 			function _r() {
@@ -23248,7 +23762,7 @@ More info at: http://icanhazjs.com
 						a = e - r,
 						o = Math.sqrt(i * i + a * a);
 					(_n += (o * (n + t)) / 2),
-						(Tn += (o * (r + e)) / 2),
+						(En += (o * (r + e)) / 2),
 						(Mn += o),
 						(In += (o = r * t - n * e) * (n + t)),
 						(On += o * (r + e)),
@@ -23262,7 +23776,7 @@ More info at: http://icanhazjs.com
 						i(t, e);
 					});
 			}
-			function Tr(t) {
+			function Er(t) {
 				var e = 4.5,
 					n = {
 						point: r,
@@ -23322,23 +23836,23 @@ More info at: http://icanhazjs.com
 						h,
 						d,
 						p,
-						g,
-						v = {
+						v,
+						g = {
 							point: m,
 							lineStart: y,
 							lineEnd: x,
 							polygonStart: function () {
-								e.polygonStart(), (v.lineStart = S);
+								e.polygonStart(), (g.lineStart = w);
 							},
 							polygonEnd: function () {
-								e.polygonEnd(), (v.lineStart = y);
+								e.polygonEnd(), (g.lineStart = y);
 							},
 						};
 					function m(n, r) {
 						(n = t(n, r)), e.point(n[0], n[1]);
 					}
 					function y() {
-						(f = NaN), (v.point = b), e.lineStart();
+						(f = NaN), (g.point = b), e.lineStart();
 					}
 					function b(n, i) {
 						var a = Ln([n, i]),
@@ -23349,55 +23863,55 @@ More info at: http://icanhazjs.com
 							c,
 							d,
 							p,
-							g,
+							v,
 							(f = o[0]),
 							(h = o[1]),
 							(c = n),
 							(d = a[0]),
 							(p = a[1]),
-							(g = a[2]),
+							(v = a[2]),
 							r,
 							e
 						),
 							e.point(f, h);
 					}
 					function x() {
-						(v.point = m), e.lineEnd();
+						(g.point = m), e.lineEnd();
 					}
-					function S() {
-						y(), (v.point = w), (v.lineEnd = A);
+					function w() {
+						y(), (g.point = S), (g.lineEnd = A);
 					}
-					function w(t, e) {
-						b((n = t), e), (i = f), (a = h), (o = d), (u = p), (l = g), (v.point = b);
+					function S(t, e) {
+						b((n = t), e), (i = f), (a = h), (o = d), (u = p), (l = v), (g.point = b);
 					}
 					function A() {
-						s(f, h, c, d, p, g, i, a, n, o, u, l, r, e), (v.lineEnd = x), x();
+						s(f, h, c, d, p, v, i, a, n, o, u, l, r, e), (g.lineEnd = x), x();
 					}
-					return v;
+					return g;
 				}
-				function s(r, i, a, o, u, l, c, f, h, d, p, g, v, m) {
+				function s(r, i, a, o, u, l, c, f, h, d, p, v, g, m) {
 					var y = c - r,
 						b = f - i,
 						x = y * y + b * b;
-					if (x > 4 * e && v--) {
-						var S = o + d,
+					if (x > 4 * e && g--) {
+						var w = o + d,
 							A = u + p,
-							k = l + g,
-							C = Math.sqrt(S * S + A * A + k * k),
-							E = Math.asin((k /= C)),
-							_ = w(w(k) - 1) < Tt || w(a - h) < Tt ? (a + h) / 2 : Math.atan2(A, S),
-							T = t(_, E),
-							M = T[0],
-							I = T[1],
+							k = l + v,
+							T = Math.sqrt(w * w + A * A + k * k),
+							C = Math.asin((k /= T)),
+							_ = S(S(k) - 1) < Et || S(a - h) < Et ? (a + h) / 2 : Math.atan2(A, w),
+							E = t(_, C),
+							M = E[0],
+							I = E[1],
 							O = M - r,
 							R = I - i,
 							D = b * O - y * R;
 						((D * D) / x > e ||
-							w((y * O + b * R) / x - 0.5) > 0.3 ||
-							o * d + u * p + l * g < n) &&
-							(s(r, i, a, o, u, l, M, I, _, (S /= C), (A /= C), k, v, m),
+							S((y * O + b * R) / x - 0.5) > 0.3 ||
+							o * d + u * p + l * v < n) &&
+							(s(r, i, a, o, u, l, M, I, _, (w /= T), (A /= T), k, g, m),
 							m.point(M, I),
-							s(M, I, _, S, A, k, c, f, h, d, p, g, v, m));
+							s(M, I, _, w, A, k, c, f, h, d, p, v, g, m));
 					}
 				}
 				return (
@@ -23459,62 +23973,62 @@ More info at: http://icanhazjs.com
 					h = 0,
 					d = 0,
 					p = 0,
-					g = 0,
 					v = 0,
+					g = 0,
 					m = ar,
 					y = N,
 					b = null,
 					x = null;
-				function S(t) {
+				function w(t) {
 					return [(t = r(t[0] * Nt, t[1] * Nt))[0] * l + i, o - t[1] * l];
 				}
-				function w(t) {
+				function S(t) {
 					return (t = r.invert((t[0] - i) / l, (o - t[1]) / l)) && [t[0] * Pt, t[1] * Pt];
 				}
 				function A() {
-					r = Zn((n = $r(p, g, v)), e);
+					r = Zn((n = $r(p, v, g)), e);
 					var t = e(h, d);
 					return (i = c - t[0] * l), (o = f + t[1] * l), k();
 				}
 				function k() {
-					return s && ((s.valid = !1), (s = null)), S;
+					return s && ((s.valid = !1), (s = null)), w;
 				}
 				return (
-					(S.stream = function (t) {
+					(w.stream = function (t) {
 						return s && (s.valid = !1), ((s = Pr(m(n, u(y(t))))).valid = !0), s;
 					}),
-					(S.clipAngle = function (t) {
+					(w.clipAngle = function (t) {
 						return arguments.length
 							? ((m = null == t ? ((b = t), ar) : or((b = +t) * Nt)), k())
 							: b;
 					}),
-					(S.clipExtent = function (t) {
+					(w.clipExtent = function (t) {
 						return arguments.length
 							? ((x = t), (y = t ? ur(t[0][0], t[0][1], t[1][0], t[1][1]) : N), k())
 							: x;
 					}),
-					(S.scale = function (t) {
+					(w.scale = function (t) {
 						return arguments.length ? ((l = +t), A()) : l;
 					}),
-					(S.translate = function (t) {
+					(w.translate = function (t) {
 						return arguments.length ? ((c = +t[0]), (f = +t[1]), A()) : [c, f];
 					}),
-					(S.center = function (t) {
+					(w.center = function (t) {
 						return arguments.length
 							? ((h = (t[0] % 360) * Nt), (d = (t[1] % 360) * Nt), A())
 							: [h * Pt, d * Pt];
 					}),
-					(S.rotate = function (t) {
+					(w.rotate = function (t) {
 						return arguments.length
 							? ((p = (t[0] % 360) * Nt),
-							  (g = (t[1] % 360) * Nt),
-							  (v = t.length > 2 ? (t[2] % 360) * Nt : 0),
+							  (v = (t[1] % 360) * Nt),
+							  (g = t.length > 2 ? (t[2] % 360) * Nt : 0),
 							  A())
-							: [p * Pt, g * Pt, v * Pt];
+							: [p * Pt, v * Pt, g * Pt];
 					}),
-					a.rebind(S, u, 'precision'),
+					a.rebind(w, u, 'precision'),
 					function () {
-						return (e = t.apply(this, arguments)), (S.invert = e.invert && w), A();
+						return (e = t.apply(this, arguments)), (w.invert = e.invert && S), A();
 					}
 				);
 			}
@@ -23582,10 +24096,10 @@ More info at: http://icanhazjs.com
 				var n = Ln(e);
 				(n[0] -= t), Un(n);
 				var r = $t(-n[1]);
-				return ((-n[2] < 0 ? -r : r) + 2 * Math.PI - Tt) % (2 * Math.PI);
+				return ((-n[2] < 0 ? -r : r) + 2 * Math.PI - Et) % (2 * Math.PI);
 			}
 			function zr(t, e, n) {
-				var r = a.range(t, e - Tt, n).concat(e);
+				var r = a.range(t, e - Et, n).concat(e);
 				return function (t) {
 					return r.map(function (e) {
 						return [t, e];
@@ -23593,7 +24107,7 @@ More info at: http://icanhazjs.com
 				};
 			}
 			function qr(t, e, n) {
-				var r = a.range(t, e - Tt, n).concat(e);
+				var r = a.range(t, e - Et, n).concat(e);
 				return function (t) {
 					return r.map(function (e) {
 						return [e, t];
@@ -23631,24 +24145,24 @@ More info at: http://icanhazjs.com
 					}),
 					(s.centroid = function (t) {
 						return (
-							(kn = Cn = En = _n = Tn = Mn = In = On = Rn = 0),
+							(kn = Tn = Cn = _n = En = Mn = In = On = Rn = 0),
 							a.geo.stream(t, n(Ar)),
 							Rn
 								? [In / Rn, On / Rn]
 								: Mn
-								? [_n / Mn, Tn / Mn]
-								: En
-								? [kn / En, Cn / En]
+								? [_n / Mn, En / Mn]
+								: Cn
+								? [kn / Cn, Tn / Cn]
 								: [NaN, NaN]
 						);
 					}),
 					(s.bounds = function (t) {
 						return (
-							(gr = vr = -(dr = pr = 1 / 0)),
+							(vr = gr = -(dr = pr = 1 / 0)),
 							a.geo.stream(t, n(br)),
 							[
 								[dr, pr],
-								[gr, vr],
+								[vr, gr],
 							]
 						);
 					}),
@@ -23657,7 +24171,7 @@ More info at: http://icanhazjs.com
 					}),
 					(s.context = function (t) {
 						return arguments.length
-							? ((r = null == (e = t) ? new xr() : new Tr(t)),
+							? ((r = null == (e = t) ? new xr() : new Er(t)),
 							  'function' != typeof o && r.pointRadius(o),
 							  u())
 							: e;
@@ -23780,22 +24294,22 @@ More info at: http://icanhazjs.com
 						h,
 						d = 10,
 						p = d,
-						g = 90,
-						v = 360,
+						v = 90,
+						g = 360,
 						m = 2.5;
 					function y() {
 						return { type: 'MultiLineString', coordinates: b() };
 					}
 					function b() {
 						return a
-							.range(Math.ceil(r / g) * g, n, g)
+							.range(Math.ceil(r / v) * v, n, v)
 							.map(f)
-							.concat(a.range(Math.ceil(u / v) * v, s, v).map(h))
+							.concat(a.range(Math.ceil(u / g) * g, s, g).map(h))
 							.concat(
 								a
 									.range(Math.ceil(e / d) * d, t, d)
 									.filter(function (t) {
-										return w(t % g) > Tt;
+										return S(t % v) > Et;
 									})
 									.map(l)
 							)
@@ -23803,7 +24317,7 @@ More info at: http://icanhazjs.com
 								a
 									.range(Math.ceil(o / p) * p, i, p)
 									.filter(function (t) {
-										return w(t % v) > Tt;
+										return S(t % g) > Et;
 									})
 									.map(c)
 							);
@@ -23863,7 +24377,7 @@ More info at: http://icanhazjs.com
 							return arguments.length ? y.majorStep(t).minorStep(t) : y.minorStep();
 						}),
 						(y.majorStep = function (t) {
-							return arguments.length ? ((g = +t[0]), (v = +t[1]), y) : [g, v];
+							return arguments.length ? ((v = +t[0]), (g = +t[1]), y) : [v, g];
 						}),
 						(y.minorStep = function (t) {
 							return arguments.length ? ((d = +t[0]), (p = +t[1]), y) : [d, p];
@@ -23880,12 +24394,12 @@ More info at: http://icanhazjs.com
 						}),
 						y
 							.majorExtent([
-								[-180, -90 + Tt],
-								[180, 90 - Tt],
+								[-180, -90 + Et],
+								[180, 90 - Et],
 							])
 							.minorExtent([
-								[-180, -80 - Tt],
-								[180, 80 + Tt],
+								[-180, -80 - Et],
+								[180, 80 + Et],
 							])
 					);
 				}),
@@ -23941,11 +24455,11 @@ More info at: http://icanhazjs.com
 						(h = u * Math.cos(i)),
 						(d = u * Math.sin(i)),
 						(p = 2 * Math.asin(Math.sqrt(Ut(a - r) + o * u * Ut(i - n)))),
-						(g = 1 / Math.sin(p)),
-						((v = p
+						(v = 1 / Math.sin(p)),
+						((g = p
 							? function (t) {
-									var e = Math.sin((t *= p)) * g,
-										n = Math.sin(p - t) * g,
+									var e = Math.sin((t *= p)) * v,
+										n = Math.sin(p - t) * v,
 										r = n * c + e * h,
 										i = n * f + e * d,
 										a = n * s + e * l;
@@ -23957,12 +24471,12 @@ More info at: http://icanhazjs.com
 							: function () {
 									return [n * Pt, r * Pt];
 							  }).distance = p),
-						v
+						g
 					);
-					var n, r, i, a, o, s, u, l, c, f, h, d, p, g, v;
+					var n, r, i, a, o, s, u, l, c, f, h, d, p, v, g;
 				}),
 				(a.geo.length = function (t) {
-					return (wr = 0), a.geo.stream(t, Kr), wr;
+					return (Sr = 0), a.geo.stream(t, Kr), Sr;
 				});
 			var Kr = {
 				sphere: $,
@@ -23972,9 +24486,9 @@ More info at: http://icanhazjs.com
 					function r(r, i) {
 						var a = Math.sin((i *= Nt)),
 							o = Math.cos(i),
-							s = w((r *= Nt) - t),
+							s = S((r *= Nt) - t),
 							u = Math.cos(s);
-						(wr += Math.atan2(
+						(Sr += Math.atan2(
 							Math.sqrt((s = o * Math.sin(s)) * s + (s = n * a - e * o * u) * s),
 							e * a + n * o * u
 						)),
@@ -24035,7 +24549,7 @@ More info at: http://icanhazjs.com
 					a = (n * Math.pow(r(t), i)) / i;
 				if (!i) return ei;
 				function o(t, e) {
-					a > 0 ? e < -Dt + Tt && (e = -Dt + Tt) : e > Dt - Tt && (e = Dt - Tt);
+					a > 0 ? e < -Dt + Et && (e = -Dt + Et) : e > Dt - Et && (e = Dt - Et);
 					var n = a / Math.pow(r(e), i);
 					return [n * Math.sin(i * t), a - n * Math.cos(i * t)];
 				}
@@ -24052,7 +24566,7 @@ More info at: http://icanhazjs.com
 				var n = Math.cos(t),
 					r = t === e ? Math.sin(t) : (n - Math.cos(e)) / (e - t),
 					i = n / r + t;
-				if (w(r) < Tt) return Lr;
+				if (S(r) < Et) return Lr;
 				function a(t, e) {
 					var n = i - e;
 					return [n * Math.sin(r * t), i - n * Math.cos(r * t)];
@@ -24289,21 +24803,21 @@ More info at: http://icanhazjs.com
 					return t;
 				});
 			var pi,
-				gi,
 				vi,
+				gi,
 				mi,
 				yi,
 				bi = [],
 				xi = [];
-			function Si() {
+			function wi() {
 				Fi(this), (this.edge = this.site = this.circle = null);
 			}
-			function wi(t) {
-				var e = bi.pop() || new Si();
+			function Si(t) {
+				var e = bi.pop() || new wi();
 				return (e.site = t), e;
 			}
 			function Ai(t) {
-				Ri(t), vi.remove(t), bi.push(t), Fi(t);
+				Ri(t), gi.remove(t), bi.push(t), Fi(t);
 			}
 			function ki(t) {
 				var e = t.circle,
@@ -24314,10 +24828,10 @@ More info at: http://icanhazjs.com
 					o = t.N,
 					s = [t];
 				Ai(t);
-				for (var u = a; u.circle && w(n - u.circle.x) < Tt && w(r - u.circle.cy) < Tt; )
+				for (var u = a; u.circle && S(n - u.circle.x) < Et && S(r - u.circle.cy) < Et; )
 					(a = u.P), s.unshift(u), Ai(u), (u = a);
 				s.unshift(u), Ri(u);
-				for (var l = o; l.circle && w(n - l.circle.x) < Tt && w(r - l.circle.cy) < Tt; )
+				for (var l = o; l.circle && S(n - l.circle.x) < Et && S(r - l.circle.cy) < Et; )
 					(o = l.N), s.push(l), Ai(l), (l = o);
 				s.push(l), Ri(l);
 				var c,
@@ -24325,14 +24839,14 @@ More info at: http://icanhazjs.com
 				for (c = 1; c < f; ++c) (l = s[c]), (u = s[c - 1]), ji(l.edge, u.site, l.site, i);
 				(u = s[0]), ((l = s[f - 1]).edge = Pi(u.site, l.site, null, i)), Oi(u), Oi(l);
 			}
-			function Ci(t) {
-				for (var e, n, r, i, a = t.x, o = t.y, s = vi._; s; )
-					if ((r = Ei(s, o) - a) > Tt) s = s.L;
+			function Ti(t) {
+				for (var e, n, r, i, a = t.x, o = t.y, s = gi._; s; )
+					if ((r = Ci(s, o) - a) > Et) s = s.L;
 					else {
-						if (!((i = a - _i(s, o)) > Tt)) {
-							r > -Tt
+						if (!((i = a - _i(s, o)) > Et)) {
+							r > -Et
 								? ((e = s.P), (n = s))
-								: i > -Tt
+								: i > -Et
 								? ((e = s), (n = s.N))
 								: (e = n = s);
 							break;
@@ -24343,13 +24857,13 @@ More info at: http://icanhazjs.com
 						}
 						s = s.R;
 					}
-				var u = wi(t);
-				if ((vi.insert(e, u), e || n)) {
+				var u = Si(t);
+				if ((gi.insert(e, u), e || n)) {
 					if (e === n)
 						return (
 							Ri(e),
-							(n = wi(e.site)),
-							vi.insert(u, n),
+							(n = Si(e.site)),
+							gi.insert(u, n),
 							(u.edge = n.edge = Pi(e.site, u.site)),
 							Oi(e),
 							void Oi(n)
@@ -24362,12 +24876,12 @@ More info at: http://icanhazjs.com
 							h = t.x - c,
 							d = t.y - f,
 							p = n.site,
-							g = p.x - c,
-							v = p.y - f,
-							m = 2 * (h * v - d * g),
+							v = p.x - c,
+							g = p.y - f,
+							m = 2 * (h * g - d * v),
 							y = h * h + d * d,
-							b = g * g + v * v,
-							x = { x: (v * y - d * b) / m + c, y: (h * b - g * y) / m + f };
+							b = v * v + g * g,
+							x = { x: (g * y - d * b) / m + c, y: (h * b - v * y) / m + f };
 						ji(n.edge, l, p, x),
 							(u.edge = Pi(l, t, null, x)),
 							(n.edge = Pi(t, p, null, x)),
@@ -24376,7 +24890,7 @@ More info at: http://icanhazjs.com
 					} else u.edge = Pi(e.site, u.site);
 				}
 			}
-			function Ei(t, e) {
+			function Ci(t, e) {
 				var n = t.site,
 					r = n.x,
 					i = n.y,
@@ -24402,11 +24916,11 @@ More info at: http://icanhazjs.com
 			}
 			function _i(t, e) {
 				var n = t.N;
-				if (n) return Ei(n, e);
+				if (n) return Ci(n, e);
 				var r = t.site;
 				return r.y === e ? r.x : 1 / 0;
 			}
-			function Ti(t) {
+			function Ei(t) {
 				(this.site = t), (this.edges = []);
 			}
 			function Mi(t, e) {
@@ -24428,19 +24942,19 @@ More info at: http://icanhazjs.com
 							u = r.x - o,
 							l = r.y - s,
 							c = a.x - o,
-							f = 2 * (u * (v = a.y - s) - l * c);
+							f = 2 * (u * (g = a.y - s) - l * c);
 						if (!(f >= -Mt)) {
 							var h = u * u + l * l,
-								d = c * c + v * v,
-								p = (v * h - l * d) / f,
-								g = (u * d - c * h) / f,
-								v = g + s,
+								d = c * c + g * g,
+								p = (g * h - l * d) / f,
+								v = (u * d - c * h) / f,
+								g = v + s,
 								m = xi.pop() || new Ii();
 							(m.arc = t),
 								(m.site = i),
 								(m.x = p + o),
-								(m.y = v + Math.sqrt(p * p + g * g)),
-								(m.cy = v),
+								(m.y = g + Math.sqrt(p * p + v * v)),
+								(m.cy = g),
 								(t.circle = m);
 							for (var y = null, b = yi._; b; )
 								if (m.y < b.y || (m.y === b.y && m.x <= b.x)) {
@@ -24480,23 +24994,23 @@ More info at: http://icanhazjs.com
 					h = c.x,
 					d = c.y,
 					p = f.x,
-					g = f.y,
-					v = (h + p) / 2,
-					m = (d + g) / 2;
-				if (g === d) {
-					if (v < o || v >= s) return;
+					v = f.y,
+					g = (h + p) / 2,
+					m = (d + v) / 2;
+				if (v === d) {
+					if (g < o || g >= s) return;
 					if (h > p) {
 						if (a) {
 							if (a.y >= l) return;
-						} else a = { x: v, y: u };
-						n = { x: v, y: l };
+						} else a = { x: g, y: u };
+						n = { x: g, y: l };
 					} else {
 						if (a) {
 							if (a.y < u) return;
-						} else a = { x: v, y: l };
-						n = { x: v, y: u };
+						} else a = { x: g, y: l };
+						n = { x: g, y: u };
 					}
-				} else if (((i = m - (r = (h - p) / (g - d)) * v), r < -1 || r > 1))
+				} else if (((i = m - (r = (h - p) / (v - d)) * g), r < -1 || r > 1))
 					if (h > p) {
 						if (a) {
 							if (a.y >= l) return;
@@ -24508,7 +25022,7 @@ More info at: http://icanhazjs.com
 						} else a = { x: (l - i) / r, y: l };
 						n = { x: (u - i) / r, y: u };
 					}
-				else if (d < g) {
+				else if (d < v) {
 					if (a) {
 						if (a.x >= s) return;
 					} else a = { x: o, y: r * o + i };
@@ -24530,8 +25044,8 @@ More info at: http://icanhazjs.com
 					pi.push(i),
 					n && ji(i, t, e, n),
 					r && ji(i, e, t, r),
-					gi[t.i].edges.push(new $i(i, t, e)),
-					gi[e.i].edges.push(new $i(i, e, t)),
+					vi[t.i].edges.push(new $i(i, t, e)),
+					vi[e.i].edges.push(new $i(i, e, t)),
 					i
 				);
 			}
@@ -24594,10 +25108,10 @@ More info at: http://icanhazjs.com
 					r,
 					i,
 					a = t.sort(qi).pop();
-				for (pi = [], gi = new Array(t.length), vi = new Bi(), yi = new Bi(); ; )
+				for (pi = [], vi = new Array(t.length), gi = new Bi(), yi = new Bi(); ; )
 					if (((i = mi), a && (!i || a.y < i.y || (a.y === i.y && a.x < i.x))))
 						(a.x === n && a.y === r) ||
-							((gi[a.i] = new Ti(a)), Ci(a), (n = a.x), (r = a.y)),
+							((vi[a.i] = new Ei(a)), Ti(a), (n = a.x), (r = a.y)),
 							(a = t.pop());
 					else {
 						if (!i) break;
@@ -24612,7 +25126,7 @@ More info at: http://icanhazjs.com
 						)
 							(!Di((e = n[i]), t) ||
 								!r(e) ||
-								(w(e.a.x - e.b.x) < Tt && w(e.a.y - e.b.y) < Tt)) &&
+								(S(e.a.x - e.b.x) < Et && S(e.a.y - e.b.y) < Et)) &&
 								((e.a = e.b = null), n.splice(i, 1));
 					})(e),
 					(function (t) {
@@ -24631,18 +25145,18 @@ More info at: http://icanhazjs.com
 								h = t[1][0],
 								d = t[0][1],
 								p = t[1][1],
-								g = gi,
-								v = g.length;
-							v--;
+								v = vi,
+								g = v.length;
+							g--;
 
 						)
-							if ((a = g[v]) && a.prepare())
+							if ((a = v[g]) && a.prepare())
 								for (u = (s = a.edges).length, o = 0; o < u; )
 									(r = (c = s[o].end()).x),
 										(i = c.y),
 										(e = (l = s[++o % u].start()).x),
 										(n = l.y),
-										(w(r - e) > Tt || w(i - n) > Tt) &&
+										(S(r - e) > Et || S(i - n) > Et) &&
 											(s.splice(
 												o,
 												0,
@@ -24650,14 +25164,14 @@ More info at: http://icanhazjs.com
 													Li(
 														a.site,
 														c,
-														w(r - f) < Tt && p - i > Tt
-															? { x: f, y: w(e - f) < Tt ? n : p }
-															: w(i - p) < Tt && h - r > Tt
-															? { x: w(n - p) < Tt ? e : h, y: p }
-															: w(r - h) < Tt && i - d > Tt
-															? { x: h, y: w(e - h) < Tt ? n : d }
-															: w(i - d) < Tt && r - f > Tt
-															? { x: w(n - d) < Tt ? e : f, y: d }
+														S(r - f) < Et && p - i > Et
+															? { x: f, y: S(e - f) < Et ? n : p }
+															: S(i - p) < Et && h - r > Et
+															? { x: S(n - p) < Et ? e : h, y: p }
+															: S(r - h) < Et && i - d > Et
+															? { x: h, y: S(e - h) < Et ? n : d }
+															: S(i - d) < Et && r - f > Et
+															? { x: S(n - d) < Et ? e : f, y: d }
 															: null
 													),
 													a.site,
@@ -24666,13 +25180,13 @@ More info at: http://icanhazjs.com
 											),
 											++u);
 					})(e));
-				var o = { cells: gi, edges: pi };
-				return (vi = yi = pi = gi = null), o;
+				var o = { cells: vi, edges: pi };
+				return (gi = yi = pi = vi = null), o;
 			}
 			function qi(t, e) {
 				return e.y - t.y || e.x - t.x;
 			}
-			(Ti.prototype.prepare = function () {
+			(Ei.prototype.prepare = function () {
 				for (var t, e = this.edges, n = e.length; n--; )
 					((t = e[n].edge).b && t.a) || e.splice(n, 1);
 				return e.sort(Mi), e.length;
@@ -24821,8 +25335,8 @@ More info at: http://icanhazjs.com
 					function s(t) {
 						return t.map(function (t, e) {
 							return {
-								x: Math.round(r(t, e) / Tt) * Tt,
-								y: Math.round(i(t, e) / Tt) * Tt,
+								x: Math.round(r(t, e) / Et) * Et,
+								y: Math.round(i(t, e) / Et) * Et,
 								i: e,
 							};
 						});
@@ -24922,9 +25436,9 @@ More info at: http://icanhazjs.com
 						if (!(c > a || f > o || h < r || d < i)) {
 							if ((p = l.point)) {
 								var p,
-									g = e - l.x,
-									v = n - l.y,
-									m = g * g + v * v;
+									v = e - l.x,
+									g = n - l.y,
+									m = v * v + g * g;
 								if (m < u) {
 									var y = Math.sqrt((u = m));
 									(r = e - y), (i = n - y), (a = e + y), (o = n + y), (s = p);
@@ -24933,25 +25447,25 @@ More info at: http://icanhazjs.com
 							for (
 								var b = l.nodes,
 									x = 0.5 * (c + h),
-									S = 0.5 * (f + d),
-									w = ((n >= S) << 1) | (e >= x),
-									A = w + 4;
-								w < A;
-								++w
+									w = 0.5 * (f + d),
+									S = ((n >= w) << 1) | (e >= x),
+									A = S + 4;
+								S < A;
+								++S
 							)
-								if ((l = b[3 & w]))
-									switch (3 & w) {
+								if ((l = b[3 & S]))
+									switch (3 & S) {
 										case 0:
-											t(l, c, f, x, S);
+											t(l, c, f, x, w);
 											break;
 										case 1:
-											t(l, x, f, h, S);
+											t(l, x, f, h, w);
 											break;
 										case 2:
-											t(l, c, S, x, d);
+											t(l, c, w, x, d);
 											break;
 										case 3:
-											t(l, x, S, h, d);
+											t(l, x, w, h, d);
 									}
 						}
 					})(t, r, i, a, o),
@@ -25046,19 +25560,19 @@ More info at: http://icanhazjs.com
 							h,
 							d,
 							p,
-							g,
 							v,
+							g,
 							m = ye(o),
 							y = ye(s);
-						if (null != e) (d = e), (p = n), (g = r), (v = i);
+						if (null != e) (d = e), (p = n), (v = r), (g = i);
 						else if (
-							((g = v = -(d = p = 1 / 0)), (l = []), (c = []), (h = t.length), a)
+							((v = g = -(d = p = 1 / 0)), (l = []), (c = []), (h = t.length), a)
 						)
 							for (f = 0; f < h; ++f)
 								(u = t[f]).x < d && (d = u.x),
 									u.y < p && (p = u.y),
-									u.x > g && (g = u.x),
-									u.y > v && (v = u.y),
+									u.x > v && (v = u.x),
+									u.y > g && (g = u.y),
 									l.push(u.x),
 									c.push(u.y);
 						else
@@ -25067,30 +25581,30 @@ More info at: http://icanhazjs.com
 									x = +y(u, f);
 								b < d && (d = b),
 									x < p && (p = x),
-									b > g && (g = b),
-									x > v && (v = x),
+									b > v && (v = b),
+									x > g && (g = x),
 									l.push(b),
 									c.push(x);
 							}
-						var S = g - d,
-							A = v - p;
+						var w = v - d,
+							A = g - p;
 						function k(t, e, n, r, i, a, o, s) {
 							if (!isNaN(n) && !isNaN(r))
 								if (t.leaf) {
 									var u = t.x,
 										l = t.y;
 									if (null != u)
-										if (w(u - n) + w(l - r) < 0.01) C(t, e, n, r, i, a, o, s);
+										if (S(u - n) + S(l - r) < 0.01) T(t, e, n, r, i, a, o, s);
 										else {
 											var c = t.point;
 											(t.x = t.y = t.point = null),
-												C(t, c, u, l, i, a, o, s),
-												C(t, e, n, r, i, a, o, s);
+												T(t, c, u, l, i, a, o, s),
+												T(t, e, n, r, i, a, o, s);
 										}
 									else (t.x = n), (t.y = r), (t.point = e);
-								} else C(t, e, n, r, i, a, o, s);
+								} else T(t, e, n, r, i, a, o, s);
 						}
-						function C(t, e, n, r, i, a, o, s) {
+						function T(t, e, n, r, i, a, o, s) {
 							var u = 0.5 * (i + o),
 								l = 0.5 * (a + s),
 								c = n >= u,
@@ -25118,28 +25632,28 @@ More info at: http://icanhazjs.com
 									s
 								);
 						}
-						S > A ? (v = p + S) : (g = d + A);
-						var E = {
+						w > A ? (g = p + w) : (v = d + A);
+						var C = {
 							leaf: !0,
 							nodes: [],
 							point: null,
 							x: null,
 							y: null,
 							add: function (t) {
-								k(E, t, +m(t, ++f), +y(t, f), d, p, g, v);
+								k(C, t, +m(t, ++f), +y(t, f), d, p, v, g);
 							},
 							visit: function (t) {
-								Yi(t, E, d, p, g, v);
+								Yi(t, C, d, p, v, g);
 							},
 							find: function (t) {
-								return Zi(E, t[0], t[1], d, p, g, v);
+								return Zi(C, t[0], t[1], d, p, v, g);
 							},
 						};
 						if (((f = -1), null == e)) {
-							for (; ++f < h; ) k(E, t[f], l[f], c[f], d, p, g, v);
+							for (; ++f < h; ) k(C, t[f], l[f], c[f], d, p, v, g);
 							--f;
-						} else t.forEach(E.add);
-						return (l = c = t = u = null), E;
+						} else t.forEach(C.add);
+						return (l = c = t = u = null), C;
 					}
 					return (
 						(u.x = function (t) {
@@ -25246,10 +25760,10 @@ More info at: http://icanhazjs.com
 						return pa;
 					},
 					exp: function () {
-						return ga;
+						return va;
 					},
 					circle: function () {
-						return va;
+						return ga;
 					},
 					elastic: function (t, e) {
 						var n;
@@ -25310,10 +25824,10 @@ More info at: http://icanhazjs.com
 			function pa(t) {
 				return 1 - Math.cos(t * Dt);
 			}
-			function ga(t) {
+			function va(t) {
 				return Math.pow(2, 10 * (t - 1));
 			}
-			function va(t) {
+			function ga(t) {
 				return 1 - Math.sqrt(1 - t * t);
 			}
 			function ma(t) {
@@ -25339,9 +25853,9 @@ More info at: http://icanhazjs.com
 					r,
 					i = [t.a, t.b],
 					a = [t.c, t.d],
-					o = Sa(i),
+					o = wa(i),
 					s = xa(i, a),
-					u = Sa((((e = a)[0] += (r = -s) * (n = i)[0]), (e[1] += r * n[1]), e)) || 0;
+					u = wa((((e = a)[0] += (r = -s) * (n = i)[0]), (e[1] += r * n[1]), e)) || 0;
 				i[0] * a[1] < a[0] * i[1] && ((i[0] *= -1), (i[1] *= -1), (o *= -1), (s *= -1)),
 					(this.rotate = (o ? Math.atan2(i[1], i[0]) : Math.atan2(-a[0], a[1])) * Pt),
 					(this.translate = [t.e, t.f]),
@@ -25351,7 +25865,7 @@ More info at: http://icanhazjs.com
 			function xa(t, e) {
 				return t[0] * e[0] + t[1] * e[1];
 			}
-			function Sa(t) {
+			function wa(t) {
 				var e = Math.sqrt(xa(t, t));
 				return e && ((t[0] /= e), (t[1] /= e)), e;
 			}
@@ -25420,7 +25934,7 @@ More info at: http://icanhazjs.com
 							e.setAttribute('transform', t);
 							var n = e.transform.baseVal.consolidate();
 						}
-						return new ba(n ? n.matrix : wa);
+						return new ba(n ? n.matrix : Sa);
 					})(t);
 				}),
 				(ba.prototype.toString = function () {
@@ -25436,7 +25950,7 @@ More info at: http://icanhazjs.com
 						')'
 					);
 				});
-			var wa = { a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 };
+			var Sa = { a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 };
 			function Aa(t) {
 				return t.length ? t.pop() + ',' : '';
 			}
@@ -25482,7 +25996,7 @@ More info at: http://icanhazjs.com
 					}
 				);
 			}
-			function Ca(t, e) {
+			function Ta(t, e) {
 				return (
 					(e = (e -= t = +t) || 1 / e),
 					function (n) {
@@ -25490,7 +26004,7 @@ More info at: http://icanhazjs.com
 					}
 				);
 			}
-			function Ea(t, e) {
+			function Ca(t, e) {
 				return (
 					(e = (e -= t = +t) || 1 / e),
 					function (n) {
@@ -25504,8 +26018,8 @@ More info at: http://icanhazjs.com
 						n = t.target,
 						r = (function (t, e) {
 							if (t === e) return t;
-							var n = Ta(t),
-								r = Ta(e),
+							var n = Ea(t),
+								r = Ea(e),
 								i = n.pop(),
 								a = r.pop(),
 								o = null;
@@ -25520,7 +26034,7 @@ More info at: http://icanhazjs.com
 				for (var a = i.length; n !== r; ) i.splice(a, 0, n), (n = n.parent);
 				return i;
 			}
-			function Ta(t) {
+			function Ea(t) {
 				for (var e = [], n = t.parent; null != n; ) e.push(t), (t = n), (n = n.parent);
 				return e.push(t), e;
 			}
@@ -25560,18 +26074,18 @@ More info at: http://icanhazjs.com
 							h,
 							d,
 							p,
-							g = {},
-							v = [],
+							v = {},
+							g = [],
 							m = a.range(r),
 							y = [];
 						for (t = [], e = [], u = 0, d = -1; ++d < r; ) {
 							for (c = 0, p = -1; ++p < r; ) c += n[d][p];
-							v.push(c), y.push(a.range(r)), (u += c);
+							g.push(c), y.push(a.range(r)), (u += c);
 						}
 						for (
 							i &&
 								m.sort(function (t, e) {
-									return i(v[t], v[e]);
+									return i(g[t], g[e]);
 								}),
 								o &&
 									y.forEach(function (t, e) {
@@ -25588,29 +26102,29 @@ More info at: http://icanhazjs.com
 							for (h = c, p = -1; ++p < r; ) {
 								var b = m[d],
 									x = y[b][p],
-									S = n[b][x],
-									w = c,
-									A = (c += S * u);
-								g[b + '-' + x] = {
+									w = n[b][x],
+									S = c,
+									A = (c += w * u);
+								v[b + '-' + x] = {
 									index: b,
 									subindex: x,
-									startAngle: w,
+									startAngle: S,
 									endAngle: A,
-									value: S,
+									value: w,
 								};
 							}
-							(e[b] = { index: b, startAngle: h, endAngle: c, value: v[b] }),
+							(e[b] = { index: b, startAngle: h, endAngle: c, value: g[b] }),
 								(c += l);
 						}
 						for (d = -1; ++d < r; )
 							for (p = d - 1; ++p < r; ) {
-								var k = g[d + '-' + p],
-									C = g[p + '-' + d];
-								(k.value || C.value) &&
+								var k = v[d + '-' + p],
+									T = v[p + '-' + d];
+								(k.value || T.value) &&
 									t.push(
-										k.value < C.value
-											? { source: C, target: k }
-											: { source: k, target: C }
+										k.value < T.value
+											? { source: T, target: k }
+											: { source: k, target: T }
 									);
 							}
 						s && f();
@@ -25665,8 +26179,8 @@ More info at: http://icanhazjs.com
 						h = Na,
 						d = -30,
 						p = Pa,
-						g = 0.1,
-						v = 0.64,
+						v = 0.1,
+						g = 0.64,
 						m = [],
 						y = [];
 					function b(t) {
@@ -25676,7 +26190,7 @@ More info at: http://icanhazjs.com
 									o = e.cy - t.y,
 									s = i - n,
 									u = a * a + o * o;
-								if ((s * s) / v < u) {
+								if ((s * s) / g < u) {
 									if (u < p) {
 										var l = e.charge / u;
 										(t.px -= a * l), (t.py -= o * l);
@@ -25703,29 +26217,29 @@ More info at: http://icanhazjs.com
 								f,
 								h,
 								p,
-								v,
+								g,
 								x,
-								S,
 								w,
+								S,
 								A = m.length,
 								k = y.length;
 							for (s = 0; s < k; ++s)
 								(h = (f = y[s]).source),
-									(v = (S = (p = f.target).x - h.x) * S + (w = p.y - h.y) * w) &&
-										((S *= v = (n * i[s] * ((v = Math.sqrt(v)) - r[s])) / v),
-										(w *= v),
+									(g = (w = (p = f.target).x - h.x) * w + (S = p.y - h.y) * S) &&
+										((w *= g = (n * i[s] * ((g = Math.sqrt(g)) - r[s])) / g),
+										(S *= g),
 										(p.x -=
-											S *
+											w *
 											(x =
 												h.weight + p.weight
 													? h.weight / (h.weight + p.weight)
 													: 0.5)),
-										(p.y -= w * x),
-										(h.x += S * (x = 1 - x)),
-										(h.y += w * x));
-							if ((x = n * g) && ((S = l[0] / 2), (w = l[1] / 2), (s = -1), x))
+										(p.y -= S * x),
+										(h.x += w * (x = 1 - x)),
+										(h.y += S * x));
+							if ((x = n * v) && ((w = l[0] / 2), (S = l[1] / 2), (s = -1), x))
 								for (; ++s < A; )
-									((f = m[s]).x += (S - f.x) * x), (f.y += (w - f.y) * x);
+									((f = m[s]).x += (w - f.x) * x), (f.y += (S - f.y) * x);
 							if (d)
 								for (
 									!(function t(e, n, r) {
@@ -25797,10 +26311,10 @@ More info at: http://icanhazjs.com
 							return arguments.length ? ((p = t * t), s) : Math.sqrt(p);
 						}),
 						(s.gravity = function (t) {
-							return arguments.length ? ((g = +t), s) : g;
+							return arguments.length ? ((v = +t), s) : v;
 						}),
 						(s.theta = function (t) {
-							return arguments.length ? ((v = t * t), s) : Math.sqrt(v);
+							return arguments.length ? ((g = t * t), s) : Math.sqrt(g);
 						}),
 						(s.alpha = function (e) {
 							return arguments.length
@@ -25814,7 +26328,7 @@ More info at: http://icanhazjs.com
 											  u.end({ type: 'end', alpha: (n = 0) }))
 										: e > 0 &&
 										  (u.start({ type: 'start', alpha: (n = e) }),
-										  (t = Ee(s.tick))),
+										  (t = Ce(s.tick))),
 								  s)
 								: n;
 						}),
@@ -25834,8 +26348,8 @@ More info at: http://icanhazjs.com
 									++n.target.weight;
 							for (t = 0; t < a; ++t)
 								(n = m[t]),
-									isNaN(n.x) && (n.x = g('x', c)),
-									isNaN(n.y) && (n.y = g('y', p)),
+									isNaN(n.x) && (n.x = v('x', c)),
+									isNaN(n.y) && (n.y = v('y', p)),
 									isNaN(n.px) && (n.px = n.x),
 									isNaN(n.py) && (n.py = n.y);
 							if (((r = []), 'function' == typeof f))
@@ -25847,7 +26361,7 @@ More info at: http://icanhazjs.com
 							if (((o = []), 'function' == typeof d))
 								for (t = 0; t < a; ++t) o[t] = +d.call(this, m[t], t);
 							else for (t = 0; t < a; ++t) o[t] = d;
-							function g(n, r) {
+							function v(n, r) {
 								if (!e) {
 									for (e = new Array(a), l = 0; l < a; ++l) e[l] = [];
 									for (l = 0; l < u; ++l) {
@@ -26036,8 +26550,8 @@ More info at: http://icanhazjs.com
 								+('function' == typeof i ? i.apply(this, arguments) : i)
 							),
 							p = d * (h < 0 ? -1 : 1),
-							g = a.sum(c),
-							v = g ? (h - l * p) / g : 0,
+							v = a.sum(c),
+							g = v ? (h - l * p) / v : 0,
 							m = a.range(l),
 							y = [];
 						return (
@@ -26056,7 +26570,7 @@ More info at: http://icanhazjs.com
 									data: s[t],
 									value: (u = c[t]),
 									startAngle: f,
-									endAngle: (f += u * v + p),
+									endAngle: (f += u * g + p),
 									padAngle: d,
 								};
 							}),
@@ -26113,13 +26627,13 @@ More info at: http://icanhazjs.com
 					(c = a.permute(c, h)), (f = a.permute(f, h));
 					var d,
 						p,
-						g,
 						v,
+						g,
 						m = n.call(s, f, l),
 						y = c[0].length;
-					for (g = 0; g < y; ++g)
-						for (r.call(s, c[0][g], (v = m[g]), f[0][g][1]), p = 1; p < d; ++p)
-							r.call(s, c[p][g], (v += f[p - 1][g][1]), f[p][g][1]);
+					for (v = 0; v < y; ++v)
+						for (r.call(s, c[0][v], (g = m[v]), f[0][v][1]), p = 1; p < d; ++p)
+							r.call(s, c[p][v], (g += f[p - 1][v][1]), f[p][v][1]);
 					return u;
 				}
 				return (
@@ -26312,7 +26826,7 @@ More info at: http://icanhazjs.com
 							co(n, r, (i = e[a]));
 							var d = 0,
 								p = 1,
-								g = 1;
+								v = 1;
 							for (o = r._pack_next; o !== r; o = o._pack_next, p++)
 								if (oo(o, i)) {
 									d = 1;
@@ -26322,18 +26836,18 @@ More info at: http://icanhazjs.com
 								for (
 									s = n._pack_prev;
 									s !== o._pack_prev && !oo(s, i);
-									s = s._pack_prev, g++
+									s = s._pack_prev, v++
 								);
 							d
-								? (p < g || (p == g && r.r < n.r) ? ao(n, (r = o)) : ao((n = s), r),
+								? (p < v || (p == v && r.r < n.r) ? ao(n, (r = o)) : ao((n = s), r),
 								  a--)
 								: (io(n, i), (r = i), b(i));
 						}
-					var v = (l + c) / 2,
+					var g = (l + c) / 2,
 						m = (f + h) / 2,
 						y = 0;
 					for (a = 0; a < u; a++)
-						((i = e[a]).x -= v),
+						((i = e[a]).x -= g),
 							(i.y -= m),
 							(y = Math.max(y, i.r + Math.sqrt(i.x * i.x + i.y * i.y)));
 					(t.r = y), e.forEach(lo);
@@ -26377,11 +26891,11 @@ More info at: http://icanhazjs.com
 					n = t.children;
 				return (e = n.length) ? n[e - 1] : t.t;
 			}
-			function go(t, e, n) {
+			function vo(t, e, n) {
 				var r = n / (e.i - t.i);
 				(e.c -= r), (e.s += n), (t.c += r), (e.z += n), (e.m += n);
 			}
-			function vo(t, e, n) {
+			function go(t, e, n) {
 				return t.a.parent === e.parent ? t.a : n;
 			}
 			function mo(t) {
@@ -26406,14 +26920,14 @@ More info at: http://icanhazjs.com
 			function xo(t) {
 				return t.rangeExtent ? t.rangeExtent() : bo(t.range());
 			}
-			function So(t, e, n, r) {
+			function wo(t, e, n, r) {
 				var i = n(t[0], t[1]),
 					a = r(e[0], e[1]);
 				return function (t) {
 					return a(i(t));
 				};
 			}
-			function wo(t, e) {
+			function So(t, e) {
 				var n,
 					r = 0,
 					i = t.length - 1,
@@ -26453,7 +26967,7 @@ More info at: http://icanhazjs.com
 							h = r.call(this, f, c, o),
 							d = ((o = -1), c.length),
 							p = h.length - 1,
-							g = t ? 1 : 1 / d;
+							v = t ? 1 : 1 / d;
 						++o < p;
 
 					)
@@ -26462,7 +26976,7 @@ More info at: http://icanhazjs.com
 						for (o = -1; ++o < d; )
 							(u = c[o]) >= f[0] &&
 								u <= f[1] &&
-								(((s = l[a.bisect(h, u, 1, p) - 1]).y += g), s.push(i[o]));
+								(((s = l[a.bisect(h, u, 1, p) - 1]).y += v), s.push(i[o]));
 					return l;
 				}
 				return (
@@ -26591,11 +27105,11 @@ More info at: http://icanhazjs.com
 									t.x > d.x && (d = t),
 									t.depth > p.depth && (p = t);
 							});
-							var g = e(h, d) / 2 - h.x,
-								v = n[0] / (d.x + e(d, h) / 2 + g),
+							var v = e(h, d) / 2 - h.x,
+								g = n[0] / (d.x + e(d, h) / 2 + v),
 								m = n[1] / (p.depth || 1);
 							ja(c, function (t) {
-								(t.x = (t.x + g) * v), (t.y = t.depth * m);
+								(t.x = (t.x + v) * g), (t.y = t.depth * m);
 							});
 						}
 						return l;
@@ -26635,7 +27149,7 @@ More info at: http://icanhazjs.com
 									(u = ho(u)),
 										((o = po(o)).a = t),
 										(i = s.z + f - a.z - l + e(s._, a._)) > 0 &&
-											(go(vo(s, t, r), t, i), (l += i), (c += i)),
+											(vo(go(s, t, r), t, i), (l += i), (c += i)),
 										(f += s.m),
 										(l += a.m),
 										(h += u.m),
@@ -26767,7 +27281,7 @@ More info at: http://icanhazjs.com
 								s = [],
 								l = e.slice(),
 								h = 1 / 0,
-								g =
+								v =
 									'slice' === u
 										? a.dx
 										: 'dice' === u
@@ -26780,14 +27294,14 @@ More info at: http://icanhazjs.com
 							for (c(l, (a.dx * a.dy) / t.value), s.area = 0; (i = l.length) > 0; )
 								s.push((n = l[i - 1])),
 									(s.area += n.area),
-									'squarify' !== u || (r = d(s, g)) <= h
+									'squarify' !== u || (r = d(s, v)) <= h
 										? (l.pop(), (h = r))
 										: ((s.area -= s.pop().area),
-										  p(s, g, a, !1),
-										  (g = Math.min(a.dx, a.dy)),
+										  p(s, v, a, !1),
+										  (v = Math.min(a.dx, a.dy)),
 										  (s.length = s.area = 0),
 										  (h = 1 / 0));
-							s.length && (p(s, g, a, !0), (s.length = s.area = 0)), e.forEach(f);
+							s.length && (p(s, v, a, !0), (s.length = s.area = 0)), e.forEach(f);
 						}
 					}
 					function h(t) {
@@ -26836,7 +27350,7 @@ More info at: http://icanhazjs.com
 							(a.z = !1), (a.dy += r.y + r.dy - l), (r.x += c), (r.dx -= c);
 						}
 					}
-					function g(n) {
+					function v(n) {
 						var i = t || e(n),
 							a = i[0];
 						return (
@@ -26850,13 +27364,13 @@ More info at: http://icanhazjs.com
 						);
 					}
 					return (
-						(g.size = function (t) {
-							return arguments.length ? ((r = t), g) : r;
+						(v.size = function (t) {
+							return arguments.length ? ((r = t), v) : r;
 						}),
-						(g.padding = function (t) {
+						(v.padding = function (t) {
 							if (!arguments.length) return i;
 							function e(e) {
-								var n = t.call(g, e, e.depth);
+								var n = t.call(v, e, e.depth);
 								return null == n
 									? mo(e)
 									: yo(e, 'number' == typeof n ? [n, n, n, n] : n);
@@ -26874,24 +27388,24 @@ More info at: http://icanhazjs.com
 										: 'number' === r
 										? ((t = [t, t, t, t]), n)
 										: n),
-								g
+								v
 							);
 						}),
-						(g.round = function (t) {
+						(v.round = function (t) {
 							return arguments.length
-								? ((n = t ? Math.round : Number), g)
+								? ((n = t ? Math.round : Number), v)
 								: n != Number;
 						}),
-						(g.sticky = function (e) {
-							return arguments.length ? ((s = e), (t = null), g) : s;
+						(v.sticky = function (e) {
+							return arguments.length ? ((s = e), (t = null), v) : s;
 						}),
-						(g.ratio = function (t) {
-							return arguments.length ? ((l = t), g) : l;
+						(v.ratio = function (t) {
+							return arguments.length ? ((l = t), v) : l;
 						}),
-						(g.mode = function (t) {
-							return arguments.length ? ((u = t + ''), g) : u;
+						(v.mode = function (t) {
+							return arguments.length ? ((u = t + ''), v) : u;
 						}),
-						La(g, e)
+						La(v, e)
 					);
 				}),
 				(a.random = {
@@ -26932,7 +27446,7 @@ More info at: http://icanhazjs.com
 				}),
 				(a.scale = {});
 			var ko = { floor: N, ceil: N };
-			function Co(t, e, n, r) {
+			function To(t, e, n, r) {
 				var i = [],
 					o = [],
 					s = 0,
@@ -26948,13 +27462,13 @@ More info at: http://icanhazjs.com
 					return o[n](i[n](e));
 				};
 			}
-			function Eo(t, e) {
+			function Co(t, e) {
 				return a.rebind(t, e, 'range', 'rangeRound', 'interpolate', 'clamp');
 			}
 			function _o(t, e) {
-				return wo(t, Ao(To(t, e)[2])), wo(t, Ao(To(t, e)[2])), t;
+				return So(t, Ao(Eo(t, e)[2])), So(t, Ao(Eo(t, e)[2])), t;
 			}
-			function To(t, e) {
+			function Eo(t, e) {
 				null == e && (e = 10);
 				var n = bo(t),
 					r = n[1] - n[0],
@@ -26969,14 +27483,14 @@ More info at: http://icanhazjs.com
 				);
 			}
 			function Mo(t, e) {
-				return a.range.apply(a, To(t, e));
+				return a.range.apply(a, Eo(t, e));
 			}
 			function Io(t, e, n) {
-				var r = To(t, e);
+				var r = Eo(t, e);
 				if (n) {
 					var i = De.exec(n);
 					if ((i.shift(), 's' === i[8])) {
-						var o = a.formatPrefix(Math.max(w(r[0]), w(r[1])));
+						var o = a.formatPrefix(Math.max(S(r[0]), S(r[1])));
 						return (
 							i[7] || (i[7] = '.' + Ro(o.scale(r[2]))),
 							(i[8] = 'f'),
@@ -26992,7 +27506,7 @@ More info at: http://icanhazjs.com
 							(function (t, e) {
 								var n = Ro(e[2]);
 								return t in Oo
-									? Math.abs(n - Ro(Math.max(w(e[0]), w(e[1])))) + +('e' !== t)
+									? Math.abs(n - Ro(Math.max(S(e[0]), S(e[1])))) + +('e' !== t)
 									: n - 2 * ('%' === t);
 							})(i[8], r)),
 						(n = i.join(''));
@@ -27003,8 +27517,8 @@ More info at: http://icanhazjs.com
 				return (function t(e, n, r, i) {
 					var a, o;
 					function s() {
-						var t = Math.min(e.length, n.length) > 2 ? Co : So,
-							s = i ? Ea : Ca;
+						var t = Math.min(e.length, n.length) > 2 ? To : wo,
+							s = i ? Ca : Ta;
 						return (a = t(e, n, s, r)), (o = t(n, e, s, ra)), u;
 					}
 					function u(t) {
@@ -27075,7 +27589,7 @@ More info at: http://icanhazjs.com
 							return arguments.length ? ((n = +t), e.domain(i.map(o)), u) : n;
 						}),
 						(u.nice = function () {
-							var t = wo(i.map(o), r ? Math : No);
+							var t = So(i.map(o), r ? Math : No);
 							return e.domain(t), (i = t.map(s)), u;
 						}),
 						(u.ticks = function () {
@@ -27113,7 +27627,7 @@ More info at: http://icanhazjs.com
 						(u.copy = function () {
 							return t(e.copy(), n, r, i);
 						}),
-						Eo(u, e)
+						Co(u, e)
 					);
 				})(a.scale.linear().domain([0, 1]), 10, !0, [1, 10]);
 			};
@@ -27162,7 +27676,7 @@ More info at: http://icanhazjs.com
 						(o.copy = function () {
 							return t(e.copy(), n, r);
 						}),
-						Eo(o, e)
+						Co(o, e)
 					);
 				})(a.scale.linear(), 1, [0, 1]);
 			}),
@@ -27186,7 +27700,7 @@ More info at: http://icanhazjs.com
 						return (
 							(s.domain = function (t) {
 								if (!arguments.length) return e;
-								(e = []), (r = new C());
+								(e = []), (r = new T());
 								for (var i, a = -1, o = t.length; ++a < o; )
 									r.has((i = t[a])) || r.set(i, e.push(i));
 								return s[n.t].apply(s, n.a);
@@ -27321,7 +27835,7 @@ More info at: http://icanhazjs.com
 					}
 					return (
 						(o.domain = function (t) {
-							return arguments.length ? ((e = t.map(m).filter(y).sort(v)), i()) : e;
+							return arguments.length ? ((e = t.map(m).filter(y).sort(g)), i()) : e;
 						}),
 						(o.range = function (t) {
 							return arguments.length ? ((n = t), i()) : n;
@@ -27434,70 +27948,70 @@ More info at: http://icanhazjs.com
 						if ((l < s && ((p = l), (l = s), (s = p)), h >= Rt))
 							return u(l, d) + (s ? u(s, 1 - d) : '') + 'Z';
 						var p,
-							g,
 							v,
+							g,
 							m,
 							y,
 							b,
 							x,
-							S,
 							w,
+							S,
 							A,
 							k,
-							C,
-							E = 0,
+							T,
+							C = 0,
 							_ = 0,
-							T = [];
+							E = [];
 						if (
 							((m = (+o.apply(this, arguments) || 0) / 2) &&
-								((v =
+								((g =
 									r === Uo
 										? Math.sqrt(s * s + l * l)
 										: +r.apply(this, arguments)),
 								d || (_ *= -1),
-								l && (_ = Bt((v / l) * Math.sin(m))),
-								s && (E = Bt((v / s) * Math.sin(m)))),
+								l && (_ = Bt((g / l) * Math.sin(m))),
+								s && (C = Bt((g / s) * Math.sin(m)))),
 							l)
 						) {
 							(y = l * Math.cos(c + _)),
 								(b = l * Math.sin(c + _)),
 								(x = l * Math.cos(f - _)),
-								(S = l * Math.sin(f - _));
+								(w = l * Math.sin(f - _));
 							var M = Math.abs(f - c - 2 * _) <= It ? 0 : 1;
-							if (_ && (Go(y, b, x, S) === d) ^ M) {
+							if (_ && (Go(y, b, x, w) === d) ^ M) {
 								var I = (c + f) / 2;
-								(y = l * Math.cos(I)), (b = l * Math.sin(I)), (x = S = null);
+								(y = l * Math.cos(I)), (b = l * Math.sin(I)), (x = w = null);
 							}
 						} else y = b = 0;
 						if (s) {
-							(w = s * Math.cos(f - E)),
-								(A = s * Math.sin(f - E)),
-								(k = s * Math.cos(c + E)),
-								(C = s * Math.sin(c + E));
-							var O = Math.abs(c - f + 2 * E) <= It ? 0 : 1;
-							if (E && (Go(w, A, k, C) === 1 - d) ^ O) {
+							(S = s * Math.cos(f - C)),
+								(A = s * Math.sin(f - C)),
+								(k = s * Math.cos(c + C)),
+								(T = s * Math.sin(c + C));
+							var O = Math.abs(c - f + 2 * C) <= It ? 0 : 1;
+							if (C && (Go(S, A, k, T) === 1 - d) ^ O) {
 								var R = (c + f) / 2;
-								(w = s * Math.cos(R)), (A = s * Math.sin(R)), (k = C = null);
+								(S = s * Math.cos(R)), (A = s * Math.sin(R)), (k = T = null);
 							}
-						} else w = A = 0;
+						} else S = A = 0;
 						if (
-							h > Tt &&
+							h > Et &&
 							(p = Math.min(Math.abs(l - s) / 2, +n.apply(this, arguments))) > 0.001
 						) {
-							g = (s < l) ^ d ? 0 : 1;
+							v = (s < l) ^ d ? 0 : 1;
 							var D = p,
 								N = p;
 							if (h < It) {
 								var P =
 										null == k
-											? [w, A]
+											? [S, A]
 											: null == x
 											? [y, b]
-											: hi([y, b], [k, C], [x, S], [w, A]),
+											: hi([y, b], [k, T], [x, w], [S, A]),
 									L = y - P[0],
 									j = b - P[1],
 									$ = x - P[0],
-									B = S - P[1],
+									B = w - P[1],
 									F =
 										1 /
 										Math.sin(
@@ -27512,10 +28026,10 @@ More info at: http://icanhazjs.com
 									(D = Math.min(p, (l - U) / (F + 1)));
 							}
 							if (null != x) {
-								var V = Ko(null == k ? [w, A] : [k, C], [y, b], l, D, d),
-									H = Ko([x, S], [w, A], l, D, d);
+								var V = Ko(null == k ? [S, A] : [k, T], [y, b], l, D, d),
+									H = Ko([x, w], [S, A], l, D, d);
 								p === D
-									? T.push(
+									? E.push(
 											'M',
 											V[0],
 											'A',
@@ -27523,7 +28037,7 @@ More info at: http://icanhazjs.com
 											',',
 											D,
 											' 0 0,',
-											g,
+											v,
 											' ',
 											V[1],
 											'A',
@@ -27541,17 +28055,17 @@ More info at: http://icanhazjs.com
 											',',
 											D,
 											' 0 0,',
-											g,
+											v,
 											' ',
 											H[0]
 									  )
-									: T.push('M', V[0], 'A', D, ',', D, ' 0 1,', g, ' ', H[0]);
-							} else T.push('M', y, ',', b);
+									: E.push('M', V[0], 'A', D, ',', D, ' 0 1,', v, ' ', H[0]);
+							} else E.push('M', y, ',', b);
 							if (null != k) {
-								var z = Ko([y, b], [k, C], s, -N, d),
-									q = Ko([w, A], null == x ? [y, b] : [x, S], s, -N, d);
+								var z = Ko([y, b], [k, T], s, -N, d),
+									q = Ko([S, A], null == x ? [y, b] : [x, w], s, -N, d);
 								p === N
-									? T.push(
+									? E.push(
 											'L',
 											q[0],
 											'A',
@@ -27559,7 +28073,7 @@ More info at: http://icanhazjs.com
 											',',
 											N,
 											' 0 0,',
-											g,
+											v,
 											' ',
 											q[1],
 											'A',
@@ -27577,20 +28091,20 @@ More info at: http://icanhazjs.com
 											',',
 											N,
 											' 0 0,',
-											g,
+											v,
 											' ',
 											z[0]
 									  )
-									: T.push('L', q[0], 'A', N, ',', N, ' 0 0,', g, ' ', z[0]);
-							} else T.push('L', w, ',', A);
+									: E.push('L', q[0], 'A', N, ',', N, ' 0 0,', v, ' ', z[0]);
+							} else E.push('L', S, ',', A);
 						} else
-							T.push('M', y, ',', b),
+							E.push('M', y, ',', b),
 								null != x &&
-									T.push('A', l, ',', l, ' 0 ', M, ',', d, ' ', x, ',', S),
-								T.push('L', w, ',', A),
+									E.push('A', l, ',', l, ' 0 ', M, ',', d, ' ', x, ',', w),
+								E.push('L', S, ',', A),
 								null != k &&
-									T.push('A', s, ',', s, ' 0 ', O, ',', 1 - d, ' ', k, ',', C);
-						return T.push('Z'), T.join('');
+									E.push('A', s, ',', s, ' 0 ', O, ',', 1 - d, ' ', k, ',', T);
+						return E.push('Z'), E.join('');
 					}
 					function u(t, e) {
 						return (
@@ -27676,26 +28190,26 @@ More info at: http://icanhazjs.com
 					h = e[0] + u,
 					d = e[1] + l,
 					p = (c + h) / 2,
-					g = (f + d) / 2,
-					v = h - c,
+					v = (f + d) / 2,
+					g = h - c,
 					m = d - f,
-					y = v * v + m * m,
+					y = g * g + m * m,
 					b = n - r,
 					x = c * d - h * f,
-					S = (m < 0 ? -1 : 1) * Math.sqrt(Math.max(0, b * b * y - x * x)),
-					w = (x * m - v * S) / y,
-					A = (-x * v - m * S) / y,
-					k = (x * m + v * S) / y,
-					C = (-x * v + m * S) / y,
-					E = w - p,
-					_ = A - g,
-					T = k - p,
-					M = C - g;
+					w = (m < 0 ? -1 : 1) * Math.sqrt(Math.max(0, b * b * y - x * x)),
+					S = (x * m - g * w) / y,
+					A = (-x * g - m * w) / y,
+					k = (x * m + g * w) / y,
+					T = (-x * g + m * w) / y,
+					C = S - p,
+					_ = A - v,
+					E = k - p,
+					M = T - v;
 				return (
-					E * E + _ * _ > T * T + M * M && ((w = k), (A = C)),
+					C * C + _ * _ > E * E + M * M && ((S = k), (A = T)),
 					[
-						[w - u, A - l],
-						[(w * n) / b, (A * n) / b],
+						[S - u, A - l],
+						[(S * n) / b, (A * n) / b],
 					]
 				);
 			}
@@ -27855,7 +28369,7 @@ More info at: http://icanhazjs.com
 											u = t.length - 1;
 										for (; ++s < u; )
 											(e = ls(t[s], t[s + 1])),
-												w(e) < Tt
+												S(e) < Et
 													? (o[s] = o[s + 1] = 0)
 													: ((n = o[s] / e),
 													  (r = o[s + 1] / e),
@@ -28034,33 +28548,33 @@ More info at: http://icanhazjs.com
 						h,
 						d,
 						p = [],
-						g = [],
 						v = [],
+						g = [],
 						m = -1,
 						y = s.length,
 						b = ye(e),
 						x = ye(r),
-						S =
+						w =
 							e === n
 								? function () {
 										return h;
 								  }
 								: ye(n),
-						w =
+						S =
 							r === i
 								? function () {
 										return d;
 								  }
 								: ye(i);
 					function A() {
-						p.push('M', o(t(v), c), l, u(t(g.reverse()), c), 'Z');
+						p.push('M', o(t(g), c), l, u(t(v.reverse()), c), 'Z');
 					}
 					for (; ++m < y; )
 						a.call(this, (f = s[m]), m)
-							? (g.push([(h = +b.call(this, f, m)), (d = +x.call(this, f, m))]),
-							  v.push([+S.call(this, f, m), +w.call(this, f, m)]))
-							: g.length && (A(), (g = []), (v = []));
-					return g.length && A(), p.length ? p.join('') : null;
+							? (v.push([(h = +b.call(this, f, m)), (d = +x.call(this, f, m))]),
+							  g.push([+w.call(this, f, m), +S.call(this, f, m)]))
+							: v.length && (A(), (v = []), (g = []));
+					return v.length && A(), p.length ? p.join('') : null;
 				}
 				return (
 					(f.x = function (t) {
@@ -28112,10 +28626,10 @@ More info at: http://icanhazjs.com
 					return [n * Math.cos(r), n * Math.sin(r)];
 				};
 			}
-			function gs() {
+			function vs() {
 				return 64;
 			}
-			function vs() {
+			function gs() {
 				return 'circle';
 			}
 			function ms(t) {
@@ -28262,8 +28776,8 @@ More info at: http://icanhazjs.com
 					);
 				}),
 				(a.svg.symbol = function () {
-					var t = vs,
-						e = gs;
+					var t = gs,
+						e = vs;
 					function n(n, r) {
 						return (ys.get(t.call(this, n, r)) || ms)(e.call(this, n, r));
 					}
@@ -28359,7 +28873,7 @@ More info at: http://icanhazjs.com
 						r = ks || ++_s,
 						i = Is(t),
 						a = [],
-						o = Cs || { time: Date.now(), ease: da, delay: 0, duration: 250 },
+						o = Ts || { time: Date.now(), ease: da, delay: 0, duration: 250 },
 						s = -1,
 						u = this.length;
 					++s < u;
@@ -28372,10 +28886,10 @@ More info at: http://icanhazjs.com
 				return As(a, i, r);
 			}),
 				(Z.interrupt = function (t) {
-					return this.each(null == t ? Ss : ws(Is(t)));
+					return this.each(null == t ? ws : Ss(Is(t)));
 				});
-			var Ss = ws(Is());
-			function ws(t) {
+			var ws = Ss(Is());
+			function Ss(t) {
 				return function () {
 					var e, n, r;
 					(e = this[t]) &&
@@ -28388,13 +28902,13 @@ More info at: http://icanhazjs.com
 				};
 			}
 			function As(t, e, n) {
-				return q(t, Es), (t.namespace = e), (t.id = n), t;
+				return q(t, Cs), (t.namespace = e), (t.id = n), t;
 			}
 			var ks,
-				Cs,
-				Es = [],
+				Ts,
+				Cs = [],
 				_s = 0;
-			function Ts(t, e, n, r) {
+			function Es(t, e, n, r) {
 				var i = t.id,
 					a = t.namespace;
 				return pt(
@@ -28439,11 +28953,11 @@ More info at: http://icanhazjs.com
 						h.event && h.event.interrupt.call(t, t.__data__, h.index)),
 					c))
 						if (+p < r) {
-							var g = c[p];
-							(g.timer.c = null), (g.timer.t = NaN), --c.count, delete c[p];
+							var v = c[p];
+							(v.timer.c = null), (v.timer.t = NaN), --c.count, delete c[p];
 						}
 					(o.c = d),
-						Ee(
+						Ce(
 							function () {
 								return o.c && d(n || 1) && ((o.c = null), (o.t = NaN)), 1;
 							},
@@ -28470,7 +28984,7 @@ More info at: http://icanhazjs.com
 				}
 				f ||
 					((a = i.time),
-					(o = Ee(
+					(o = Ce(
 						function (t) {
 							var e = f.delay;
 							if (((o.t = e + a), e <= t)) return h(t - e);
@@ -28481,7 +28995,7 @@ More info at: http://icanhazjs.com
 					)),
 					(f = c[r] =
 						{
-							tween: new C(),
+							tween: new T(),
 							time: a,
 							timer: o,
 							delay: i.delay,
@@ -28492,10 +29006,10 @@ More info at: http://icanhazjs.com
 					(i = null),
 					++c.count);
 			}
-			(Es.call = Z.call),
-				(Es.empty = Z.empty),
-				(Es.node = Z.node),
-				(Es.size = Z.size),
+			(Cs.call = Z.call),
+				(Cs.empty = Z.empty),
+				(Cs.node = Z.node),
+				(Cs.size = Z.size),
 				(a.transition = function (t, e) {
 					return t && t.transition
 						? ks
@@ -28503,8 +29017,8 @@ More info at: http://icanhazjs.com
 							: t
 						: a.selection().transition(t);
 				}),
-				(a.transition.prototype = Es),
-				(Es.select = function (t) {
+				(a.transition.prototype = Cs),
+				(Cs.select = function (t) {
 					var e,
 						n,
 						r,
@@ -28523,7 +29037,7 @@ More info at: http://icanhazjs.com
 					}
 					return As(o, a, i);
 				}),
-				(Es.selectAll = function (t) {
+				(Cs.selectAll = function (t) {
 					var e,
 						n,
 						r,
@@ -28537,12 +29051,12 @@ More info at: http://icanhazjs.com
 						for (var f = this[l], h = -1, d = f.length; ++h < d; )
 							if ((r = f[h])) {
 								(a = r[s][o]), (n = t.call(r, r.__data__, h, l)), u.push((e = []));
-								for (var p = -1, g = n.length; ++p < g; )
+								for (var p = -1, v = n.length; ++p < v; )
 									(i = n[p]) && Os(i, p, s, o, a), e.push(i);
 							}
 					return As(u, s, o);
 				}),
-				(Es.filter = function (t) {
+				(Cs.filter = function (t) {
 					var e,
 						n,
 						r = [];
@@ -28554,7 +29068,7 @@ More info at: http://icanhazjs.com
 					}
 					return As(r, this.namespace, this.id);
 				}),
-				(Es.tween = function (t, e) {
+				(Cs.tween = function (t, e) {
 					var n = this.id,
 						r = this.namespace;
 					return arguments.length < 2
@@ -28570,7 +29084,7 @@ More info at: http://icanhazjs.com
 									  }
 						  );
 				}),
-				(Es.attr = function (t, e) {
+				(Cs.attr = function (t, e) {
 					if (arguments.length < 2) {
 						for (e in t) this.attr(e, t[e]);
 						return this;
@@ -28615,9 +29129,9 @@ More info at: http://icanhazjs.com
 									);
 							  });
 					}
-					return Ts(this, 'attr.' + t, e, r.local ? u : s);
+					return Es(this, 'attr.' + t, e, r.local ? u : s);
 				}),
-				(Es.attrTween = function (t, e) {
+				(Cs.attrTween = function (t, e) {
 					var n = a.ns.qualify(t);
 					return this.tween(
 						'attr.' + t,
@@ -28647,7 +29161,7 @@ More info at: http://icanhazjs.com
 							  }
 					);
 				}),
-				(Es.style = function (t, e, n) {
+				(Cs.style = function (t, e, n) {
 					var r = arguments.length;
 					if (r < 3) {
 						if ('string' != typeof t) {
@@ -28677,9 +29191,9 @@ More info at: http://icanhazjs.com
 									);
 							  });
 					}
-					return Ts(this, 'style.' + t, e, a);
+					return Es(this, 'style.' + t, e, a);
 				}),
-				(Es.styleTween = function (t, e, n) {
+				(Cs.styleTween = function (t, e, n) {
 					function r(r, i) {
 						var a = e.call(
 							this,
@@ -28696,17 +29210,17 @@ More info at: http://icanhazjs.com
 					}
 					return arguments.length < 3 && (n = ''), this.tween('style.' + t, r);
 				}),
-				(Es.text = function (t) {
-					return Ts(this, 'text', t, Ms);
+				(Cs.text = function (t) {
+					return Es(this, 'text', t, Ms);
 				}),
-				(Es.remove = function () {
+				(Cs.remove = function () {
 					var t = this.namespace;
 					return this.each('end.transition', function () {
 						var e;
 						this[t].count < 2 && (e = this.parentNode) && e.removeChild(this);
 					});
 				}),
-				(Es.ease = function (t) {
+				(Cs.ease = function (t) {
 					var e = this.id,
 						n = this.namespace;
 					return arguments.length < 1
@@ -28716,7 +29230,7 @@ More info at: http://icanhazjs.com
 								r[n][e].ease = t;
 						  }));
 				}),
-				(Es.delay = function (t) {
+				(Cs.delay = function (t) {
 					var e = this.id,
 						n = this.namespace;
 					return arguments.length < 1
@@ -28733,7 +29247,7 @@ More info at: http://icanhazjs.com
 									  })
 						  );
 				}),
-				(Es.duration = function (t) {
+				(Cs.duration = function (t) {
 					var e = this.id,
 						n = this.namespace;
 					return arguments.length < 1
@@ -28753,19 +29267,19 @@ More info at: http://icanhazjs.com
 									  })
 						  );
 				}),
-				(Es.each = function (t, e) {
+				(Cs.each = function (t, e) {
 					var n = this.id,
 						r = this.namespace;
 					if (arguments.length < 2) {
-						var i = Cs,
+						var i = Ts,
 							o = ks;
 						try {
 							(ks = n),
 								pt(this, function (e, i, a) {
-									(Cs = e[r][n]), t.call(e, e.__data__, i, a);
+									(Ts = e[r][n]), t.call(e, e.__data__, i, a);
 								});
 						} finally {
-							(Cs = i), (ks = o);
+							(Ts = i), (ks = o);
 						}
 					} else
 						pt(this, function (i) {
@@ -28777,7 +29291,7 @@ More info at: http://icanhazjs.com
 						});
 					return this;
 				}),
-				(Es.transition = function () {
+				(Cs.transition = function () {
 					for (
 						var t,
 							e,
@@ -28821,63 +29335,63 @@ More info at: http://icanhazjs.com
 								h = (this.__chart__ = e.copy()),
 								d = null == l ? (h.ticks ? h.ticks.apply(h, u) : h.domain()) : l,
 								p = null == t ? (h.tickFormat ? h.tickFormat.apply(h, u) : N) : t,
-								g = c.selectAll('.tick').data(d, h),
-								v = g
+								v = c.selectAll('.tick').data(d, h),
+								g = v
 									.enter()
 									.insert('g', '.domain')
 									.attr('class', 'tick')
-									.style('opacity', Tt),
-								m = a.transition(g.exit()).style('opacity', Tt).remove(),
-								y = a.transition(g.order()).style('opacity', 1),
+									.style('opacity', Et),
+								m = a.transition(v.exit()).style('opacity', Et).remove(),
+								y = a.transition(v.order()).style('opacity', 1),
 								b = Math.max(r, 0) + o,
 								x = xo(h),
-								S = c.selectAll('.domain').data([0]),
-								w =
-									(S.enter().append('path').attr('class', 'domain'),
-									a.transition(S));
-							v.append('line'), v.append('text');
+								w = c.selectAll('.domain').data([0]),
+								S =
+									(w.enter().append('path').attr('class', 'domain'),
+									a.transition(w));
+							g.append('line'), g.append('text');
 							var A,
 								k,
+								T,
 								C,
-								E,
-								_ = v.select('line'),
-								T = y.select('line'),
-								M = g.select('text').text(p),
-								I = v.select('text'),
+								_ = g.select('line'),
+								E = y.select('line'),
+								M = v.select('text').text(p),
+								I = g.select('text'),
 								O = y.select('text'),
 								R = 'top' === n || 'left' === n ? -1 : 1;
 							if (
 								('bottom' === n || 'top' === n
 									? ((s = Ns),
 									  (A = 'x'),
-									  (C = 'y'),
+									  (T = 'y'),
 									  (k = 'x2'),
-									  (E = 'y2'),
+									  (C = 'y2'),
 									  M.attr('dy', R < 0 ? '0em' : '.71em').style(
 											'text-anchor',
 											'middle'
 									  ),
-									  w.attr(
+									  S.attr(
 											'd',
 											'M' + x[0] + ',' + R * i + 'V0H' + x[1] + 'V' + R * i
 									  ))
 									: ((s = Ps),
 									  (A = 'y'),
-									  (C = 'x'),
+									  (T = 'x'),
 									  (k = 'y2'),
-									  (E = 'x2'),
+									  (C = 'x2'),
 									  M.attr('dy', '.32em').style(
 											'text-anchor',
 											R < 0 ? 'end' : 'start'
 									  ),
-									  w.attr(
+									  S.attr(
 											'd',
 											'M' + R * i + ',' + x[0] + 'H0V' + x[1] + 'H' + R * i
 									  )),
-								_.attr(E, R * r),
-								I.attr(C, R * b),
-								T.attr(k, 0).attr(E, R * r),
-								O.attr(A, 0).attr(C, R * b),
+								_.attr(C, R * r),
+								I.attr(T, R * b),
+								E.attr(k, 0).attr(C, R * r),
+								O.attr(A, 0).attr(T, R * b),
 								h.rangeBand)
 							) {
 								var D = h,
@@ -28886,7 +29400,7 @@ More info at: http://icanhazjs.com
 									return D(t) + P;
 								};
 							} else f.rangeBand ? (f = h) : m.call(s, h, f);
-							v.call(s, f, h), y.call(s, h, h);
+							g.call(s, f, h), y.call(s, h, h);
 						});
 					}
 					return (
@@ -28955,8 +29469,8 @@ More info at: http://icanhazjs.com
 								.select(this)
 								.style('pointer-events', 'all')
 								.style('-webkit-tap-highlight-color', 'rgba(0,0,0,0)')
-								.on('mousedown.brush', v)
-								.on('touchstart.brush', v),
+								.on('mousedown.brush', g)
+								.on('touchstart.brush', g),
 							e = t.selectAll('.background').data([0]);
 						e
 							.enter()
@@ -28997,7 +29511,7 @@ More info at: http://icanhazjs.com
 							s = a.transition(t),
 							u = a.transition(e);
 						r && ((o = xo(r)), u.attr('x', o[0]).attr('width', o[1] - o[0]), p(s)),
-							i && ((o = xo(i)), u.attr('y', o[0]).attr('height', o[1] - o[0]), g(s)),
+							i && ((o = xo(i)), u.attr('y', o[0]).attr('height', o[1] - o[0]), v(s)),
 							d(s);
 					});
 				}
@@ -29010,23 +29524,23 @@ More info at: http://icanhazjs.com
 					t.select('.extent').attr('x', o[0]),
 						t.selectAll('.extent,.n>rect,.s>rect').attr('width', o[1] - o[0]);
 				}
-				function g(t) {
+				function v(t) {
 					t.select('.extent').attr('y', s[0]),
 						t.selectAll('.extent,.e>rect,.w>rect').attr('height', s[1] - s[0]);
 				}
-				function v() {
+				function g() {
 					var f,
-						v,
+						g,
 						m = this,
 						y = a.select(a.event.target),
 						b = n.of(m, arguments),
 						x = a.select(m),
-						S = y.datum(),
-						w = !/^(n|s)$/.test(S) && r,
-						A = !/^(e|w)$/.test(S) && i,
+						w = y.datum(),
+						S = !/^(n|s)$/.test(w) && r,
+						A = !/^(e|w)$/.test(w) && i,
 						k = y.classed('extent'),
-						C = kt(m),
-						E = a.mouse(m),
+						T = kt(m),
+						C = a.mouse(m),
 						_ = a.select(c(m)).on('keydown.brush', I).on('keyup.brush', O);
 					if (
 						(a.event.changedTouches
@@ -29035,33 +29549,33 @@ More info at: http://icanhazjs.com
 						x.interrupt().selectAll('*').interrupt(),
 						k)
 					)
-						(E[0] = o[0] - E[0]), (E[1] = s[0] - E[1]);
-					else if (S) {
-						var T = +/w$/.test(S),
-							M = +/^n/.test(S);
-						(v = [o[1 - T] - E[0], s[1 - M] - E[1]]), (E[0] = o[T]), (E[1] = s[M]);
-					} else a.event.altKey && (f = E.slice());
+						(C[0] = o[0] - C[0]), (C[1] = s[0] - C[1]);
+					else if (w) {
+						var E = +/w$/.test(w),
+							M = +/^n/.test(w);
+						(g = [o[1 - E] - C[0], s[1 - M] - C[1]]), (C[0] = o[E]), (C[1] = s[M]);
+					} else a.event.altKey && (f = C.slice());
 					function I() {
 						32 == a.event.keyCode &&
-							(k || ((f = null), (E[0] -= o[1]), (E[1] -= s[1]), (k = 2)), U());
+							(k || ((f = null), (C[0] -= o[1]), (C[1] -= s[1]), (k = 2)), U());
 					}
 					function O() {
 						32 == a.event.keyCode &&
 							2 == k &&
-							((E[0] += o[1]), (E[1] += s[1]), (k = 0), U());
+							((C[0] += o[1]), (C[1] += s[1]), (k = 0), U());
 					}
 					function R() {
 						var t = a.mouse(m),
 							e = !1;
-						v && ((t[0] += v[0]), (t[1] += v[1])),
+						g && ((t[0] += g[0]), (t[1] += g[1])),
 							k ||
 								(a.event.altKey
 									? (f || (f = [(o[0] + o[1]) / 2, (s[0] + s[1]) / 2]),
-									  (E[0] = o[+(t[0] < f[0])]),
-									  (E[1] = s[+(t[1] < f[1])]))
+									  (C[0] = o[+(t[0] < f[0])]),
+									  (C[1] = s[+(t[1] < f[1])]))
 									: (f = null)),
-							w && D(t, r, 0) && (p(x), (e = !0)),
-							A && D(t, i, 1) && (g(x), (e = !0)),
+							S && D(t, r, 0) && (p(x), (e = !0)),
+							A && D(t, i, 1) && (v(x), (e = !0)),
 							e && (d(x), b({ type: 'brush', mode: k ? 'move' : 'resize' }));
 					}
 					function D(n, r, i) {
@@ -29070,19 +29584,19 @@ More info at: http://icanhazjs.com
 							h = xo(r),
 							d = h[0],
 							p = h[1],
-							g = E[i],
-							v = i ? s : o,
-							m = v[1] - v[0];
+							v = C[i],
+							g = i ? s : o,
+							m = g[1] - g[0];
 						if (
-							(k && ((d -= g), (p -= m + g)),
+							(k && ((d -= v), (p -= m + v)),
 							(a = (i ? l : u) ? Math.max(d, Math.min(p, n[i])) : n[i]),
 							k
-								? (c = (a += g) + m)
-								: (f && (g = Math.max(d, Math.min(p, 2 * f[i] - a))),
-								  g < a ? ((c = a), (a = g)) : (c = g)),
-							v[0] != a || v[1] != c)
+								? (c = (a += v) + m)
+								: (f && (v = Math.max(d, Math.min(p, 2 * f[i] - a))),
+								  v < a ? ((c = a), (a = v)) : (c = v)),
+							g[0] != a || g[1] != c)
 						)
-							return i ? (e = null) : (t = null), (v[0] = a), (v[1] = c), !0;
+							return i ? (e = null) : (t = null), (g[0] = a), (g[1] = c), !0;
 					}
 					function N() {
 						R(),
@@ -29097,7 +29611,7 @@ More info at: http://icanhazjs.com
 								.on('touchend.brush', null)
 								.on('keydown.brush', null)
 								.on('keyup.brush', null),
-							C(),
+							T(),
 							b({ type: 'brushend' });
 					}
 					x.style('pointer-events', 'none').selectAll('.resize').style('display', null),
@@ -29247,7 +29761,7 @@ More info at: http://icanhazjs.com
 					return i == zs.length
 						? [
 								e.year,
-								To(
+								Eo(
 									t.map(function (t) {
 										return t / 31536e6;
 									}),
@@ -29256,7 +29770,7 @@ More info at: http://icanhazjs.com
 						  ]
 						: i
 						? e[r / zs[i - 1] < zs[i] / r ? i - 1 : i]
-						: [Gs, To(t, n)[2]];
+						: [Gs, Eo(t, n)[2]];
 				}
 				return (
 					(r.invert = function (e) {
@@ -29275,7 +29789,7 @@ More info at: http://icanhazjs.com
 						return (
 							o && ((t = o[0]), (e = o[1])),
 							r.domain(
-								wo(
+								So(
 									n,
 									e > 1
 										? {
@@ -29312,7 +29826,7 @@ More info at: http://icanhazjs.com
 					(r.copy = function () {
 						return Vs(t.copy(), e, n);
 					}),
-					Eo(r, t)
+					Co(r, t)
 				);
 			}
 			function Hs(t) {
@@ -29536,20 +30050,20 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(91),
+		var r = n(93),
 			i = n(29),
-			a = n(159),
+			a = n(162),
 			o = n(46),
 			s = function (t, e, n, u, l, c, f, h) {
-				for (var d, p, g = l, v = 0, m = !!f && o(f, h); v < u; )
-					v in n &&
-						((d = m ? m(n[v], v, e) : n[v]),
+				for (var d, p, v = l, g = 0, m = !!f && o(f, h); g < u; )
+					g in n &&
+						((d = m ? m(n[g], g, e) : n[g]),
 						c > 0 && r(d)
-							? ((p = i(d)), (g = s(t, e, d, p, g, c - 1) - 1))
-							: (a(g + 1), (t[g] = d)),
-						g++),
-						v++;
-				return g;
+							? ((p = i(d)), (v = s(t, e, d, p, v, c - 1) - 1))
+							: (a(v + 1), (t[v] = d)),
+						v++),
+						g++;
+				return v;
 			};
 		t.exports = s;
 	},
@@ -29560,9 +30074,9 @@ More info at: http://icanhazjs.com
 		 *
 		 * @author   Feross Aboukhadijeh <http://feross.org>
 		 * @license  MIT
-		 */ var r = n(336),
-			i = n(337),
-			a = n(338);
+		 */ var r = n(343),
+			i = n(344),
+			a = n(345);
 		function o() {
 			return u.TYPED_ARRAY_SUPPORT ? 2147483647 : 1073741823;
 		}
@@ -29694,7 +30208,7 @@ More info at: http://icanhazjs.com
 						(e = ('' + e).toLowerCase()), (r = !0);
 				}
 		}
-		function g(t, e, n) {
+		function v(t, e, n) {
 			var r = !1;
 			if (((void 0 === e || e < 0) && (e = 0), e > this.length)) return '';
 			if (((void 0 === n || n > this.length) && (n = this.length), n <= 0)) return '';
@@ -29705,14 +30219,14 @@ More info at: http://icanhazjs.com
 						return M(this, e, n);
 					case 'utf8':
 					case 'utf-8':
-						return E(this, e, n);
+						return C(this, e, n);
 					case 'ascii':
 						return _(this, e, n);
 					case 'latin1':
 					case 'binary':
-						return T(this, e, n);
+						return E(this, e, n);
 					case 'base64':
-						return C(this, e, n);
+						return T(this, e, n);
 					case 'ucs2':
 					case 'ucs-2':
 					case 'utf16le':
@@ -29723,7 +30237,7 @@ More info at: http://icanhazjs.com
 						(t = (t + '').toLowerCase()), (r = !0);
 				}
 		}
-		function v(t, e, n) {
+		function g(t, e, n) {
 			var r = t[e];
 			(t[e] = t[n]), (t[n] = r);
 		}
@@ -29811,7 +30325,7 @@ More info at: http://icanhazjs.com
 		function x(t, e, n, r) {
 			return V(F(e, t.length - n), t, n, r);
 		}
-		function S(t, e, n, r) {
+		function w(t, e, n, r) {
 			return V(
 				(function (t) {
 					for (var e = [], n = 0; n < t.length; ++n) e.push(255 & t.charCodeAt(n));
@@ -29822,8 +30336,8 @@ More info at: http://icanhazjs.com
 				r
 			);
 		}
-		function w(t, e, n, r) {
-			return S(t, e, n, r);
+		function S(t, e, n, r) {
+			return w(t, e, n, r);
 		}
 		function A(t, e, n, r) {
 			return V(U(e), t, n, r);
@@ -29840,10 +30354,10 @@ More info at: http://icanhazjs.com
 				r
 			);
 		}
-		function C(t, e, n) {
+		function T(t, e, n) {
 			return 0 === e && n === t.length ? r.fromByteArray(t) : r.fromByteArray(t.slice(e, n));
 		}
-		function E(t, e, n) {
+		function C(t, e, n) {
 			n = Math.min(t.length, n);
 			for (var r = [], i = e; i < n; ) {
 				var a,
@@ -30017,23 +30531,23 @@ More info at: http://icanhazjs.com
 			(u.prototype.swap16 = function () {
 				var t = this.length;
 				if (t % 2 != 0) throw new RangeError('Buffer size must be a multiple of 16-bits');
-				for (var e = 0; e < t; e += 2) v(this, e, e + 1);
+				for (var e = 0; e < t; e += 2) g(this, e, e + 1);
 				return this;
 			}),
 			(u.prototype.swap32 = function () {
 				var t = this.length;
 				if (t % 4 != 0) throw new RangeError('Buffer size must be a multiple of 32-bits');
-				for (var e = 0; e < t; e += 4) v(this, e, e + 3), v(this, e + 1, e + 2);
+				for (var e = 0; e < t; e += 4) g(this, e, e + 3), g(this, e + 1, e + 2);
 				return this;
 			}),
 			(u.prototype.swap64 = function () {
 				var t = this.length;
 				if (t % 8 != 0) throw new RangeError('Buffer size must be a multiple of 64-bits');
 				for (var e = 0; e < t; e += 8)
-					v(this, e, e + 7),
-						v(this, e + 1, e + 6),
-						v(this, e + 2, e + 5),
-						v(this, e + 3, e + 4);
+					g(this, e, e + 7),
+						g(this, e + 1, e + 6),
+						g(this, e + 2, e + 5),
+						g(this, e + 3, e + 4);
 				return this;
 			}),
 			(u.prototype.toString = function () {
@@ -30041,8 +30555,8 @@ More info at: http://icanhazjs.com
 				return 0 === t
 					? ''
 					: 0 === arguments.length
-					? E(this, 0, t)
-					: g.apply(this, arguments);
+					? C(this, 0, t)
+					: v.apply(this, arguments);
 			}),
 			(u.prototype.equals = function (t) {
 				if (!u.isBuffer(t)) throw new TypeError('Argument must be a Buffer');
@@ -30125,10 +30639,10 @@ More info at: http://icanhazjs.com
 						case 'utf-8':
 							return x(this, t, e, n);
 						case 'ascii':
-							return S(this, t, e, n);
+							return w(this, t, e, n);
 						case 'latin1':
 						case 'binary':
-							return w(this, t, e, n);
+							return S(this, t, e, n);
 						case 'base64':
 							return A(this, t, e, n);
 						case 'ucs2':
@@ -30150,7 +30664,7 @@ More info at: http://icanhazjs.com
 			for (var i = e; i < n; ++i) r += String.fromCharCode(127 & t[i]);
 			return r;
 		}
-		function T(t, e, n) {
+		function E(t, e, n) {
 			var r = '';
 			n = Math.min(t.length, n);
 			for (var i = e; i < n; ++i) r += String.fromCharCode(t[i]);
@@ -30600,10 +31114,10 @@ More info at: http://icanhazjs.com
 		n.d(e, 'a', function () {
 			return s;
 		});
-		n(20), n(48), n(36);
+		n(20), n(48), n(35);
 		var r = n(0),
-			i = n(174),
-			a = n(226),
+			i = n(178),
+			a = n(235),
 			o = {
 				getHTML(t) {
 					var e = r(t.CSSSelector).clone().wrap('<p>').parent().html();
@@ -30686,8 +31200,8 @@ More info at: http://icanhazjs.com
 	,
 	function (t, e, n) {
 		'use strict';
-		var r = n(91),
-			i = n(117),
+		var r = n(93),
+			i = n(123),
 			a = n(21),
 			o = n(17)('species'),
 			s = Array;
@@ -30704,12 +31218,12 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(7),
-			a = n(9),
+			a = n(8),
 			o = n(27),
-			s = n(178).trim,
-			u = n(143),
+			s = n(182).trim,
+			u = n(146),
 			l = r.parseInt,
 			c = r.Symbol,
 			f = c && c.iterator,
@@ -30731,8 +31245,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(38).forEach,
-			i = n(130)('forEach');
+		var r = n(37).forEach,
+			i = n(112)('forEach');
 		t.exports = i
 			? [].forEach
 			: function (t) {
@@ -30740,7 +31254,7 @@ More info at: http://icanhazjs.com
 			  };
 	},
 	function (t, e, n) {
-		var r = n(98).default;
+		var r = n(101).default;
 		function i() {
 			'use strict';
 			/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ (t.exports =
@@ -30785,7 +31299,7 @@ More info at: http://icanhazjs.com
 				var i = e && e.prototype instanceof b ? e : b,
 					a = Object.create(i.prototype),
 					o = new R(r || []);
-				return s(a, '_invoke', { value: T(t, n, o) }), a;
+				return s(a, '_invoke', { value: E(t, n, o) }), a;
 			}
 			function p(t, e, n) {
 				try {
@@ -30795,22 +31309,22 @@ More info at: http://icanhazjs.com
 				}
 			}
 			n.wrap = d;
-			var g = 'suspendedStart',
-				v = 'executing',
+			var v = 'suspendedStart',
+				g = 'executing',
 				m = 'completed',
 				y = {};
 			function b() {}
 			function x() {}
-			function S() {}
-			var w = {};
-			h(w, l, function () {
+			function w() {}
+			var S = {};
+			h(S, l, function () {
 				return this;
 			});
 			var A = Object.getPrototypeOf,
 				k = A && A(A(D([])));
-			k && k !== a && o.call(k, l) && (w = k);
-			var C = (S.prototype = b.prototype = Object.create(w));
-			function E(t) {
+			k && k !== a && o.call(k, l) && (S = k);
+			var T = (w.prototype = b.prototype = Object.create(S));
+			function C(t) {
 				['next', 'throw', 'return'].forEach(function (e) {
 					h(t, e, function (t) {
 						return this._invoke(e, t);
@@ -30855,10 +31369,10 @@ More info at: http://icanhazjs.com
 					},
 				});
 			}
-			function T(t, n, r) {
-				var i = g;
+			function E(t, n, r) {
+				var i = v;
 				return function (a, o) {
-					if (i === v) throw Error('Generator is already running');
+					if (i === g) throw Error('Generator is already running');
 					if (i === m) {
 						if ('throw' === a) throw o;
 						return { value: e, done: !0 };
@@ -30874,10 +31388,10 @@ More info at: http://icanhazjs.com
 						}
 						if ('next' === r.method) r.sent = r._sent = r.arg;
 						else if ('throw' === r.method) {
-							if (i === g) throw ((i = m), r.arg);
+							if (i === v) throw ((i = m), r.arg);
 							r.dispatchException(r.arg);
 						} else 'return' === r.method && r.abrupt('return', r.arg);
-						i = v;
+						i = g;
 						var l = p(t, n, r);
 						if ('normal' === l.type) {
 							if (((i = r.done ? m : 'suspendedYield'), l.arg === y)) continue;
@@ -30951,10 +31465,10 @@ More info at: http://icanhazjs.com
 				throw new TypeError(r(t) + ' is not iterable');
 			}
 			return (
-				(x.prototype = S),
-				s(C, 'constructor', { value: S, configurable: !0 }),
-				s(S, 'constructor', { value: x, configurable: !0 }),
-				(x.displayName = h(S, f, 'GeneratorFunction')),
+				(x.prototype = w),
+				s(T, 'constructor', { value: w, configurable: !0 }),
+				s(w, 'constructor', { value: x, configurable: !0 }),
+				(x.displayName = h(w, f, 'GeneratorFunction')),
 				(n.isGeneratorFunction = function (t) {
 					var e = 'function' == typeof t && t.constructor;
 					return !!e && (e === x || 'GeneratorFunction' === (e.displayName || e.name));
@@ -30962,16 +31476,16 @@ More info at: http://icanhazjs.com
 				(n.mark = function (t) {
 					return (
 						Object.setPrototypeOf
-							? Object.setPrototypeOf(t, S)
-							: ((t.__proto__ = S), h(t, f, 'GeneratorFunction')),
-						(t.prototype = Object.create(C)),
+							? Object.setPrototypeOf(t, w)
+							: ((t.__proto__ = w), h(t, f, 'GeneratorFunction')),
+						(t.prototype = Object.create(T)),
 						t
 					);
 				}),
 				(n.awrap = function (t) {
 					return { __await: t };
 				}),
-				E(_.prototype),
+				C(_.prototype),
 				h(_.prototype, c, function () {
 					return this;
 				}),
@@ -30985,12 +31499,12 @@ More info at: http://icanhazjs.com
 								return t.done ? t.value : o.next();
 						  });
 				}),
-				E(C),
-				h(C, f, 'Generator'),
-				h(C, l, function () {
+				C(T),
+				h(T, f, 'Generator'),
+				h(T, l, function () {
 					return this;
 				}),
-				h(C, 'toString', function () {
+				h(T, 'toString', function () {
 					return '[object Generator]';
 				}),
 				(n.keys = function (t) {
@@ -31141,8 +31655,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(24),
-			i = n(180);
+		var r = n(25),
+			i = n(184);
 		t.exports = function (t, e, n, a) {
 			try {
 				return a ? e(r(n)[0], n[1]) : e(n);
@@ -31153,8 +31667,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
-			i = n(31),
+		var r = n(8),
+			i = n(30),
 			a = Math.floor,
 			o = r(''.charAt),
 			s = r(''.replace),
@@ -31164,10 +31678,10 @@ More info at: http://icanhazjs.com
 		t.exports = function (t, e, n, r, f, h) {
 			var d = n + t.length,
 				p = r.length,
-				g = c;
+				v = c;
 			return (
-				void 0 !== f && ((f = i(f)), (g = l)),
-				s(h, g, function (i, s) {
+				void 0 !== f && ((f = i(f)), (v = l)),
+				s(h, v, function (i, s) {
 					var l;
 					switch (o(s, 0)) {
 						case '$':
@@ -31211,69 +31725,43 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(19),
-			i = n(91),
-			a = TypeError,
-			o = Object.getOwnPropertyDescriptor,
-			s =
-				r &&
-				!(function () {
-					if (void 0 !== this) return !0;
-					try {
-						Object.defineProperty([], 'length', { writable: !1 }).length = 1;
-					} catch (t) {
-						return t instanceof TypeError;
-					}
-				})();
-		t.exports = s
-			? function (t, e) {
-					if (i(t) && !o(t, 'length').writable)
-						throw new a('Cannot set read only .length');
-					return (t.length = e);
-			  }
-			: function (t, e) {
-					return (t.length = e);
-			  };
-	},
-	function (t, e, n) {
-		'use strict';
 		var r = n(10),
-			i = n(8),
+			i = n(9),
 			a = n(18),
-			o = n(9),
-			s = n(37),
+			o = n(8),
+			s = n(39),
 			u = n(19),
-			l = n(70),
+			l = n(71),
 			c = n(7),
 			f = n(22),
 			h = n(51),
-			d = n(24),
-			p = n(41),
-			g = n(100),
-			v = n(27),
-			m = n(64),
-			y = n(56),
-			b = n(127),
-			x = n(82),
-			S = n(206),
-			w = n(115),
-			A = n(78),
+			d = n(25),
+			p = n(42),
+			v = n(103),
+			g = n(27),
+			m = n(66),
+			y = n(57),
+			b = n(131),
+			x = n(83),
+			w = n(210),
+			S = n(121),
+			A = n(79),
 			k = n(32),
-			C = n(189),
-			E = n(112),
+			T = n(193),
+			C = n(118),
 			_ = n(28),
-			T = n(58),
-			M = n(71),
-			I = n(104),
-			O = n(89),
-			R = n(81),
+			E = n(59),
+			M = n(72),
+			I = n(108),
+			O = n(91),
+			R = n(82),
 			D = n(17),
-			N = n(207),
-			P = n(268),
-			L = n(270),
-			j = n(57),
-			$ = n(35),
-			B = n(38).forEach,
+			N = n(211),
+			P = n(273),
+			L = n(275),
+			j = n(58),
+			$ = n(36),
+			B = n(37).forEach,
 			F = I('hidden'),
 			U = $.set,
 			V = $.getterFor('Symbol'),
@@ -31285,8 +31773,8 @@ More info at: http://icanhazjs.com
 			K = i.QObject,
 			Y = A.f,
 			Z = k.f,
-			J = S.f,
-			X = E.f,
+			J = w.f,
+			X = C.f,
 			Q = o([].push),
 			tt = M('symbols'),
 			et = M('op-symbols'),
@@ -31320,7 +31808,7 @@ More info at: http://icanhazjs.com
 			},
 			st = function (t, e, n) {
 				t === H && st(et, e, n), d(t);
-				var r = g(e);
+				var r = v(e);
 				return (
 					d(n),
 					f(tt, r)
@@ -31344,7 +31832,7 @@ More info at: http://icanhazjs.com
 				);
 			},
 			lt = function (t) {
-				var e = g(t),
+				var e = v(t),
 					n = a(X, this, e);
 				return (
 					!(this === H && f(tt, e) && !f(et, e)) &&
@@ -31353,7 +31841,7 @@ More info at: http://icanhazjs.com
 			},
 			ct = function (t, e) {
 				var n = p(t),
-					r = g(e);
+					r = v(e);
 				if (n !== H || !f(tt, r) || f(et, r)) {
 					var i = Y(n, r);
 					return !i || !f(tt, r) || (f(n, F) && n[F][r]) || (i.enumerable = !0), i;
@@ -31384,7 +31872,7 @@ More info at: http://icanhazjs.com
 			(_(
 				(q = (z = function () {
 					if (h(q, this)) throw new G('Symbol is not a constructor');
-					var t = arguments.length && void 0 !== arguments[0] ? v(arguments[0]) : void 0,
+					var t = arguments.length && void 0 !== arguments[0] ? g(arguments[0]) : void 0,
 						e = R(t),
 						n = function (t) {
 							var r = void 0 === this ? i : this;
@@ -31407,17 +31895,17 @@ More info at: http://icanhazjs.com
 			_(z, 'withoutSetter', function (t) {
 				return ot(R(t), t);
 			}),
-			(E.f = lt),
+			(C.f = lt),
 			(k.f = st),
-			(C.f = ut),
+			(T.f = ut),
 			(A.f = ct),
-			(x.f = S.f = ft),
-			(w.f = ht),
+			(x.f = w.f = ft),
+			(S.f = ht),
 			(N.f = function (t) {
 				return ot(D(t), t);
 			}),
 			u &&
-				(T(q, 'description', {
+				(E(q, 'description', {
 					configurable: !0,
 					get: function () {
 						return V(this).description;
@@ -31457,9 +31945,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(269),
+		var r = n(274),
 			i = n(22),
-			a = n(207),
+			a = n(211),
 			o = n(32).f;
 		t.exports = function (t) {
 			var e = r.Symbol || (r.Symbol = {});
@@ -31468,13 +31956,13 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8);
+		var r = n(9);
 		t.exports = r;
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(18),
-			i = n(33),
+			i = n(34),
 			a = n(17),
 			o = n(28);
 		t.exports = function () {
@@ -31497,11 +31985,11 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(33),
+			i = n(34),
 			a = n(22),
 			o = n(27),
-			s = n(71),
-			u = n(208),
+			s = n(72),
+			u = n(212),
 			l = s('string-to-symbol-registry'),
 			c = s('symbol-to-string-registry');
 		r(
@@ -31520,10 +32008,10 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(10),
 			i = n(22),
-			a = n(80),
-			o = n(60),
-			s = n(71),
-			u = n(208),
+			a = n(81),
+			o = n(61),
+			s = n(72),
+			u = n(212),
 			l = s('symbol-to-string-registry');
 		r(
 			{ target: 'Symbol', stat: !0, forced: !u },
@@ -31538,36 +32026,36 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(33),
-			a = n(73),
+			i = n(34),
+			a = n(74),
 			o = n(18),
-			s = n(9),
+			s = n(8),
 			u = n(7),
 			l = n(15),
-			c = n(80),
+			c = n(81),
 			f = n(53),
-			h = n(274),
-			d = n(70),
+			h = n(279),
+			d = n(71),
 			p = String,
-			g = i('JSON', 'stringify'),
-			v = s(/./.exec),
+			v = i('JSON', 'stringify'),
+			g = s(/./.exec),
 			m = s(''.charAt),
 			y = s(''.charCodeAt),
 			b = s(''.replace),
 			x = s((1).toString),
-			S = /[\uD800-\uDFFF]/g,
-			w = /^[\uD800-\uDBFF]$/,
+			w = /[\uD800-\uDFFF]/g,
+			S = /^[\uD800-\uDBFF]$/,
 			A = /^[\uDC00-\uDFFF]$/,
 			k =
 				!d ||
 				u(function () {
 					var t = i('Symbol')('stringify detection');
-					return '[null]' !== g([t]) || '{}' !== g({ a: t }) || '{}' !== g(Object(t));
+					return '[null]' !== v([t]) || '{}' !== v({ a: t }) || '{}' !== v(Object(t));
 				}),
-			C = u(function () {
-				return '"\\udf06\\ud834"' !== g('\udf06\ud834') || '"\\udead"' !== g('\udead');
+			T = u(function () {
+				return '"\\udf06\\ud834"' !== v('\udf06\ud834') || '"\\udead"' !== v('\udead');
 			}),
-			E = function (t, e) {
+			C = function (t, e) {
 				var n = f(arguments),
 					r = h(e);
 				if (l(r) || (void 0 !== t && !c(t)))
@@ -31575,30 +32063,30 @@ More info at: http://icanhazjs.com
 						(n[1] = function (t, e) {
 							if ((l(r) && (e = o(r, this, p(t), e)), !c(e))) return e;
 						}),
-						a(g, null, n)
+						a(v, null, n)
 					);
 			},
 			_ = function (t, e, n) {
 				var r = m(n, e - 1),
 					i = m(n, e + 1);
-				return (v(w, t) && !v(A, i)) || (v(A, t) && !v(w, r)) ? '\\u' + x(y(t, 0), 16) : t;
+				return (g(S, t) && !g(A, i)) || (g(A, t) && !g(S, r)) ? '\\u' + x(y(t, 0), 16) : t;
 			};
-		g &&
+		v &&
 			r(
-				{ target: 'JSON', stat: !0, arity: 3, forced: k || C },
+				{ target: 'JSON', stat: !0, arity: 3, forced: k || T },
 				{
 					stringify: function (t, e, n) {
 						var r = f(arguments),
-							i = a(k ? E : g, null, r);
-						return C && 'string' == typeof i ? b(i, S, _) : i;
+							i = a(k ? C : v, null, r);
+						return T && 'string' == typeof i ? b(i, w, _) : i;
 					},
 				}
 			);
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
-			i = n(91),
+		var r = n(8),
+			i = n(93),
 			a = n(15),
 			o = n(44),
 			s = n(27),
@@ -31626,10 +32114,10 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(70),
+			i = n(71),
 			a = n(7),
-			o = n(115),
-			s = n(31);
+			o = n(121),
+			s = n(30);
 		r(
 			{
 				target: 'Object',
@@ -31650,6 +32138,32 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
+		var r = n(19),
+			i = n(93),
+			a = TypeError,
+			o = Object.getOwnPropertyDescriptor,
+			s =
+				r &&
+				!(function () {
+					if (void 0 !== this) return !0;
+					try {
+						Object.defineProperty([], 'length', { writable: !1 }).length = 1;
+					} catch (t) {
+						return t instanceof TypeError;
+					}
+				})();
+		t.exports = s
+			? function (t, e) {
+					if (i(t) && !o(t, 'length').writable)
+						throw new a('Cannot set read only .length');
+					return (t.length = e);
+			  }
+			: function (t, e) {
+					return (t.length = e);
+			  };
+	},
+	function (t, e, n) {
+		'use strict';
 		var r = n(32).f;
 		t.exports = function (t, e, n) {
 			n in t ||
@@ -31666,9 +32180,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(90).PROPER,
+		var r = n(92).PROPER,
 			i = n(7),
-			a = n(143);
+			a = n(146);
 		t.exports = function (t) {
 			return i(function () {
 				return !!a[t]() || '​᠎' !== '​᠎'[t]() || (r && a[t].name !== t);
@@ -31677,33 +32191,33 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(279);
+		n(285);
 		var r,
 			i = n(10),
 			a = n(19),
-			o = n(210),
-			s = n(8),
+			o = n(214),
+			s = n(9),
 			u = n(46),
-			l = n(9),
+			l = n(8),
 			c = n(28),
-			f = n(58),
-			h = n(72),
+			f = n(59),
+			h = n(73),
 			d = n(22),
-			p = n(247),
-			g = n(202),
-			v = n(53),
-			m = n(158).codeAt,
-			y = n(280),
+			p = n(215),
+			v = n(206),
+			g = n(53),
+			m = n(161).codeAt,
+			y = n(286),
 			b = n(27),
-			x = n(57),
-			S = n(145),
-			w = n(211),
-			A = n(35),
+			x = n(58),
+			w = n(148),
+			S = n(216),
+			A = n(36),
 			k = A.set,
-			C = A.getterFor('URL'),
-			E = w.URLSearchParams,
-			_ = w.getState,
-			T = s.URL,
+			T = A.getterFor('URL'),
+			C = S.URLSearchParams,
+			_ = S.getState,
+			E = s.URL,
 			M = s.TypeError,
 			I = s.parseInt,
 			O = Math.floor,
@@ -31804,20 +32318,20 @@ More info at: http://icanhazjs.com
 			},
 			dt = {},
 			pt = {},
-			gt = {},
 			vt = {},
+			gt = {},
 			mt = {},
 			yt = {},
 			bt = {},
 			xt = {},
-			St = {},
 			wt = {},
+			St = {},
 			At = {},
 			kt = {},
-			Ct = {},
-			Et = {},
-			_t = {},
 			Tt = {},
+			Ct = {},
+			_t = {},
+			Et = {},
 			Mt = {},
 			It = {},
 			Ot = {},
@@ -31834,7 +32348,7 @@ More info at: http://icanhazjs.com
 				} else {
 					if ((void 0 !== n && (r = new Nt(n, !0)), (i = this.parse(o, null, r))))
 						throw new M(i);
-					(a = _(new E())).bindURL(this), (this.searchParams = a);
+					(a = _(new C())).bindURL(this), (this.searchParams = a);
 				}
 			};
 		Nt.prototype = {
@@ -31867,7 +32381,7 @@ More info at: http://icanhazjs.com
 							(t = B(t, tt, '')),
 							(t = B(t, et, '$1'))),
 						t = B(t, nt, ''),
-						i = g(t);
+						i = v(t);
 					f <= i.length;
 
 				) {
@@ -31875,7 +32389,7 @@ More info at: http://icanhazjs.com
 						case dt:
 							if (!a || !N(q, a)) {
 								if (e) return 'Invalid scheme';
-								c = gt;
+								c = vt;
 								continue;
 							}
 							(h += H(a)), (c = pt);
@@ -31885,7 +32399,7 @@ More info at: http://icanhazjs.com
 							else {
 								if (':' !== a) {
 									if (e) return 'Invalid scheme';
-									(h = ''), (c = gt), (f = 0);
+									(h = ''), (c = vt), (f = 0);
 									continue;
 								}
 								if (
@@ -31904,9 +32418,9 @@ More info at: http://icanhazjs.com
 									);
 								(h = ''),
 									'file' === l.scheme
-										? (c = Et)
+										? (c = Ct)
 										: l.isSpecial() && n && n.scheme === l.scheme
-										? (c = vt)
+										? (c = gt)
 										: l.isSpecial()
 										? (c = xt)
 										: '/' === i[f + 1]
@@ -31914,29 +32428,29 @@ More info at: http://icanhazjs.com
 										: ((l.cannotBeABaseURL = !0), $(l.path, ''), (c = Ot));
 							}
 							break;
-						case gt:
+						case vt:
 							if (!n || (n.cannotBeABaseURL && '#' !== a)) return 'Invalid scheme';
 							if (n.cannotBeABaseURL && '#' === a) {
 								(l.scheme = n.scheme),
-									(l.path = v(n.path)),
+									(l.path = g(n.path)),
 									(l.query = n.query),
 									(l.fragment = ''),
 									(l.cannotBeABaseURL = !0),
 									(c = Dt);
 								break;
 							}
-							c = 'file' === n.scheme ? Et : yt;
+							c = 'file' === n.scheme ? Ct : yt;
 							continue;
-						case vt:
+						case gt:
 							if ('/' !== a || '/' !== i[f + 1]) {
 								c = yt;
 								continue;
 							}
-							(c = St), f++;
+							(c = wt), f++;
 							break;
 						case mt:
 							if ('/' === a) {
-								c = wt;
+								c = St;
 								break;
 							}
 							c = It;
@@ -31947,7 +32461,7 @@ More info at: http://icanhazjs.com
 									(l.password = n.password),
 									(l.host = n.host),
 									(l.port = n.port),
-									(l.path = v(n.path)),
+									(l.path = g(n.path)),
 									(l.query = n.query);
 							else if ('/' === a || ('\\' === a && l.isSpecial())) c = bt;
 							else if ('?' === a)
@@ -31955,7 +32469,7 @@ More info at: http://icanhazjs.com
 									(l.password = n.password),
 									(l.host = n.host),
 									(l.port = n.port),
-									(l.path = v(n.path)),
+									(l.path = g(n.path)),
 									(l.query = ''),
 									(c = Rt);
 							else {
@@ -31964,7 +32478,7 @@ More info at: http://icanhazjs.com
 										(l.password = n.password),
 										(l.host = n.host),
 										(l.port = n.port),
-										(l.path = v(n.path)),
+										(l.path = g(n.path)),
 										l.path.length--,
 										(c = It);
 									continue;
@@ -31973,7 +32487,7 @@ More info at: http://icanhazjs.com
 									(l.password = n.password),
 									(l.host = n.host),
 									(l.port = n.port),
-									(l.path = v(n.path)),
+									(l.path = g(n.path)),
 									(l.query = n.query),
 									(l.fragment = ''),
 									(c = Dt);
@@ -31989,27 +32503,27 @@ More info at: http://icanhazjs.com
 										(c = It);
 									continue;
 								}
-								c = wt;
-							} else c = St;
+								c = St;
+							} else c = wt;
 							break;
 						case xt:
-							if (((c = St), '/' !== a || '/' !== D(h, f + 1))) continue;
+							if (((c = wt), '/' !== a || '/' !== D(h, f + 1))) continue;
 							f++;
 							break;
-						case St:
+						case wt:
 							if ('/' !== a && '\\' !== a) {
-								c = wt;
+								c = St;
 								continue;
 							}
 							break;
-						case wt:
+						case St:
 							if ('@' === a) {
-								p && (h = '%40' + h), (p = !0), (o = g(h));
+								p && (h = '%40' + h), (p = !0), (o = v(h));
 								for (var x = 0; x < o.length; x++) {
-									var S = o[x];
-									if (':' !== S || y) {
-										var w = ut(S, st);
-										y ? (l.password += w) : (l.username += w);
+									var w = o[x];
+									if (':' !== w || y) {
+										var S = ut(w, st);
+										y ? (l.password += S) : (l.username += S);
 									} else y = !0;
 								}
 								h = '';
@@ -32021,13 +32535,13 @@ More info at: http://icanhazjs.com
 								('\\' === a && l.isSpecial())
 							) {
 								if (p && '' === h) return 'Invalid authority';
-								(f -= g(h).length + 1), (h = ''), (c = At);
+								(f -= v(h).length + 1), (h = ''), (c = At);
 							} else h += a;
 							break;
 						case At:
 						case kt:
 							if (e && 'file' === l.scheme) {
-								c = Tt;
+								c = Et;
 								continue;
 							}
 							if (':' !== a || m) {
@@ -32053,10 +32567,10 @@ More info at: http://icanhazjs.com
 							} else {
 								if ('' === h) return 'Invalid host';
 								if ((s = l.parseHost(h))) return s;
-								if (((h = ''), (c = Ct), e === kt)) return;
+								if (((h = ''), (c = Tt), e === kt)) return;
 							}
 							break;
-						case Ct:
+						case Tt:
 							if (!N(G, a)) {
 								if (
 									a === r ||
@@ -32080,7 +32594,7 @@ More info at: http://icanhazjs.com
 							}
 							h += a;
 							break;
-						case Et:
+						case Ct:
 							if (((l.scheme = 'file'), '/' === a || '\\' === a)) c = _t;
 							else {
 								if (!n || 'file' !== n.scheme) {
@@ -32090,26 +32604,26 @@ More info at: http://icanhazjs.com
 								switch (a) {
 									case r:
 										(l.host = n.host),
-											(l.path = v(n.path)),
+											(l.path = g(n.path)),
 											(l.query = n.query);
 										break;
 									case '?':
 										(l.host = n.host),
-											(l.path = v(n.path)),
+											(l.path = g(n.path)),
 											(l.query = ''),
 											(c = Rt);
 										break;
 									case '#':
 										(l.host = n.host),
-											(l.path = v(n.path)),
+											(l.path = g(n.path)),
 											(l.query = n.query),
 											(l.fragment = ''),
 											(c = Dt);
 										break;
 									default:
-										ft(P(v(i, f), '')) ||
+										ft(P(g(i, f), '')) ||
 											((l.host = n.host),
-											(l.path = v(n.path)),
+											(l.path = g(n.path)),
 											l.shortenPath()),
 											(c = It);
 										continue;
@@ -32118,16 +32632,16 @@ More info at: http://icanhazjs.com
 							break;
 						case _t:
 							if ('/' === a || '\\' === a) {
-								c = Tt;
+								c = Et;
 								break;
 							}
 							n &&
 								'file' === n.scheme &&
-								!ft(P(v(i, f), '')) &&
+								!ft(P(g(i, f), '')) &&
 								(ct(n.path[0], !0) ? $(l.path, n.path[0]) : (l.host = n.host)),
 								(c = It);
 							continue;
-						case Tt:
+						case Et:
 							if (a === r || '/' === a || '\\' === a || '?' === a || '#' === a) {
 								if (!e && ct(h)) c = It;
 								else if ('' === h) {
@@ -32322,7 +32836,7 @@ More info at: http://icanhazjs.com
 					this.host = e;
 				} else {
 					if (N(Q, t)) return 'Invalid host';
-					for (e = '', n = g(t), r = 0; r < n.length; r++) e += ut(n[r], it);
+					for (e = '', n = v(t), r = 0; r < n.length; r++) e += ut(n[r], it);
 					this.host = e;
 				}
 			},
@@ -32392,7 +32906,7 @@ More info at: http://icanhazjs.com
 				return this.username;
 			},
 			setUsername: function (t) {
-				var e = g(b(t));
+				var e = v(b(t));
 				if (!this.cannotHaveUsernamePasswordPort()) {
 					this.username = '';
 					for (var n = 0; n < e.length; n++) this.username += ut(e[n], st);
@@ -32402,7 +32916,7 @@ More info at: http://icanhazjs.com
 				return this.password;
 			},
 			setPassword: function (t) {
-				var e = g(b(t));
+				var e = v(b(t));
 				if (!this.cannotHaveUsernamePasswordPort()) {
 					this.password = '';
 					for (var n = 0; n < e.length; n++) this.password += ut(e[n], st);
@@ -32429,7 +32943,7 @@ More info at: http://icanhazjs.com
 			},
 			setPort: function (t) {
 				this.cannotHaveUsernamePasswordPort() ||
-					('' === (t = b(t)) ? (this.port = null) : this.parse(t, Ct));
+					('' === (t = b(t)) ? (this.port = null) : this.parse(t, Tt));
 			},
 			getPathname: function () {
 				var t = this.path;
@@ -32466,7 +32980,7 @@ More info at: http://icanhazjs.com
 		};
 		var Pt = function (t) {
 				var e = h(this, Lt),
-					n = S(arguments.length, 1) > 1 ? arguments[1] : void 0,
+					n = w(arguments.length, 1) > 1 ? arguments[1] : void 0,
 					r = k(e, new Nt(t, !1, n));
 				a ||
 					((e.href = r.serialize()),
@@ -32486,12 +33000,12 @@ More info at: http://icanhazjs.com
 			jt = function (t, e) {
 				return {
 					get: function () {
-						return C(this)[t]();
+						return T(this)[t]();
 					},
 					set:
 						e &&
 						function (t) {
-							return C(this)[e](t);
+							return T(this)[e](t);
 						},
 					configurable: !0,
 					enumerable: !0,
@@ -32515,7 +33029,7 @@ More info at: http://icanhazjs.com
 				Lt,
 				'toJSON',
 				function () {
-					return C(this).serialize();
+					return T(this).serialize();
 				},
 				{ enumerable: !0 }
 			),
@@ -32523,25 +33037,25 @@ More info at: http://icanhazjs.com
 				Lt,
 				'toString',
 				function () {
-					return C(this).serialize();
+					return T(this).serialize();
 				},
 				{ enumerable: !0 }
 			),
-			T)
+			E)
 		) {
-			var $t = T.createObjectURL,
-				Bt = T.revokeObjectURL;
-			$t && c(Pt, 'createObjectURL', u($t, T)), Bt && c(Pt, 'revokeObjectURL', u(Bt, T));
+			var $t = E.createObjectURL,
+				Bt = E.revokeObjectURL;
+			$t && c(Pt, 'createObjectURL', u($t, E)), Bt && c(Pt, 'revokeObjectURL', u(Bt, E));
 		}
 		x(Pt, 'URL'), i({ global: !0, constructor: !0, forced: !o, sham: !a }, { URL: Pt });
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(158).charAt,
+		var r = n(161).charAt,
 			i = n(27),
-			a = n(35),
-			o = n(160),
-			s = n(133),
+			a = n(36),
+			o = n(163),
+			s = n(136),
 			u = a.set,
 			l = a.getterFor('String Iterator');
 		o(
@@ -32563,7 +33077,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = /[^\0-\u007E]/,
 			a = /[.\u3002\uFF0E\uFF61]/g,
 			o = 'Overflow: input needs wider integers to process',
@@ -32575,8 +33089,8 @@ More info at: http://icanhazjs.com
 			h = r([].join),
 			d = r([].push),
 			p = r(''.replace),
-			g = r(''.split),
-			v = r(''.toLowerCase),
+			v = r(''.split),
+			g = r(''.toLowerCase),
 			m = function (t) {
 				return t + 22 + 75 * (t < 26);
 			},
@@ -32606,24 +33120,24 @@ More info at: http://icanhazjs.com
 					u = 0,
 					p = 72;
 				for (e = 0; e < t.length; e++) (n = t[e]) < 128 && d(r, c(n));
-				var g = r.length,
-					v = g;
-				for (g && d(r, '-'); v < i; ) {
+				var v = r.length,
+					g = v;
+				for (v && d(r, '-'); g < i; ) {
 					var b = 2147483647;
 					for (e = 0; e < t.length; e++) (n = t[e]) >= a && n < b && (b = n);
-					var x = v + 1;
+					var x = g + 1;
 					if (b - a > l((2147483647 - u) / x)) throw new s(o);
 					for (u += (b - a) * x, a = b, e = 0; e < t.length; e++) {
 						if ((n = t[e]) < a && ++u > 2147483647) throw new s(o);
 						if (n === a) {
-							for (var S = u, w = 36; ; ) {
-								var A = w <= p ? 1 : w >= p + 26 ? 26 : w - p;
-								if (S < A) break;
-								var k = S - A,
-									C = 36 - A;
-								d(r, c(m(A + (k % C)))), (S = l(k / C)), (w += 36);
+							for (var w = u, S = 36; ; ) {
+								var A = S <= p ? 1 : S >= p + 26 ? 26 : S - p;
+								if (w < A) break;
+								var k = w - A,
+									T = 36 - A;
+								d(r, c(m(A + (k % T)))), (w = l(k / T)), (S += 36);
 							}
-							d(r, c(m(S))), (p = y(u, x, v === g)), (u = 0), v++;
+							d(r, c(m(w))), (p = y(u, x, g === v)), (u = 0), g++;
 						}
 					}
 					u++, a++;
@@ -32634,7 +33148,7 @@ More info at: http://icanhazjs.com
 			var e,
 				n,
 				r = [],
-				o = g(p(v(t), a, '.'), '.');
+				o = v(p(g(t), a, '.'), '.');
 			for (e = 0; e < o.length; e++) (n = o[e]), d(r, u(i, n) ? 'xn--' + b(n) : n);
 			return h(r, '.');
 		};
@@ -32642,8 +33156,8 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(9),
-			a = n(83),
+			i = n(8),
+			a = n(84),
 			o = RangeError,
 			s = String.fromCharCode,
 			u = String.fromCodePoint,
@@ -32666,14 +33180,14 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(18),
-			i = n(131),
-			a = n(24),
-			o = n(42),
-			s = n(40),
-			u = n(283),
+			i = n(134),
+			a = n(25),
+			o = n(43),
+			s = n(41),
+			u = n(289),
 			l = n(27),
-			c = n(62),
-			f = n(132);
+			c = n(64),
+			f = n(135);
 		i('search', function (t, e, n) {
 			return [
 				function (e) {
@@ -32704,12 +33218,12 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
-			i = n(34),
+		var r = n(8),
+			i = n(33),
 			a = n(21),
 			o = n(22),
 			s = n(53),
-			u = n(76),
+			u = n(77),
 			l = Function,
 			c = r([].concat),
 			f = r([].join),
@@ -32757,8 +33271,8 @@ More info at: http://icanhazjs.com
 			(t.exports.default = t.exports);
 	},
 	function (t, e, n) {
-		var r = n(288),
-			i = n(162);
+		var r = n(294),
+			i = n(167);
 		(t.exports = function (t, e, n) {
 			if (r()) return Reflect.construct.apply(null, arguments);
 			var a = [null];
@@ -32842,7 +33356,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(293)('Uint8', function (t) {
+		n(299)('Uint8', function (t) {
 			return function (e, n, r) {
 				return t(this, e, n, r);
 			};
@@ -32851,38 +33365,38 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(8),
+			i = n(9),
 			a = n(18),
 			o = n(19),
-			s = n(294),
+			s = n(300),
 			u = n(23),
-			l = n(295),
-			c = n(72),
-			f = n(64),
+			l = n(301),
+			c = n(73),
+			f = n(66),
 			h = n(45),
-			d = n(300),
-			p = n(63),
-			g = n(214),
-			v = n(216),
-			m = n(302),
-			y = n(100),
+			d = n(306),
+			p = n(65),
+			v = n(220),
+			g = n(222),
+			m = n(308),
+			y = n(103),
 			b = n(22),
 			x = n(52),
-			S = n(21),
-			w = n(80),
-			A = n(56),
+			w = n(21),
+			S = n(81),
+			A = n(57),
 			k = n(51),
-			C = n(85),
-			E = n(82).f,
-			_ = n(303),
-			T = n(38).forEach,
-			M = n(118),
-			I = n(58),
+			T = n(86),
+			C = n(83).f,
+			_ = n(309),
+			E = n(37).forEach,
+			M = n(124),
+			I = n(59),
 			O = n(32),
-			R = n(78),
-			D = n(218),
-			N = n(35),
-			P = n(134),
+			R = n(79),
+			D = n(224),
+			N = n(36),
+			P = n(137),
 			L = N.get,
 			j = N.set,
 			$ = N.enforce,
@@ -32910,7 +33424,7 @@ More info at: http://icanhazjs.com
 				return k(H, t) || 'ArrayBuffer' === (e = x(t)) || 'SharedArrayBuffer' === e;
 			},
 			X = function (t, e) {
-				return Y(t) && !w(e) && e in t && d(+e) && e >= 0;
+				return Y(t) && !S(e) && e in t && d(+e) && e >= 0;
 			},
 			Q = function (t, e) {
 				return (e = y(e)), X(t, e) ? f(2, t[e]) : F(t, e);
@@ -32918,7 +33432,7 @@ More info at: http://icanhazjs.com
 			tt = function (t, e, n) {
 				return (
 					(e = y(e)),
-					!(X(t, e) && S(n) && b(n, 'value')) ||
+					!(X(t, e) && w(n) && b(n, 'value')) ||
 					b(n, 'get') ||
 					b(n, 'set') ||
 					n.configurable ||
@@ -32949,7 +33463,7 @@ More info at: http://icanhazjs.com
 						y = d,
 						b = y && y.prototype,
 						x = {},
-						w = function (t, e) {
+						S = function (t, e) {
 							B(t, e, {
 								get: function () {
 									return (function (t, e) {
@@ -32972,24 +33486,24 @@ More info at: http://icanhazjs.com
 								return (
 									c(t, b),
 									P(
-										S(e)
+										w(e)
 											? J(e)
 												? void 0 !== r
-													? new d(e, v(n, o), r)
+													? new d(e, g(n, o), r)
 													: void 0 !== n
-													? new d(e, v(n, o))
+													? new d(e, g(n, o))
 													: new d(e)
 												: Y(e)
 												? D(y, e)
 												: a(_, y, e)
-											: new d(g(e)),
+											: new d(v(e)),
 										t,
 										y
 									)
 								);
 						  })),
-						  C && C(y, G),
-						  T(E(d), function (t) {
+						  T && T(y, G),
+						  E(C(d), function (t) {
 								t in y || h(y, t, d[t]);
 						  }),
 						  (y.prototype = b))
@@ -33000,16 +33514,16 @@ More info at: http://icanhazjs.com
 									u,
 									l = 0,
 									f = 0;
-								if (S(e)) {
+								if (w(e)) {
 									if (!J(e)) return Y(e) ? D(y, e) : a(_, y, e);
-									(i = e), (f = v(n, o));
+									(i = e), (f = g(n, o));
 									var h = e.byteLength;
 									if (void 0 === r) {
 										if (h % o) throw new U('Wrong length');
 										if ((s = h - f) < 0) throw new U('Wrong length');
 									} else if ((s = p(r) * o) + f > h) throw new U('Wrong length');
 									u = s / o;
-								} else (u = g(e)), (i = new V((s = u * o)));
+								} else (u = v(e)), (i = new V((s = u * o)));
 								for (
 									j(t, {
 										buffer: i,
@@ -33021,9 +33535,9 @@ More info at: http://icanhazjs.com
 									l < u;
 
 								)
-									w(t, l++);
+									S(t, l++);
 						  })),
-						  C && C(y, G),
+						  T && T(y, G),
 						  (b = y.prototype = A(K))),
 						b.constructor !== y && h(b, 'constructor', y),
 						($(b).TypedArrayConstructor = y),
@@ -33039,9 +33553,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(7),
-			a = n(120),
+			a = n(126),
 			o = n(23).NATIVE_ARRAY_BUFFER_VIEWS,
 			s = r.ArrayBuffer,
 			u = r.Int8Array;
@@ -33062,34 +33576,34 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
-			i = n(9),
+		var r = n(9),
+			i = n(8),
 			a = n(19),
-			o = n(213),
-			s = n(90),
+			o = n(219),
+			s = n(92),
 			u = n(45),
-			l = n(58),
-			c = n(161),
+			l = n(59),
+			c = n(165),
 			f = n(7),
-			h = n(72),
-			d = n(55),
-			p = n(63),
-			g = n(214),
-			v = n(296),
-			m = n(299),
-			y = n(108),
-			b = n(85),
-			x = n(215),
-			S = n(53),
-			w = n(134),
-			A = n(141),
-			k = n(57),
-			C = n(35),
-			E = s.PROPER,
+			h = n(73),
+			d = n(56),
+			p = n(65),
+			v = n(220),
+			g = n(302),
+			m = n(305),
+			y = n(113),
+			b = n(86),
+			x = n(221),
+			w = n(53),
+			S = n(137),
+			A = n(144),
+			k = n(58),
+			T = n(36),
+			C = s.PROPER,
 			_ = s.CONFIGURABLE,
-			T = C.getterFor('ArrayBuffer'),
-			M = C.getterFor('DataView'),
-			I = C.set,
+			E = T.getterFor('ArrayBuffer'),
+			M = T.getterFor('DataView'),
+			I = T.set,
 			O = r.ArrayBuffer,
 			R = O,
 			D = R && R.prototype,
@@ -33115,7 +33629,7 @@ More info at: http://icanhazjs.com
 				return (t[3] << 24) | (t[2] << 16) | (t[1] << 8) | t[0];
 			},
 			G = function (t) {
-				return U(v(t), 23, 4);
+				return U(g(t), 23, 4);
 			},
 			K = function (t) {
 				return U(t, 52, 8);
@@ -33130,17 +33644,17 @@ More info at: http://icanhazjs.com
 			},
 			Z = function (t, e, n, r) {
 				var i = M(t),
-					a = g(n),
+					a = v(n),
 					o = !!r;
 				if (a + e > i.byteLength) throw new $('Wrong index');
 				var s = i.bytes,
 					u = a + i.byteOffset,
-					l = S(s, u, u + e);
+					l = w(s, u, u + e);
 				return o ? l : F(l);
 			},
 			J = function (t, e, n, r, i, a) {
 				var o = M(t),
-					s = g(n),
+					s = v(n),
 					u = r(+i),
 					l = !!a;
 				if (s + e > o.byteLength) throw new $('Wrong index');
@@ -33148,7 +33662,7 @@ More info at: http://icanhazjs.com
 					c[f + h] = u[l ? h : e - h - 1];
 			};
 		if (o) {
-			var X = E && 'ArrayBuffer' !== O.name;
+			var X = C && 'ArrayBuffer' !== O.name;
 			f(function () {
 				O(1);
 			}) &&
@@ -33160,7 +33674,7 @@ More info at: http://icanhazjs.com
 			})
 				? X && _ && u(O, 'name', 'ArrayBuffer')
 				: (((R = function (t) {
-						return h(this, D), w(new O(g(t)), this, R);
+						return h(this, D), S(new O(v(t)), this, R);
 				  }).prototype = D),
 				  (D.constructor = R),
 				  A(R, O)),
@@ -33185,13 +33699,13 @@ More info at: http://icanhazjs.com
 		} else
 			(D = (R = function (t) {
 				h(this, D);
-				var e = g(t);
+				var e = v(t);
 				I(this, { type: 'ArrayBuffer', bytes: B(j(e), 0), byteLength: e }),
 					a || ((this.byteLength = e), (this.detached = !1));
 			}).prototype),
 				(P = (N = function (t, e, n) {
 					h(this, P), h(t, D);
-					var r = T(t),
+					var r = E(t),
 						i = r.byteLength,
 						o = d(e);
 					if (o < 0 || o > i) throw new $('Wrong offset');
@@ -33206,7 +33720,7 @@ More info at: http://icanhazjs.com
 						a || ((this.buffer = t), (this.byteLength = n), (this.byteOffset = o));
 				}).prototype),
 				a &&
-					(Y(R, 'byteLength', T),
+					(Y(R, 'byteLength', E),
 					Y(N, 'buffer', M),
 					Y(N, 'byteLength', M),
 					Y(N, 'byteOffset', M)),
@@ -33266,7 +33780,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(297);
+		var r = n(303);
 		t.exports =
 			Math.fround ||
 			function (t) {
@@ -33275,7 +33789,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(298),
+		var r = n(304),
 			i = Math.abs;
 		t.exports = function (t, e, n, a) {
 			var o = +t,
@@ -33320,8 +33834,8 @@ More info at: http://icanhazjs.com
 					h = r(n),
 					d = 8 * n - e - 1,
 					p = (1 << d) - 1,
-					g = p >> 1,
-					v = 23 === e ? a(2, -24) - a(2, -77) : 0,
+					v = p >> 1,
+					g = 23 === e ? a(2, -24) - a(2, -77) : 0,
 					m = t < 0 || (0 === t && 1 / t < 0) ? 1 : 0,
 					y = 0;
 				for (
@@ -33329,12 +33843,12 @@ More info at: http://icanhazjs.com
 						? ((c = t != t ? 1 : 0), (l = p))
 						: ((l = o(s(t) / u)),
 						  t * (f = a(2, -l)) < 1 && (l--, (f *= 2)),
-						  (t += l + g >= 1 ? v / f : v * a(2, 1 - g)) * f >= 2 && (l++, (f /= 2)),
-						  l + g >= p
+						  (t += l + v >= 1 ? g / f : g * a(2, 1 - v)) * f >= 2 && (l++, (f /= 2)),
+						  l + v >= p
 								? ((c = 0), (l = p))
-								: l + g >= 1
-								? ((c = (t * f - 1) * a(2, e)), (l += g))
-								: ((c = t * a(2, g - 1) * a(2, e)), (l = 0)));
+								: l + v >= 1
+								? ((c = (t * f - 1) * a(2, e)), (l += v))
+								: ((c = t * a(2, v - 1) * a(2, e)), (l = 0)));
 					e >= 8;
 
 				)
@@ -33376,7 +33890,7 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(55),
+		var r = n(56),
 			i = RangeError;
 		t.exports = function (t) {
 			var e = r(t);
@@ -33396,42 +33910,42 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(46),
 			i = n(18),
-			a = n(144),
-			o = n(31),
+			a = n(147),
+			o = n(30),
 			s = n(29),
-			u = n(119),
-			l = n(95),
-			c = n(146),
-			f = n(304),
+			u = n(125),
+			l = n(98),
+			c = n(149),
+			f = n(310),
 			h = n(23).aTypedArrayConstructor,
-			d = n(217);
+			d = n(223);
 		t.exports = function (t) {
 			var e,
 				n,
 				p,
-				g,
 				v,
+				g,
 				m,
 				y,
 				b,
 				x = a(this),
-				S = o(t),
-				w = arguments.length,
-				A = w > 1 ? arguments[1] : void 0,
+				w = o(t),
+				S = arguments.length,
+				A = S > 1 ? arguments[1] : void 0,
 				k = void 0 !== A,
-				C = l(S);
-			if (C && !c(C))
-				for (b = (y = u(S, C)).next, S = []; !(m = i(b, y)).done; ) S.push(m.value);
+				T = l(w);
+			if (T && !c(T))
+				for (b = (y = u(w, T)).next, w = []; !(m = i(b, y)).done; ) w.push(m.value);
 			for (
-				k && w > 2 && (A = r(A, arguments[2])),
-					n = s(S),
+				k && S > 2 && (A = r(A, arguments[2])),
+					n = s(w),
 					p = new (h(x))(n),
-					g = f(p),
+					v = f(p),
 					e = 0;
 				n > e;
 				e++
 			)
-				(v = k ? A(S[e], e) : S[e]), (p[e] = g ? d(v) : +v);
+				(g = k ? A(w[e], e) : w[e]), (p[e] = v ? d(g) : +g);
 			return p;
 		};
 	},
@@ -33445,9 +33959,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(9),
+		var r = n(8),
 			i = n(23),
-			a = r(n(306)),
+			a = r(n(312)),
 			o = i.aTypedArray;
 		(0, i.exportTypedArrayMethod)('copyWithin', function (t, e) {
 			return a(o(this), t, e, arguments.length > 2 ? arguments[2] : void 0);
@@ -33455,10 +33969,10 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(31),
-			i = n(83),
+		var r = n(30),
+			i = n(84),
 			a = n(29),
-			o = n(205),
+			o = n(164),
 			s = Math.min;
 		t.exports =
 			[].copyWithin ||
@@ -33478,7 +33992,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(38).every,
+			i = n(37).every,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('every', function (t) {
 			return i(a(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33487,11 +34001,11 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(215),
-			a = n(217),
+			i = n(221),
+			a = n(223),
 			o = n(52),
 			s = n(18),
-			u = n(9),
+			u = n(8),
 			l = n(7),
 			c = r.aTypedArray,
 			f = r.exportTypedArrayMethod,
@@ -33520,8 +34034,8 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(38).filter,
-			a = n(310),
+			i = n(37).filter,
+			a = n(316),
 			o = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('filter', function (t) {
 			var e = i(o(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33530,8 +34044,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(218),
-			i = n(163);
+		var r = n(224),
+			i = n(168);
 		t.exports = function (t, e) {
 			return r(i(t), e);
 		};
@@ -33539,7 +34053,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(38).find,
+			i = n(37).find,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('find', function (t) {
 			return i(a(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33548,7 +34062,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(38).findIndex,
+			i = n(37).findIndex,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('findIndex', function (t) {
 			return i(a(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33557,7 +34071,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(38).forEach,
+			i = n(37).forEach,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('forEach', function (t) {
 			i(a(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33566,7 +34080,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(97).includes,
+			i = n(100).includes,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('includes', function (t) {
 			return i(a(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33575,7 +34089,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(97).indexOf,
+			i = n(100).indexOf,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('indexOf', function (t) {
 			return i(a(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33583,9 +34097,9 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(7),
-			a = n(9),
+			a = n(8),
 			o = n(23),
 			s = n(49),
 			u = n(17)('iterator'),
@@ -33595,11 +34109,11 @@ More info at: http://icanhazjs.com
 			h = a(s.entries),
 			d = o.aTypedArray,
 			p = o.exportTypedArrayMethod,
-			g = l && l.prototype,
-			v = !i(function () {
-				g[u].call([1]);
+			v = l && l.prototype,
+			g = !i(function () {
+				v[u].call([1]);
 			}),
-			m = !!g && g.values && g[u] === g.values && 'values' === g.values.name,
+			m = !!v && v.values && v[u] === v.values && 'values' === v.values.name,
 			y = function () {
 				return c(d(this));
 			};
@@ -33608,22 +34122,22 @@ More info at: http://icanhazjs.com
 			function () {
 				return h(d(this));
 			},
-			v
+			g
 		),
 			p(
 				'keys',
 				function () {
 					return f(d(this));
 				},
-				v
+				g
 			),
-			p('values', y, v || !m, { name: 'values' }),
-			p(u, y, v || !m, { name: 'values' });
+			p('values', y, g || !m, { name: 'values' }),
+			p(u, y, g || !m, { name: 'values' });
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(9),
+			i = n(8),
 			a = r.aTypedArray,
 			o = r.exportTypedArrayMethod,
 			s = i([].join);
@@ -33634,8 +34148,8 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(73),
-			a = n(249),
+			i = n(74),
+			a = n(254),
 			o = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('lastIndexOf', function (t) {
 			var e = arguments.length;
@@ -33645,8 +34159,8 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(38).map,
-			a = n(163),
+			i = n(37).map,
+			a = n(168),
 			o = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('map', function (t) {
 			return i(o(this), t, arguments.length > 1 ? arguments[1] : void 0, function (t, e) {
@@ -33657,7 +34171,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(164).left,
+			i = n(169).left,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('reduce', function (t) {
 			var e = arguments.length;
@@ -33667,7 +34181,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(164).right,
+			i = n(169).right,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('reduceRight', function (t) {
 			var e = arguments.length;
@@ -33688,50 +34202,50 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(18),
 			a = n(23),
 			o = n(29),
-			s = n(216),
-			u = n(31),
+			s = n(222),
+			u = n(30),
 			l = n(7),
 			c = r.RangeError,
 			f = r.Int8Array,
 			h = f && f.prototype,
 			d = h && h.set,
 			p = a.aTypedArray,
-			g = a.exportTypedArrayMethod,
-			v = !l(function () {
+			v = a.exportTypedArrayMethod,
+			g = !l(function () {
 				var t = new Uint8ClampedArray(2);
 				return i(d, t, { length: 1, 0: 3 }, 1), 3 !== t[1];
 			}),
 			m =
-				v &&
+				g &&
 				a.NATIVE_ARRAY_BUFFER_VIEWS &&
 				l(function () {
 					var t = new f(2);
 					return t.set(1), t.set('2', 1), 0 !== t[0] || 2 !== t[1];
 				});
-		g(
+		v(
 			'set',
 			function (t) {
 				p(this);
 				var e = s(arguments.length > 1 ? arguments[1] : void 0, 1),
 					n = u(t);
-				if (v) return i(d, this, n, e);
+				if (g) return i(d, this, n, e);
 				var r = this.length,
 					a = o(n),
 					l = 0;
 				if (a + e > r) throw new c('Wrong length');
 				for (; l < a; ) this[e + l] = n[l++];
 			},
-			!v || m
+			!g || m
 		);
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(163),
+			i = n(168),
 			a = n(7),
 			o = n(53),
 			s = r.aTypedArray;
@@ -33754,7 +34268,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(23),
-			i = n(38).some,
+			i = n(37).some,
 			a = r.aTypedArray;
 		(0, r.exportTypedArrayMethod)('some', function (t) {
 			return i(a(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -33762,31 +34276,31 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
-			i = n(116),
+		var r = n(9),
+			i = n(122),
 			a = n(7),
-			o = n(34),
-			s = n(212),
+			o = n(33),
+			s = n(166),
 			u = n(23),
-			l = n(327),
-			c = n(328),
-			f = n(75),
-			h = n(329),
+			l = n(225),
+			c = n(226),
+			f = n(67),
+			h = n(227),
 			d = u.aTypedArray,
 			p = u.exportTypedArrayMethod,
-			g = r.Uint16Array,
-			v = g && i(g.prototype.sort),
+			v = r.Uint16Array,
+			g = v && i(v.prototype.sort),
 			m = !(
-				!v ||
+				!g ||
 				(a(function () {
-					v(new g(2), null);
+					g(new v(2), null);
 				}) &&
 					a(function () {
-						v(new g(2), {});
+						g(new v(2), {});
 					}))
 			),
 			y =
-				!!v &&
+				!!g &&
 				!a(function () {
 					if (f) return f < 74;
 					if (l) return l < 67;
@@ -33794,11 +34308,11 @@ More info at: http://icanhazjs.com
 					if (h) return h < 602;
 					var t,
 						e,
-						n = new g(516),
+						n = new v(516),
 						r = Array(516);
 					for (t = 0; t < 516; t++) (e = t % 4), (n[t] = 515 - t), (r[t] = t - 2 * e + 3);
 					for (
-						v(n, function (t, e) {
+						g(n, function (t, e) {
 							return ((t / 4) | 0) - ((e / 4) | 0);
 						}),
 							t = 0;
@@ -33813,7 +34327,7 @@ More info at: http://icanhazjs.com
 				return (
 					void 0 !== t && o(t),
 					y
-						? v(this, t)
+						? g(this, t)
 						: s(
 								d(this),
 								(function (t) {
@@ -33839,23 +34353,8 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(54).match(/firefox\/(\d+)/i);
-		t.exports = !!r && +r[1];
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(54);
-		t.exports = /MSIE|Trident/.test(r);
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(54).match(/AppleWebKit\/(\d+)\./);
-		t.exports = !!r && +r[1];
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(8),
-			i = n(73),
+		var r = n(9),
+			i = n(74),
 			a = n(23),
 			o = n(7),
 			s = n(53),
@@ -33885,8 +34384,8 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(23).exportTypedArrayMethod,
 			i = n(7),
-			a = n(8),
-			o = n(9),
+			a = n(9),
+			o = n(8),
 			s = a.Uint8Array,
 			u = (s && s.prototype) || {},
 			l = [].toString,
@@ -33913,11 +34412,11 @@ More info at: http://icanhazjs.com
 		'use strict';
 		var r = n(19),
 			i = n(7),
-			a = n(9),
-			o = n(108),
-			s = n(127),
-			u = n(41),
-			l = a(n(112).f),
+			a = n(8),
+			o = n(113),
+			s = n(131),
+			u = n(42),
+			l = a(n(118).f),
 			c = a([].push),
 			f =
 				r &&
@@ -33934,12 +34433,12 @@ More info at: http://icanhazjs.com
 							h = f && null === o(i),
 							d = a.length,
 							p = 0,
-							g = [];
+							v = [];
 						d > p;
 
 					)
-						(n = a[p++]), (r && !(h ? n in i : l(i, n))) || c(g, t ? [n, i[n]] : i[n]);
-					return g;
+						(n = a[p++]), (r && !(h ? n in i : l(i, n))) || c(v, t ? [n, i[n]] : i[n]);
+					return v;
 				};
 			};
 		t.exports = { entries: h(!0), values: h(!1) };
@@ -33947,8 +34446,8 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(93),
-			a = n(92);
+			i = n(96),
+			a = n(94);
 		r(
 			{ target: 'Object', stat: !0 },
 			{
@@ -33964,6 +34463,140 @@ More info at: http://icanhazjs.com
 						),
 						e
 					);
+				},
+			}
+		);
+	},
+	function (t, e, n) {
+		var r = n(218);
+		(t.exports = function (t) {
+			if (Array.isArray(t)) return r(t);
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
+	},
+	function (t, e) {
+		(t.exports = function (t) {
+			if (
+				('undefined' != typeof Symbol && null != t[Symbol.iterator]) ||
+				null != t['@@iterator']
+			)
+				return Array.from(t);
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
+	},
+	function (t, e) {
+		(t.exports = function () {
+			throw new TypeError(
+				'Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
+			);
+		}),
+			(t.exports.__esModule = !0),
+			(t.exports.default = t.exports);
+	},
+	function (t, e, n) {
+		'use strict';
+		var r = n(10),
+			i = n(8),
+			a = n(33),
+			o = n(30),
+			s = n(29),
+			u = n(164),
+			l = n(27),
+			c = n(7),
+			f = n(166),
+			h = n(112),
+			d = n(225),
+			p = n(226),
+			v = n(67),
+			g = n(227),
+			m = [],
+			y = i(m.sort),
+			b = i(m.push),
+			x = c(function () {
+				m.sort(void 0);
+			}),
+			w = c(function () {
+				m.sort(null);
+			}),
+			S = h('sort'),
+			A = !c(function () {
+				if (v) return v < 70;
+				if (!(d && d > 3)) {
+					if (p) return !0;
+					if (g) return g < 603;
+					var t,
+						e,
+						n,
+						r,
+						i = '';
+					for (t = 65; t < 76; t++) {
+						switch (((e = String.fromCharCode(t)), t)) {
+							case 66:
+							case 69:
+							case 70:
+							case 72:
+								n = 3;
+								break;
+							case 68:
+							case 71:
+								n = 4;
+								break;
+							default:
+								n = 2;
+						}
+						for (r = 0; r < 47; r++) m.push({ k: e + r, v: n });
+					}
+					for (
+						m.sort(function (t, e) {
+							return e.v - t.v;
+						}),
+							r = 0;
+						r < m.length;
+						r++
+					)
+						(e = m[r].k.charAt(0)), i.charAt(i.length - 1) !== e && (i += e);
+					return 'DGBEFHACIJK' !== i;
+				}
+			});
+		r(
+			{ target: 'Array', proto: !0, forced: x || !w || !S || !A },
+			{
+				sort: function (t) {
+					void 0 !== t && a(t);
+					var e = o(this);
+					if (A) return void 0 === t ? y(e) : y(e, t);
+					var n,
+						r,
+						i = [],
+						c = s(e);
+					for (r = 0; r < c; r++) r in e && b(i, e[r]);
+					for (
+						f(
+							i,
+							(function (t) {
+								return function (e, n) {
+									return void 0 === n
+										? -1
+										: void 0 === e
+										? 1
+										: void 0 !== t
+										? +t(e, n) || 0
+										: l(e) > l(n)
+										? 1
+										: -1;
+								};
+							})(t)
+						),
+							n = s(i),
+							r = 0;
+						r < n;
+
+					)
+						e[r] = i[r++];
+					for (; r < c; ) u(e, r++);
+					return e;
 				},
 			}
 		);
@@ -34090,31 +34723,31 @@ More info at: http://icanhazjs.com
 						o(e[n]);
 					});
 				var p = Object.prototype.toString,
-					g = 'function' == typeof RegExp(),
-					v = !('0' in new String('a')),
+					v = 'function' == typeof RegExp(),
+					g = !('0' in new String('a')),
 					m = {},
 					y = /^\[object Date|Array|String|Number|RegExp|Boolean|Arguments\]$/,
-					b = T('boolean', i[0]),
-					x = T('number', i[1]),
-					S = T('string', i[2]),
-					w = _(i[3]),
+					b = E('boolean', i[0]),
+					x = E('number', i[1]),
+					w = E('string', i[2]),
+					S = _(i[3]),
 					A = _(i[4]),
 					k = _(i[5]),
-					C = _(i[6]);
-				function E(t, e, n) {
+					T = _(i[6]);
+				function C(t, e, n) {
 					return (n || M(t)) === '[object ' + e + ']';
 				}
 				function _(t) {
 					var e =
 						('Array' === t && Array.isArray) ||
 						function (e, n) {
-							return E(e, t, n);
+							return C(e, t, n);
 						};
 					return (m[t] = e), e;
 				}
-				function T(t, e) {
+				function E(t, e) {
 					var n = function (n) {
-						return j(n) ? E(n, e) : typeof n === t;
+						return j(n) ? C(n, e) : typeof n === t;
 					};
 					return (m[e] = n), n;
 				}
@@ -34123,7 +34756,7 @@ More info at: http://icanhazjs.com
 				}
 				function I(t, e, n, r, i, a) {
 					var o = {};
-					(e = S(e) ? e.split(',') : e).forEach(function (t, e) {
+					(e = w(e) ? e.split(',') : e).forEach(function (t, e) {
 						n(o, t, e);
 					}),
 						s(t, o, r, i);
@@ -34152,7 +34785,7 @@ More info at: http://icanhazjs.com
 					return !$(t) && e in t;
 				}
 				function j(t) {
-					return !!t && ('object' == typeof t || (g && k(t)));
+					return !!t && ('object' == typeof t || (v && k(t)));
 				}
 				function $(t) {
 					var e = typeof t;
@@ -34187,8 +34820,8 @@ More info at: http://icanhazjs.com
 				function V(t) {
 					return (
 						$(t) && (t = Object(t)),
-						v &&
-							S(t) &&
+						g &&
+							w(t) &&
 							(function (t) {
 								var e,
 									n = 0;
@@ -34278,7 +34911,7 @@ More info at: http://icanhazjs.com
 				}
 				function lt(t) {
 					return (
-						S(t) || (t = String(t)), t.replace(/([\\\/\'*+?|()\[\]{}.^$-])/g, '\\$1')
+						w(t) || (t = String(t)), t.replace(/([\\\/\'*+?|()\[\]{}.^$-])/g, '\\$1')
 					);
 				}
 				function ct(t, e) {
@@ -34300,7 +34933,7 @@ More info at: http://icanhazjs.com
 					if ('string' === c) return t;
 					if (
 						((n = B(t, (i = p.call(t)))),
-						(r = w(t, i) || O(t, i)),
+						(r = S(t, i) || O(t, i)),
 						(null != t && n) || r)
 					) {
 						if ((e || (e = []), e.length > 1))
@@ -34327,24 +34960,24 @@ More info at: http://icanhazjs.com
 					var e = M(t);
 					return y.test(e) || B(t, e);
 				}
-				function gt(t, e, n) {
+				function vt(t, e, n) {
 					var r,
 						i = t.length,
 						a = e.length,
 						o = !1 !== e[a - 1];
-					if (!(a > (o ? 1 : 2))) return vt(t, i, e[0], o, n);
+					if (!(a > (o ? 1 : 2))) return gt(t, i, e[0], o, n);
 					r = [];
 					for (var s = 0; s < e.length; s++) {
 						var u = e[s];
-						b(u) || r.push(vt(t, i, u, o, n));
+						b(u) || r.push(gt(t, i, u, o, n));
 					}
 					return r;
 				}
-				function vt(t, e, n, r, i) {
+				function gt(t, e, n, r, i) {
 					return r && n && (n %= e) < 0 && (n = e + n), i ? t.charAt(n) : t[n];
 				}
 				function mt(t, e, n, r) {
-					return e ? (e.apply ? e.apply(n, r || []) : C(t[e]) ? t[e].call(t) : t[e]) : t;
+					return e ? (e.apply ? e.apply(n, r || []) : T(t[e]) ? t[e].call(t) : t[e]) : t;
 				}
 				function yt(t) {
 					return Object.keys(V(t));
@@ -34378,7 +35011,7 @@ More info at: http://icanhazjs.com
 					}
 					return -1;
 				}
-				function St(t, e, n, r) {
+				function wt(t, e, n, r) {
 					var i,
 						a,
 						o = t.length,
@@ -34390,7 +35023,7 @@ More info at: http://icanhazjs.com
 						(a = r ? o - s - 1 : s) in t && (i = e(i, t[a], a, t)), s++;
 					return i;
 				}
-				function wt(t) {
+				function St(t) {
 					if (0 === t.length) throw new TypeError('First argument must be defined');
 				}
 				!(function () {
@@ -34406,7 +35039,7 @@ More info at: http://icanhazjs.com
 						{
 							keys: function (t) {
 								var e = [];
-								if (!j(t) && !k(t) && !C(t)) throw new TypeError('Object required');
+								if (!j(t) && !k(t) && !T(t)) throw new TypeError('Object required');
 								return (
 									h(t, function (t, n) {
 										e.push(t);
@@ -34422,7 +35055,7 @@ More info at: http://icanhazjs.com
 						Array,
 						{
 							isArray: function (t) {
-								return w(t);
+								return S(t);
 							},
 						},
 						!1,
@@ -34434,7 +35067,7 @@ More info at: http://icanhazjs.com
 							every: function (t, e) {
 								var n = this.length,
 									r = 0;
-								for (wt(arguments); r < n; ) {
+								for (St(arguments); r < n; ) {
 									if (r in this && !t.call(e, this[r], r, this)) return !1;
 									r++;
 								}
@@ -34443,7 +35076,7 @@ More info at: http://icanhazjs.com
 							some: function (t, e) {
 								var n = this.length,
 									r = 0;
-								for (wt(arguments); r < n; ) {
+								for (St(arguments); r < n; ) {
 									if (r in this && t.call(e, this[r], r, this)) return !0;
 									r++;
 								}
@@ -34454,7 +35087,7 @@ More info at: http://icanhazjs.com
 								var n = this.length,
 									r = 0,
 									i = new Array(n);
-								for (wt(arguments); r < n; )
+								for (St(arguments); r < n; )
 									r in this && (i[r] = t.call(e, this[r], r, this)), r++;
 								return i;
 							},
@@ -34463,18 +35096,18 @@ More info at: http://icanhazjs.com
 									n = this.length,
 									r = 0,
 									i = [];
-								for (wt(arguments); r < n; )
+								for (St(arguments); r < n; )
 									r in this && t.call(e, this[r], r, this) && i.push(this[r]),
 										r++;
 								return i;
 							},
 							indexOf: function (t) {
 								var e = arguments[1];
-								return S(this) ? this.indexOf(t, e) : xt(this, t, e, 1);
+								return w(this) ? this.indexOf(t, e) : xt(this, t, e, 1);
 							},
 							lastIndexOf: function (t) {
 								var e = arguments[1];
-								return S(this) ? this.lastIndexOf(t, e) : xt(this, t, e, -1);
+								return w(this) ? this.lastIndexOf(t, e) : xt(this, t, e, -1);
 							},
 							forEach: function (t) {
 								var e = this.length,
@@ -34483,10 +35116,10 @@ More info at: http://icanhazjs.com
 								for (R(t); n < e; ) n in this && t.call(r, this[n], n, this), n++;
 							},
 							reduce: function (t) {
-								return St(this, t, arguments[1]);
+								return wt(this, t, arguments[1]);
 							},
 							reduceRight: function (t) {
-								return St(this, t, arguments[1], !0);
+								return wt(this, t, arguments[1], !0);
 							},
 						},
 						!0,
@@ -34516,7 +35149,7 @@ More info at: http://icanhazjs.com
 								for (e = 1; e < arguments.length; e++) n.push(arguments[e]);
 								var r,
 									i = this;
-								if (!C(this))
+								if (!T(this))
 									throw new TypeError(
 										'Function.prototype.bind called on a non-function'
 									);
@@ -34574,8 +35207,8 @@ More info at: http://icanhazjs.com
 						!!(At = new Date(Date.UTC(2e3, 0))).toISOString &&
 							'2000-01-01T00:00:00.000Z' === At.toISOString()
 					);
-				var Ct = !('0' in [].concat(void 0).concat());
-				function Et(t, e) {
+				var Tt = !('0' in [].concat(void 0).concat());
+				function Ct(t, e) {
 					if ($(t));
 					else {
 						if (k(t))
@@ -34593,7 +35226,7 @@ More info at: http://icanhazjs.com
 									return !(!t || !t.getTime) && t.getTime() === e;
 								};
 							})(t);
-						if (C(t))
+						if (T(t))
 							return e
 								? ((n = t),
 								  function (t, e, r) {
@@ -34612,7 +35245,7 @@ More info at: http://icanhazjs.com
 									if (!j(r)) return !1;
 									for (o in t)
 										if (
-											((n[o] = n[o] || Et(t[o], e)),
+											((n[o] = n[o] || Ct(t[o], e)),
 											!1 === n[o].call(a, r[o], i, a))
 										)
 											return !1;
@@ -34631,11 +35264,11 @@ More info at: http://icanhazjs.com
 					return e
 						? e.apply
 							? e.apply(n, r || [])
-							: w(e)
+							: S(e)
 							? e.map(function (e) {
 									return mt(t, e, n, r);
 							  })
-							: C(t[e])
+							: T(t[e])
 							? t[e].call(t)
 							: t[e]
 						: t;
@@ -34649,12 +35282,12 @@ More info at: http://icanhazjs.com
 						a < o;
 
 					) {
-						if (!((i = a % t.length) in t)) return Tt(t, e, a, r);
+						if (!((i = a % t.length) in t)) return Et(t, e, a, r);
 						if (!1 === e.call(t, t[i], i, t)) break;
 						a++;
 					}
 				}
-				function Tt(t, e, n, r) {
+				function Et(t, e, n, r) {
 					var i,
 						a = [];
 					for (i in t) Mt(t, i) && i >= n && a.push(parseInt(i));
@@ -34678,7 +35311,7 @@ More info at: http://icanhazjs.com
 					var o, s, u;
 					return (
 						t.length > 0 &&
-							((u = Et(e)),
+							((u = Ct(e)),
 							_t(
 								t,
 								function (e, n) {
@@ -34695,7 +35328,7 @@ More info at: http://icanhazjs.com
 						a = [];
 					return (
 						t.length > 0 &&
-							((i = Et(e)),
+							((i = Ct(e)),
 							_t(
 								t,
 								function (t, e, n) {
@@ -34715,7 +35348,7 @@ More info at: http://icanhazjs.com
 					);
 				}
 				function Dt(t, e) {
-					for (var n = 0, r = Et(e); n < t.length; ) r(t[n], n, t) ? t.splice(n, 1) : n++;
+					for (var n = 0, r = Ct(e); n < t.length; ) r(t[n], n, t) ? t.splice(n, 1) : n++;
 				}
 				function Nt(t, e) {
 					var n,
@@ -34757,7 +35390,7 @@ More info at: http://icanhazjs.com
 					var r = [];
 					return (
 						_t(t, function (t) {
-							w(t) && n < e ? (r = Vt(r, Lt(t, e, n + 1))) : r.push(t);
+							S(t) && n < e ? (r = Vt(r, Lt(t, e, n + 1))) : r.push(t);
 						}),
 						r
 					);
@@ -34804,19 +35437,19 @@ More info at: http://icanhazjs.com
 					return n;
 				}
 				function Vt(t, e) {
-					return Ct
+					return Tt
 						? (function (t, e) {
 								var n,
 									r = Ut(t),
 									i = r.length;
-								(n = w(e) ? e : [e]), (r.length += n.length);
+								(n = S(e) ? e : [e]), (r.length += n.length);
 								for (var a = 0, o = n.length; a < o; a++) r[i + a] = n[a];
 								return r;
 						  })(t, e)
 						: t.concat(e);
 				}
 				function Ht(t) {
-					return L(t, 'length') && !S(t) && !B(t);
+					return L(t, 'length') && !w(t) && !B(t);
 				}
 				function zt(t, e, n, r) {
 					var i = d(t, e);
@@ -34883,7 +35516,7 @@ More info at: http://icanhazjs.com
 				}
 				function Kt(t, e, n) {
 					return (
-						S(t) || (t = string(t)),
+						w(t) || (t = string(t)),
 						n && (t = t.toLowerCase()),
 						e && (t = t.replace(e, '')),
 						t
@@ -34912,7 +35545,7 @@ More info at: http://icanhazjs.com
 									o,
 									s = yt(t);
 								return (
-									e || (o = Et(n, !0)),
+									e || (o = Ct(n, !0)),
 									(a = r.call(
 										s,
 										function (r) {
@@ -34921,7 +35554,7 @@ More info at: http://icanhazjs.com
 										},
 										i
 									)),
-									w(a) &&
+									S(a) &&
 										(a = a.reduce(function (e, n, r) {
 											return (e[n] = t[n]), e;
 										}, {})),
@@ -35022,7 +35655,7 @@ More info at: http://icanhazjs.com
 							var t,
 								e = [];
 							for (t = 0; t < arguments.length; t++) e.push(arguments[t]);
-							return gt(this, e);
+							return vt(this, e);
 						},
 						first: function (t) {
 							return P(t) ? this[0] : (t < 0 && (t = 0), this.slice(0, t));
@@ -35101,8 +35734,8 @@ More info at: http://icanhazjs.com
 									return (
 										(function t(e, n) {
 											var r, i;
-											if (S(e) && S(n)) return Gt(e, n);
-											if (w(e) && w(n)) {
+											if (w(e) && w(n)) return Gt(e, n);
+											if (S(e) && S(n)) {
 												if (e.length < n.length) return -1;
 												if (e.length > n.length) return 1;
 												for (i = 0; i < e.length; i++)
@@ -35167,7 +35800,7 @@ More info at: http://icanhazjs.com
 					ue = 'sum,average,min,max,least,most'.split(',');
 				(re = Array.prototype.map),
 					(ie = function () {
-						return arguments.length > 0 && !C(arguments[0]);
+						return arguments.length > 0 && !T(arguments[0]);
 					}),
 					I(
 						Array,
@@ -35175,7 +35808,7 @@ More info at: http://icanhazjs.com
 						function (t, e) {
 							var n = Array.prototype[e];
 							t[e] = function (t) {
-								var e = Et(t);
+								var e = Ct(t);
 								return n.call(this, function (t, n, r) {
 									return e(t, n, r);
 								});
@@ -35231,8 +35864,8 @@ More info at: http://icanhazjs.com
 					he,
 					de,
 					pe,
-					ge,
-					ve = [
+					ve,
+					ge = [
 						'ampm',
 						'hour',
 						'minute',
@@ -35249,7 +35882,7 @@ More info at: http://icanhazjs.com
 					ye = {},
 					be = [],
 					xe = {},
-					Se = {
+					we = {
 						yyyy: function (t) {
 							return ct(t, 'FullYear');
 						},
@@ -35273,7 +35906,7 @@ More info at: http://icanhazjs.com
 							return Ne(t).replace(/(\d{2})$/, ':$1');
 						},
 					},
-					we = [
+					Se = [
 						{ name: 'year', method: 'FullYear', ambiguous: !0, multiplier: 315576e5 },
 						{ name: 'month', method: 'Month', ambiguous: !0, multiplier: 26298e5 },
 						{ name: 'week', method: 'ISOWeek', multiplier: 6048e5 },
@@ -35287,13 +35920,13 @@ More info at: http://icanhazjs.com
 				function ke(t) {
 					U(this, t), (this.compiledFormats = be.concat());
 				}
-				function Ce(t, e) {
+				function Te(t, e) {
 					var n;
-					if ((S(t) || (t = ''), (n = Ae[t] || Ae[t.slice(0, 2)]), !1 === e && !n))
+					if ((w(t) || (t = ''), (n = Ae[t] || Ae[t.slice(0, 2)]), !1 === e && !n))
 						throw new TypeError('Invalid locale.');
 					return n || oe;
 				}
-				function Ee(t, e, n, r) {
+				function Ce(t, e, n, r) {
 					t.compiledFormats.unshift({
 						variant: !!r,
 						locale: t,
@@ -35304,7 +35937,7 @@ More info at: http://icanhazjs.com
 				function _e(t) {
 					return t.slice(0, 1).toUpperCase() + t.slice(1);
 				}
-				function Te(t) {
+				function Ee(t) {
 					return t
 						.filter(function (t) {
 							return !!t;
@@ -35339,7 +35972,7 @@ More info at: http://icanhazjs.com
 						? t
 						: x(t[0]) && !x(t[1])
 						? [t[0]]
-						: S(t[0]) && e
+						: w(t[0]) && e
 						? [Le(t[0]), t[1]]
 						: ((n = {}),
 						  ce.forEach(function (e, r) {
@@ -35378,7 +36011,7 @@ More info at: http://icanhazjs.com
 						r = {};
 					return (
 						'date' === (e = e || 'hours') && (e = 'days'),
-						(n = we.some(function (t) {
+						(n = Se.some(function (t) {
 							return e === t.name || e === t.name + 's';
 						})),
 						(r[e] = e.match(/^days?/) ? 1 : 0),
@@ -35449,7 +36082,7 @@ More info at: http://icanhazjs.com
 					})((t = t.trim().replace(/^just (?=now)|\.+$/i, '')));
 				}
 				function qe(t, e, n, r, i) {
-					var a, o, s, u, l, c, f, d, p, g, v, m;
+					var a, o, s, u, l, c, f, d, p, v, g, m;
 					function y(t) {
 						u.push(t);
 					}
@@ -35473,16 +36106,16 @@ More info at: http://icanhazjs.com
 							? a.setTime(e)
 							: j(e)
 							? (Be(a, [e, !0]), (c = e))
-							: S(e) &&
-							  ((s = Ce(n)),
+							: w(e) &&
+							  ((s = Te(n)),
 							  (e = ze(e)),
 							  s &&
 									h(s.getFormats(), function (t, r) {
 										var i,
 											u,
 											h,
-											w = e.match(r.reg);
-										if (w)
+											S = e.match(r.reg);
+										if (S)
 											return (
 												(l = r.locale),
 												(c = (function (t, e) {
@@ -35509,17 +36142,17 @@ More info at: http://icanhazjs.com
 														}),
 														i
 													);
-												})(w, r.to)),
+												})(S, r.to)),
 												(l.cachedFormat = r),
 												c.utc && Re(a, !0),
 												c.timestamp
 													? ((c = c.timestamp), !1)
 													: (r.variant &&
-															!S(c.month) &&
-															(S(c.date) || s.hasVariant(n)) &&
-															((v = c.month),
+															!w(c.month) &&
+															(w(c.date) || s.hasVariant(n)) &&
+															((g = c.month),
 															(c.month = c.date),
-															(c.date = v)),
+															(c.date = g)),
 													  We(c) &&
 															(c.year =
 																((h = c.year),
@@ -35541,8 +36174,8 @@ More info at: http://icanhazjs.com
 															  c.shift &&
 																	!c.unit &&
 																	(c.unit = l.units[5])),
-													  c.day && (v = l.modifiersByName[c.day])
-															? ((c.day = v.value), Fe(a), (o = !0))
+													  c.day && (g = l.modifiersByName[c.day])
+															? ((c.day = g.value), Fe(a), (o = !0))
 															: c.day &&
 															  (p = l.getWeekday(c.day)) > -1 &&
 															  (delete c.day,
@@ -35573,7 +36206,7 @@ More info at: http://icanhazjs.com
 															(c.minute -= c.offsetMinutes)),
 													  c.unit &&
 															((o = !0),
-															(g = l.getNumber(c.num)),
+															(v = l.getNumber(c.num)),
 															(d = l.getUnitIndex(c.unit)),
 															(f = ae.units[d]),
 															je(function (t, e, n) {
@@ -35591,20 +36224,20 @@ More info at: http://icanhazjs.com
 																	Be(a, [i, !0]);
 																}),
 															c.shift &&
-																(g *= (v =
+																(v *= (g =
 																	l.modifiersByName[c.shift])
-																	? v.value
+																	? g.value
 																	: 0),
 															c.sign &&
-																(v = l.modifiersByName[c.sign]) &&
-																(g *= v.value),
+																(g = l.modifiersByName[c.sign]) &&
+																(v *= g.value),
 															N(c.weekday) &&
 																(Be(a, [
 																	{ weekday: c.weekday },
 																	!0,
 																]),
 																delete c.weekday),
-															(c[f] = (c[f] || 0) + g)),
+															(c[f] = (c[f] || 0) + v)),
 													  c.edge && y(b),
 													  '-' === c.yearSign && (c.year *= -1),
 													  je(
@@ -35660,7 +36293,7 @@ More info at: http://icanhazjs.com
 					var n = 0,
 						r = 0;
 					return (
-						h(we, function (t, i) {
+						h(Se, function (t, i) {
 							if ((r = z(e(i))) >= 1) return (n = 7 - t), !1;
 						}),
 						[r, n, t]
@@ -35678,12 +36311,12 @@ More info at: http://icanhazjs.com
 				function Je(t, e, n) {
 					var r = function (t, n) {
 						var r = ct(t, 'Month');
-						return Ce(n).months[r + 12 * e];
+						return Te(n).months[r + 12 * e];
 					};
 					Xe(t, r, n), Xe(_e(t), r, n, 1);
 				}
 				function Xe(t, e, n, r) {
-					Se[t] = function (t, i) {
+					we[t] = function (t, i) {
 						var a = e(t, i);
 						return (
 							n && (a = a.slice(0, n)),
@@ -35693,38 +36326,38 @@ More info at: http://icanhazjs.com
 					};
 				}
 				function Qe(t, e, n) {
-					(Se[t] = e),
-						(Se[t + t] = function (t, n) {
+					(we[t] = e),
+						(we[t + t] = function (t, n) {
 							return ot(e(t, n), 2);
 						}),
 						n &&
-							((Se[t + t + t] = function (t, n) {
+							((we[t + t + t] = function (t, n) {
 								return ot(e(t, n), 3);
 							}),
-							(Se[t + t + t + t] = function (t, n) {
+							(we[t + t + t + t] = function (t, n) {
 								return ot(e(t, n), 4);
 							}));
 				}
 				function tn(t, e, n, r) {
 					var i;
 					return Oe(t)
-						? (S(Date[e])
+						? (w(Date[e])
 								? (e = Date[e])
-								: C(e) && ((i = Ze(t)), (e = e.apply(t, i.concat(Ce(r))))),
+								: T(e) && ((i = Ze(t)), (e = e.apply(t, i.concat(Te(r))))),
 						  !e && n
 								? (0 === (i = i || Ze(t))[1] && ((i[1] = 1), (i[0] = 1)),
-								  Ce(r).getRelativeFormat(i))
+								  Te(r).getRelativeFormat(i))
 								: (('short' !== (e = e || 'long') &&
 										'long' !== e &&
 										'full' !== e) ||
-										(e = Ce(r)[e]),
+										(e = Te(r)[e]),
 								  xe[e] ||
 										(function (t) {
 											var e = t.match(/(\{\w+\})|[^{}]+/g);
 											xe[t] = e.map(function (t) {
 												return (
 													t.replace(/\{(\w+)\}/, function (e, n) {
-														return (t = Se[n] || n), n;
+														return (t = we[n] || n), n;
 													}),
 													t
 												);
@@ -35737,7 +36370,7 @@ More info at: http://icanhazjs.com
 											o,
 											s = '';
 										for (a = 0, i = (r = xe[e]).length; a < i; a++)
-											(o = r[a]), (s += C(o) ? o(t, n) : o);
+											(o = r[a]), (s += T(o) ? o(t, n) : o);
 										return s;
 								  })(t, e, r)))
 						: 'Invalid Date';
@@ -35745,7 +36378,7 @@ More info at: http://icanhazjs.com
 				function en(t, e, n, r) {
 					var i, a;
 					if (Oe(t)) {
-						if (S(e))
+						if (w(e))
 							switch (((e = e.trim().toLowerCase()), (a = Re(Ie(t), r)), !0)) {
 								case 'future' === e:
 									return t.getTime() > Me().getTime();
@@ -35819,7 +36452,7 @@ More info at: http://icanhazjs.com
 							if (c(r, s)) return (e.specificity = r), (o = +a), !1;
 							!n || 'week' === r || (s && l('week')) || ft(t, i.method, s ? 1 : 0);
 						}),
-						we.forEach(function (e, n) {
+						Se.forEach(function (e, n) {
 							var i,
 								a,
 								o = e.name,
@@ -35904,7 +36537,7 @@ More info at: http://icanhazjs.com
 				function cn(t) {
 					var e,
 						n = t.timers;
-					if (w(n)) for (; (e = n.shift()); ) clearTimeout(e);
+					if (S(n)) for (; (e = n.shift()); ) clearTimeout(e);
 					return (t._canceled = !0), t;
 				}
 				function fn(t, e, n, r) {
@@ -36008,7 +36641,7 @@ More info at: http://icanhazjs.com
 							o = t[1],
 							s = t[2],
 							u = this[e] || this.relative;
-						return C(u)
+						return T(u)
 							? u.call(this, a, o, s, e)
 							: ((i = this.plural && 1 !== a ? 1 : 0),
 							  (r = this.units[8 * i + o] || this.units[o]),
@@ -36059,7 +36692,7 @@ More info at: http://icanhazjs.com
 													var n = e % (l.units ? 8 : r.length);
 													return n >= s[1] && n <= (s[2] || s[1]);
 												})),
-										  (r = Te(r))),
+										  (r = Ee(r))),
 									r
 										? (o
 												? (i = '(?:' + r + ')')
@@ -36074,8 +36707,8 @@ More info at: http://icanhazjs.com
 								? ((a = an(me, l, i)),
 								  (o = ['t', '[\\s\\u3000]'].concat(l.get('timeMarker'))),
 								  (s = t.match(/\\d\{\d,\d\}\)+\??$/)),
-								  Ee(l, '(?:' + a + ')[,\\s\\u3000]+?' + t, ve.concat(u), r),
-								  Ee(
+								  Ce(l, '(?:' + a + ')[,\\s\\u3000]+?' + t, ge.concat(u), r),
+								  Ce(
 										l,
 										t +
 											'(?:[,\\s]*(?:' +
@@ -36084,10 +36717,10 @@ More info at: http://icanhazjs.com
 											')' +
 											a +
 											')?',
-										u.concat(ve),
+										u.concat(ge),
 										r
 								  ))
-								: Ee(l, t, u, r);
+								: Ce(l, t, u, r);
 					},
 				}),
 					s(
@@ -36116,7 +36749,7 @@ More info at: http://icanhazjs.com
 									var n, r, i, a, o;
 									function s(t) {
 										var e = n[t];
-										S(e) ? (n[t] = e.split(',')) : e || (n[t] = []);
+										w(e) ? (n[t] = e.split(',')) : e || (n[t] = []);
 									}
 									function u(t, e) {
 										return (t = t
@@ -36147,7 +36780,7 @@ More info at: http://icanhazjs.com
 									}
 									function c(t, e, r) {
 										var i = '\\d{' + t + ',' + e + '}';
-										return r && (i += '|(?:' + Te(n.get('numbers')) + ')+'), i;
+										return r && (i += '|(?:' + Ee(n.get('numbers')) + ')+'), i;
 									}
 									function f(t) {
 										var e = !!n.monthSuffix;
@@ -36181,7 +36814,7 @@ More info at: http://icanhazjs.com
 											((a = n.get('numbers')),
 											(o = ['-?\\d+'].concat(n.get('articles'))),
 											a && (o = o.concat(a)),
-											Te(o))
+											Ee(o))
 										),
 										(function () {
 											var t = [];
@@ -36214,7 +36847,7 @@ More info at: http://icanhazjs.com
 															(n[r] = a ? a + '|' + i : i);
 													});
 												}),
-												(n.day += '|' + Te(n.weekdays)),
+												(n.day += '|' + Ee(n.weekdays)),
 												(n.modifiers = t);
 										})(),
 										n.monthSuffix &&
@@ -36224,8 +36857,8 @@ More info at: http://icanhazjs.com
 												.map(function (t) {
 													return t + n.monthSuffix;
 												}))),
-										(n.fullMonth = c(1, 2) + '|' + Te(n.months)),
-										n.timeSuffixes.length > 0 && n.addFormat(an(me, n), !1, ve),
+										(n.fullMonth = c(1, 2) + '|' + Ee(n.months)),
+										n.timeSuffixes.length > 0 && n.addFormat(an(me, n), !1, ge),
 										n.addFormat('{day}', !0),
 										n.addFormat('{month}' + (n.monthSuffix || '')),
 										n.addFormat('{year}' + (n.yearSuffix || '')),
@@ -36240,14 +36873,14 @@ More info at: http://icanhazjs.com
 								})(t, e);
 							},
 							setLocale: function (t, e) {
-								var n = Ce(t, !1);
+								var n = Te(t, !1);
 								return (oe = n), t && t !== n.code && (n.code = t), n;
 							},
 							getLocale: function (t) {
-								return t ? Ce(t, !1) : oe;
+								return t ? Te(t, !1) : oe;
 							},
 							addFormat: function (t, e, n) {
-								Ee(Ce(n), t, e);
+								Ce(Te(n), t, e);
 							},
 						},
 						!1
@@ -36337,7 +36970,7 @@ More info at: http://icanhazjs.com
 							return tn(this, t, !1, e);
 						},
 						relative: function (t, e) {
-							return S(t) && ((e = t), (t = null)), tn(this, t, !0, e);
+							return w(t) && ((e = t), (t = null)), tn(this, t, !0, e);
 						},
 						is: function (t, e, n) {
 							return en(this, t, e, n);
@@ -36360,7 +36993,7 @@ More info at: http://icanhazjs.com
 					}),
 					s(Number, {
 						duration: function (t) {
-							return Ce(t).getDuration(this);
+							return Te(t).getDuration(this);
 						},
 					}),
 					(ae = oe =
@@ -36412,9 +37045,9 @@ More info at: http://icanhazjs.com
 								'{edge} of {day}',
 							],
 						})),
-					(fe = we.concat().reverse()),
-					(ce = we.concat()).splice(2, 1),
-					I(Date, we, function (t, e, n) {
+					(fe = Se.concat().reverse()),
+					(ce = Se.concat()).splice(2, 1),
+					I(Date, Se, function (t, e, n) {
 						var r,
 							i,
 							a = e.name,
@@ -36551,7 +37184,7 @@ More info at: http://icanhazjs.com
 					),
 					ae.addFormat('{fullMonth}[-.](\\d{4,4})', !1, ['month', 'year']),
 					ae.addFormat('\\/Date\\((\\d+(?:[+-]\\d{4,4})?)\\)\\/', !1, ['timestamp']),
-					ae.addFormat(an(me, ae), !1, ve),
+					ae.addFormat(an(me, ae), !1, ge),
 					(be = ae.compiledFormats.slice(0, 7).reverse()),
 					(ae.compiledFormats = ae.compiledFormats.slice(7).concat(be)),
 					Qe(
@@ -36583,7 +37216,7 @@ More info at: http://icanhazjs.com
 						't',
 						(he = function (t, e) {
 							var n = ct(t, 'Hours');
-							return Ce(e).get('ampm')[G(n / 12)] || '';
+							return Te(e).get('ampm')[G(n / 12)] || '';
 						}),
 						1
 					),
@@ -36593,7 +37226,7 @@ More info at: http://icanhazjs.com
 					(function (t, e) {
 						var n = function (t, e) {
 							var n = ct(t, 'Day');
-							return Ce(e).weekdays[n];
+							return Te(e).weekdays[n];
 						};
 						Xe('do', n, 2),
 							Xe('Do', n, 2, 1),
@@ -36606,16 +37239,16 @@ More info at: http://icanhazjs.com
 					Je('month', 0),
 					Je('month2', 1),
 					Je('month3', 2),
-					(Se.ms = Se.f),
-					(Se.milliseconds = Se.f),
-					(Se.seconds = Se.s),
-					(Se.minutes = Se.m),
-					(Se.hours = Se.h),
-					(Se['24hr'] = Se.H),
-					(Se['12hr'] = Se.h),
-					(Se.date = Se.d),
-					(Se.day = Se.d),
-					(Se.year = Se.yyyy),
+					(we.ms = we.f),
+					(we.milliseconds = we.f),
+					(we.seconds = we.s),
+					(we.minutes = we.m),
+					(we.hours = we.h),
+					(we['24hr'] = we.H),
+					(we['12hr'] = we.h),
+					(we.date = we.d),
+					(we.day = we.d),
+					(we.year = we.yyyy),
 					I(Date, 'short,long,full', function (t, e) {
 						t[e] = function (t) {
 							return tn(this, e, !1, t);
@@ -36631,8 +37264,8 @@ More info at: http://icanhazjs.com
 					)),
 					(de = 'today,yesterday,tomorrow,weekday,weekend,future,past'.split(',')),
 					(pe = ae.weekdays.slice(0, 7)),
-					(ge = ae.months.slice(0, 12)),
-					I(Date, de.concat(pe).concat(ge), function (t, e) {
+					(ve = ae.months.slice(0, 12)),
+					I(Date, de.concat(pe).concat(ve), function (t, e) {
 						t['is' + _e(e)] = function (t) {
 							return en(this, e, 0, t);
 						};
@@ -36742,36 +37375,36 @@ More info at: http://icanhazjs.com
 						},
 					});
 				var pn,
-					gn,
 					vn,
+					gn,
 					mn,
 					yn = [],
 					bn = [],
 					xn = [],
-					Sn = [],
-					wn = {},
+					wn = [],
+					Sn = {},
 					An = {};
 				function kn(t, e) {
 					var n = t.indexOf(e);
 					n > -1 && t.splice(n, 1);
 				}
-				function Cn(t, e, n) {
-					S(e) && kn(xn, e), kn(xn, n), t.unshift({ rule: e, replacement: n });
+				function Tn(t, e, n) {
+					w(e) && kn(xn, e), kn(xn, n), t.unshift({ rule: e, replacement: n });
 				}
-				function En(t, e) {
+				function Cn(t, e) {
 					return t == e || 'all' == t || !t;
 				}
 				function _n(t, e) {
-					return qr((t = S(t) ? t.toString() : '')) ||
+					return qr((t = w(t) ? t.toString() : '')) ||
 						(function (t) {
 							return xn.some(function (e) {
 								return new RegExp('\\b' + e + '$', 'i').test(t);
 							});
 						})(t)
 						? t
-						: Tn(t, e ? yn : bn);
+						: En(t, e ? yn : bn);
 				}
-				function Tn(t, e) {
+				function En(t, e) {
 					return (
 						h(e, function (e, n) {
 							if (t.match(n.rule)) return (t = t.replace(n.rule, n.replacement)), !1;
@@ -36786,17 +37419,17 @@ More info at: http://icanhazjs.com
 				}
 				function In(t) {
 					return Mn(
-						(t = (t = (t = Tn(t, Sn)).replace(/_id$/g, '')).replace(
+						(t = (t = (t = En(t, wn)).replace(/_id$/g, '')).replace(
 							/(_)?([a-z\d]*)/gi,
 							function (t, e, n) {
 								var r = n.toLowerCase();
-								return (e ? ' ' : '') + ((d(wn, r) ? wn[r] : null) || r);
+								return (e ? ' ' : '') + ((d(Sn, r) ? Sn[r] : null) || r);
 							}
 						))
 					);
 				}
 				function On(t) {
-					return t.replace(vn, function (t) {
+					return t.replace(gn, function (t) {
 						return An[t];
 					});
 				}
@@ -36824,19 +37457,19 @@ More info at: http://icanhazjs.com
 					'with',
 					'for',
 				]),
-					(gn = {
+					(vn = {
 						acronym: function (t) {
-							wn[t.toLowerCase()] = t;
-							var e = Object.keys(wn).map(function (t) {
-								return wn[t];
+							Sn[t.toLowerCase()] = t;
+							var e = Object.keys(Sn).map(function (t) {
+								return Sn[t];
 							});
-							gn.acronymRegExp = RegExp(e.join('|'), 'g');
+							vn.acronymRegExp = RegExp(e.join('|'), 'g');
 						},
 						plural: function (t, e) {
-							Cn(yn, t, e);
+							Tn(yn, t, e);
 						},
 						singular: function (t, e) {
-							Cn(bn, t, e);
+							Tn(bn, t, e);
 						},
 						irregular: function (t, e) {
 							var n = Vr(t),
@@ -36850,21 +37483,21 @@ More info at: http://icanhazjs.com
 							kn(xn, t),
 								kn(xn, e),
 								u == o
-									? (gn.plural(
+									? (vn.plural(
 											new RegExp(zr('({1}){2}$', [n, r]), 'i'),
 											'$1' + a
 									  ),
-									  gn.plural(new RegExp(zr('({1}){2}$', [i, a]), 'i'), '$1' + a),
-									  gn.singular(
+									  vn.plural(new RegExp(zr('({1}){2}$', [i, a]), 'i'), '$1' + a),
+									  vn.singular(
 											new RegExp(zr('({1}){2}$', [i, a]), 'i'),
 											'$1' + r
 									  ))
-									: (gn.plural(new RegExp(zr('{1}{2}$', [u, r])), o + a),
-									  gn.plural(new RegExp(zr('{1}{2}$', [l, r])), s + a),
-									  gn.plural(new RegExp(zr('{1}{2}$', [o, a])), o + a),
-									  gn.plural(new RegExp(zr('{1}{2}$', [s, a])), s + a),
-									  gn.singular(new RegExp(zr('{1}{2}$', [o, a])), u + r),
-									  gn.singular(new RegExp(zr('{1}{2}$', [s, a])), l + r));
+									: (vn.plural(new RegExp(zr('{1}{2}$', [u, r])), o + a),
+									  vn.plural(new RegExp(zr('{1}{2}$', [l, r])), s + a),
+									  vn.plural(new RegExp(zr('{1}{2}$', [o, a])), o + a),
+									  vn.plural(new RegExp(zr('{1}{2}$', [s, a])), s + a),
+									  vn.singular(new RegExp(zr('{1}{2}$', [o, a])), u + r),
+									  vn.singular(new RegExp(zr('{1}{2}$', [s, a])), l + r));
 						},
 						uncountable: function (t) {
 							var e;
@@ -36878,81 +37511,81 @@ More info at: http://icanhazjs.com
 							xn = xn.concat(e);
 						},
 						human: function (t, e) {
-							Sn.unshift({ rule: t, replacement: e });
+							wn.unshift({ rule: t, replacement: e });
 						},
 						clear: function (t) {
-							En(t, 'singulars') && (bn = []),
-								En(t, 'plurals') && (yn = []),
-								En(t, 'uncountables') && (xn = []),
-								En(t, 'humans') && (Sn = []),
-								En(t, 'acronyms') && (wn = {});
+							Cn(t, 'singulars') && (bn = []),
+								Cn(t, 'plurals') && (yn = []),
+								Cn(t, 'uncountables') && (xn = []),
+								Cn(t, 'humans') && (wn = []),
+								Cn(t, 'acronyms') && (Sn = {});
 						},
 					}).plural(/$/, 's'),
-					gn.plural(/s$/gi, 's'),
-					gn.plural(/(ax|test)is$/gi, '$1es'),
-					gn.plural(/(octop|fung|foc|radi|alumn|cact)(i|us)$/gi, '$1i'),
-					gn.plural(/(census|alias|status|fetus|genius|virus)$/gi, '$1es'),
-					gn.plural(/(bu)s$/gi, '$1ses'),
-					gn.plural(/(buffal|tomat)o$/gi, '$1oes'),
-					gn.plural(/([ti])um$/gi, '$1a'),
-					gn.plural(/([ti])a$/gi, '$1a'),
-					gn.plural(/sis$/gi, 'ses'),
-					gn.plural(/f+e?$/gi, 'ves'),
-					gn.plural(/(cuff|roof)$/gi, '$1s'),
-					gn.plural(/([ht]ive)$/gi, '$1s'),
-					gn.plural(/([^aeiouy]o)$/gi, '$1es'),
-					gn.plural(/([^aeiouy]|qu)y$/gi, '$1ies'),
-					gn.plural(/(x|ch|ss|sh)$/gi, '$1es'),
-					gn.plural(/(tr|vert)(?:ix|ex)$/gi, '$1ices'),
-					gn.plural(/([ml])ouse$/gi, '$1ice'),
-					gn.plural(/([ml])ice$/gi, '$1ice'),
-					gn.plural(/^(ox)$/gi, '$1en'),
-					gn.plural(/^(oxen)$/gi, '$1'),
-					gn.plural(/(quiz)$/gi, '$1zes'),
-					gn.plural(/(phot|cant|hom|zer|pian|portic|pr|quart|kimon)o$/gi, '$1os'),
-					gn.plural(/(craft)$/gi, '$1'),
-					gn.plural(/([ft])[eo]{2}(th?)$/gi, '$1ee$2'),
-					gn.singular(/s$/gi, ''),
-					gn.singular(/([pst][aiu]s)$/gi, '$1'),
-					gn.singular(/([aeiouy])ss$/gi, '$1ss'),
-					gn.singular(/(n)ews$/gi, '$1ews'),
-					gn.singular(/([ti])a$/gi, '$1um'),
-					gn.singular(
+					vn.plural(/s$/gi, 's'),
+					vn.plural(/(ax|test)is$/gi, '$1es'),
+					vn.plural(/(octop|fung|foc|radi|alumn|cact)(i|us)$/gi, '$1i'),
+					vn.plural(/(census|alias|status|fetus|genius|virus)$/gi, '$1es'),
+					vn.plural(/(bu)s$/gi, '$1ses'),
+					vn.plural(/(buffal|tomat)o$/gi, '$1oes'),
+					vn.plural(/([ti])um$/gi, '$1a'),
+					vn.plural(/([ti])a$/gi, '$1a'),
+					vn.plural(/sis$/gi, 'ses'),
+					vn.plural(/f+e?$/gi, 'ves'),
+					vn.plural(/(cuff|roof)$/gi, '$1s'),
+					vn.plural(/([ht]ive)$/gi, '$1s'),
+					vn.plural(/([^aeiouy]o)$/gi, '$1es'),
+					vn.plural(/([^aeiouy]|qu)y$/gi, '$1ies'),
+					vn.plural(/(x|ch|ss|sh)$/gi, '$1es'),
+					vn.plural(/(tr|vert)(?:ix|ex)$/gi, '$1ices'),
+					vn.plural(/([ml])ouse$/gi, '$1ice'),
+					vn.plural(/([ml])ice$/gi, '$1ice'),
+					vn.plural(/^(ox)$/gi, '$1en'),
+					vn.plural(/^(oxen)$/gi, '$1'),
+					vn.plural(/(quiz)$/gi, '$1zes'),
+					vn.plural(/(phot|cant|hom|zer|pian|portic|pr|quart|kimon)o$/gi, '$1os'),
+					vn.plural(/(craft)$/gi, '$1'),
+					vn.plural(/([ft])[eo]{2}(th?)$/gi, '$1ee$2'),
+					vn.singular(/s$/gi, ''),
+					vn.singular(/([pst][aiu]s)$/gi, '$1'),
+					vn.singular(/([aeiouy])ss$/gi, '$1ss'),
+					vn.singular(/(n)ews$/gi, '$1ews'),
+					vn.singular(/([ti])a$/gi, '$1um'),
+					vn.singular(
 						/((a)naly|(b)a|(d)iagno|(p)arenthe|(p)rogno|(s)ynop|(t)he)ses$/gi,
 						'$1$2sis'
 					),
-					gn.singular(/(^analy)ses$/gi, '$1sis'),
-					gn.singular(/(i)(f|ves)$/i, '$1fe'),
-					gn.singular(/([aeolr]f?)(f|ves)$/i, '$1f'),
-					gn.singular(/([ht]ive)s$/gi, '$1'),
-					gn.singular(/([^aeiouy]|qu)ies$/gi, '$1y'),
-					gn.singular(/(s)eries$/gi, '$1eries'),
-					gn.singular(/(m)ovies$/gi, '$1ovie'),
-					gn.singular(/(x|ch|ss|sh)es$/gi, '$1'),
-					gn.singular(/([ml])(ous|ic)e$/gi, '$1ouse'),
-					gn.singular(/(bus)(es)?$/gi, '$1'),
-					gn.singular(/(o)es$/gi, '$1'),
-					gn.singular(/(shoe)s?$/gi, '$1'),
-					gn.singular(/(cris|ax|test)[ie]s$/gi, '$1is'),
-					gn.singular(/(octop|fung|foc|radi|alumn|cact)(i|us)$/gi, '$1us'),
-					gn.singular(/(census|alias|status|fetus|genius|virus)(es)?$/gi, '$1'),
-					gn.singular(/^(ox)(en)?/gi, '$1'),
-					gn.singular(/(vert)(ex|ices)$/gi, '$1ex'),
-					gn.singular(/tr(ix|ices)$/gi, 'trix'),
-					gn.singular(/(quiz)(zes)?$/gi, '$1'),
-					gn.singular(/(database)s?$/gi, '$1'),
-					gn.singular(/ee(th?)$/gi, 'oo$1'),
-					gn.irregular('person', 'people'),
-					gn.irregular('man', 'men'),
-					gn.irregular('deer', 'deer'),
-					gn.irregular('human', 'humans'),
-					gn.irregular('child', 'children'),
-					gn.irregular('sex', 'sexes'),
-					gn.irregular('move', 'moves'),
-					gn.irregular('save', 'saves'),
-					gn.irregular('goose', 'geese'),
-					gn.irregular('zombie', 'zombies'),
-					gn.uncountable(
+					vn.singular(/(^analy)ses$/gi, '$1sis'),
+					vn.singular(/(i)(f|ves)$/i, '$1fe'),
+					vn.singular(/([aeolr]f?)(f|ves)$/i, '$1f'),
+					vn.singular(/([ht]ive)s$/gi, '$1'),
+					vn.singular(/([^aeiouy]|qu)ies$/gi, '$1y'),
+					vn.singular(/(s)eries$/gi, '$1eries'),
+					vn.singular(/(m)ovies$/gi, '$1ovie'),
+					vn.singular(/(x|ch|ss|sh)es$/gi, '$1'),
+					vn.singular(/([ml])(ous|ic)e$/gi, '$1ouse'),
+					vn.singular(/(bus)(es)?$/gi, '$1'),
+					vn.singular(/(o)es$/gi, '$1'),
+					vn.singular(/(shoe)s?$/gi, '$1'),
+					vn.singular(/(cris|ax|test)[ie]s$/gi, '$1is'),
+					vn.singular(/(octop|fung|foc|radi|alumn|cact)(i|us)$/gi, '$1us'),
+					vn.singular(/(census|alias|status|fetus|genius|virus)(es)?$/gi, '$1'),
+					vn.singular(/^(ox)(en)?/gi, '$1'),
+					vn.singular(/(vert)(ex|ices)$/gi, '$1ex'),
+					vn.singular(/tr(ix|ices)$/gi, 'trix'),
+					vn.singular(/(quiz)(zes)?$/gi, '$1'),
+					vn.singular(/(database)s?$/gi, '$1'),
+					vn.singular(/ee(th?)$/gi, 'oo$1'),
+					vn.irregular('person', 'people'),
+					vn.irregular('man', 'men'),
+					vn.irregular('deer', 'deer'),
+					vn.irregular('human', 'humans'),
+					vn.irregular('child', 'children'),
+					vn.irregular('sex', 'sexes'),
+					vn.irregular('move', 'moves'),
+					vn.irregular('save', 'saves'),
+					vn.irregular('goose', 'geese'),
+					vn.irregular('zombie', 'zombies'),
+					vn.uncountable(
 						'equipment,information,rice,money,species,series,fish,sheep,jeans'.split(
 							','
 						)
@@ -37088,8 +37721,8 @@ More info at: http://icanhazjs.com
 							return On(this);
 						},
 					}),
-					(String.Inflector = gn),
-					(String.Inflector.acronyms = wn),
+					(String.Inflector = vn),
+					(String.Inflector.acronyms = Sn),
 					(function () {
 						var t,
 							e,
@@ -37100,7 +37733,7 @@ More info at: http://icanhazjs.com
 									An[e] = t;
 								}),
 								(n += e));
-						vn = RegExp('[' + n + ']', 'g');
+						gn = RegExp('[' + n + ']', 'g');
 					})();
 				var Rn = [
 					{ names: ['Arabic'], source: '؀-ۿ' },
@@ -37220,13 +37853,13 @@ More info at: http://icanhazjs.com
 							n ||
 							(function () {
 								var t = Number.thousands;
-								return S(t) ? t : ',';
+								return w(t) ? t : ',';
 							})(),
 							r =
 								r ||
 								(function () {
 									var t = Number.decimal;
-									return S(t) ? t : '.';
+									return w(t) ? t : '.';
 								})(),
 							o = (a = (x(e) ? J(t, e || 0).toFixed(Z(e, 0)) : t.toString())
 								.replace(/^-/, '')
@@ -37432,7 +38065,7 @@ More info at: http://icanhazjs.com
 									(o = j(u)),
 									(s = j(l)),
 									(f = c && !1 === i ? l : u),
-									c && C(i) && (f = i.call(e, h, l, u)),
+									c && T(i) && (f = i.call(e, h, l, u)),
 									n && (o || s))
 								)
 									if (A(u)) f = new Date(u.getTime());
@@ -37513,7 +38146,7 @@ More info at: http://icanhazjs.com
 						},
 						!1,
 						function () {
-							return C(arguments[1]);
+							return T(arguments[1]);
 						}
 					),
 					s(
@@ -37541,7 +38174,7 @@ More info at: http://icanhazjs.com
 								var n = [];
 								return (
 									h(t, function (r, i) {
-										n.push(i), C(e) && e.call(t, i);
+										n.push(i), T(e) && e.call(t, i);
 									}),
 									n
 								);
@@ -37552,7 +38185,7 @@ More info at: http://icanhazjs.com
 								if (((r = M(t)), A(t, r) && t.clone)) return t.clone(t);
 								if (A(t, r) || k(t, r)) return new t.constructor(t);
 								if (t instanceof H) n = new H();
-								else if (w(t, r)) n = [];
+								else if (S(t, r)) n = [];
 								else {
 									if (!B(t, r))
 										throw new TypeError('Clone must be a basic data type.');
@@ -37578,7 +38211,7 @@ More info at: http://icanhazjs.com
 																.forEach(function (t) {
 																	(a = !t || t.match(/^\d+$/)),
 																		!s &&
-																			w(e) &&
+																			S(e) &&
 																			(s = e.length),
 																		d(e, s) ||
 																			(e[s] = a ? [] : {}),
@@ -37598,7 +38231,7 @@ More info at: http://icanhazjs.com
 							toQueryString: function (t, e) {
 								return (function t(e, n) {
 									var r;
-									return w(n) || (j(n) && n.toString === p)
+									return S(n) || (j(n) && n.toString === p)
 										? ((r = []),
 										  h(n, function (n, i) {
 												e && (n = e + '[' + n + ']'), r.push(t(n, i));
@@ -37612,7 +38245,7 @@ More info at: http://icanhazjs.com
 							tap: function (t, e) {
 								var n = e;
 								return (
-									C(e) ||
+									T(e) ||
 										(n = function () {
 											e && t[e]();
 										}),
@@ -37704,16 +38337,16 @@ More info at: http://icanhazjs.com
 					(this.start = xr(t)), (this.end = xr(e));
 				}
 				function dr(t) {
-					return S(t) ? t.charCodeAt(0) : t;
+					return w(t) ? t.charCodeAt(0) : t;
 				}
 				function pr(t) {
 					return null == t ? t : A(t) ? t.getTime() : t.valueOf();
 				}
-				function gr(t) {
+				function vr(t) {
 					var e = t.toString().split('.');
 					return e[1] ? e[1].length : 0;
 				}
-				function vr(t) {
+				function gr(t) {
 					return null == t ? new Date() : new Date(t);
 				}
 				function mr(t) {
@@ -37725,16 +38358,16 @@ More info at: http://icanhazjs.com
 				function br(t) {
 					var e, n, r, i, a, o;
 					return (e = t.match(sr))
-						? Er(e[1], e[2])
+						? Cr(e[1], e[2])
 						: ((e = t.match(lr)) && ((r = e[1]), (n = e[2])),
 						  (e = t.match(cr)) && ((n = e[1]), (r = e[2])),
-						  n && r && (o = Ar((a = mr(n)), (i = wr(r))[0], i[1])),
-						  Er(a, o));
+						  n && r && (o = Ar((a = mr(n)), (i = Sr(r))[0], i[1])),
+						  Cr(a, o));
 				}
 				function xr(t) {
 					return A(t) ? new Date(t.getTime()) : pr(t);
 				}
-				function Sr(t) {
+				function wr(t) {
 					var e = pr(t);
 					return (
 						(!!e || 0 === e) &&
@@ -37743,7 +38376,7 @@ More info at: http://icanhazjs.com
 						})(t)
 					);
 				}
-				function wr(t) {
+				function Sr(t) {
 					var e, n, r;
 					return x(t)
 						? [t, 'Milliseconds']
@@ -37777,8 +38410,8 @@ More info at: http://icanhazjs.com
 					s(hr, {
 						isValid: function () {
 							return (
-								Sr(this.start) &&
-								Sr(this.end) &&
+								wr(this.start) &&
+								wr(this.end) &&
 								typeof this.start == typeof this.end
 							);
 						},
@@ -37810,24 +38443,24 @@ More info at: http://icanhazjs.com
 								h = [];
 							if (!this.isValid()) return [];
 							for (
-								C(t) && ((e = t), (t = null)),
+								T(t) && ((e = t), (t = null)),
 									t = t || 1,
 									x(s)
 										? ((o = t),
-										  (r = Z(gr(s), gr(o))),
+										  (r = Z(vr(s), vr(o))),
 										  (n = function () {
 												return (function (t, e, n) {
 													return J(t + e, n);
 												})(c, t, r);
 										  }))
-										: S(s)
+										: w(s)
 										? (n = function () {
 												return (function (t, e) {
 													return String.fromCharCode(t.charCodeAt(0) + e);
 												})(c, t);
 										  })
 										: A(s) &&
-										  ((i = wr(t)),
+										  ((i = Sr(t)),
 										  (t = i[0]),
 										  (a = i[1]),
 										  (n = function () {
@@ -37865,19 +38498,19 @@ More info at: http://icanhazjs.com
 							return xr(t < r ? r : t > i ? i : t);
 						},
 					});
-				var Cr = function (t, e) {
+				var Tr = function (t, e) {
 						return new hr(t, e);
 					},
-					Er = function (t, e) {
+					Cr = function (t, e) {
 						if (yr()) {
-							if (1 === arguments.length && S(t)) return br(t);
+							if (1 === arguments.length && w(t)) return br(t);
 							(t = mr(t)), (e = mr(e));
-						} else (t = vr(t)), (e = vr(e));
+						} else (t = gr(t)), (e = gr(e));
 						return new hr(t, e);
 					};
-				kr(Number, Cr),
-					kr(String, Cr),
-					kr(Date, Er),
+				kr(Number, Tr),
+					kr(String, Tr),
+					kr(Date, Cr),
 					s(Number, {
 						upto: function (t, e, n) {
 							return new hr(this, t).every(n, e);
@@ -37926,7 +38559,7 @@ More info at: http://icanhazjs.com
 						},
 					});
 				var _r,
-					Tr,
+					Er,
 					Mr = /&#(x)?([\w\d]{0,5});/i,
 					Ir = [
 						'area',
@@ -37976,10 +38609,10 @@ More info at: http://icanhazjs.com
 						a,
 						o = [];
 					if (
-						(C(e)
+						(T(e)
 							? ((n = e), (a = /[\s\S]/g))
 							: e
-							? S(e)
+							? w(e)
 								? (a = RegExp(lt(e), 'gi'))
 								: k(e) && (a = RegExp(e.source, ut(e, 'g')))
 							: (a = /[\s\S]/g),
@@ -38084,7 +38717,7 @@ More info at: http://icanhazjs.com
 						o = e.length - 1,
 						s = e[o];
 					return (
-						C(s) && ((r = s), (e.length = o)),
+						T(s) && ((r = s), (e.length = o)),
 						(i =
 							'<(\\/)?(' +
 							(i =
@@ -38114,17 +38747,17 @@ More info at: http://icanhazjs.com
 							for (; (o = n.exec(e)); ) {
 								var d = o[2],
 									p = (o[3] || '').slice(1),
-									g = !!o[1],
-									v = !!o[4],
+									v = !!o[1],
+									g = !!o[4],
 									m = o[0].length,
-									y = !(g || v || ((x = d), -1 !== Ir.indexOf(x.toLowerCase()))),
+									y = !(v || g || ((x = d), -1 !== Ir.indexOf(x.toLowerCase()))),
 									b = d === s;
 								s || ((l += e.slice(c, o.index)), (c = o.index)),
 									y
 										? s
 											? b && f++
 											: ((s = d), (u = p), f++, (c += m))
-										: g && b
+										: v && b
 										? 0 === --f && (h(o.index, s, u, m), (s = null), (u = null))
 										: s || h(o.index, d, p, m);
 							}
@@ -38135,7 +38768,7 @@ More info at: http://icanhazjs.com
 					);
 				}
 				function Kr(t, e, n) {
-					return S(e) && -1 === (e = t.indexOf(e)) && (e = n ? t.length : 0), e;
+					return w(e) && -1 === (e = t.indexOf(e)) && (e = n ? t.length : 0), e;
 				}
 				s(
 					String,
@@ -38192,14 +38825,14 @@ More info at: http://icanhazjs.com
 							return _r(this);
 						},
 						decodeBase64: function () {
-							return Tr(this);
+							return Er(this);
 						},
 						each: function (t, e) {
 							return Nr(this, t, e);
 						},
 						map: function (t, e) {
 							var n = this.toString();
-							if (C(t)) {
+							if (T(t)) {
 								var r = t;
 								t = function (t, i, a) {
 									return r.call(e, t, i, n);
@@ -38252,7 +38885,7 @@ More info at: http://icanhazjs.com
 							var t,
 								e = [];
 							for (t = 0; t < arguments.length; t++) e.push(arguments[t]);
-							return gt(this, e, !0);
+							return vt(this, e, !0);
 						},
 						from: function (t) {
 							return Hr(this, t);
@@ -38272,7 +38905,7 @@ More info at: http://icanhazjs.com
 							return $r(this).replace(/(^|_)([^_]+)/g, function (e, n, r, i) {
 								var a = (function (t) {
 										var e = Or();
-										if (((t = e && e.acronyms[t]), S(t))) return t;
+										if (((t = e && e.acronyms[t]), w(t))) return t;
 									})(r),
 									o = !1 !== t || i > 0;
 								return a ? (o ? a : a.toLowerCase()) : o ? Fr(r) : r;
@@ -38411,7 +39044,7 @@ More info at: http://icanhazjs.com
 								(_r = function (e) {
 									return new t(e).toString('base64');
 								}),
-								void (Tr = function (e) {
+								void (Er = function (e) {
 									return new t(e, 'base64').toString('utf8');
 								})
 							);
@@ -38474,7 +39107,7 @@ More info at: http://icanhazjs.com
 						(_r = function (t) {
 							return n(unescape(encodeURIComponent(t)));
 						}),
-							(Tr = function (t) {
+							(Er = function (t) {
 								return decodeURIComponent(escape(r(t)));
 							});
 					})('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='),
@@ -39137,7 +39770,7 @@ More info at: http://icanhazjs.com
 						],
 					});
 			}).call(this);
-		}).call(this, n(256).Buffer);
+		}).call(this, n(262).Buffer);
 	},
 	function (t, e, n) {
 		'use strict';
@@ -39257,7 +39890,7 @@ More info at: http://icanhazjs.com
 					h = 23 === i ? Math.pow(2, -24) - Math.pow(2, -77) : 0,
 					d = r ? 0 : a - 1,
 					p = r ? 1 : -1,
-					g = e < 0 || (0 === e && 1 / e < 0) ? 1 : 0;
+					v = e < 0 || (0 === e && 1 / e < 0) ? 1 : 0;
 				for (
 					e = Math.abs(e),
 						isNaN(e) || e === 1 / 0
@@ -39275,7 +39908,7 @@ More info at: http://icanhazjs.com
 					t[n + d] = 255 & s, d += p, s /= 256, i -= 8
 				);
 				for (o = (o << i) | s, l += i; l > 0; t[n + d] = 255 & o, d += p, o /= 256, l -= 8);
-				t[n + d - p] |= 128 * g;
+				t[n + d - p] |= 128 * v;
 			});
 	},
 	function (t, e) {
@@ -39288,18 +39921,18 @@ More info at: http://icanhazjs.com
 	},
 	function (t, e, n) {
 		'use strict';
-		n(340);
+		n(347);
 	},
 	function (t, e, n) {
 		'use strict';
-		n(251)(
+		n(257)(
 			'Map',
 			function (t) {
 				return function () {
 					return t(this, arguments.length ? arguments[0] : void 0);
 				};
 			},
-			n(252)
+			n(258)
 		);
 	},
 	function (t, e, n) {
@@ -39307,7 +39940,7 @@ More info at: http://icanhazjs.com
 		var r = n(7),
 			i = n(21),
 			a = n(44),
-			o = n(342),
+			o = n(349),
 			s = Object.isExtensible,
 			u = r(function () {
 				s(1);
@@ -40387,8 +41020,8 @@ More info at: http://icanhazjs.com
 										}),
 										d = [].concat(n['*'] || [], n[f] || []),
 										p = 0,
-										g = h.length;
-									p < g;
+										v = h.length;
+									p < v;
 									p++
 								)
 									o(h[p], d) || c.removeAttribute(h[p].nodeName);
@@ -40618,9 +41251,9 @@ More info at: http://icanhazjs.com
 											: o),
 										i.removeClass(d).addClass(o);
 								}
-								var g = this.getCalculatedOffset(o, c, f, h);
-								this.applyPlacement(g, o);
-								var v = function () {
+								var v = this.getCalculatedOffset(o, c, f, h);
+								this.applyPlacement(v, o);
+								var g = function () {
 									var t = r.hoverState;
 									r.$element.trigger('shown.bs.' + r.type),
 										(r.hoverState = null),
@@ -40628,9 +41261,9 @@ More info at: http://icanhazjs.com
 								};
 								t.support.transition && this.$tip.hasClass('fade')
 									? i
-											.one('bsTransitionEnd', v)
+											.one('bsTransitionEnd', g)
 											.emulateTransitionEnd(u.TRANSITION_DURATION)
-									: v();
+									: g();
 							}
 						}),
 						(u.prototype.applyPlacement = function (e, n) {
@@ -41244,34 +41877,6 @@ More info at: http://icanhazjs.com
 				})(t);
 		}).call(this, n(0));
 	},
-	function (t, e, n) {
-		var r = n(229);
-		(t.exports = function (t) {
-			if (Array.isArray(t)) return r(t);
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
-	},
-	function (t, e) {
-		(t.exports = function (t) {
-			if (
-				('undefined' != typeof Symbol && null != t[Symbol.iterator]) ||
-				null != t['@@iterator']
-			)
-				return Array.from(t);
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
-	},
-	function (t, e) {
-		(t.exports = function () {
-			throw new TypeError(
-				'Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
-			);
-		}),
-			(t.exports.__esModule = !0),
-			(t.exports.default = t.exports);
-	},
 	,
 	function (t, e) {
 		var n = (function () {
@@ -41320,7 +41925,7 @@ More info at: http://icanhazjs.com
 					h = function (a, o, s, u, h) {
 						var d,
 							p = r(u),
-							g = function () {
+							v = function () {
 								d ||
 									e(
 										p.parentNode,
@@ -41339,13 +41944,13 @@ More info at: http://icanhazjs.com
 							};
 						e(
 							p,
-							i(c.show, 'disclosure', g),
+							i(c.show, 'disclosure', v),
 							t(u + ' syntax', a),
-							i(o, null, g),
+							i(o, null, v),
 							t(u + ' syntax', s)
 						);
-						var v = e(r(), n(f.slice(0, -1)), p);
-						return l > 0 && 'string' != u && g(), v;
+						var g = e(r(), n(f.slice(0, -1)), p);
+						return l > 0 && 'string' != u && v(), g;
 					};
 				return null === o
 					? t(null, f, 'keyword', 'null')
@@ -41498,9 +42103,9 @@ License: MIT
 								parse: function (n, r) {
 									var s = (r = r || {}).dynamicTyping || !1;
 									if (
-										(S(s) && ((r.dynamicTypingFunction = s), (s = {})),
+										(w(s) && ((r.dynamicTypingFunction = s), (s = {})),
 										(r.dynamicTyping = s),
-										(r.transform = !!S(r.transform) && r.transform),
+										(r.transform = !!w(r.transform) && r.transform),
 										r.worker && o.WORKERS_SUPPORTED)
 									) {
 										var u = (function () {
@@ -41523,17 +42128,17 @@ License: MIT
 															)
 														))),
 												u = new e.Worker(s);
-											return (u.onmessage = v), (u.id = a++), (i[u.id] = u);
+											return (u.onmessage = g), (u.id = a++), (i[u.id] = u);
 										})();
 										return (
 											(u.userStep = r.step),
 											(u.userChunk = r.chunk),
 											(u.userComplete = r.complete),
 											(u.userError = r.error),
-											(r.step = S(r.step)),
-											(r.chunk = S(r.chunk)),
-											(r.complete = S(r.complete)),
-											(r.error = S(r.error)),
+											(r.step = w(r.step)),
+											(r.chunk = w(r.chunk)),
+											(r.complete = w(r.complete)),
+											(r.error = w(r.error)),
 											delete r.worker,
 											void u.postMessage({
 												input: n,
@@ -41552,7 +42157,7 @@ License: MIT
 														: t;
 											  })(n)),
 											  (d = r.download ? new l(r) : new f(r)))
-											: !0 === n.readable && S(n.read) && S(n.on)
+											: !0 === n.readable && w(n.read) && w(n.on)
 											? (d = new h(r))
 											: ((e.File && n instanceof File) ||
 													n instanceof Object) &&
@@ -41638,7 +42243,7 @@ License: MIT
 											u = !Array.isArray(e[0]);
 										if (s && r) {
 											for (var l = 0; l < t.length; l++)
-												0 < l && (o += i), (o += g(t[l], l));
+												0 < l && (o += i), (o += v(t[l], l));
 											0 < e.length && (o += a);
 										}
 										for (var c = 0; c < e.length; c++) {
@@ -41657,8 +42262,8 @@ License: MIT
 															  0 === e[c][0].length),
 												'greedy' === n && s)
 											) {
-												for (var p = [], v = 0; v < f; v++) {
-													var m = u ? t[v] : v;
+												for (var p = [], g = 0; g < f; g++) {
+													var m = u ? t[g] : g;
 													p.push(e[c][m]);
 												}
 												h = '' === p.join('').trim();
@@ -41667,7 +42272,7 @@ License: MIT
 												for (var y = 0; y < f; y++) {
 													0 < y && !d && (o += i);
 													var b = s && u ? t[y] : y;
-													o += g(e[c][b], y);
+													o += v(e[c][b], y);
 												}
 												c < e.length - 1 &&
 													(!n || (0 < f && !d)) &&
@@ -41676,7 +42281,7 @@ License: MIT
 										}
 										return o;
 									}
-									function g(t, e) {
+									function v(t, e) {
 										if (null == t) return '';
 										if (t.constructor === Date)
 											return JSON.stringify(t).slice(1, 25);
@@ -41714,7 +42319,7 @@ License: MIT
 							(o.LocalChunkSize = 10485760),
 							(o.RemoteChunkSize = 5242880),
 							(o.DefaultDelimiter = ','),
-							(o.Parser = g),
+							(o.Parser = v),
 							(o.ParserHandle = d),
 							(o.NetworkStreamer = l),
 							(o.FileStreamer = c),
@@ -41752,7 +42357,7 @@ License: MIT
 											n,
 											i,
 											u = r[0];
-										if (S(t.before)) {
+										if (w(t.before)) {
 											var l = t.before(u.file, u.inputElem);
 											if ('object' == typeof l) {
 												if ('abort' === l.action)
@@ -41761,7 +42366,7 @@ License: MIT
 														(n = u.inputElem),
 														(i = l.reason),
 														void (
-															S(t.error) &&
+															w(t.error) &&
 															t.error({ name: 'AbortError' }, e, n, i)
 														)
 													);
@@ -41775,10 +42380,10 @@ License: MIT
 										}
 										var c = u.instanceConfig.complete;
 										(u.instanceConfig.complete = function (t) {
-											S(c) && c(t, u.file, u.inputElem), a();
+											w(c) && c(t, u.file, u.inputElem), a();
 										}),
 											o.parse(u.file, u.instanceConfig);
-									} else S(t.complete) && t.complete();
+									} else w(t.complete) && t.complete();
 								}
 								function a() {
 									r.splice(0, 1), i();
@@ -41806,7 +42411,7 @@ License: MIT
 										((this._handle.streamer = this)._config = e);
 								}.call(this, t),
 								(this.parseChunk = function (t, n) {
-									if (this.isFirstChunk && S(this._config.beforeFirstChunk)) {
+									if (this.isFirstChunk && w(this._config.beforeFirstChunk)) {
 										var i = this._config.beforeFirstChunk(t);
 										void 0 !== i && (t = i);
 									}
@@ -41830,7 +42435,7 @@ License: MIT
 												workerId: o.WORKER_ID,
 												finished: l,
 											});
-										else if (S(this._config.chunk) && !n) {
+										else if (w(this._config.chunk) && !n) {
 											if (
 												(this._config.chunk(s, this._handle),
 												this._handle.paused() || this._handle.aborted())
@@ -41848,7 +42453,7 @@ License: MIT
 												(this._completeResults.meta = s.meta)),
 											this._completed ||
 												!l ||
-												!S(this._config.complete) ||
+												!w(this._config.complete) ||
 												(s && s.meta.aborted) ||
 												(this._config.complete(
 													this._completeResults,
@@ -41862,7 +42467,7 @@ License: MIT
 									this._halted = !0;
 								}),
 								(this._sendError = function (t) {
-									S(this._config.error)
+									w(this._config.error)
 										? this._config.error(t)
 										: r &&
 										  this._config.error &&
@@ -42083,14 +42688,14 @@ License: MIT
 								f = 0,
 								h = !1,
 								d = !1,
-								v = [],
+								g = [],
 								m = { data: [], errors: [], meta: {} };
-							if (S(t.step)) {
+							if (w(t.step)) {
 								var y = t.step;
 								t.step = function (e) {
-									if (((m = e), A())) w();
+									if (((m = e), A())) S();
 									else {
-										if ((w(), 0 === m.data.length)) return;
+										if ((S(), 0 === m.data.length)) return;
 										(c += e.data.length),
 											t.preview && c > t.preview
 												? n.abort()
@@ -42103,11 +42708,11 @@ License: MIT
 									? '' === e.join('').trim()
 									: 1 === e.length && 0 === e[0].length;
 							}
-							function w() {
+							function S() {
 								return (
 									m &&
 										r &&
-										(C(
+										(T(
 											'Delimiter',
 											'UndetectableDelimiter',
 											"Unable to auto-detect delimiting character; defaulted to '" +
@@ -42128,9 +42733,9 @@ License: MIT
 													m.data.splice(0, 1);
 												} else m.data.forEach(n);
 											function n(e, n) {
-												S(t.transformHeader) &&
+												w(t.transformHeader) &&
 													(e = t.transformHeader(e, n)),
-													v.push(e);
+													g.push(e);
 											}
 										})(),
 									(function () {
@@ -42143,7 +42748,7 @@ License: MIT
 												var a = r,
 													o = e[r];
 												t.header &&
-													(a = r >= v.length ? '__parsed_extra' : v[r]),
+													(a = r >= g.length ? '__parsed_extra' : g[r]),
 													t.transform && (o = t.transform(o, a)),
 													(o = k(a, o)),
 													'__parsed_extra' === a
@@ -42152,22 +42757,22 @@ License: MIT
 											}
 											return (
 												t.header &&
-													(r > v.length
-														? C(
+													(r > g.length
+														? T(
 																'FieldMismatch',
 																'TooManyFields',
 																'Too many fields: expected ' +
-																	v.length +
+																	g.length +
 																	' fields but parsed ' +
 																	r,
 																f + n
 														  )
-														: r < v.length &&
-														  C(
+														: r < g.length &&
+														  T(
 																'FieldMismatch',
 																'TooFewFields',
 																'Too few fields: expected ' +
-																	v.length +
+																	g.length +
 																	' fields but parsed ' +
 																	r,
 																f + n
@@ -42180,7 +42785,7 @@ License: MIT
 											!m.data.length || Array.isArray(m.data[0])
 												? ((m.data = m.data.map(e)), (n = m.data.length))
 												: (m.data = e(m.data, 0)),
-											t.header && m.meta && (m.meta.fields = v),
+											t.header && m.meta && (m.meta.fields = g),
 											(f += n),
 											m
 										);
@@ -42188,7 +42793,7 @@ License: MIT
 								);
 							}
 							function A() {
-								return t.header && 0 === v.length;
+								return t.header && 0 === g.length;
 							}
 							function k(e, n) {
 								return (
@@ -42218,7 +42823,7 @@ License: MIT
 								);
 								var r;
 							}
-							function C(t, e, n, r) {
+							function T(t, e, n, r) {
 								var i = { type: t, code: e, message: n };
 								void 0 !== r && (i.row = r), m.errors.push(i);
 							}
@@ -42240,7 +42845,7 @@ License: MIT
 									(r = !1),
 									t.delimiter)
 								)
-									S(t.delimiter) &&
+									w(t.delimiter) &&
 										((t.delimiter = t.delimiter(i)),
 										(m.meta.delimiter = t.delimiter));
 								else {
@@ -42251,10 +42856,10 @@ License: MIT
 											var h = a[f],
 												d = 0,
 												p = 0,
-												v = 0;
+												g = 0;
 											l = void 0;
 											for (
-												var m = new g({
+												var m = new v({
 														comments: i,
 														delimiter: h,
 														newline: n,
@@ -42264,7 +42869,7 @@ License: MIT
 												y < m.data.length;
 												y++
 											)
-												if (r && x(m.data[y])) v++;
+												if (r && x(m.data[y])) g++;
 												else {
 													var b = m.data[y].length;
 													(p += b),
@@ -42273,7 +42878,7 @@ License: MIT
 															  ((d += Math.abs(b - l)), (l = b))
 															: (l = b);
 												}
-											0 < m.data.length && (p /= m.data.length - v),
+											0 < m.data.length && (p /= m.data.length - g),
 												(void 0 === u || d <= u) &&
 													(void 0 === c || c < p) &&
 													1.99 < p &&
@@ -42299,9 +42904,9 @@ License: MIT
 								return (
 									t.preview && t.header && c.preview++,
 									(e = i),
-									(n = new g(c)),
+									(n = new v(c)),
 									(m = n.parse(e, a, s)),
-									w(),
+									S(),
 									h ? { meta: { paused: !0 } } : m || { meta: { paused: !1 } }
 								);
 							}),
@@ -42311,7 +42916,7 @@ License: MIT
 								(this.pause = function () {
 									(h = !0),
 										n.abort(),
-										(e = S(t.chunk) ? '' : e.substring(n.getCharIndex()));
+										(e = w(t.chunk) ? '' : e.substring(n.getCharIndex()));
 								}),
 								(this.resume = function () {
 									l.streamer._halted
@@ -42325,14 +42930,14 @@ License: MIT
 									(d = !0),
 										n.abort(),
 										(m.meta.aborted = !0),
-										S(t.complete) && t.complete(m),
+										w(t.complete) && t.complete(m),
 										(e = '');
 								});
 						}
 						function p(t) {
 							return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 						}
-						function g(t) {
+						function v(t) {
 							var e,
 								n = (t = t || {}).delimiter,
 								r = t.newline,
@@ -42360,37 +42965,37 @@ License: MIT
 								f = !1;
 							(this.parse = function (o, h, d) {
 								if ('string' != typeof o) throw new Error('Input must be a string');
-								var g = o.length,
-									v = n.length,
+								var v = o.length,
+									g = n.length,
 									m = r.length,
 									y = i.length,
-									b = S(a),
+									b = w(a),
 									x = [],
-									w = [],
+									S = [],
 									A = [],
 									k = (c = 0);
 								if (!o) return W();
 								if (t.header && !h) {
-									var C = o.split(r)[0].split(n),
-										E = [],
+									var T = o.split(r)[0].split(n),
+										C = [],
 										_ = {},
-										T = !1;
-									for (var M in C) {
-										var I = C[M];
-										S(t.transformHeader) && (I = t.transformHeader(I, M));
+										E = !1;
+									for (var M in T) {
+										var I = T[M];
+										w(t.transformHeader) && (I = t.transformHeader(I, M));
 										var O = I,
 											R = _[I] || 0;
 										for (
-											0 < R && ((T = !0), (O = I + '_' + R)), _[I] = R + 1;
-											E.includes(O);
+											0 < R && ((E = !0), (O = I + '_' + R)), _[I] = R + 1;
+											C.includes(O);
 
 										)
 											O = O + '_' + R;
-										E.push(O);
+										C.push(O);
 									}
-									if (T) {
+									if (E) {
 										var D = o.split(r);
-										(D[0] = E.join(n)), (o = D.join(r));
+										(D[0] = C.join(n)), (o = D.join(r));
 									}
 								}
 								if (u || (!1 !== u && -1 === o.indexOf(e))) {
@@ -42423,7 +43028,7 @@ License: MIT
 												(L = o.indexOf(n, c));
 										} else if (-1 !== L && (L < j || -1 === j))
 											A.push(o.substring(c, L)),
-												(c = L + v),
+												(c = L + g),
 												(L = o.indexOf(n, c));
 										else {
 											if (-1 === j) break;
@@ -42438,7 +43043,7 @@ License: MIT
 											if (-1 === (B = o.indexOf(e, B + 1)))
 												return (
 													d ||
-														w.push({
+														S.push({
 															type: 'Quotes',
 															code: 'MissingQuotes',
 															message: 'Quoted field unterminated',
@@ -42447,7 +43052,7 @@ License: MIT
 														}),
 													z()
 												);
-											if (B === g - 1)
+											if (B === v - 1)
 												return z(o.substring(c, B).replace($, e));
 											if (e !== l || o[B + 1] !== l) {
 												if (e === l || 0 === B || o[B - 1] !== l) {
@@ -42458,9 +43063,9 @@ License: MIT
 															j < B + 1 &&
 															(j = o.indexOf(r, B + 1));
 													var F = H(-1 === j ? L : Math.min(L, j));
-													if (o.substr(B + 1 + F, v) === n) {
+													if (o.substr(B + 1 + F, g) === n) {
 														A.push(o.substring(c, B).replace($, e)),
-															o[(c = B + 1 + F + v)] !== e &&
+															o[(c = B + 1 + F + g)] !== e &&
 																(B = o.indexOf(e, c)),
 															(L = o.indexOf(n, c)),
 															(j = o.indexOf(r, c));
@@ -42483,7 +43088,7 @@ License: MIT
 														if (s && x.length >= s) return W(!0);
 														break;
 													}
-													w.push({
+													S.push({
 														type: 'Quotes',
 														code: 'InvalidQuotes',
 														message:
@@ -42512,7 +43117,7 @@ License: MIT
 										d ||
 											(void 0 === t && (t = o.substring(c)),
 											A.push(t),
-											(c = g),
+											(c = v),
 											V(A),
 											b && G()),
 										W()
@@ -42524,7 +43129,7 @@ License: MIT
 								function W(t) {
 									return {
 										data: x,
-										errors: w,
+										errors: S,
 										meta: {
 											delimiter: n,
 											linebreak: r,
@@ -42535,7 +43140,7 @@ License: MIT
 									};
 								}
 								function G() {
-									a(W()), (x = []), (w = []);
+									a(W()), (x = []), (S = []);
 								}
 							}),
 								(this.abort = function () {
@@ -42545,7 +43150,7 @@ License: MIT
 									return c;
 								});
 						}
-						function v(t) {
+						function g(t) {
 							var e = t.data,
 								n = i[e.workerId],
 								r = !1;
@@ -42563,7 +43168,7 @@ License: MIT
 									pause: y,
 									resume: y,
 								};
-								if (S(n.userStep)) {
+								if (w(n.userStep)) {
 									for (
 										var o = 0;
 										o < e.results.data.length &&
@@ -42580,14 +43185,14 @@ License: MIT
 									);
 									delete e.results;
 								} else
-									S(n.userChunk) &&
+									w(n.userChunk) &&
 										(n.userChunk(e.results, a, e.file), delete e.results);
 							}
 							e.finished && !r && m(e.workerId, e.results);
 						}
 						function m(t, e) {
 							var n = i[t];
-							S(n.userComplete) && n.userComplete(e), n.terminate(), delete i[t];
+							w(n.userComplete) && n.userComplete(e), n.terminate(), delete i[t];
 						}
 						function y() {
 							throw new Error('Not implemented.');
@@ -42603,7 +43208,7 @@ License: MIT
 								t.apply(e, arguments);
 							};
 						}
-						function S(t) {
+						function w(t) {
 							return 'function' == typeof t;
 						}
 						return (
@@ -42645,7 +43250,7 @@ License: MIT
 	function (t, e, n) {
 		'use strict';
 		n.d(e, 'a', function () {
-			return S;
+			return w;
 		});
 		n(26);
 		var r = n(2),
@@ -42660,10 +43265,10 @@ License: MIT
 			h = n.n(f),
 			d = n(12),
 			p = n.n(d),
-			g = n(1),
-			v = n.n(g),
+			v = n(1),
+			g = n.n(v),
 			m = n(13),
-			y = n(253),
+			y = n(259),
 			b = n(50);
 		function x(t, e, n) {
 			return (
@@ -42685,7 +43290,7 @@ License: MIT
 				)
 			);
 		}
-		var S = (function (t) {
+		var w = (function (t) {
 			function e(t) {
 				var n;
 				return o()(this, e), ((n = x(this, e, [t])).supportAuth = !0), n;
@@ -42697,9 +43302,9 @@ License: MIT
 						key: 'isAuthorized',
 						value:
 							((h = i()(
-								v.a.mark(function t() {
+								g.a.mark(function t() {
 									var e;
-									return v.a.wrap(function (t) {
+									return g.a.wrap(function (t) {
 										for (;;)
 											switch ((t.prev = t.next)) {
 												case 0:
@@ -42725,9 +43330,9 @@ License: MIT
 						key: 'authorize',
 						value:
 							((f = i()(
-								v.a.mark(function t(e) {
+								g.a.mark(function t(e) {
 									var n;
-									return v.a.wrap(function (t) {
+									return g.a.wrap(function (t) {
 										for (;;)
 											switch ((t.prev = t.next)) {
 												case 0:
@@ -42753,9 +43358,9 @@ License: MIT
 						key: 'logOut',
 						value:
 							((c = i()(
-								v.a.mark(function t() {
+								g.a.mark(function t() {
 									var e;
-									return v.a.wrap(function (t) {
+									return g.a.wrap(function (t) {
 										for (;;)
 											switch ((t.prev = t.next)) {
 												case 0:
@@ -42781,9 +43386,9 @@ License: MIT
 						key: 'getAllSitemaps',
 						value:
 							((l = i()(
-								v.a.mark(function t(e) {
+								g.a.mark(function t(e) {
 									var n;
-									return v.a.wrap(
+									return g.a.wrap(
 										function (t) {
 											for (;;)
 												switch ((t.prev = t.next)) {
@@ -42826,9 +43431,9 @@ License: MIT
 						key: 'getAllProjects',
 						value:
 							((s = i()(
-								v.a.mark(function t() {
+								g.a.mark(function t() {
 									var e;
-									return v.a.wrap(function (t) {
+									return g.a.wrap(function (t) {
 										for (;;)
 											switch ((t.prev = t.next)) {
 												case 0:
@@ -42861,9 +43466,9 @@ License: MIT
 						key: 'createSitemap',
 						value:
 							((a = i()(
-								v.a.mark(function t(e, n) {
+								g.a.mark(function t(e, n) {
 									var r;
-									return v.a.wrap(function (t) {
+									return g.a.wrap(function (t) {
 										for (;;)
 											switch ((t.prev = t.next)) {
 												case 0:
@@ -42900,9 +43505,9 @@ License: MIT
 						key: 'saveSitemap',
 						value:
 							((r = i()(
-								v.a.mark(function t(e, n, r) {
+								g.a.mark(function t(e, n, r) {
 									var i, a;
-									return v.a.wrap(function (t) {
+									return g.a.wrap(function (t) {
 										for (;;)
 											switch ((t.prev = t.next)) {
 												case 0:
@@ -42948,9 +43553,9 @@ License: MIT
 						key: 'getStandName',
 						value:
 							((n = i()(
-								v.a.mark(function t() {
+								g.a.mark(function t() {
 									var e;
-									return v.a.wrap(function (t) {
+									return g.a.wrap(function (t) {
 										for (;;)
 											switch ((t.prev = t.next)) {
 												case 0:
@@ -42980,74 +43585,74 @@ License: MIT
 	function (t, e, n) {
 		'use strict';
 		n.d(e, 'a', function () {
-			return V;
+			return H;
 		});
-		var r = n(25),
+		var r = n(24),
 			i = n.n(r),
-			a = n(225),
+			a = n(234),
 			o = n.n(a),
-			s = n(184),
+			s = n(128),
 			u = n.n(s),
 			l = n(2),
 			c = n.n(l),
-			f = n(165),
+			f = n(114),
 			h = n.n(f),
 			d = n(3),
 			p = n.n(d),
-			g = n(4),
-			v = n.n(g),
+			v = n(4),
+			g = n.n(v),
 			m = n(1),
 			y = n.n(m),
 			b =
-				(n(121),
-				n(125),
-				n(59),
+				(n(90),
 				n(102),
-				n(230),
-				n(138),
-				n(88),
+				n(130),
+				n(54),
+				n(76),
+				n(237),
+				n(141),
+				n(89),
 				n(49),
+				n(38),
+				n(185),
 				n(99),
-				n(39),
-				n(246),
-				n(96),
-				n(126),
-				n(231),
-				n(339),
-				n(365),
-				n(173),
+				n(106),
+				n(238),
+				n(346),
+				n(256),
+				n(177),
 				n(20),
-				n(84),
+				n(85),
 				n(48),
-				n(366),
-				n(151),
-				n(30),
-				n(65),
-				n(367),
-				n(139),
-				n(135),
-				n(68),
-				n(195),
-				n(69),
-				n(36),
-				n(79),
-				n(181),
-				n(182),
-				n(183),
+				n(369),
+				n(154),
+				n(31),
+				n(60),
+				n(370),
+				n(142),
+				n(138),
+				n(70),
+				n(199),
+				n(62),
+				n(35),
+				n(80),
+				n(186),
+				n(187),
+				n(188),
 				n(0)),
-			x = n(43),
-			S = n(13),
-			w = n(352),
-			A = n(353),
-			k = (n(335), n(369), n(370), n(371), n(372), n(257)),
-			C = n(50),
-			E = (n(250), n(254)),
+			x = n(40),
+			w = n(13),
+			S = n(356),
+			A = n(357),
+			k = (n(342), n(372), n(373), n(374), n(375), n(263)),
+			T = n(50),
+			C = (n(255), n(260)),
 			_ = (function () {
-				return v()(
+				return g()(
 					function t(e) {
 						p()(this, t),
 							(this.sitemap = e),
-							(this.diagonal = E.svg.diagonal().projection(function (t) {
+							(this.diagonal = C.svg.diagonal().projection(function (t) {
 								return [t.y, t.x];
 							}));
 					},
@@ -43055,7 +43660,7 @@ License: MIT
 						{
 							key: 'initTree',
 							value: function (t, e) {
-								(this.tree = E.layout.tree().size([e, t])),
+								(this.tree = C.layout.tree().size([e, t])),
 									this.tree.children(this.getSelectorVisibleChildren.bind(this));
 							},
 						},
@@ -43095,7 +43700,7 @@ License: MIT
 								var r = [20, 120, 20, 120];
 								(e = e - r[1] - r[3]), (n = n - r[0] - r[2]);
 								this.initTree(e, n),
-									(this.svg = E.select(t)
+									(this.svg = C.select(t)
 										.append('svg:svg')
 										.attr('width', e + r[1] + r[3])
 										.attr('height', n + r[0] + r[2])
@@ -43238,9 +43843,9 @@ License: MIT
 					]
 				);
 			})(),
-			T = n(61),
-			M = n(148),
-			I = n(136),
+			E = n(63),
+			M = n(151),
+			I = n(139),
 			O = n(6);
 		function R(t) {
 			try {
@@ -43252,17 +43857,18 @@ License: MIT
 				return console.error('invalid_URL:', t), '';
 			}
 		}
-		var D = n(137),
-			N = ['_attachments'],
-			P = ['url'];
-		function L(t, e) {
+		var D = n(140),
+			N = n(95),
+			P = ['_attachments'],
+			L = ['url'];
+		function j(t, e) {
 			var n = ('undefined' != typeof Symbol && t[Symbol.iterator]) || t['@@iterator'];
 			if (!n) {
 				if (
 					Array.isArray(t) ||
 					(n = (function (t, e) {
 						if (t) {
-							if ('string' == typeof t) return j(t, e);
+							if ('string' == typeof t) return $(t, e);
 							var n = {}.toString.call(t).slice(8, -1);
 							return (
 								'Object' === n && t.constructor && (n = t.constructor.name),
@@ -43270,7 +43876,7 @@ License: MIT
 									? Array.from(t)
 									: 'Arguments' === n ||
 									  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-									? j(t, e)
+									? $(t, e)
 									: void 0
 							);
 						}
@@ -43318,12 +43924,12 @@ License: MIT
 				},
 			};
 		}
-		function j(t, e) {
+		function $(t, e) {
 			(null == e || e > t.length) && (e = t.length);
 			for (var n = 0, r = Array(e); n < e; n++) r[n] = t[n];
 			return r;
 		}
-		function $(t, e) {
+		function B(t, e) {
 			var n = Object.keys(t);
 			if (Object.getOwnPropertySymbols) {
 				var r = Object.getOwnPropertySymbols(t);
@@ -43335,25 +43941,25 @@ License: MIT
 			}
 			return n;
 		}
-		function B(t) {
+		function F(t) {
 			for (var e = 1; e < arguments.length; e++) {
 				var n = null != arguments[e] ? arguments[e] : {};
 				e % 2
-					? $(Object(n), !0).forEach(function (e) {
+					? B(Object(n), !0).forEach(function (e) {
 							h()(t, e, n[e]);
 					  })
 					: Object.getOwnPropertyDescriptors
 					? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n))
-					: $(Object(n)).forEach(function (e) {
+					: B(Object(n)).forEach(function (e) {
 							Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(n, e));
 					  });
 			}
 			return t;
 		}
-		var F = /^[a-z][a-z0-9_\$\(\)\+\-]+$/,
-			U = n(376),
-			V = (function () {
-				return v()(
+		var U = /^[a-z][a-z0-9_\$\(\)\+\-]+$/,
+			V = n(379),
+			H = (function () {
+				return g()(
 					function t(e, n) {
 						return (
 							p()(this, t),
@@ -43380,10 +43986,9 @@ License: MIT
 								{ type: 'SelectorGroup' },
 							]),
 							(this.selectorTypes = this.selectorTypes.map(function (t) {
-								return B(B({}, t), {}, { title: O.a.getTranslationByKey(t.type) });
+								return F(F({}, t), {}, { title: O.a.getTranslationByKey(t.type) });
 							})),
-							(this.jsonRenderer = w
-								.set_icons('+', '-')
+							(this.jsonRenderer = S.set_icons('+', '-')
 								.set_show_to_level('all')
 								.set_max_string_length(80)
 								.set_replacer(function (t, e) {
@@ -43419,7 +44024,7 @@ License: MIT
 						{
 							key: 'loadTemplates',
 							value:
-								((ht = c()(
+								((yt = c()(
 									y.a.mark(function t() {
 										var e,
 											n = this;
@@ -43452,6 +44057,8 @@ License: MIT
 																'ActionConfirm',
 																'ErrorDevToolsPage',
 																'AuthorizationPage',
+																'TorchList',
+																'TorchCreate',
 															]),
 															t.abrupt(
 																'return',
@@ -43479,13 +44086,13 @@ License: MIT
 									})
 								)),
 								function () {
-									return ht.apply(this, arguments);
+									return yt.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'init',
 							value:
-								((ft = c()(
+								((mt = c()(
 									y.a.mark(function t() {
 										var e = this;
 										return y.a.wrap(
@@ -43618,9 +44225,66 @@ License: MIT
 																			click: this
 																				.showSitemapSelectorGraph,
 																		},
+																	'#sitemap-torch-nav-button': {
+																		click: this.showTorchList,
+																	},
 																	'#sitemap-browse-nav-button': {
 																		click: this
 																			.browseSitemapData,
+																	},
+																	'#create-new-torch, #create-first-torch':
+																		{
+																			click: this
+																				.showTorchCreate,
+																		},
+																	'.torch-card button[action=edit-torch]':
+																		{ click: this.editTorch },
+																	'.torch-card button[action=clone-torch]':
+																		{ click: this.cloneTorch },
+																	'.torch-card button[action=delete-torch]':
+																		{ click: this.deleteTorch },
+																	'.torch-card button[action=run-torch]':
+																		{ click: this.runTorch },
+																	'#torch-cancel': {
+																		click: this.cancelTorchEdit,
+																	},
+																	'#torch-save': {
+																		click: this.saveTorch,
+																	},
+																	'#torch-next': {
+																		click: this.torchWizardNext,
+																	},
+																	'#torch-prev': {
+																		click: this.torchWizardPrev,
+																	},
+																	'#add-preaction': {
+																		click: this.addPreAction,
+																	},
+																	'.remove-preaction': {
+																		click: this.removePreAction,
+																	},
+																	'#add-column': {
+																		click: this.addTorchColumn,
+																	},
+																	'.remove-column': {
+																		click: this
+																			.removeTorchColumn,
+																	},
+																	'.toggle-column-advanced': {
+																		click: this
+																			.toggleColumnAdvanced,
+																	},
+																	'#refresh-preview': {
+																		click: this
+																			.refreshTorchPreview,
+																	},
+																	'.select-preaction-element': {
+																		click: this
+																			.selectPreActionElement,
+																	},
+																	'.select-column-element': {
+																		click: this
+																			.selectColumnElement,
 																	},
 																	'button#submit-edit-sitemap': {
 																		click: this
@@ -43782,7 +44446,7 @@ License: MIT
 																break;
 															}
 															return (
-																S.runtime.onMessage.addListener(
+																w.runtime.onMessage.addListener(
 																	function (t) {
 																		return (
 																			!(
@@ -43822,7 +44486,7 @@ License: MIT
 									})
 								)),
 								function () {
-									return ft.apply(this, arguments);
+									return mt.apply(this, arguments);
 								}),
 						},
 						{
@@ -43916,7 +44580,7 @@ License: MIT
 														),
 												},
 												regexp: {
-													regexp: F,
+													regexp: U,
 													message:
 														O.a.getTranslationByKey(
 															'sitemapid_invalid_char'
@@ -43943,7 +44607,7 @@ License: MIT
 														'sitemapurl_invalid_message'
 													),
 													callback: t =>
-														C.a.validateStartUrls(t.split(',')),
+														T.a.validateStartUrls(t.split(',')),
 												},
 											},
 										},
@@ -43958,7 +44622,7 @@ License: MIT
 													message: O.a.getTranslationByKey(
 														'sitemap_url_pattern_invalid_message'
 													),
-													callback: C.a.validateUrlPattern,
+													callback: T.a.validateUrlPattern,
 												},
 											},
 										},
@@ -44040,7 +44704,7 @@ License: MIT
 														),
 												},
 												regexp: {
-													regexp: F,
+													regexp: U,
 													message:
 														O.a.getTranslationByKey(
 															'sitemapid_invalid_char'
@@ -44074,7 +44738,7 @@ License: MIT
 														),
 												},
 												regexp: {
-													regexp: F,
+													regexp: U,
 													message:
 														O.a.getTranslationByKey(
 															'sitemapid_invalid_char'
@@ -44131,7 +44795,7 @@ License: MIT
 																				'sitemapid_short_message'
 																			),
 																	};
-																if (!n._id.match(F))
+																if (!n._id.match(U))
 																	return {
 																		valid: !1,
 																		message:
@@ -44169,7 +44833,7 @@ License: MIT
 																};
 															if (Object.hasOwn(n, 'startUrls')) {
 																if (
-																	!C.a.validateStartUrls(
+																	!T.a.validateStartUrls(
 																		n.startUrls
 																	)
 																)
@@ -44190,7 +44854,7 @@ License: MIT
 																			),
 																	};
 																if (
-																	!C.a.validateUrlPattern(
+																	!T.a.validateUrlPattern(
 																		n.urlPattern
 																	)
 																)
@@ -44265,7 +44929,7 @@ License: MIT
 						{
 							key: 'showTemplateSitemapPanel',
 							value:
-								((ct = c()(
+								((gt = c()(
 									y.a.mark(function t() {
 										var e, n, r;
 										return y.a.wrap(
@@ -44276,7 +44940,7 @@ License: MIT
 															return (
 																this.showImportSitemapPanel(),
 																(t.next = 3),
-																S.tabs.query({
+																w.tabs.query({
 																	active: !0,
 																	lastFocusedWindow: !0,
 																})
@@ -44284,7 +44948,7 @@ License: MIT
 														case 3:
 															return (
 																(e = t.sent),
-																(n = S.runtime.getURL('')),
+																(n = w.runtime.getURL('')),
 																(r =
 																	e.find(function (t) {
 																		return !t.url.startsWith(n);
@@ -44293,9 +44957,9 @@ License: MIT
 																	((document.getElementById(
 																		'edit_sitemap_id'
 																	).value = R(r.url)),
-																	(U.startUrls = [r.url]),
+																	(V.startUrls = [r.url]),
 																	b('#sitemapJSON').text(
-																		JSON.stringify(U)
+																		JSON.stringify(V)
 																	)),
 																t.abrupt('return', !0)
 															);
@@ -44310,7 +44974,7 @@ License: MIT
 									})
 								)),
 								function () {
-									return ct.apply(this, arguments);
+									return gt.apply(this, arguments);
 								}),
 						},
 						{
@@ -44324,7 +44988,7 @@ License: MIT
 						{
 							key: 'fetchXMLSitemap',
 							value:
-								((lt = c()(
+								((vt = c()(
 									y.a.mark(function t() {
 										var e, n, r, i, a, o, s, u, l;
 										return y.a.wrap(
@@ -44361,7 +45025,7 @@ License: MIT
 																),
 																(t.prev = 8),
 																(t.next = 11),
-																S.runtime.sendMessage({
+																w.runtime.sendMessage({
 																	fetchXMLSitemap: !0,
 																	url: e,
 																})
@@ -44496,7 +45160,7 @@ License: MIT
 									})
 								)),
 								function () {
-									return lt.apply(this, arguments);
+									return vt.apply(this, arguments);
 								}),
 						},
 						{
@@ -44514,7 +45178,7 @@ License: MIT
 						{
 							key: 'createSitemapFromXML',
 							value:
-								((ut = c()(
+								((pt = c()(
 									y.a.mark(function t() {
 										var e, n, r;
 										return y.a.wrap(
@@ -44535,7 +45199,7 @@ License: MIT
 																t.abrupt('return')
 															);
 														case 4:
-															if (e.match(F)) {
+															if (e.match(U)) {
 																t.next = 7;
 																break;
 															}
@@ -44591,7 +45255,7 @@ License: MIT
 															);
 														case 18:
 															return (
-																(r = new C.a(
+																(r = new T.a(
 																	e,
 																	n,
 																	void 0,
@@ -44617,7 +45281,7 @@ License: MIT
 									})
 								)),
 								function () {
-									return ut.apply(this, arguments);
+									return pt.apply(this, arguments);
 								}),
 						},
 						{
@@ -44652,7 +45316,7 @@ License: MIT
 						{
 							key: 'showAuthPage',
 							value:
-								((st = c()(
+								((dt = c()(
 									y.a.mark(function t() {
 										var e, n;
 										return y.a.wrap(
@@ -44703,7 +45367,7 @@ License: MIT
 									})
 								)),
 								function () {
-									return st.apply(this, arguments);
+									return dt.apply(this, arguments);
 								}),
 						},
 						{
@@ -44719,7 +45383,7 @@ License: MIT
 						{
 							key: 'authorizationSubmitButtonInit',
 							value:
-								((ot = c()(
+								((ht = c()(
 									y.a.mark(function t() {
 										var e, n, r;
 										return y.a.wrap(
@@ -44780,13 +45444,13 @@ License: MIT
 									})
 								)),
 								function () {
-									return ot.apply(this, arguments);
+									return ht.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'logOutButtonInit',
 							value:
-								((at = c()(
+								((ft = c()(
 									y.a.mark(function t() {
 										var e = this;
 										return y.a.wrap(
@@ -44838,13 +45502,13 @@ License: MIT
 									})
 								)),
 								function () {
-									return at.apply(this, arguments);
+									return ft.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'showProjects',
 							value:
-								((it = c()(
+								((ct = c()(
 									y.a.mark(function t() {
 										var e, n;
 										return y.a.wrap(
@@ -44916,7 +45580,7 @@ License: MIT
 									})
 								)),
 								function () {
-									return it.apply(this, arguments);
+									return ct.apply(this, arguments);
 								}),
 						},
 						{
@@ -44928,7 +45592,7 @@ License: MIT
 						{
 							key: 'showSitemaps',
 							value:
-								((rt = c()(
+								((lt = c()(
 									y.a.mark(function t(e, n) {
 										var r, i;
 										return y.a.wrap(
@@ -45030,7 +45694,7 @@ License: MIT
 									})
 								)),
 								function (t, e) {
-									return rt.apply(this, arguments);
+									return lt.apply(this, arguments);
 								}),
 						},
 						{
@@ -45055,7 +45719,7 @@ License: MIT
 						{
 							key: 'createSitemap',
 							value:
-								((nt = c()(
+								((ut = c()(
 									y.a.mark(function t() {
 										var e, n;
 										return y.a.wrap(
@@ -45092,7 +45756,7 @@ License: MIT
 															break;
 														case 11:
 															return (
-																(n = new C.a(
+																(n = new T.a(
 																	e.id,
 																	e.startUrls,
 																	e.urlPattern,
@@ -45118,13 +45782,13 @@ License: MIT
 									})
 								)),
 								function () {
-									return nt.apply(this, arguments);
+									return ut.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'importSitemap',
 							value:
-								((et = c()(
+								((st = c()(
 									y.a.mark(function t() {
 										var e, n, r, i;
 										return y.a.wrap(
@@ -45164,7 +45828,7 @@ License: MIT
 															break;
 														case 13:
 															return (
-																((i = C.a.sitemapFromObj(n))._id =
+																((i = T.a.sitemapFromObj(n))._id =
 																	r),
 																(t.next = 17),
 																this.store.createSitemap(
@@ -45185,7 +45849,7 @@ License: MIT
 									})
 								)),
 								function () {
-									return et.apply(this, arguments);
+									return st.apply(this, arguments);
 								}),
 						},
 						{
@@ -45212,7 +45876,7 @@ License: MIT
 						{
 							key: 'editSitemapMetadataSave',
 							value:
-								((tt = c()(
+								((ot = c()(
 									y.a.mark(function t() {
 										var e, n, r, i;
 										return y.a.wrap(
@@ -45280,13 +45944,13 @@ License: MIT
 									})
 								)),
 								function () {
-									return tt.apply(this, arguments);
+									return ot.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'editProject',
 							value:
-								((Q = c()(
+								((at = c()(
 									y.a.mark(function t(e) {
 										var n;
 										return y.a.wrap(
@@ -45312,7 +45976,7 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return Q.apply(this, arguments);
+									return at.apply(this, arguments);
 								}),
 						},
 						{
@@ -45355,8 +46019,8 @@ License: MIT
 													return t.id;
 												}),
 											s = x.SelectorListItem(
-												B(
-													B({}, n),
+												F(
+													F({}, n),
 													{},
 													{ parentSelectors: o, title: r.title }
 												)
@@ -45379,6 +46043,620 @@ License: MIT
 								var n = b('#selector-graph')[0];
 								return new _(t).draw(n, b(document).width(), 200), !0;
 							},
+						},
+						{
+							key: 'showTorchList',
+							value: function () {
+								this.setActiveNavigationButton('sitemap-torch');
+								var t = this.state.currentSitemap.torches.map(function (t) {
+										return F(
+											F({}, t.toJSON()),
+											{},
+											{
+												preActionsCount: t.preActions.length,
+												columnsCount: t.columns.length,
+											}
+										);
+									}),
+									e = x.TorchList({ torches: t });
+								return b('#viewport').html(e), O.a.translatePage(), !0;
+							},
+						},
+						{
+							key: 'showTorchCreate',
+							value: function () {
+								(this.state.currentTorch = null),
+									(this.state.torchWizardStep = 1),
+									this._renderTorchWizard();
+							},
+						},
+						{
+							key: 'editTorch',
+							value: function (t) {
+								var e = b(t).closest('.torch-card').data('torch-id'),
+									n = this.state.currentSitemap.getTorch(e);
+								n &&
+									((this.state.currentTorch = n),
+									(this.state.torchWizardStep = 1),
+									this._renderTorchWizard(!0));
+							},
+						},
+						{
+							key: 'cloneTorch',
+							value: function (t) {
+								var e = b(t).closest('.torch-card').data('torch-id'),
+									n = this.state.currentSitemap.getTorch(e);
+								if (n) {
+									var r = n.clone();
+									this.state.currentSitemap.addTorch(r.toJSON()),
+										this._saveSitemapAndRefreshTorchList();
+								}
+							},
+						},
+						{
+							key: 'deleteTorch',
+							value: function (t) {
+								var e = b(t).closest('.torch-card').data('torch-id');
+								confirm('Are you sure you want to delete this torch?') &&
+									(this.state.currentSitemap.deleteTorch(e),
+									this._saveSitemapAndRefreshTorchList());
+							},
+						},
+						{
+							key: 'runTorch',
+							value: function (t) {
+								var e = b(t).closest('.torch-card').data('torch-id');
+								console.log('Running torch:', e),
+									alert(
+										'Torch execution will be implemented in a future update.'
+									);
+							},
+						},
+						{
+							key: 'cancelTorchEdit',
+							value: function () {
+								(this.state.currentTorch = null), this.showTorchList();
+							},
+						},
+						{
+							key: 'saveTorch',
+							value: function () {
+								var t = this._collectTorchFormData(),
+									e = new N.b(t).validate();
+								e.valid
+									? (this.state.currentTorch
+											? this.state.currentSitemap.updateTorch(
+													this.state.currentTorch.id,
+													t
+											  )
+											: this.state.currentSitemap.addTorch(t),
+									  this._saveSitemapAndRefreshTorchList())
+									: alert(
+											e.errors
+												.map(function (t) {
+													return t.message;
+												})
+												.join('\n')
+									  );
+							},
+						},
+						{
+							key: 'torchWizardNext',
+							value: function () {
+								1 === this.state.torchWizardStep &&
+									((this.state.torchWizardStep = 2),
+									this._updateTorchWizardStep());
+							},
+						},
+						{
+							key: 'torchWizardPrev',
+							value: function () {
+								2 === this.state.torchWizardStep &&
+									((this.state.torchWizardStep = 1),
+									this._updateTorchWizardStep());
+							},
+						},
+						{
+							key: 'addPreAction',
+							value: function () {
+								var t = b('#preactions-container'),
+									e = t.find('.preaction-item').length,
+									n = this._createPreActionItem(e, {
+										type: N.a.WAIT,
+										selector: '',
+										value: '2000',
+										repeat: 1,
+										delay: 0,
+									});
+								t.append(n);
+							},
+						},
+						{
+							key: 'removePreAction',
+							value: function (t) {
+								b(t).closest('.preaction-item').remove(), this._reindexPreActions();
+							},
+						},
+						{
+							key: 'addTorchColumn',
+							value: function () {
+								var t = b('#columns-container'),
+									e = this._createColumnItem({
+										id: 'col_' + Date.now().toString(36),
+										name: '',
+										selector: '',
+										attribute: 'text',
+										multiple: !1,
+									});
+								t.append(e);
+							},
+						},
+						{
+							key: 'removeTorchColumn',
+							value: function (t) {
+								b(t).closest('.column-item').remove();
+							},
+						},
+						{
+							key: 'toggleColumnAdvanced',
+							value: function (t) {
+								b(t)
+									.closest('.column-item')
+									.find('.column-advanced')
+									.toggleClass('hidden');
+							},
+						},
+						{
+							key: 'refreshTorchPreview',
+							value:
+								((it = c()(
+									y.a.mark(function t() {
+										var e, n, r, i;
+										return y.a.wrap(
+											function (t) {
+												for (;;)
+													switch ((t.prev = t.next)) {
+														case 0:
+															if (
+																0 !==
+																(e = this._collectColumnsData())
+																	.length
+															) {
+																t.next = 5;
+																break;
+															}
+															return (
+																b('#preview-body').html(
+																	'<tr><td colspan="100%">No columns defined</td></tr>'
+																),
+																b('#preview-status').text(''),
+																t.abrupt('return')
+															);
+														case 5:
+															return (
+																(n = b('#preview-header')).empty(),
+																e.forEach(function (t) {
+																	n.append(
+																		b('<th>').text(
+																			t.name || 'Unnamed'
+																		)
+																	);
+																}),
+																b('#preview-status').text(
+																	'Loading preview...'
+																),
+																(t.prev = 9),
+																(t.next = 12),
+																this.contentScript.getColumnPreviewData(
+																	e
+																)
+															);
+														case 12:
+															(r = t.sent),
+																(i = b('#preview-body')).empty(),
+																r && r.length > 0
+																	? (r
+																			.slice(0, 10)
+																			.forEach(function (t) {
+																				var n = b('<tr>');
+																				e.forEach(function (
+																					e
+																				) {
+																					var r =
+																						t[e.name] ||
+																						'';
+																					n.append(
+																						b(
+																							'<td>'
+																						).text(
+																							Array.isArray(
+																								r
+																							)
+																								? r.join(
+																										', '
+																								  )
+																								: r
+																						)
+																					);
+																				}),
+																					i.append(n);
+																			}),
+																	  b('#preview-status').text(
+																			`Showing ${Math.min(
+																				r.length,
+																				10
+																			)} of ${r.length} rows`
+																	  ))
+																	: (i.html(
+																			'<tr><td colspan="100%">No data found. Check your selectors.</td></tr>'
+																	  ),
+																	  b('#preview-status').text(
+																			''
+																	  )),
+																(t.next = 23);
+															break;
+														case 18:
+															(t.prev = 18),
+																(t.t0 = t.catch(9)),
+																console.error(
+																	'Preview error:',
+																	t.t0
+																),
+																b('#preview-body').html(
+																	'<tr><td colspan="100%">Error loading preview</td></tr>'
+																),
+																b('#preview-status').text(
+																	'Error: ' + t.t0.message
+																);
+														case 23:
+														case 'end':
+															return t.stop();
+													}
+											},
+											t,
+											this,
+											[[9, 18]]
+										);
+									})
+								)),
+								function () {
+									return it.apply(this, arguments);
+								}),
+						},
+						{
+							key: 'selectPreActionElement',
+							value:
+								((rt = c()(
+									y.a.mark(function t(e) {
+										var n;
+										return y.a.wrap(
+											function (t) {
+												for (;;)
+													switch ((t.prev = t.next)) {
+														case 0:
+															return (
+																(n = b(e)
+																	.closest(
+																		'.preaction-selector-group'
+																	)
+																	.find('.preaction-selector')),
+																(t.next = 3),
+																this._selectElementForInput(n)
+															);
+														case 3:
+														case 'end':
+															return t.stop();
+													}
+											},
+											t,
+											this
+										);
+									})
+								)),
+								function (t) {
+									return rt.apply(this, arguments);
+								}),
+						},
+						{
+							key: 'selectColumnElement',
+							value:
+								((nt = c()(
+									y.a.mark(function t(e) {
+										var n;
+										return y.a.wrap(
+											function (t) {
+												for (;;)
+													switch ((t.prev = t.next)) {
+														case 0:
+															return (
+																(n = b(e)
+																	.closest(
+																		'.column-selector-group'
+																	)
+																	.find('.column-selector')),
+																(t.next = 3),
+																this._selectElementForInput(n)
+															);
+														case 3:
+														case 'end':
+															return t.stop();
+													}
+											},
+											t,
+											this
+										);
+									})
+								)),
+								function (t) {
+									return nt.apply(this, arguments);
+								}),
+						},
+						{
+							key: '_selectElementForInput',
+							value:
+								((et = c()(
+									y.a.mark(function t(e) {
+										var n;
+										return y.a.wrap(
+											function (t) {
+												for (;;)
+													switch ((t.prev = t.next)) {
+														case 0:
+															return (
+																(t.prev = 0),
+																(t.next = 3),
+																this.contentScript.selectElement()
+															);
+														case 3:
+															(n = t.sent) && e.val(n), (t.next = 10);
+															break;
+														case 7:
+															(t.prev = 7),
+																(t.t0 = t.catch(0)),
+																console.error(
+																	'Element selection error:',
+																	t.t0
+																);
+														case 10:
+														case 'end':
+															return t.stop();
+													}
+											},
+											t,
+											this,
+											[[0, 7]]
+										);
+									})
+								)),
+								function (t) {
+									return et.apply(this, arguments);
+								}),
+						},
+						{
+							key: '_renderTorchWizard',
+							value: function () {
+								var t = this,
+									e =
+										arguments.length > 0 &&
+										void 0 !== arguments[0] &&
+										arguments[0],
+									n = this.state.currentTorch || new N.b({ name: '' }),
+									r = { name: n.name || '', description: n.description || '' },
+									i = x.TorchCreate(r);
+								b('#viewport').html(i),
+									e &&
+										b('.torch-title-text')
+											.attr('data-i18n', 'torch_edit_title')
+											.text('Edit Torch');
+								var a = b('#preactions-container');
+								n.preActions.forEach(function (e, n) {
+									a.append(t._createPreActionItem(n, e.toJSON()));
+								});
+								var o = b('#columns-container');
+								n.columns.forEach(function (e) {
+									o.append(t._createColumnItem(e.toJSON()));
+								}),
+									O.a.translatePage(),
+									this._updateTorchWizardStep();
+							},
+						},
+						{
+							key: '_updateTorchWizardStep',
+							value: function () {
+								var t = this.state.torchWizardStep;
+								b('.wizard-step').removeClass('active completed'),
+									b('.wizard-step[data-step="1"]').addClass(
+										t > 1 ? 'completed' : 1 === t ? 'active' : ''
+									),
+									b('.wizard-step[data-step="2"]').addClass(
+										2 === t ? 'active' : ''
+									),
+									b('#step-preactions').toggleClass('hidden', 1 !== t),
+									b('#step-columns').toggleClass('hidden', 2 !== t),
+									b('#torch-prev').toggleClass('hidden', 1 === t),
+									b('#torch-next').toggleClass('hidden', 2 === t),
+									b('#torch-save').toggleClass('hidden', 2 !== t),
+									2 === t && this.refreshTorchPreview();
+							},
+						},
+						{
+							key: '_createPreActionItem',
+							value: function (t, e) {
+								return b(
+									`\n\t\t\t<div class="preaction-item" data-index="${t}">\n\t\t\t\t<div class="preaction-handle">\n\t\t\t\t\t<span class="glyphicon glyphicon-menu-hamburger"></span>\n\t\t\t\t</div>\n\t\t\t\t<div class="preaction-content">\n\t\t\t\t\t<div class="preaction-row">\n\t\t\t\t\t\t<select class="form-control preaction-type" name="preaction-type">\n\t\t\t\t\t\t\t<option value="click_one" ${
+										'click_one' === e.type ? 'selected' : ''
+									}>Click Element</option>\n\t\t\t\t\t\t\t<option value="click_all" ${
+										'click_all' === e.type ? 'selected' : ''
+									}>Click All</option>\n\t\t\t\t\t\t\t<option value="load_more" ${
+										'load_more' === e.type ? 'selected' : ''
+									}>Load More</option>\n\t\t\t\t\t\t\t<option value="scroll" ${
+										'scroll' === e.type ? 'selected' : ''
+									}>Scroll</option>\n\t\t\t\t\t\t\t<option value="wait" ${
+										'wait' === e.type ? 'selected' : ''
+									}>Wait</option>\n\t\t\t\t\t\t\t<option value="hover" ${
+										'hover' === e.type ? 'selected' : ''
+									}>Hover</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<div class="input-group preaction-selector-group">\n\t\t\t\t\t\t\t<input type="text" class="form-control preaction-selector"\n\t\t\t\t\t\t\t\tname="preaction-selector" value="${
+										e.selector || ''
+									}"\n\t\t\t\t\t\t\t\tplaceholder="CSS selector">\n\t\t\t\t\t\t\t<span class="input-group-btn">\n\t\t\t\t\t\t\t\t<button type="button" class="btn btn-default select-preaction-element">\n\t\t\t\t\t\t\t\t\t<span class="glyphicon glyphicon-screenshot"></span>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="preaction-row preaction-options">\n\t\t\t\t\t\t<div class="preaction-option">\n\t\t\t\t\t\t\t<label>Value:</label>\n\t\t\t\t\t\t\t<input type="text" class="form-control preaction-value"\n\t\t\t\t\t\t\t\tname="preaction-value" value="${
+										e.value || ''
+									}" placeholder="e.g., 2000ms">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="preaction-option">\n\t\t\t\t\t\t\t<label>Repeat:</label>\n\t\t\t\t\t\t\t<input type="number" class="form-control preaction-repeat"\n\t\t\t\t\t\t\t\tname="preaction-repeat" value="${
+										e.repeat || 1
+									}" min="1">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="preaction-option">\n\t\t\t\t\t\t\t<label>Delay:</label>\n\t\t\t\t\t\t\t<input type="text" class="form-control preaction-delay"\n\t\t\t\t\t\t\t\tname="preaction-delay" value="${
+										e.delay || 0
+									}" placeholder="0ms">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="preaction-actions">\n\t\t\t\t\t<button type="button" class="btn btn-link btn-sm remove-preaction" title="Remove">\n\t\t\t\t\t\t<span class="glyphicon glyphicon-trash"></span>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t`
+								);
+							},
+						},
+						{
+							key: '_createColumnItem',
+							value: function (t) {
+								return b(
+									`\n\t\t\t<div class="column-item" data-id="${
+										t.id
+									}">\n\t\t\t\t<div class="column-handle">\n\t\t\t\t\t<span class="glyphicon glyphicon-menu-hamburger"></span>\n\t\t\t\t</div>\n\t\t\t\t<div class="column-content">\n\t\t\t\t\t<div class="column-row">\n\t\t\t\t\t\t<input type="text" class="form-control column-name"\n\t\t\t\t\t\t\tname="column-name" value="${
+										t.name || ''
+									}" placeholder="Column name" required>\n\t\t\t\t\t\t<div class="input-group column-selector-group">\n\t\t\t\t\t\t\t<input type="text" class="form-control column-selector"\n\t\t\t\t\t\t\t\tname="column-selector" value="${
+										t.selector || ''
+									}"\n\t\t\t\t\t\t\t\tplaceholder="CSS selector" required>\n\t\t\t\t\t\t\t<span class="input-group-btn">\n\t\t\t\t\t\t\t\t<button type="button" class="btn btn-default select-column-element">\n\t\t\t\t\t\t\t\t\t<span class="glyphicon glyphicon-screenshot"></span>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="column-row column-options">\n\t\t\t\t\t\t<select class="form-control column-attribute" name="column-attribute">\n\t\t\t\t\t\t\t<option value="text" ${
+										'text' === t.attribute ? 'selected' : ''
+									}>Text content</option>\n\t\t\t\t\t\t\t<option value="href" ${
+										'href' === t.attribute ? 'selected' : ''
+									}>Link (href)</option>\n\t\t\t\t\t\t\t<option value="src" ${
+										'src' === t.attribute ? 'selected' : ''
+									}>Image (src)</option>\n\t\t\t\t\t\t\t<option value="html" ${
+										'html' === t.attribute ? 'selected' : ''
+									}>Inner HTML</option>\n\t\t\t\t\t\t\t<option value="outerHtml" ${
+										'outerHtml' === t.attribute ? 'selected' : ''
+									}>Outer HTML</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<label class="checkbox-inline">\n\t\t\t\t\t\t\t<input type="checkbox" class="column-multiple" name="column-multiple"\n\t\t\t\t\t\t\t\t${
+										t.multiple ? 'checked' : ''
+									}>\n\t\t\t\t\t\t\t<span>Multiple</span>\n\t\t\t\t\t\t</label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="column-row column-advanced hidden">\n\t\t\t\t\t\t<input type="text" class="form-control column-regex"\n\t\t\t\t\t\t\tname="column-regex" value="${
+										t.regex || ''
+									}" placeholder="Regex pattern (optional)">\n\t\t\t\t\t\t<input type="text" class="form-control column-transform"\n\t\t\t\t\t\t\tname="column-transform" value="${
+										t.transform || ''
+									}" placeholder="Transform (optional)">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="column-actions">\n\t\t\t\t\t<button type="button" class="btn btn-link btn-sm toggle-column-advanced" title="Advanced">\n\t\t\t\t\t\t<span class="glyphicon glyphicon-cog"></span>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button type="button" class="btn btn-link btn-sm remove-column" title="Remove">\n\t\t\t\t\t\t<span class="glyphicon glyphicon-trash"></span>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t`
+								);
+							},
+						},
+						{
+							key: '_reindexPreActions',
+							value: function () {
+								b('#preactions-container .preaction-item').each(function (t) {
+									b(this).attr('data-index', t);
+								});
+							},
+						},
+						{
+							key: '_collectTorchFormData',
+							value: function () {
+								var t;
+								return {
+									id:
+										null === (t = this.state.currentTorch) || void 0 === t
+											? void 0
+											: t.id,
+									name: b('#torch-name').val().trim(),
+									description: b('#torch-description').val().trim(),
+									preActions: this._collectPreActionsData(),
+									columns: this._collectColumnsData(),
+								};
+							},
+						},
+						{
+							key: '_collectPreActionsData',
+							value: function () {
+								var t = [];
+								return (
+									b('#preactions-container .preaction-item').each(function () {
+										t.push({
+											type: b(this).find('.preaction-type').val(),
+											selector: b(this)
+												.find('.preaction-selector')
+												.val()
+												.trim(),
+											value: b(this).find('.preaction-value').val().trim(),
+											repeat:
+												parseInt(b(this).find('.preaction-repeat').val()) ||
+												1,
+											delay:
+												parseInt(b(this).find('.preaction-delay').val()) ||
+												0,
+											enabled: !0,
+										});
+									}),
+									t
+								);
+							},
+						},
+						{
+							key: '_collectColumnsData',
+							value: function () {
+								var t = [];
+								return (
+									b('#columns-container .column-item').each(function () {
+										t.push({
+											id: b(this).data('id'),
+											name: b(this).find('.column-name').val().trim(),
+											selector: b(this).find('.column-selector').val().trim(),
+											attribute: b(this).find('.column-attribute').val(),
+											multiple: b(this)
+												.find('.column-multiple')
+												.is(':checked'),
+											regex: b(this).find('.column-regex').val().trim(),
+											transform: b(this)
+												.find('.column-transform')
+												.val()
+												.trim(),
+											enabled: !0,
+										});
+									}),
+									t
+								);
+							},
+						},
+						{
+							key: '_saveSitemapAndRefreshTorchList',
+							value:
+								((tt = c()(
+									y.a.mark(function t() {
+										return y.a.wrap(
+											function (t) {
+												for (;;)
+													switch ((t.prev = t.next)) {
+														case 0:
+															return (
+																(t.prev = 0),
+																(t.next = 3),
+																this.store.saveSitemap(
+																	this.state.currentSitemap
+																)
+															);
+														case 3:
+															this.showTorchList(), (t.next = 10);
+															break;
+														case 6:
+															(t.prev = 6),
+																(t.t0 = t.catch(0)),
+																console.error(
+																	'Error saving sitemap:',
+																	t.t0
+																),
+																alert(
+																	'Error saving: ' + t.t0.message
+																);
+														case 10:
+														case 'end':
+															return t.stop();
+													}
+											},
+											t,
+											this,
+											[[0, 6]]
+										);
+									})
+								)),
+								function () {
+									return tt.apply(this, arguments);
+								}),
 						},
 						{
 							key: 'showChildSelectors',
@@ -45579,7 +46857,7 @@ License: MIT
 															if (
 																(function t(e) {
 																	var r,
-																		i = L(e);
+																		i = j(e);
 																	try {
 																		for (
 																			i.s();
@@ -45736,7 +47014,7 @@ License: MIT
 						{
 							key: 'saveSelector',
 							value:
-								((X = c()(
+								((Q = c()(
 									y.a.mark(function t(e) {
 										var n, r, i, a, o, s;
 										return y.a.wrap(
@@ -45835,7 +47113,7 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return X.apply(this, arguments);
+									return Q.apply(this, arguments);
 								}),
 						},
 						{
@@ -45855,7 +47133,7 @@ License: MIT
 						{
 							key: 'updateSelector',
 							value:
-								((J = c()(
+								((X = c()(
 									y.a.mark(function t() {
 										var e,
 											n,
@@ -45916,13 +47194,13 @@ License: MIT
 									})
 								)),
 								function () {
-									return J.apply(this, arguments);
+									return X.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'confirmSaveChildSelectors',
 							value:
-								((Z = c()(
+								((J = c()(
 									y.a.mark(function t(e) {
 										return y.a.wrap(
 											function (t) {
@@ -45948,13 +47226,13 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return Z.apply(this, arguments);
+									return J.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'confirmDeleteChildSelectors',
 							value:
-								((Y = c()(
+								((Z = c()(
 									y.a.mark(function t(e) {
 										return y.a.wrap(
 											function (t) {
@@ -45980,7 +47258,7 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return Y.apply(this, arguments);
+									return Z.apply(this, arguments);
 								}),
 						},
 						{
@@ -46005,17 +47283,17 @@ License: MIT
 									),
 									d = b('#edit-selector [name=multiple]').is(':checked'),
 									p = b('#edit-selector [name=downloadFile]').is(':checked'),
-									g = b('#edit-selector [name=clickPopup]').is(':checked'),
-									v = b('#edit-selector [name=delay]').val(),
+									v = b('#edit-selector [name=clickPopup]').is(':checked'),
+									g = b('#edit-selector [name=delay]').val(),
 									m = b('#edit-selector [id=outerHTML]').is(':checked'),
 									y = b('#edit-selector [name=mergeIntoList]').is(':checked'),
 									x = b('#edit-selector [name=extractAttribute]').val(),
-									S = b('#edit-selector [name=extractStyle]').val(),
-									w = b('#edit-selector [name=value]').val(),
+									w = b('#edit-selector [name=extractStyle]').val(),
+									S = b('#edit-selector [name=value]').val(),
 									A = b('#edit-selector [name=parentSelectors]').val(),
 									k = [],
-									C = b('#edit-selector .column-header'),
-									E = b('#edit-selector .column-name'),
+									T = b('#edit-selector .column-header'),
+									C = b('#edit-selector .column-name'),
 									_ = b('#edit-selector .column-extract'),
 									M = {
 										replaceString: b(
@@ -46042,9 +47320,9 @@ License: MIT
 										regexgroup: b('#edit-selector [name=regexgroup]').val(),
 									},
 									O = b('#edit-selector [name=uuid]').val();
-								C.each(function (t) {
-									var e = b(C[t]).val(),
-										n = b(E[t]).val(),
+								T.each(function (t) {
+									var e = b(T[t]).val(),
+										n = b(C[t]).val(),
 										r = b(_[t]).is(':checked');
 									k.push({ header: e, name: n, extract: r });
 								});
@@ -46064,20 +47342,20 @@ License: MIT
 									type: u,
 									multiple: d,
 									downloadFile: p,
-									clickPopup: g,
+									clickPopup: v,
 									extractAttribute: x,
-									extractStyle: S,
-									value: w,
+									extractStyle: w,
+									value: S,
 									parentSelectors: A,
 									columns: k,
-									delay: v,
+									delay: g,
 									textmanipulation: I,
 									stringReplacement: M,
 									mergeIntoList: y,
 									outerHTML: m,
 									uuid: O,
 								};
-								return T.a.createSelector(R);
+								return E.a.createSelector(R);
 							},
 						},
 						{
@@ -46092,7 +47370,7 @@ License: MIT
 						{
 							key: 'cancelSelectorEditing',
 							value:
-								((K = c()(
+								((Y = c()(
 									y.a.mark(function t() {
 										return y.a.wrap(
 											function (t) {
@@ -46129,14 +47407,14 @@ License: MIT
 									})
 								)),
 								function () {
-									return K.apply(this, arguments);
+									return Y.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'addSelector',
 							value: function () {
 								var t = this.state.currentParentSelectorId.uuid,
-									e = T.a.createSelector({
+									e = E.a.createSelector({
 										parentSelectors: [t],
 										type: 'SelectorText',
 										multiple: !1,
@@ -46170,7 +47448,7 @@ License: MIT
 						{
 							key: 'copySitemap',
 							value:
-								((G = c()(
+								((K = c()(
 									y.a.mark(function t(e) {
 										var n;
 										return y.a.wrap(
@@ -46202,13 +47480,13 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return G.apply(this, arguments);
+									return K.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'confirmCopySitemap',
 							value:
-								((W = c()(
+								((G = c()(
 									y.a.mark(function t(e) {
 										var n, r;
 										return y.a.wrap(
@@ -46254,7 +47532,7 @@ License: MIT
 															);
 														case 11:
 															return (
-																(r = new C.a(
+																(r = new T.a(
 																	n,
 																	r.startUrls,
 																	r.urlPattern,
@@ -46284,13 +47562,13 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return W.apply(this, arguments);
+									return G.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'deleteSelector',
 							value:
-								((q = c()(
+								((W = c()(
 									y.a.mark(function t(e) {
 										var n, r, i, a, o;
 										return y.a.wrap(
@@ -46339,13 +47617,13 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return q.apply(this, arguments);
+									return W.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'confirmDeleteSelector',
 							value:
-								((z = c()(
+								((q = c()(
 									y.a.mark(function t(e) {
 										var n, r;
 										return y.a.wrap(
@@ -46383,13 +47661,13 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return z.apply(this, arguments);
+									return q.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'deleteSitemap',
 							value:
-								((H = c()(
+								((z = c()(
 									y.a.mark(function t(e) {
 										var n;
 										return y.a.wrap(
@@ -46416,13 +47694,13 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return H.apply(this, arguments);
+									return z.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'confirmDeleteSitemap',
 							value:
-								((V = c()(
+								((H = c()(
 									y.a.mark(function t(e) {
 										return y.a.wrap(
 											function (t) {
@@ -46455,7 +47733,7 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return V.apply(this, arguments);
+									return H.apply(this, arguments);
 								}),
 						},
 						{
@@ -46479,7 +47757,7 @@ License: MIT
 												},
 												callback: {
 													callback: function (t) {
-														return C.a.isUrlValid(t);
+														return T.a.isUrlValid(t);
 													},
 													message: O.a.getTranslationByKey(
 														'partial_sitemap_scrape_start_url_invalid_message'
@@ -46552,10 +47830,10 @@ License: MIT
 								this.setActiveNavigationButton('sitemap-scrape');
 								var e = this.state.currentSitemap;
 								return (
-									S.tabs
+									w.tabs
 										.query({ active: !0, lastFocusedWindow: !0 })
 										.then(function (n) {
-											var r = S.runtime.getURL(''),
+											var r = w.runtime.getURL(''),
 												i =
 													n.find(function (t) {
 														return !t.url.startsWith(r);
@@ -46592,9 +47870,9 @@ License: MIT
 									b('.scraping-in-progress').removeClass('hide'),
 									b('#submit-scrape-sitemap').closest('.form-group').hide(),
 									b('#scrape-sitemap-config input').prop('disabled', !0),
-									S.runtime.sendMessage(a).then(
+									w.runtime.sendMessage(a).then(
 										function (t) {
-											(i.selectors = new T.a(t)), this.browseSitemapData();
+											(i.selectors = new E.a(t)), this.browseSitemapData();
 										}.bind(this)
 									),
 									!1
@@ -46734,9 +48012,9 @@ License: MIT
 						{
 							key: 'getDataExportCsvBlob',
 							value:
-								(($ = c()(
+								((B = c()(
 									y.a.mark(function t(e, n) {
-										var r, a, s, u, l, c, f, h, d, p, g, v, m;
+										var r, a, s, u, l, c, f, h, d, p, v, g, m;
 										return y.a.wrap(
 											function (t) {
 												for (;;)
@@ -46744,7 +48022,7 @@ License: MIT
 														case 0:
 															return (
 																(u = function (t, e) {
-																	var n = B({}, t);
+																	var n = F({}, t);
 																	return (
 																		e.forEach(function (e) {
 																			e in t || (n[e] = '');
@@ -46765,8 +48043,8 @@ License: MIT
 																			return e[1].flatMap(
 																				function (t) {
 																					return s(
-																						B(
-																							B(
+																						F(
+																							F(
 																								{},
 																								r
 																							),
@@ -46822,13 +48100,13 @@ License: MIT
 																}),
 																(r = function (t, e) {
 																	var n = t._attachments,
-																		r = o()(t, N);
+																		r = o()(t, P);
 																	if (!n) return r;
 																	var a = new Map(
 																			n.map(function (t) {
 																				return [
 																					t.url,
-																					o()(t, P),
+																					o()(t, L),
 																				];
 																			})
 																		),
@@ -46912,7 +48190,7 @@ License: MIT
 																	return t.downloadsAttachments();
 																})),
 																(p = e.getDataColumns()),
-																(g = h
+																(v = h
 																	.map(function (t) {
 																		return r(t, d);
 																	})
@@ -46920,14 +48198,14 @@ License: MIT
 																	.map(function (t) {
 																		return u(t, p);
 																	})),
-																(v = {
+																(g = {
 																	delimiter: l,
 																	quotes: !1,
 																	quoteChar: '"',
 																	header: !0,
 																	newline: '\r\n',
 																}),
-																(m = c + A.unparse(g, v) + f),
+																(m = c + A.unparse(v, g) + f),
 																t.abrupt(
 																	'return',
 																	new Blob([m], {
@@ -46946,13 +48224,13 @@ License: MIT
 									})
 								)),
 								function (t, e) {
-									return $.apply(this, arguments);
+									return B.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'getDataExportJsonLinesBlob',
 							value:
-								((j = c()(
+								(($ = c()(
 									y.a.mark(function t(e, n) {
 										var r, i, a, o;
 										return y.a.wrap(
@@ -46996,13 +48274,13 @@ License: MIT
 									})
 								)),
 								function (t, e) {
-									return j.apply(this, arguments);
+									return $.apply(this, arguments);
 								}),
 						},
 						{
 							key: 'selectSelector',
 							value:
-								((E = c()(
+								((C = c()(
 									y.a.mark(function t(e) {
 										var n, r, i, a, o, s, u;
 										return y.a.wrap(
@@ -47071,7 +48349,7 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return E.apply(this, arguments);
+									return C.apply(this, arguments);
 								}),
 						},
 						{
@@ -47149,7 +48427,7 @@ License: MIT
 						{
 							key: 'selectTableHeaderRowSelector',
 							value:
-								((g = c()(
+								((v = c()(
 									y.a.mark(function t(e) {
 										var n, r, i, a, o, s, u, l;
 										return y.a.wrap(
@@ -47215,7 +48493,7 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return g.apply(this, arguments);
+									return v.apply(this, arguments);
 								}),
 						},
 						{
@@ -47607,7 +48885,7 @@ License: MIT
 										parentSelectorIds: r,
 										selectorId: e,
 									};
-								S.runtime.sendMessage(i).then(function (t) {
+								w.runtime.sendMessage(i).then(function (t) {
 									if (0 !== t.length) {
 										var e = x.DataPreview();
 										b('#viewport').append(e),
@@ -47690,7 +48968,7 @@ License: MIT
 															return (
 																(t.prev = 0),
 																(t.next = 3),
-																S.runtime.sendMessage({
+																w.runtime.sendMessage({
 																	getAvailableTabs: !0,
 																})
 															);
@@ -47769,7 +49047,7 @@ License: MIT
 																(r = n.find('.status-text')),
 																(t.prev = 3),
 																(t.next = 6),
-																S.runtime.sendMessage({
+																w.runtime.sendMessage({
 																	getTargetTabInfo: !0,
 																})
 															);
@@ -47793,7 +49071,7 @@ License: MIT
 																		})
 																	),
 																(t.next = 13),
-																S.runtime.sendMessage({
+																w.runtime.sendMessage({
 																	testTabConnection: !0,
 																	tabId: i.id,
 																})
@@ -47894,7 +49172,7 @@ License: MIT
 																(n = '' === e ? null : e),
 																(t.prev = 2),
 																(t.next = 5),
-																S.runtime.sendMessage({
+																w.runtime.sendMessage({
 																	setTargetTab: !0,
 																	tabId: n,
 																})
@@ -47957,7 +49235,7 @@ License: MIT
 																),
 																(t.prev = 6),
 																(t.next = 9),
-																S.runtime.sendMessage({
+																w.runtime.sendMessage({
 																	testTabConnection: !0,
 																})
 															);
@@ -48036,12 +49314,11 @@ License: MIT
 					f,
 					h,
 					d,
-					g,
+					v,
 					m,
-					E,
-					j,
+					C,
 					$,
-					V,
+					B,
 					H,
 					z,
 					q,
@@ -48065,7 +49342,13 @@ License: MIT
 					lt,
 					ct,
 					ft,
-					ht;
+					ht,
+					dt,
+					pt,
+					vt,
+					gt,
+					mt,
+					yt;
 			})();
 	},
 	,
@@ -48080,19 +49363,13 @@ License: MIT
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(247);
-		r({ target: 'Object', stat: !0, arity: 2, forced: Object.assign !== i }, { assign: i });
-	},
-	function (t, e, n) {
-		'use strict';
-		var r = n(10),
-			i = n(37),
-			a = n(77),
+			i = n(39),
+			a = n(78),
 			o = n(7),
-			s = n(33),
+			s = n(34),
 			u = n(15),
-			l = n(128),
-			c = n(191),
+			l = n(132),
+			c = n(195),
 			f = n(28),
 			h = a && a.prototype;
 		if (
@@ -48138,18 +49415,18 @@ License: MIT
 	},
 	function (t, e, n) {
 		'use strict';
-		n(368);
+		n(371);
 	},
 	function (t, e, n) {
 		'use strict';
-		n(251)(
+		n(257)(
 			'Set',
 			function (t) {
 				return function () {
 					return t(this, arguments.length ? arguments[0] : void 0);
 				};
 			},
-			n(252)
+			n(258)
 		);
 	},
 	function (t, e, n) {
@@ -49134,21 +50411,21 @@ License: MIT
 									p = i.cache.read(d, !0);
 								if (p) e(p);
 								else {
-									var g =
+									var v =
 											'function' == typeof o.params
 												? o.params.call(r[0], a)
 												: o.params,
-										v = t.extend(f, g, {
+										g = t.extend(f, v, {
 											load: n,
 											selected: c,
 											original: o.originalValue,
 											options: h,
 										});
-									(v[s] = a),
-										(v[u] = o.searchContain),
+									(g[s] = a),
+										(g[u] = o.searchContain),
 										this.remote({
 											url: o.url,
-											data: v,
+											data: g,
 											success: function (t) {
 												l.val().length >= a.length && e(t),
 													i.cache.write(d, t, o.cacheLifetime, !0);
@@ -49799,22 +51076,22 @@ License: MIT
 		'use strict';
 		(function (t) {
 			var e, r;
-			n(125),
-				n(59),
-				n(102),
-				n(74),
-				n(373),
-				n(39),
-				n(96),
+			n(130),
+				n(54),
+				n(76),
+				n(75),
+				n(376),
+				n(38),
+				n(99),
 				n(20),
-				n(374),
-				n(84),
-				n(151),
-				n(30),
-				n(65),
-				n(68),
-				n(248),
-				n(69);
+				n(377),
+				n(85),
+				n(154),
+				n(31),
+				n(60),
+				n(70),
+				n(253),
+				n(62);
 			/*!
 			 * BootstrapValidator (http://bootstrapvalidator.com)
 			 * The best jQuery plugin to validate form fields. Designed to use with Bootstrap 3
@@ -50009,25 +51286,25 @@ License: MIT
 									var h = n.eq(f),
 										d = this.options.fields[t].group || this.options.group,
 										p = h.parents(d),
-										g =
+										v =
 											this.options.fields[t].container ||
 											this.options.container,
-										v =
-											g && 'tooltip' !== g && 'popover' !== g
-												? e(g)
+										g =
+											v && 'tooltip' !== v && 'popover' !== v
+												? e(v)
 												: this._getMessageContainer(h, d);
-									for (r in (g &&
-										'tooltip' !== g &&
-										'popover' !== g &&
-										v.addClass('has-error'),
-									v
+									for (r in (v &&
+										'tooltip' !== v &&
+										'popover' !== v &&
+										g.addClass('has-error'),
+									g
 										.find(`.help-block[data-bv-validator][data-bv-for="${t}"]`)
 										.remove(),
 									p.find(`i[data-bv-icon-for="${t}"]`).remove(),
 									h.off(c).on(c, function () {
 										i.updateStatus(e(this), i.STATUS_NOT_VALIDATED);
 									}),
-									h.data('bv.messages', v),
+									h.data('bv.messages', g),
 									this.options.fields[t].validators))
 										h.data('bv.result.' + r, this.STATUS_NOT_VALIDATED),
 											(s && f !== a - 1) ||
@@ -50041,7 +51318,7 @@ License: MIT
 														this.STATUS_NOT_VALIDATED
 													)
 													.html(this._getMessage(t, r))
-													.appendTo(v),
+													.appendTo(g),
 											this.options.fields[t].validators[r].onSuccess &&
 												h.on('success.validator.bv', function (n, a) {
 													e.fn.bootstrapValidator.helpers.call(
@@ -50460,11 +51737,11 @@ License: MIT
 									h = r ? f.filter(`[data-bv-validator="${r}"]`) : f,
 									d = c.find(`.form-control-feedback[data-bv-icon-for="${t}"]`),
 									p = this.options.fields[t].container || this.options.container,
-									g = null;
+									v = null;
 								if (r) l.data('bv.result.' + r, n);
 								else
-									for (var v in this.options.fields[t].validators)
-										l.data('bv.result.' + v, n);
+									for (var g in this.options.fields[t].validators)
+										l.data('bv.result.' + g, n);
 								h.attr('data-bv-result', n);
 								var m,
 									y,
@@ -50476,7 +51753,7 @@ License: MIT
 									n)
 								) {
 									case this.STATUS_VALIDATING:
-										(g = null),
+										(v = null),
 											this.disableSubmitButtons(!0),
 											c.removeClass('has-success').removeClass('has-error'),
 											d &&
@@ -50491,7 +51768,7 @@ License: MIT
 													.removeClass('bv-tab-error');
 										break;
 									case this.STATUS_INVALID:
-										(g = !1),
+										(v = !1),
 											this.disableSubmitButtons(!0),
 											c.removeClass('has-success').addClass('has-error'),
 											d &&
@@ -50509,7 +51786,7 @@ License: MIT
 										break;
 									case this.STATUS_VALID:
 										null !==
-											(g =
+											(v =
 												0 ===
 												f.filter(
 													`[data-bv-result="${this.STATUS_NOT_VALIDATED}"]`
@@ -50519,7 +51796,7 @@ License: MIT
 													  ).length === f.length
 													: null) &&
 											(this.disableSubmitButtons(
-												this.$submitButton ? !this.isValid() : !g
+												this.$submitButton ? !this.isValid() : !v
 											),
 											d &&
 												d
@@ -50529,7 +51806,7 @@ License: MIT
 													)
 													.removeClass(this.options.feedbackIcons.valid)
 													.addClass(
-														g
+														v
 															? this.options.feedbackIcons.valid
 															: this.options.feedbackIcons.invalid
 													)
@@ -50553,7 +51830,7 @@ License: MIT
 										break;
 									case this.STATUS_NOT_VALIDATED:
 									default:
-										(g = null),
+										(v = null),
 											this.disableSubmitButtons(!1),
 											c.removeClass('has-success').removeClass('has-error'),
 											d &&
@@ -50571,7 +51848,7 @@ License: MIT
 								}
 								switch (!0) {
 									case d && 'tooltip' === p:
-										!1 === g
+										!1 === v
 											? d
 													.css('cursor', 'pointer')
 													.tooltip('destroy')
@@ -50588,7 +51865,7 @@ License: MIT
 											: d.css('cursor', '').tooltip('destroy');
 										break;
 									case d && 'popover' === p:
-										!1 === g
+										!1 === v
 											? d
 													.css('cursor', 'pointer')
 													.popover('destroy')
@@ -51589,9 +52866,9 @@ License: MIT
 									return !1;
 								var d = c[t.inArray('YYYY', o)],
 									p = c[t.inArray('MM', o)],
-									g = c[t.inArray('DD', o)];
-								if (!d || !p || !g) return !1;
-								var v = null,
+									v = c[t.inArray('DD', o)];
+								if (!d || !p || !v) return !1;
+								var g = null,
 									m = null,
 									y = null;
 								if (s) {
@@ -51603,7 +52880,7 @@ License: MIT
 										return !1;
 									if (
 										((m = f.length > 0 ? f[0] : null),
-										(v = f.length > 1 ? f[1] : null),
+										(g = f.length > 1 ? f[1] : null),
 										(y = f.length > 2 ? f[2] : null) &&
 											((y = parseInt(y, 10)), isNaN(y) || y < 0 || y > 60))
 									)
@@ -51614,10 +52891,10 @@ License: MIT
 										isNaN(m) || m < 0 || m >= 24 || (u && m > 12))
 									)
 										return !1;
-									if (v && ((v = parseInt(v, 10)), isNaN(v) || v < 0 || v > 59))
+									if (g && ((g = parseInt(g, 10)), isNaN(g) || g < 0 || g > 59))
 										return !1;
 								}
-								return t.fn.bootstrapValidator.helpers.date(d, p, g);
+								return t.fn.bootstrapValidator.helpers.date(d, p, v);
 							},
 						});
 				})(t),
@@ -54010,23 +55287,23 @@ License: MIT
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(249);
+			i = n(254);
 		r({ target: 'Array', proto: !0, forced: i !== [].lastIndexOf }, { lastIndexOf: i });
 	},
 	function (t, e, n) {
 		'use strict';
 		var r = n(10),
-			i = n(375);
+			i = n(378);
 		r({ global: !0, forced: parseFloat !== i }, { parseFloat: i });
 	},
 	function (t, e, n) {
 		'use strict';
-		var r = n(8),
+		var r = n(9),
 			i = n(7),
-			a = n(9),
+			a = n(8),
 			o = n(27),
-			s = n(178).trim,
-			u = n(143),
+			s = n(182).trim,
+			u = n(146),
 			l = a(''.charAt),
 			c = r.parseFloat,
 			f = r.Symbol,
@@ -54077,10 +55354,10 @@ License: MIT
 					r = n.n(e),
 					i = n(1),
 					a = n.n(i),
-					o = (n(346), n(362), n(363), n(364), n(347), n(253)),
-					s = n(355),
+					o = (n(353), n(366), n(367), n(368), n(354), n(259)),
+					s = n(359),
 					u = n(13),
-					l = n(354);
+					l = n(358);
 				t(
 					r()(
 						a.a.mark(function e() {

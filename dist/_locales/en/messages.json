@@ -499,5 +499,54 @@
 	"torch_column_multiple": { "message": "Multiple" },
 	"torch_preview_title": { "message": "Preview" },
 	"torch_preview_rows": { "message": "rows" },
-	"torch_no_data": { "message": "No data found. Check your selectors." }
+	"torch_no_data": { "message": "No data found. Check your selectors." },
+
+	"torch_create_new": { "message": "New Torch" },
+	"torch_edit_title": { "message": "Edit Torch" },
+	"torch_enabled": { "message": "Enabled" },
+	"torch_disabled": { "message": "Disabled" },
+	"torch_edit": { "message": "Edit" },
+	"torch_clone": { "message": "Clone" },
+	"torch_run": { "message": "Run" },
+	"torch_delete": { "message": "Delete" },
+	"torch_no_torches": { "message": "No Torches Yet" },
+	"torch_empty_description": {
+		"message": "Create a torch to define what data to extract from your sitemap pages."
+	},
+	"torch_create_first": { "message": "Create Your First Torch" },
+
+	"torch_step_preactions": { "message": "Pre-actions" },
+	"torch_step_columns": { "message": "Columns" },
+	"torch_name_label": { "message": "Torch Name" },
+	"torch_description_label": { "message": "Description (optional)" },
+	"torch_preactions_title": { "message": "Pre-scraping Actions" },
+	"torch_preactions_description": {
+		"message": "Define actions to perform before extracting data (e.g., click buttons, scroll, wait)"
+	},
+	"torch_columns_title": { "message": "Data Columns" },
+	"torch_columns_description": {
+		"message": "Define the columns of data to extract from each page"
+	},
+
+	"preaction_click_one": { "message": "Click Element" },
+	"preaction_click_all": { "message": "Click All" },
+	"preaction_load_more": { "message": "Load More" },
+	"preaction_scroll": { "message": "Scroll" },
+	"preaction_wait": { "message": "Wait" },
+	"preaction_hover": { "message": "Hover" },
+	"preaction_value": { "message": "Value:" },
+	"preaction_repeat": { "message": "Repeat:" },
+	"preaction_delay": { "message": "Delay:" },
+
+	"torch_add_preaction": { "message": "Add Pre-action" },
+	"torch_add_column": { "message": "Add Column" },
+	"torch_refresh_preview": { "message": "Refresh" },
+	"column_multiple": { "message": "Multiple" },
+
+	"torch_cancel": { "message": "Cancel" },
+	"torch_prev": { "message": "Previous" },
+	"torch_next": { "message": "Next" },
+	"torch_save": { "message": "Save Torch" },
+
+	"torch_nav_button": { "message": "Torches" }
 }

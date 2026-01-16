@@ -1,0 +1,119 @@
+<div id="torch-create" class="torch-wizard">
+	<div class="wizard-header">
+		<h4>
+			<span class="torch-title-text" data-i18n="torch_create_title">Create New Torch</span>
+		</h4>
+		<div class="wizard-steps">
+			<div class="wizard-step active" data-step="1">
+				<span class="step-number">1</span>
+				<span class="step-label" data-i18n="torch_step_preactions">Pre-actions</span>
+			</div>
+			<div class="wizard-step" data-step="2">
+				<span class="step-number">2</span>
+				<span class="step-label" data-i18n="torch_step_columns">Columns</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="wizard-content">
+		<div class="torch-basic-info">
+			<div class="form-group">
+				<label for="torch-name" data-i18n="torch_name_label">Torch Name</label>
+				<input
+					type="text"
+					class="form-control"
+					id="torch-name"
+					name="name"
+					value="{{name}}"
+					placeholder="e.g., Product Details"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="torch-description" data-i18n="torch_description_label"
+					>Description (optional)</label
+				>
+				<input
+					type="text"
+					class="form-control"
+					id="torch-description"
+					name="description"
+					value="{{description}}"
+					placeholder="What does this torch extract?"
+				/>
+			</div>
+		</div>
+
+		<div class="wizard-panel" id="step-preactions">
+			<div class="panel-header">
+				<h5 data-i18n="torch_preactions_title">Pre-scraping Actions</h5>
+				<p class="text-muted" data-i18n="torch_preactions_description">
+					Define actions to perform before extracting data (e.g., click buttons, scroll,
+					wait)
+				</p>
+			</div>
+
+			<div class="preactions-list" id="preactions-container"></div>
+
+			<button type="button" class="btn btn-default btn-block" id="add-preaction">
+				<span class="glyphicon glyphicon-plus"></span>
+				<span data-i18n="torch_add_preaction">Add Pre-action</span>
+			</button>
+		</div>
+
+		<div class="wizard-panel hidden" id="step-columns">
+			<div class="panel-header">
+				<h5 data-i18n="torch_columns_title">Data Columns</h5>
+				<p class="text-muted" data-i18n="torch_columns_description">
+					Define the columns of data to extract from each page
+				</p>
+			</div>
+
+			<div class="columns-list" id="columns-container"></div>
+
+			<button type="button" class="btn btn-default btn-block" id="add-column">
+				<span class="glyphicon glyphicon-plus"></span>
+				<span data-i18n="torch_add_column">Add Column</span>
+			</button>
+
+			<div class="preview-section" id="torch-preview">
+				<div class="preview-header">
+					<h5 data-i18n="torch_preview_title">Live Preview</h5>
+					<button type="button" class="btn btn-sm btn-default" id="refresh-preview">
+						<span class="glyphicon glyphicon-refresh"></span>
+						<span data-i18n="torch_refresh_preview">Refresh</span>
+					</button>
+				</div>
+				<div class="preview-table-container">
+					<table class="table table-bordered table-condensed" id="preview-table">
+						<thead>
+							<tr id="preview-header"></tr>
+						</thead>
+						<tbody id="preview-body"></tbody>
+					</table>
+				</div>
+				<div class="preview-status" id="preview-status"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wizard-footer">
+		<button type="button" class="btn btn-default" id="torch-cancel" data-i18n="torch_cancel">
+			Cancel
+		</button>
+		<div class="wizard-nav-buttons">
+			<button type="button" class="btn btn-default hidden" id="torch-prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span data-i18n="torch_prev">Previous</span>
+			</button>
+			<button type="button" class="btn btn-primary" id="torch-next">
+				<span data-i18n="torch_next">Next</span>
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</button>
+			<button type="button" class="btn btn-success hidden" id="torch-save">
+				<span class="glyphicon glyphicon-ok"></span>
+				<span data-i18n="torch_save">Save Torch</span>
+			</button>
+		</div>
+	</div>
+</div>

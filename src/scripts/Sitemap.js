@@ -2,15 +2,17 @@ import DatePatternSupport from './DateUtils/DatePatternSupport';
 import SelectorList from './SelectorList';
 import Model from './Model';
 import SitemapSpecMigrationManager from './SitemapSpecMigration/Manager';
+import Torch from './Torch';
 
 export default class Sitemap {
-	constructor(id, startUrls, urlPattern, model, selectors) {
+	constructor(id, startUrls, urlPattern, model, selectors, torches) {
 		this.rootSelector = { id: '_root', uuid: '0' };
 		this._id = id;
 		this.startUrls = startUrls;
 		this.urlPattern = urlPattern;
 		this.model = new Model(model);
 		this.selectors = new SelectorList(selectors || []);
+		this.torches = (torches || []).map(t => Torch.fromObj(t));
 		this.sitemapSpecificationVersion = SitemapSpecMigrationManager.currentVersion();
 	}
 
@@ -21,7 +23,8 @@ export default class Sitemap {
 			sitemapObj.startUrls,
 			sitemapObj.urlPattern,
 			sitemapObj.model,
-			sitemapObj.selectors
+			sitemapObj.selectors,
+			sitemapObj.torches
 		);
 		if (sitemapObj._rev) {
 			sitemap._rev = sitemapObj._rev;
@@ -297,7 +300,41 @@ export default class Sitemap {
 			clonedObj.startUrls,
 			clonedObj.urlPattern,
 			clonedObj.model,
-			clonedObj.selectors
+			clonedObj.selectors,
+			clonedObj.torches
 		);
+	}
+
+	// Torch management methods
+	addTorch(torchData) {
+		const torch = Torch.fromObj(torchData);
+		this.torches.push(torch);
+		return torch;
+	}
+
+	getTorch(torchId) {
+		return this.torches.find(t => t.id === torchId);
+	}
+
+	updateTorch(torchId, torchData) {
+		const index = this.torches.findIndex(t => t.id === torchId);
+		if (index !== -1) {
+			this.torches[index] = Torch.fromObj({ ...this.torches[index].toJSON(), ...torchData });
+			return this.torches[index];
+		}
+		return null;
+	}
+
+	deleteTorch(torchId) {
+		const index = this.torches.findIndex(t => t.id === torchId);
+		if (index !== -1) {
+			this.torches.splice(index, 1);
+			return true;
+		}
+		return false;
+	}
+
+	getEnabledTorches() {
+		return this.torches.filter(t => t.enabled);
 	}
 }

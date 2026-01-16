@@ -17,6 +17,7 @@ import Model from './Model';
 import Translator from './Translator';
 import urlToSitemapName from '../libs/urlToSitemapName';
 import SitemapSpecMigrationManager from './SitemapSpecMigration/Manager';
+import Torch, { PreActionTypes } from './Torch';
 
 export const SITEMAP_ID_REGEXP = /^[a-z][a-z0-9_\$\(\)\+\-]+$/;
 const sitemapTemplate = require('../sitemaps_templates/sitemapTemplate.json');
@@ -152,6 +153,8 @@ export default class SitemapController {
 			'ActionConfirm',
 			'ErrorDevToolsPage',
 			'AuthorizationPage',
+			'TorchList',
+			'TorchCreate',
 		];
 
 		return Promise.all(
@@ -263,8 +266,63 @@ export default class SitemapController {
 			'#sitemap-selector-graph-nav-button': {
 				click: this.showSitemapSelectorGraph,
 			},
+			'#sitemap-torch-nav-button': {
+				click: this.showTorchList,
+			},
 			'#sitemap-browse-nav-button': {
 				click: this.browseSitemapData,
+			},
+			// Torch controls
+			'#create-new-torch, #create-first-torch': {
+				click: this.showTorchCreate,
+			},
+			'.torch-card button[action=edit-torch]': {
+				click: this.editTorch,
+			},
+			'.torch-card button[action=clone-torch]': {
+				click: this.cloneTorch,
+			},
+			'.torch-card button[action=delete-torch]': {
+				click: this.deleteTorch,
+			},
+			'.torch-card button[action=run-torch]': {
+				click: this.runTorch,
+			},
+			'#torch-cancel': {
+				click: this.cancelTorchEdit,
+			},
+			'#torch-save': {
+				click: this.saveTorch,
+			},
+			'#torch-next': {
+				click: this.torchWizardNext,
+			},
+			'#torch-prev': {
+				click: this.torchWizardPrev,
+			},
+			'#add-preaction': {
+				click: this.addPreAction,
+			},
+			'.remove-preaction': {
+				click: this.removePreAction,
+			},
+			'#add-column': {
+				click: this.addTorchColumn,
+			},
+			'.remove-column': {
+				click: this.removeTorchColumn,
+			},
+			'.toggle-column-advanced': {
+				click: this.toggleColumnAdvanced,
+			},
+			'#refresh-preview': {
+				click: this.refreshTorchPreview,
+			},
+			'.select-preaction-element': {
+				click: this.selectPreActionElement,
+			},
+			'.select-column-element': {
+				click: this.selectColumnElement,
 			},
 			'button#submit-edit-sitemap': {
 				click: this.editSitemapMetadataSave,
@@ -1302,6 +1360,445 @@ export default class SitemapController {
 		graph.draw(graphDiv, $(document).width(), 200);
 		return true;
 	}
+
+	// ==================== TORCH METHODS ====================
+
+	showTorchList() {
+		this.setActiveNavigationButton('sitemap-torch');
+		const sitemap = this.state.currentSitemap;
+
+		// Prepare torch data for template
+		const torchesData = sitemap.torches.map(torch => ({
+			...torch.toJSON(),
+			preActionsCount: torch.preActions.length,
+			columnsCount: torch.columns.length,
+		}));
+
+		const $torchListPanel = ich.TorchList({ torches: torchesData });
+		$('#viewport').html($torchListPanel);
+		Translator.translatePage();
+		return true;
+	}
+
+	showTorchCreate() {
+		this.state.currentTorch = null;
+		this.state.torchWizardStep = 1;
+		this._renderTorchWizard();
+	}
+
+	editTorch(button) {
+		const $card = $(button).closest('.torch-card');
+		const torchId = $card.data('torch-id');
+		const torch = this.state.currentSitemap.getTorch(torchId);
+
+		if (torch) {
+			this.state.currentTorch = torch;
+			this.state.torchWizardStep = 1;
+			this._renderTorchWizard(true);
+		}
+	}
+
+	cloneTorch(button) {
+		const $card = $(button).closest('.torch-card');
+		const torchId = $card.data('torch-id');
+		const torch = this.state.currentSitemap.getTorch(torchId);
+
+		if (torch) {
+			const clonedTorch = torch.clone();
+			this.state.currentSitemap.addTorch(clonedTorch.toJSON());
+			this._saveSitemapAndRefreshTorchList();
+		}
+	}
+
+	deleteTorch(button) {
+		const $card = $(button).closest('.torch-card');
+		const torchId = $card.data('torch-id');
+
+		if (confirm('Are you sure you want to delete this torch?')) {
+			this.state.currentSitemap.deleteTorch(torchId);
+			this._saveSitemapAndRefreshTorchList();
+		}
+	}
+
+	runTorch(button) {
+		const $card = $(button).closest('.torch-card');
+		const torchId = $card.data('torch-id');
+		// TODO: Implement torch execution
+		console.log('Running torch:', torchId);
+		alert('Torch execution will be implemented in a future update.');
+	}
+
+	cancelTorchEdit() {
+		this.state.currentTorch = null;
+		this.showTorchList();
+	}
+
+	saveTorch() {
+		const torchData = this._collectTorchFormData();
+		const validation = new Torch(torchData).validate();
+
+		if (!validation.valid) {
+			alert(validation.errors.map(e => e.message).join('\n'));
+			return;
+		}
+
+		if (this.state.currentTorch) {
+			// Update existing torch
+			this.state.currentSitemap.updateTorch(this.state.currentTorch.id, torchData);
+		} else {
+			// Create new torch
+			this.state.currentSitemap.addTorch(torchData);
+		}
+
+		this._saveSitemapAndRefreshTorchList();
+	}
+
+	torchWizardNext() {
+		if (this.state.torchWizardStep === 1) {
+			this.state.torchWizardStep = 2;
+			this._updateTorchWizardStep();
+		}
+	}
+
+	torchWizardPrev() {
+		if (this.state.torchWizardStep === 2) {
+			this.state.torchWizardStep = 1;
+			this._updateTorchWizardStep();
+		}
+	}
+
+	addPreAction() {
+		const $container = $('#preactions-container');
+		const index = $container.find('.preaction-item').length;
+		const $newItem = this._createPreActionItem(index, {
+			type: PreActionTypes.WAIT,
+			selector: '',
+			value: '2000',
+			repeat: 1,
+			delay: 0,
+		});
+		$container.append($newItem);
+	}
+
+	removePreAction(button) {
+		$(button).closest('.preaction-item').remove();
+		this._reindexPreActions();
+	}
+
+	addTorchColumn() {
+		const $container = $('#columns-container');
+		const $newItem = this._createColumnItem({
+			id: 'col_' + Date.now().toString(36),
+			name: '',
+			selector: '',
+			attribute: 'text',
+			multiple: false,
+		});
+		$container.append($newItem);
+	}
+
+	removeTorchColumn(button) {
+		$(button).closest('.column-item').remove();
+	}
+
+	toggleColumnAdvanced(button) {
+		const $column = $(button).closest('.column-item');
+		$column.find('.column-advanced').toggleClass('hidden');
+	}
+
+	async refreshTorchPreview() {
+		const columns = this._collectColumnsData();
+
+		if (columns.length === 0) {
+			$('#preview-body').html('<tr><td colspan="100%">No columns defined</td></tr>');
+			$('#preview-status').text('');
+			return;
+		}
+
+		// Build preview header
+		const $header = $('#preview-header');
+		$header.empty();
+		columns.forEach(col => {
+			$header.append($('<th>').text(col.name || 'Unnamed'));
+		});
+
+		$('#preview-status').text('Loading preview...');
+
+		try {
+			// Get data from current page
+			const data = await this.contentScript.getColumnPreviewData(columns);
+
+			const $body = $('#preview-body');
+			$body.empty();
+
+			if (data && data.length > 0) {
+				data.slice(0, 10).forEach(row => {
+					const $tr = $('<tr>');
+					columns.forEach(col => {
+						const value = row[col.name] || '';
+						$tr.append($('<td>').text(Array.isArray(value) ? value.join(', ') : value));
+					});
+					$body.append($tr);
+				});
+				$('#preview-status').text(
+					`Showing ${Math.min(data.length, 10)} of ${data.length} rows`
+				);
+			} else {
+				$body.html('<tr><td colspan="100%">No data found. Check your selectors.</td></tr>');
+				$('#preview-status').text('');
+			}
+		} catch (error) {
+			console.error('Preview error:', error);
+			$('#preview-body').html('<tr><td colspan="100%">Error loading preview</td></tr>');
+			$('#preview-status').text('Error: ' + error.message);
+		}
+	}
+
+	async selectPreActionElement(button) {
+		const $input = $(button).closest('.preaction-selector-group').find('.preaction-selector');
+		await this._selectElementForInput($input);
+	}
+
+	async selectColumnElement(button) {
+		const $input = $(button).closest('.column-selector-group').find('.column-selector');
+		await this._selectElementForInput($input);
+	}
+
+	async _selectElementForInput($input) {
+		try {
+			const selector = await this.contentScript.selectElement();
+			if (selector) {
+				$input.val(selector);
+			}
+		} catch (error) {
+			console.error('Element selection error:', error);
+		}
+	}
+
+	_renderTorchWizard(isEdit = false) {
+		const torch = this.state.currentTorch || new Torch({ name: '' });
+
+		const templateData = {
+			name: torch.name || '',
+			description: torch.description || '',
+		};
+
+		const $panel = ich.TorchCreate(templateData);
+		$('#viewport').html($panel);
+
+		// Update title if editing
+		if (isEdit) {
+			$('.torch-title-text').attr('data-i18n', 'torch_edit_title').text('Edit Torch');
+		}
+
+		// Populate pre-actions
+		const $preactionsContainer = $('#preactions-container');
+		torch.preActions.forEach((action, index) => {
+			$preactionsContainer.append(this._createPreActionItem(index, action.toJSON()));
+		});
+
+		// Populate columns
+		const $columnsContainer = $('#columns-container');
+		torch.columns.forEach(col => {
+			$columnsContainer.append(this._createColumnItem(col.toJSON()));
+		});
+
+		Translator.translatePage();
+		this._updateTorchWizardStep();
+	}
+
+	_updateTorchWizardStep() {
+		const step = this.state.torchWizardStep;
+
+		// Update step indicators
+		$('.wizard-step').removeClass('active completed');
+		$('.wizard-step[data-step="1"]').addClass(
+			step > 1 ? 'completed' : step === 1 ? 'active' : ''
+		);
+		$('.wizard-step[data-step="2"]').addClass(step === 2 ? 'active' : '');
+
+		// Show/hide panels
+		$('#step-preactions').toggleClass('hidden', step !== 1);
+		$('#step-columns').toggleClass('hidden', step !== 2);
+
+		// Update navigation buttons
+		$('#torch-prev').toggleClass('hidden', step === 1);
+		$('#torch-next').toggleClass('hidden', step === 2);
+		$('#torch-save').toggleClass('hidden', step !== 2);
+
+		// Auto-refresh preview on step 2
+		if (step === 2) {
+			this.refreshTorchPreview();
+		}
+	}
+
+	_createPreActionItem(index, data) {
+		return $(`
+			<div class="preaction-item" data-index="${index}">
+				<div class="preaction-handle">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</div>
+				<div class="preaction-content">
+					<div class="preaction-row">
+						<select class="form-control preaction-type" name="preaction-type">
+							<option value="click_one" ${data.type === 'click_one' ? 'selected' : ''}>Click Element</option>
+							<option value="click_all" ${data.type === 'click_all' ? 'selected' : ''}>Click All</option>
+							<option value="load_more" ${data.type === 'load_more' ? 'selected' : ''}>Load More</option>
+							<option value="scroll" ${data.type === 'scroll' ? 'selected' : ''}>Scroll</option>
+							<option value="wait" ${data.type === 'wait' ? 'selected' : ''}>Wait</option>
+							<option value="hover" ${data.type === 'hover' ? 'selected' : ''}>Hover</option>
+						</select>
+						<div class="input-group preaction-selector-group">
+							<input type="text" class="form-control preaction-selector"
+								name="preaction-selector" value="${data.selector || ''}"
+								placeholder="CSS selector">
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default select-preaction-element">
+									<span class="glyphicon glyphicon-screenshot"></span>
+								</button>
+							</span>
+						</div>
+					</div>
+					<div class="preaction-row preaction-options">
+						<div class="preaction-option">
+							<label>Value:</label>
+							<input type="text" class="form-control preaction-value"
+								name="preaction-value" value="${data.value || ''}" placeholder="e.g., 2000ms">
+						</div>
+						<div class="preaction-option">
+							<label>Repeat:</label>
+							<input type="number" class="form-control preaction-repeat"
+								name="preaction-repeat" value="${data.repeat || 1}" min="1">
+						</div>
+						<div class="preaction-option">
+							<label>Delay:</label>
+							<input type="text" class="form-control preaction-delay"
+								name="preaction-delay" value="${data.delay || 0}" placeholder="0ms">
+						</div>
+					</div>
+				</div>
+				<div class="preaction-actions">
+					<button type="button" class="btn btn-link btn-sm remove-preaction" title="Remove">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+				</div>
+			</div>
+		`);
+	}
+
+	_createColumnItem(data) {
+		return $(`
+			<div class="column-item" data-id="${data.id}">
+				<div class="column-handle">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</div>
+				<div class="column-content">
+					<div class="column-row">
+						<input type="text" class="form-control column-name"
+							name="column-name" value="${data.name || ''}" placeholder="Column name" required>
+						<div class="input-group column-selector-group">
+							<input type="text" class="form-control column-selector"
+								name="column-selector" value="${data.selector || ''}"
+								placeholder="CSS selector" required>
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default select-column-element">
+									<span class="glyphicon glyphicon-screenshot"></span>
+								</button>
+							</span>
+						</div>
+					</div>
+					<div class="column-row column-options">
+						<select class="form-control column-attribute" name="column-attribute">
+							<option value="text" ${data.attribute === 'text' ? 'selected' : ''}>Text content</option>
+							<option value="href" ${data.attribute === 'href' ? 'selected' : ''}>Link (href)</option>
+							<option value="src" ${data.attribute === 'src' ? 'selected' : ''}>Image (src)</option>
+							<option value="html" ${data.attribute === 'html' ? 'selected' : ''}>Inner HTML</option>
+							<option value="outerHtml" ${data.attribute === 'outerHtml' ? 'selected' : ''}>Outer HTML</option>
+						</select>
+						<label class="checkbox-inline">
+							<input type="checkbox" class="column-multiple" name="column-multiple"
+								${data.multiple ? 'checked' : ''}>
+							<span>Multiple</span>
+						</label>
+					</div>
+					<div class="column-row column-advanced hidden">
+						<input type="text" class="form-control column-regex"
+							name="column-regex" value="${data.regex || ''}" placeholder="Regex pattern (optional)">
+						<input type="text" class="form-control column-transform"
+							name="column-transform" value="${data.transform || ''}" placeholder="Transform (optional)">
+					</div>
+				</div>
+				<div class="column-actions">
+					<button type="button" class="btn btn-link btn-sm toggle-column-advanced" title="Advanced">
+						<span class="glyphicon glyphicon-cog"></span>
+					</button>
+					<button type="button" class="btn btn-link btn-sm remove-column" title="Remove">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+				</div>
+			</div>
+		`);
+	}
+
+	_reindexPreActions() {
+		$('#preactions-container .preaction-item').each(function (i) {
+			$(this).attr('data-index', i);
+		});
+	}
+
+	_collectTorchFormData() {
+		return {
+			id: this.state.currentTorch?.id,
+			name: $('#torch-name').val().trim(),
+			description: $('#torch-description').val().trim(),
+			preActions: this._collectPreActionsData(),
+			columns: this._collectColumnsData(),
+		};
+	}
+
+	_collectPreActionsData() {
+		const preActions = [];
+		$('#preactions-container .preaction-item').each(function () {
+			preActions.push({
+				type: $(this).find('.preaction-type').val(),
+				selector: $(this).find('.preaction-selector').val().trim(),
+				value: $(this).find('.preaction-value').val().trim(),
+				repeat: parseInt($(this).find('.preaction-repeat').val()) || 1,
+				delay: parseInt($(this).find('.preaction-delay').val()) || 0,
+				enabled: true,
+			});
+		});
+		return preActions;
+	}
+
+	_collectColumnsData() {
+		const columns = [];
+		$('#columns-container .column-item').each(function () {
+			columns.push({
+				id: $(this).data('id'),
+				name: $(this).find('.column-name').val().trim(),
+				selector: $(this).find('.column-selector').val().trim(),
+				attribute: $(this).find('.column-attribute').val(),
+				multiple: $(this).find('.column-multiple').is(':checked'),
+				regex: $(this).find('.column-regex').val().trim(),
+				transform: $(this).find('.column-transform').val().trim(),
+				enabled: true,
+			});
+		});
+		return columns;
+	}
+
+	async _saveSitemapAndRefreshTorchList() {
+		try {
+			await this.store.saveSitemap(this.state.currentSitemap);
+			this.showTorchList();
+		} catch (error) {
+			console.error('Error saving sitemap:', error);
+			alert('Error saving: ' + error.message);
+		}
+	}
+
+	// ==================== END TORCH METHODS ====================
 
 	showChildSelectors(tr) {
 		const selector = $(tr).data('selector');
