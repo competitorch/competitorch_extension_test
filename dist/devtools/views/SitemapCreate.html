@@ -1,94 +1,360 @@
-<form class="form-horizontal" role="form" id="create-sitemap">
-	<div class="form-group">
-		<label for="_id" class="col-lg-1 control-label" data-i18n="sitemap_create_id"></label>
+<style>
+	.sitemap-create-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 24px;
+	}
 
-		<div class="col-lg-10">
-			<input
-				type="text"
-				class="form-control"
-				name="_id"
-				id="_id"
-				placeholder="sitemap_create__id"
-			/>
-		</div>
+	.sitemap-create-header {
+		margin-bottom: 32px;
+	}
+
+	.sitemap-create-header h2 {
+		color: var(--text-primary, #f0f0f2);
+		font-size: 24px;
+		font-weight: 600;
+		margin: 0 0 8px 0;
+	}
+
+	.sitemap-create-header p {
+		color: var(--text-muted, #6b7280);
+		font-size: 14px;
+		margin: 0;
+	}
+
+	.sitemap-section {
+		background: var(--bg-card, #141619);
+		border: 1px solid var(--border-color, #1f2937);
+		border-radius: 12px;
+		padding: 24px;
+		margin-bottom: 20px;
+	}
+
+	.sitemap-section-title {
+		color: var(--text-primary, #f0f0f2);
+		font-size: 16px;
+		font-weight: 600;
+		margin: 0 0 16px 0;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.sitemap-section-title .section-number {
+		background: var(--accent-primary, rgb(255, 115, 0));
+		color: white;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 12px;
+		font-weight: 600;
+	}
+
+	.sitemap-form-group {
+		margin-bottom: 20px;
+	}
+
+	.sitemap-form-group:last-child {
+		margin-bottom: 0;
+	}
+
+	.sitemap-label {
+		color: var(--text-secondary, #9ca3af);
+		font-size: 13px;
+		font-weight: 500;
+		margin-bottom: 8px;
+		display: block;
+	}
+
+	.sitemap-input {
+		width: 100%;
+		background: var(--input-bg, #1a1d21);
+		border: 1px solid var(--border-color, #1f2937);
+		border-radius: 8px;
+		padding: 12px 16px;
+		color: var(--text-primary, #f0f0f2);
+		font-size: 14px;
+		transition: all 0.2s ease;
+	}
+
+	.sitemap-input:focus {
+		border-color: var(--accent-primary, rgb(255, 115, 0));
+		box-shadow: 0 0 0 3px rgba(255, 115, 0, 0.15);
+		outline: none;
+	}
+
+	.sitemap-textarea {
+		min-height: 120px;
+		resize: vertical;
+		font-family: 'Monaco', 'Menlo', monospace;
+		font-size: 13px;
+		line-height: 1.5;
+	}
+
+	.sitemap-hint {
+		color: var(--text-muted, #6b7280);
+		font-size: 12px;
+		margin-top: 8px;
+	}
+
+	.import-options {
+		display: flex;
+		gap: 12px;
+		margin-top: 16px;
+	}
+
+	.import-btn {
+		flex: 1;
+		background: var(--bg-tertiary, #111214);
+		border: 1px dashed var(--border-color, #1f2937);
+		border-radius: 8px;
+		padding: 16px;
+		color: var(--text-secondary, #9ca3af);
+		font-size: 13px;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.import-btn:hover {
+		border-color: var(--accent-primary, rgb(255, 115, 0));
+		color: var(--accent-primary, rgb(255, 115, 0));
+		background: rgba(255, 115, 0, 0.05);
+	}
+
+	.import-btn .icon {
+		font-size: 20px;
+	}
+
+	.advanced-toggle {
+		background: none;
+		border: none;
+		color: var(--text-muted, #6b7280);
+		font-size: 13px;
+		cursor: pointer;
+		padding: 12px 0;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		width: 100%;
+		transition: color 0.2s ease;
+	}
+
+	.advanced-toggle:hover {
+		color: var(--text-primary, #f0f0f2);
+	}
+
+	.advanced-toggle .caret-icon {
+		transition: transform 0.2s ease;
+	}
+
+	.advanced-toggle.open .caret-icon {
+		transform: rotate(180deg);
+	}
+
+	.advanced-section {
+		display: none;
+		padding-top: 16px;
+		border-top: 1px solid var(--border-color, #1f2937);
+		margin-top: 8px;
+	}
+
+	.advanced-section.show {
+		display: block;
+	}
+
+	.sitemap-actions {
+		display: flex;
+		gap: 12px;
+		justify-content: flex-end;
+		margin-top: 24px;
+	}
+
+	.btn-create {
+		background: var(--accent-primary, rgb(255, 115, 0));
+		color: white;
+		border: none;
+		padding: 12px 32px;
+		border-radius: 8px;
+		font-size: 14px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.btn-create:hover {
+		background: rgb(255, 140, 40);
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(255, 115, 0, 0.3);
+	}
+
+	.btn-cancel {
+		background: var(--bg-tertiary, #111214);
+		color: var(--text-secondary, #9ca3af);
+		border: 1px solid var(--border-color, #1f2937);
+		padding: 12px 24px;
+		border-radius: 8px;
+		font-size: 14px;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.btn-cancel:hover {
+		background: var(--hover-bg, #1f2328);
+		color: var(--text-primary, #f0f0f2);
+	}
+</style>
+
+<div class="sitemap-create-container">
+	<div class="sitemap-create-header">
+		<h2 data-i18n="sitemap_create_title">Create New Sitemap</h2>
+		<p data-i18n="sitemap_create_subtitle">Define the URLs you want to scrape</p>
 	</div>
-	<div class="form-group sitemap-type">
-		<label
-			class="col-lg-1 control-label"
-			data-i18n="sitemap_type_label"
-			for="sitemapType"
-		></label>
-		<div class="input-group col-lg-10">
-			<select class="form-control" name="sitemapType" id="sitemapType">
-				<option selected value="full" data-i18n="sitemap_type_full_sitemap"></option>
-				<option value="partial" data-i18n="sitemap_type_partial_sitemap"></option>
-			</select>
+
+	<form id="create-sitemap">
+		<div class="sitemap-section">
+			<h3 class="sitemap-section-title">
+				<span class="section-number">1</span>
+				<span data-i18n="sitemap_basic_info">Basic Information</span>
+			</h3>
+
+			<div class="sitemap-form-group">
+				<label class="sitemap-label" for="_id" data-i18n="sitemap_name_label"
+					>Sitemap Name</label
+				>
+				<input
+					type="text"
+					class="sitemap-input form-control"
+					name="_id"
+					id="_id"
+					placeholder="my-sitemap"
+				/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group start-url-block">
-		<label
-			class="col-lg-1 control-label"
-			data-i18n="sitemap_create_start_url_block_label"
-			for="startUrls"
-		></label>
-		<div>
-			<div class="input-group col-lg-10">
+
+		<div class="sitemap-section">
+			<h3 class="sitemap-section-title">
+				<span class="section-number">2</span>
+				<span data-i18n="sitemap_urls_title">URLs to Scrape</span>
+			</h3>
+
+			<div class="sitemap-form-group">
+				<label class="sitemap-label" for="startUrls" data-i18n="sitemap_urls_label"
+					>Enter URLs (one per line)</label
+				>
 				<textarea
 					id="startUrls"
-					rows="5"
-					cols="100"
-					class="form-control input-start-url"
+					class="sitemap-input sitemap-textarea form-control"
 					name="startUrls"
-					placeholder="sitemap_create_startUrls"
+					placeholder="https://example.com/page1&#10;https://example.com/page2&#10;https://example.com/page[1-10]"
 				></textarea>
+				<p class="sitemap-hint" data-i18n="sitemap_urls_hint">
+					Supports URL patterns: page[1-10] for ranges, [date] for date patterns
+				</p>
+			</div>
+
+			<div class="import-options">
+				<button type="button" class="import-btn" id="import-xml-btn">
+					<span class="icon">📄</span>
+					<span data-i18n="sitemap_import_xml">Import from XML Sitemap</span>
+				</button>
+				<button type="button" class="import-btn" id="import-file-btn">
+					<span class="icon">📁</span>
+					<span data-i18n="sitemap_import_file">Import from File</span>
+				</button>
 			</div>
 		</div>
-		<div class="col-lg-10 col-lg-offset-1" data-i18n="url_patterns_hints"></div>
-	</div>
-	<div class="form-group url-pattern-block">
-		<label
-			class="col-lg-1 control-label"
-			data-i18n="sitemap_url_pattern_label"
-			for="urlPattern"
-		></label>
-		<div class="col-lg-10">
-			<input
-				id="urlPattern"
-				type="text"
-				class="form-control input-url-pattern"
-				name="urlPattern"
-				placeholder="sitemap_url_pattern_placeholder"
-				value="{{urlPattern}}"
-			/>
-		</div>
-	</div>
-	<div class="form-group start-model">
-		<label
-			class="col-lg-1 control-label"
-			for="model"
-			data-i18n="sitemap_create_sitemap_model"
-		></label>
-		<div>
-			<div class="input-group col-lg-10">
-				<textarea
-					rows="20"
-					cols="100"
-					class="form-control input-model"
-					id="model"
-					name="model"
-					placeholder="sitemap_create_model"
-				></textarea>
+
+		<div class="sitemap-section">
+			<button type="button" class="advanced-toggle" id="advanced-toggle">
+				<span class="caret-icon">▼</span>
+				<span data-i18n="sitemap_advanced_options">Advanced Options</span>
+			</button>
+
+			<div class="advanced-section" id="advanced-section">
+				<div class="sitemap-form-group">
+					<label class="sitemap-label" for="sitemapType" data-i18n="sitemap_type_label"
+						>Sitemap Type</label
+					>
+					<select class="sitemap-input form-control" name="sitemapType" id="sitemapType">
+						<option selected value="full" data-i18n="sitemap_type_full">
+							Full Sitemap
+						</option>
+						<option value="partial" data-i18n="sitemap_type_partial">
+							Partial Sitemap
+						</option>
+					</select>
+				</div>
+
+				<div class="sitemap-form-group">
+					<label
+						class="sitemap-label"
+						for="urlPattern"
+						data-i18n="sitemap_url_pattern_label"
+						>URL Pattern (Regex)</label
+					>
+					<input
+						id="urlPattern"
+						type="text"
+						class="sitemap-input form-control"
+						name="urlPattern"
+						placeholder=".*example\.com/products/.*"
+					/>
+					<p class="sitemap-hint" data-i18n="sitemap_url_pattern_hint">
+						Optional: Only scrape URLs matching this pattern
+					</p>
+				</div>
+
+				<div class="sitemap-form-group">
+					<label class="sitemap-label" for="model" data-i18n="sitemap_model_label"
+						>Data Model (JSON)</label
+					>
+					<textarea
+						id="model"
+						class="sitemap-input sitemap-textarea form-control"
+						name="model"
+						placeholder='{"fields": ["name", "price", "description"]}'
+						rows="6"
+					></textarea>
+					<p class="sitemap-hint" data-i18n="sitemap_model_hint">
+						Optional: Define expected output schema
+					</p>
+				</div>
 			</div>
-			<p class="col-lg-10 col-lg-offset-1" data-i18n="sitemap_model_hints"></p>
 		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-lg-offset-1 col-lg-10">
+
+		<div class="sitemap-actions">
 			<button
-				class="btn btn-primary"
+				type="button"
+				class="btn-cancel"
+				id="cancel-create-sitemap"
+				data-i18n="btn_cancel"
+			>
+				Cancel
+			</button>
+			<button
+				type="submit"
+				class="btn-create"
 				id="submit-create-sitemap"
-				data-i18n="sitemap_create_submit_create_sitemap"
-			></button>
+				data-i18n="btn_create_sitemap"
+			>
+				Create Sitemap
+			</button>
 		</div>
-	</div>
-</form>
+	</form>
+</div>
+
+<script>
+	// Toggle advanced section
+	document.getElementById('advanced-toggle')?.addEventListener('click', function () {
+		this.classList.toggle('open');
+		document.getElementById('advanced-section')?.classList.toggle('show');
+	});
+</script>

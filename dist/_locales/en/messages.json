@@ -445,5 +445,59 @@
 	"advanced_mode_label": { "message": "Advanced" },
 	"advanced_mode_hint": { "message": "Hold Alt + Click to select" },
 
-	"SelectorAutodetect": { "message": "Autodetect" }
+	"SelectorAutodetect": { "message": "Autodetect" },
+
+	"sitemap_create_title": { "message": "Create New Sitemap" },
+	"sitemap_create_subtitle": { "message": "Define the URLs you want to scrape" },
+	"sitemap_basic_info": { "message": "Basic Information" },
+	"sitemap_name_label": { "message": "Sitemap Name" },
+	"sitemap_urls_title": { "message": "URLs to Scrape" },
+	"sitemap_urls_label": { "message": "Enter URLs (one per line)" },
+	"sitemap_urls_hint": {
+		"message": "Supports URL patterns: page[1-10] for ranges, [date] for date patterns"
+	},
+	"sitemap_import_xml": { "message": "Import from XML Sitemap" },
+	"sitemap_import_file": { "message": "Import from File" },
+	"sitemap_advanced_options": { "message": "Advanced Options" },
+	"sitemap_type_full": { "message": "Full Sitemap" },
+	"sitemap_type_partial": { "message": "Partial Sitemap" },
+	"sitemap_url_pattern_hint": { "message": "Optional: Only scrape URLs matching this pattern" },
+	"sitemap_model_label": { "message": "Data Model (JSON)" },
+	"sitemap_model_hint": { "message": "Optional: Define expected output schema" },
+	"btn_cancel": { "message": "Cancel" },
+	"btn_create_sitemap": { "message": "Create Sitemap" },
+
+	"torch_list_title": { "message": "Torches" },
+	"torch_list_subtitle": { "message": "Configure scraping processes for this sitemap" },
+	"torch_create_title": { "message": "Create New Torch" },
+	"torch_create_subtitle": { "message": "Configure how to extract data from pages" },
+	"torch_step1_title": { "message": "Pre-Scraping Actions" },
+	"torch_step1_subtitle": { "message": "Actions to perform before extracting data" },
+	"torch_step2_title": { "message": "Data Columns" },
+	"torch_step2_subtitle": { "message": "Define the columns of your output table" },
+	"torch_action_click_one": { "message": "Click on 1 element" },
+	"torch_action_click_one_desc": {
+		"message": "Click a single element matching the selector before scraping"
+	},
+	"torch_action_click_all": { "message": "Click on ALL elements" },
+	"torch_action_click_all_desc": {
+		"message": "Click every element matching the selector before scraping"
+	},
+	"torch_action_click_more": { "message": "Click 'Load More' button" },
+	"torch_action_click_more_desc": {
+		"message": "Keep clicking the button until it disappears (for infinite scroll pages)"
+	},
+	"torch_action_scroll": { "message": "Scroll to bottom" },
+	"torch_action_scroll_desc": { "message": "Scroll the page to the bottom to load lazy content" },
+	"torch_action_wait": { "message": "Wait seconds" },
+	"torch_action_wait_desc": { "message": "Wait a specified number of seconds before scraping" },
+	"torch_action_hover": { "message": "Hover over element" },
+	"torch_action_hover_desc": { "message": "Hover over an element to trigger tooltips or menus" },
+	"torch_column_id": { "message": "Column ID" },
+	"torch_column_type": { "message": "Type" },
+	"torch_column_selector": { "message": "Selector" },
+	"torch_column_multiple": { "message": "Multiple" },
+	"torch_preview_title": { "message": "Preview" },
+	"torch_preview_rows": { "message": "rows" },
+	"torch_no_data": { "message": "No data found. Check your selectors." }
 }
