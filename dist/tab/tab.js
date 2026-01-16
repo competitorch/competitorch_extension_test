@@ -135,7 +135,7 @@
 					('array' === n || 0 === e || ('number' == typeof e && e > 0 && e - 1 in t))
 				);
 			}
-			function _(t, e) {
+			function E(t, e) {
 				return t.nodeName && t.nodeName.toLowerCase() === e.toLowerCase();
 			}
 			(k.fn = k.prototype =
@@ -332,7 +332,7 @@
 						f['[object ' + e + ']'] = e.toLowerCase();
 					}
 				);
-			var E = a.pop,
+			var _ = a.pop,
 				T = a.sort,
 				M = a.splice,
 				I = '[\\x20\\t\\r\\n\\f]',
@@ -463,7 +463,7 @@
 					},
 					X = ht(
 						function (t) {
-							return !0 === t.disabled && _(t, 'fieldset');
+							return !0 === t.disabled && E(t, 'fieldset');
 						},
 						{ dir: 'parentNode', next: 'legend' }
 					);
@@ -561,12 +561,12 @@
 				}
 				function rt(t) {
 					return function (e) {
-						return _(e, 'input') && e.type === t;
+						return E(e, 'input') && e.type === t;
 					};
 				}
 				function it(t) {
 					return function (e) {
-						return (_(e, 'input') || _(e, 'button')) && e.type === t;
+						return (E(e, 'input') || E(e, 'button')) && e.type === t;
 					};
 				}
 				function at(t) {
@@ -838,7 +838,7 @@
 											return !0;
 									  }
 									: function (t) {
-											return _(t, e);
+											return E(t, e);
 									  };
 							},
 							CLASS: function (t) {
@@ -904,7 +904,7 @@
 												if (a) {
 													for (; p; ) {
 														for (f = e; (f = f[p]); )
-															if (s ? _(f, v) : 1 === f.nodeType)
+															if (s ? E(f, v) : 1 === f.nodeType)
 																return !1;
 														d = p = 'only' === t && !d && 'nextSibling';
 													}
@@ -944,7 +944,7 @@
 															(++h && f && f[p]) ||
 															(x = h = 0) ||
 															d.pop()) &&
-														(!(s ? _(f, v) : 1 === f.nodeType) ||
+														(!(s ? E(f, v) : 1 === f.nodeType) ||
 															!++x ||
 															(b &&
 																((c = f[m] || (f[m] = {}))[t] = [
@@ -1056,8 +1056,8 @@
 							disabled: at(!0),
 							checked: function (t) {
 								return (
-									(_(t, 'input') && !!t.checked) ||
-									(_(t, 'option') && !!t.selected)
+									(E(t, 'input') && !!t.checked) ||
+									(E(t, 'option') && !!t.selected)
 								);
 							},
 							selected: function (t) {
@@ -1080,12 +1080,12 @@
 								return q.test(t.nodeName);
 							},
 							button: function (t) {
-								return (_(t, 'input') && 'button' === t.type) || _(t, 'button');
+								return (E(t, 'input') && 'button' === t.type) || E(t, 'button');
 							},
 							text: function (t) {
 								var e;
 								return (
-									_(t, 'input') &&
+									E(t, 'input') &&
 									'text' === t.type &&
 									(null == (e = t.getAttribute('type')) ||
 										'text' === e.toLowerCase())
@@ -1176,7 +1176,7 @@
 								} else
 									for (; (e = e[r]); )
 										if (1 === e.nodeType || o)
-											if (((c = e[m] || (e[m] = {})), i && _(e, i)))
+											if (((c = e[m] || (e[m] = {})), i && E(e, i)))
 												e = e[r] || e;
 											else {
 												if ((l = c[a]) && l[0] === y && l[1] === s)
@@ -1317,10 +1317,10 @@
 											w = r,
 											A = o || (a && e.find.TAG('*', h)),
 											C = (y += null == w ? 1 : Math.random() || 0.1),
-											_ = A.length;
+											E = A.length;
 										for (
 											h && (r = s == u || s || h);
-											b !== _ && null != (d = A[b]);
+											b !== E && null != (d = A[b]);
 											b++
 										) {
 											if (a && d) {
@@ -1345,7 +1345,7 @@
 											if (o) {
 												if (m > 0)
 													for (; b--; )
-														x[b] || S[b] || (S[b] = E.call(c));
+														x[b] || S[b] || (S[b] = _.call(c));
 												S = pt(S);
 											}
 											g.apply(c, S),
@@ -1622,7 +1622,7 @@
 						contents: function (t) {
 							return null != t.contentDocument && o(t.contentDocument)
 								? t.contentDocument
-								: (_(t, 'template') && (t = t.content || t),
+								: (E(t, 'template') && (t = t.content || t),
 								  k.merge([], t.childNodes));
 						},
 					},
@@ -2353,7 +2353,7 @@
 				At,
 				kt = /^(?:checkbox|radio)$/i,
 				Ct = /<([a-z][^\/\0>\x20\t\r\n\f]*)/i,
-				_t = /^$|^module$|\/(?:java|ecma)script/i;
+				Et = /^$|^module$|\/(?:java|ecma)script/i;
 			(wt = b.createDocumentFragment().appendChild(b.createElement('div'))),
 				(At = b.createElement('input')).setAttribute('type', 'radio'),
 				At.setAttribute('checked', 'checked'),
@@ -2364,7 +2364,7 @@
 				(v.noCloneChecked = !!wt.cloneNode(!0).lastChild.defaultValue),
 				(wt.innerHTML = '<option></option>'),
 				(v.option = !!wt.lastChild);
-			var Et = {
+			var _t = {
 				thead: [1, '<table>', '</table>'],
 				col: [2, '<table><colgroup>', '</colgroup></table>'],
 				tr: [2, '<table><tbody>', '</tbody></table>'],
@@ -2380,17 +2380,17 @@
 							: void 0 !== t.querySelectorAll
 							? t.querySelectorAll(e || '*')
 							: []),
-					void 0 === e || (e && _(t, e)) ? k.merge([t], n) : n
+					void 0 === e || (e && E(t, e)) ? k.merge([t], n) : n
 				);
 			}
 			function Mt(t, e) {
 				for (var n = 0, r = t.length; n < r; n++)
 					ot.set(t[n], 'globalEval', !e || ot.get(e[n], 'globalEval'));
 			}
-			(Et.tbody = Et.tfoot = Et.colgroup = Et.caption = Et.thead),
-				(Et.th = Et.td),
+			(_t.tbody = _t.tfoot = _t.colgroup = _t.caption = _t.thead),
+				(_t.th = _t.td),
 				v.option ||
-					(Et.optgroup = Et.option = [1, "<select multiple='multiple'>", '</select>']);
+					(_t.optgroup = _t.option = [1, "<select multiple='multiple'>", '</select>']);
 			var It = /<|&#?\w+;/;
 			function Ot(t, e, n, r, i) {
 				for (
@@ -2413,7 +2413,7 @@
 							for (
 								o = o || f.appendChild(e.createElement('div')),
 									s = (Ct.exec(a) || ['', ''])[1].toLowerCase(),
-									u = Et[s] || Et._default,
+									u = _t[s] || _t._default,
 									o.innerHTML = u[1] + k.htmlPrefilter(a) + u[2],
 									c = u[0];
 								c--;
@@ -2425,7 +2425,7 @@
 				for (f.textContent = '', d = 0; (a = h[d++]); )
 					if (r && k.inArray(a, r) > -1) i && i.push(a);
 					else if (((l = gt(a)), (o = Tt(f.appendChild(a), 'script')), l && Mt(o), n))
-						for (c = 0; (a = o[c++]); ) _t.test(a.type || '') && n.push(a);
+						for (c = 0; (a = o[c++]); ) Et.test(a.type || '') && n.push(a);
 				return f;
 			}
 			var Rt = /^([^.]*)(?:\.(.+)|)/;
@@ -2698,14 +2698,14 @@
 						setup: function (t) {
 							var e = this || t;
 							return (
-								kt.test(e.type) && e.click && _(e, 'input') && Lt(e, 'click', !0),
+								kt.test(e.type) && e.click && E(e, 'input') && Lt(e, 'click', !0),
 								!1
 							);
 						},
 						trigger: function (t) {
 							var e = this || t;
 							return (
-								kt.test(e.type) && e.click && _(e, 'input') && Lt(e, 'click'), !0
+								kt.test(e.type) && e.click && E(e, 'input') && Lt(e, 'click'), !0
 							);
 						},
 						_default: function (t) {
@@ -2713,9 +2713,9 @@
 							return (
 								(kt.test(e.type) &&
 									e.click &&
-									_(e, 'input') &&
+									E(e, 'input') &&
 									ot.get(e, 'click')) ||
-								_(e, 'a')
+								E(e, 'a')
 							);
 						},
 					},
@@ -2932,8 +2932,8 @@
 				Bt = /^\s*<!\[CDATA\[|\]\]>\s*$/g;
 			function Ft(t, e) {
 				return (
-					(_(t, 'table') &&
-						_(11 !== e.nodeType ? e : e.firstChild, 'tr') &&
+					(E(t, 'table') &&
+						E(11 !== e.nodeType ? e : e.firstChild, 'tr') &&
 						k(t).children('tbody')[0]) ||
 					t
 				);
@@ -2995,7 +2995,7 @@
 					if (s)
 						for (c = o[o.length - 1].ownerDocument, k.map(o, Vt), f = 0; f < s; f++)
 							(l = o[f]),
-								_t.test(l.type || '') &&
+								Et.test(l.type || '') &&
 									!ot.access(l, 'globalEval') &&
 									k.contains(c, l) &&
 									(l.src && 'module' !== (l.type || '').toLowerCase()
@@ -3134,7 +3134,7 @@
 								if (
 									'string' == typeof t &&
 									!jt.test(t) &&
-									!Et[(Ct.exec(t) || ['', ''])[1].toLowerCase()]
+									!_t[(Ct.exec(t) || ['', ''])[1].toLowerCase()]
 								) {
 									t = k.htmlPrefilter(t);
 									try {
@@ -3378,7 +3378,7 @@
 				}
 				return (
 					((!v.boxSizingReliable() && i) ||
-						(!v.reliableTrDimensions() && _(t, 'tr')) ||
+						(!v.reliableTrDimensions() && E(t, 'tr')) ||
 						'auto' === o ||
 						(!parseFloat(o) && 'inline' === k.css(t, 'display', !1, r))) &&
 						t.getClientRects().length &&
@@ -4069,7 +4069,7 @@
 					attrHooks: {
 						type: {
 							set: function (t, e) {
-								if (!v.radioValue && 'radio' === e && _(t, 'input')) {
+								if (!v.radioValue && 'radio' === e && E(t, 'input')) {
 									var n = t.value;
 									return t.setAttribute('type', e), n && (t.value = n), e;
 								}
@@ -4112,7 +4112,7 @@
 			function Ce(t) {
 				return (t.getAttribute && t.getAttribute('class')) || '';
 			}
-			function _e(t) {
+			function Ee(t) {
 				return Array.isArray(t) ? t : ('string' == typeof t && t.match(W)) || [];
 			}
 			k.fn.extend({
@@ -4192,7 +4192,7 @@
 							? this.each(function (e) {
 									k(this).addClass(t.call(this, e, Ce(this)));
 							  })
-							: (e = _e(t)).length
+							: (e = Ee(t)).length
 							? this.each(function () {
 									if (
 										((r = Ce(this)),
@@ -4213,7 +4213,7 @@
 									k(this).removeClass(t.call(this, e, Ce(this)));
 							  })
 							: arguments.length
-							? (e = _e(t)).length
+							? (e = Ee(t)).length
 								? this.each(function () {
 										if (
 											((r = Ce(this)),
@@ -4243,7 +4243,7 @@
 							? e
 								? this.addClass(t)
 								: this.removeClass(t)
-							: ((n = _e(t)),
+							: ((n = Ee(t)),
 							  this.each(function () {
 									if (s)
 										for (a = k(this), i = 0; i < n.length; i++)
@@ -4271,7 +4271,7 @@
 						return !1;
 					},
 				});
-			var Ee = /\r/g;
+			var _e = /\r/g;
 			k.fn.extend({
 				val: function (t) {
 					var e,
@@ -4304,7 +4304,7 @@
 						  void 0 !== (n = e.get(i, 'value'))
 							? n
 							: 'string' == typeof (n = i.value)
-							? n.replace(Ee, '')
+							? n.replace(_e, '')
 							: null == n
 							? ''
 							: n
@@ -4333,7 +4333,7 @@
 									if (
 										((n = i[r]).selected || r === a) &&
 										!n.disabled &&
-										(!n.parentNode.disabled || !_(n.parentNode, 'optgroup'))
+										(!n.parentNode.disabled || !E(n.parentNode, 'optgroup'))
 									) {
 										if (((e = k(n).val()), o)) return e;
 										s.push(e);
@@ -5445,7 +5445,7 @@
 				}),
 				(k.isArray = Array.isArray),
 				(k.parseJSON = JSON.parse),
-				(k.nodeName = _),
+				(k.nodeName = E),
 				(k.isFunction = m),
 				(k.isWindow = y),
 				(k.camelCase = rt),
@@ -6770,11 +6770,11 @@
 			A = w.enforce,
 			k = w.get,
 			C = u.Int8Array,
-			_ = C && C.prototype,
-			E = u.Uint8ClampedArray,
-			T = E && E.prototype,
+			E = C && C.prototype,
+			_ = u.Uint8ClampedArray,
+			T = _ && _.prototype,
 			M = C && y(C),
-			I = _ && y(_),
+			I = E && y(E),
 			O = Object.prototype,
 			R = u.TypeError,
 			D = x('toStringTag'),
@@ -6852,7 +6852,7 @@
 									} catch (t) {}
 								}
 						}
-					(I[t] && !n) || g(I, t, n ? e : (P && _[t]) || e, r);
+					(I[t] && !n) || g(I, t, n ? e : (P && E[t]) || e, r);
 				}
 			},
 			exportTypedArrayStaticMethod: function (t, e, n) {
@@ -7192,12 +7192,12 @@
 							A = r(g, v),
 							k = 0,
 							C = m || u,
-							_ = e ? C(p, w) : n || h ? C(p, 0) : void 0;
+							E = e ? C(p, w) : n || h ? C(p, 0) : void 0;
 						w > k;
 						k++
 					)
 						if ((d || k in S) && ((b = A((y = S[k]), k, x)), t))
-							if (e) _[k] = b;
+							if (e) E[k] = b;
 							else if (b)
 								switch (t) {
 									case 3:
@@ -7207,16 +7207,16 @@
 									case 6:
 										return k;
 									case 2:
-										l(_, y);
+										l(E, y);
 								}
 							else
 								switch (t) {
 									case 4:
 										return !1;
 									case 7:
-										l(_, y);
+										l(E, y);
 								}
-					return f ? -1 : i || c ? c : _;
+					return f ? -1 : i || c ? c : E;
 				};
 			};
 		t.exports = {
@@ -8461,9 +8461,9 @@ More info at: http://icanhazjs.com
 				var n;
 			})(g.a),
 			C = (n(99), n(121), n(88), n(96), n(30), n(65), n(25)),
-			_ = n.n(C);
+			E = n.n(C);
 		n(59), n(49), n(79);
-		function E(t, e) {
+		function _(t, e) {
 			var n = ('undefined' != typeof Symbol && t[Symbol.iterator]) || t['@@iterator'];
 			if (!n) {
 				if (
@@ -8640,7 +8640,7 @@ More info at: http://icanhazjs.com
 															break;
 														}
 														(a = []),
-															(o = E(r.entries())),
+															(o = _(r.entries())),
 															(t.prev = 7),
 															o.s();
 													case 9:
@@ -8649,7 +8649,7 @@ More info at: http://icanhazjs.com
 															break;
 														}
 														if (
-															((u = _()(s.value, 2)),
+															((u = E()(s.value, 2)),
 															(l = u[0]),
 															(c = u[1]),
 															(t.prev = 11),
@@ -9546,7 +9546,7 @@ More info at: http://icanhazjs.com
 															break;
 														}
 														if (
-															((u = _()(s.value, 2))[0],
+															((u = E()(s.value, 2))[0],
 															(l = u[1]),
 															(t.prev = 11),
 															!l)
@@ -9862,7 +9862,7 @@ More info at: http://icanhazjs.com
 													case 2:
 														return (
 															(r = t.sent),
-															(i = _()(r, 1)),
+															(i = E()(r, 1)),
 															(a = i[0][this.id]),
 															t.abrupt('return', [
 																{ [this.id]: JSON.stringify(a) },
@@ -10195,7 +10195,7 @@ More info at: http://icanhazjs.com
 																this.getClickElementUniquenessType()
 															)),
 															(u = o),
-															(l = _()(u, 1)),
+															(l = E()(u, 1)),
 															(c = l[0]),
 															'clickOnce' === this.clickType &&
 																s.push(c),
@@ -10250,7 +10250,7 @@ More info at: http://icanhazjs.com
 																				else {
 																					i++;
 																					var d = o,
-																						p = _()(
+																						p = E()(
 																							d,
 																							1
 																						);
@@ -11197,12 +11197,12 @@ More info at: http://icanhazjs.com
 			A = a([].push),
 			k = a(''.indexOf),
 			C = a(''.slice),
-			_ = '$0' === 'a'.replace(/./, '$0'),
-			E = !!/./[b] && '' === /./[b]('a', '$0');
+			E = '$0' === 'a'.replace(/./, '$0'),
+			_ = !!/./[b] && '' === /./[b]('a', '$0');
 		o(
 			'replace',
 			function (t, e, n) {
-				var a = E ? '$' : '$0';
+				var a = _ ? '$' : '$0';
 				return [
 					function (t, n) {
 						var r = p(this),
@@ -11221,21 +11221,21 @@ More info at: http://icanhazjs.com
 						var v,
 							b = o.global;
 						b && ((v = o.unicode), (o.lastIndex = 0));
-						for (var _, E = []; null !== (_ = y(o, s)) && (A(E, _), b); ) {
-							'' === d(_[0]) && (o.lastIndex = g(s, h(o.lastIndex), v));
+						for (var E, _ = []; null !== (E = y(o, s)) && (A(_, E), b); ) {
+							'' === d(E[0]) && (o.lastIndex = g(s, h(o.lastIndex), v));
 						}
-						for (var T, M = '', I = 0, O = 0; O < E.length; O++) {
+						for (var T, M = '', I = 0, O = 0; O < _.length; O++) {
 							for (
 								var R,
-									D = d((_ = E[O])[0]),
-									N = x(S(f(_.index), s.length), 0),
+									D = d((E = _[O])[0]),
+									N = x(S(f(E.index), s.length), 0),
 									P = [],
 									L = 1;
-								L < _.length;
+								L < E.length;
 								L++
 							)
-								A(P, void 0 === (T = _[L]) ? T : String(T));
-							var j = _.groups;
+								A(P, void 0 === (T = E[L]) ? T : String(T));
+							var j = E.groups;
 							if (p) {
 								var $ = w([D], P, N, s);
 								void 0 !== j && A($, j), (R = d(r(i, void 0, $)));
@@ -11256,8 +11256,8 @@ More info at: http://icanhazjs.com
 					'7' !== ''.replace(t, '$<a>')
 				);
 			}) ||
-				!_ ||
-				E
+				!E ||
+				_
 		);
 	},
 	function (t, e, n) {
@@ -11621,17 +11621,17 @@ More info at: http://icanhazjs.com
 				A = n && n.that,
 				k = !(!n || !n.AS_ENTRIES),
 				C = !(!n || !n.IS_RECORD),
-				_ = !(!n || !n.IS_ITERATOR),
-				E = !(!n || !n.INTERRUPTED),
+				E = !(!n || !n.IS_ITERATOR),
+				_ = !(!n || !n.INTERRUPTED),
 				T = r(e, A),
 				M = function (t) {
 					return v && h(v, 'normal', t), new p(!0, t);
 				},
 				I = function (t) {
-					return k ? (a(t), E ? T(t[0], t[1], M) : T(t[0], t[1])) : E ? T(t, M) : T(t);
+					return k ? (a(t), _ ? T(t[0], t[1], M) : T(t[0], t[1])) : _ ? T(t, M) : T(t);
 				};
 			if (C) v = t.iterator;
-			else if (_) v = t;
+			else if (E) v = t;
 			else {
 				if (!(m = f(t))) throw new d(o(t) + ' is not iterable');
 				if (s(m)) {
@@ -13190,7 +13190,7 @@ More info at: http://icanhazjs.com
 	function (t, e, n) {
 		'use strict';
 		n.d(e, 'a', function () {
-			return _;
+			return E;
 		});
 		n(99), n(121), n(96), n(26), n(65), n(79);
 		var r = n(2),
@@ -13325,7 +13325,7 @@ More info at: http://icanhazjs.com
 				  }
 				: i;
 		}
-		var _ = (function (t) {
+		var E = (function (t) {
 			function e(t) {
 				var n;
 				return u()(this, e), (n = k(this, e, [t])).updateData(t, n.getFeatures()), n;
@@ -13867,10 +13867,10 @@ More info at: http://icanhazjs.com
 			A = n(193),
 			k = n(194),
 			C = w('match'),
-			_ = i.RegExp,
-			E = _.prototype,
+			E = i.RegExp,
+			_ = E.prototype,
 			T = i.SyntaxError,
-			M = a(E.exec),
+			M = a(_.exec),
 			I = a(''.charAt),
 			O = a(''.replace),
 			R = a(''.indexOf),
@@ -13878,7 +13878,7 @@ More info at: http://icanhazjs.com
 			N = /^\?<[^\s\d!#%&*+<=>@^][^\s!#%&*+<=>@^]*>/,
 			P = /a/g,
 			L = /a/g,
-			j = new _(P) !== P,
+			j = new E(P) !== P,
 			$ = g.MISSED_STICKY,
 			B = g.UNSUPPORTED_Y,
 			F =
@@ -13889,7 +13889,7 @@ More info at: http://icanhazjs.com
 					k ||
 					y(function () {
 						return (
-							(L[C] = !1), _(P) !== P || _(L) === L || '/a/i' !== String(_(P, 'i'))
+							(L[C] = !1), E(P) !== P || E(L) === L || '/a/i' !== String(E(P, 'i'))
 						);
 					}));
 		if (o('RegExp', F)) {
@@ -13901,14 +13901,14 @@ More info at: http://icanhazjs.com
 							a,
 							o,
 							c,
-							g = f(E, this),
+							g = f(_, this),
 							v = h(t),
 							m = void 0 === e,
 							y = [],
 							S = t;
 						if (!g && v && m && t.constructor === U) return t;
 						if (
-							((v || f(E, t)) && ((t = t.source), m && (e = p(S))),
+							((v || f(_, t)) && ((t = t.source), m && (e = p(S))),
 							(t = void 0 === t ? '' : d(t)),
 							(e = void 0 === e ? '' : d(e)),
 							(S = t),
@@ -13964,7 +13964,7 @@ More info at: http://icanhazjs.com
 									return [i, a];
 								})(t))[0]),
 								(y = a[1])),
-							(o = s(_(t, e), g ? this : E, U)),
+							(o = s(E(t, e), g ? this : _, U)),
 							(r || i || y.length) &&
 								((c = x(o)),
 								r &&
@@ -13997,13 +13997,13 @@ More info at: http://icanhazjs.com
 							} catch (t) {}
 						return o;
 					},
-					V = c(_),
+					V = c(E),
 					H = 0;
 				V.length > H;
 
 			)
-				v(U, _, V[H++]);
-			(E.constructor = U), (U.prototype = E), m(i, 'RegExp', U, { constructor: !0 });
+				v(U, E, V[H++]);
+			(_.constructor = U), (U.prototype = _), m(i, 'RegExp', U, { constructor: !0 });
 		}
 		S('RegExp');
 	},
@@ -14082,15 +14082,15 @@ More info at: http://icanhazjs.com
 					d = this,
 					p = h(d),
 					C = s(t),
-					_ = p.raw;
-				if (_)
+					E = p.raw;
+				if (E)
 					return (
-						(_.lastIndex = d.lastIndex),
-						(e = a(m, _, C)),
-						(d.lastIndex = _.lastIndex),
+						(E.lastIndex = d.lastIndex),
+						(e = a(m, E, C)),
+						(d.lastIndex = E.lastIndex),
 						e
 					);
-				var E = p.groups,
+				var _ = p.groups,
 					T = A && d.sticky,
 					M = a(u, d),
 					I = d.source,
@@ -14123,10 +14123,10 @@ More info at: http://icanhazjs.com
 							for (o = 1; o < arguments.length - 2; o++)
 								void 0 === arguments[o] && (i[o] = void 0);
 						}),
-					i && E)
+					i && _)
 				)
-					for (i.groups = l = f(null), o = 0; o < E.length; o++)
-						l[(c = E[o])[0]] = i[c[1]];
+					for (i.groups = l = f(null), o = 0; o < _.length; o++)
+						l[(c = _[o])[0]] = i[c[1]];
 				return i;
 			}),
 			(t.exports = m);
@@ -14240,8 +14240,8 @@ More info at: http://icanhazjs.com
 			u(n, e, o);
 			var k,
 				C,
-				_,
-				E = function (t) {
+				E,
+				_ = function (t) {
 					if (t === p && R) return R;
 					if (!x && t && t in I) return I[t];
 					switch (t) {
@@ -14260,7 +14260,7 @@ More info at: http://icanhazjs.com
 				M = !1,
 				I = t.prototype,
 				O = I[S] || I['@@iterator'] || (p && I[p]),
-				R = (!x && O) || E(p),
+				R = (!x && O) || _(p),
 				D = ('Array' === e && I.entries) || O;
 			if (
 				(D &&
@@ -14282,10 +14282,10 @@ More info at: http://icanhazjs.com
 				p)
 			)
 				if (
-					((C = { values: E('values'), keys: v ? R : E('keys'), entries: E('entries') }),
+					((C = { values: _('values'), keys: v ? R : _('keys'), entries: _('entries') }),
 					A)
 				)
-					for (_ in C) (x || M || !(_ in I)) && d(I, _, C[_]);
+					for (E in C) (x || M || !(E in I)) && d(I, E, C[E]);
 				else r({ target: e, proto: !0, forced: x || M }, C);
 			return (a && !A) || I[S] === R || d(I, S, R, { name: p }), (g[e] = R), C;
 		};
@@ -15342,15 +15342,15 @@ More info at: http://icanhazjs.com
 			A = s.Function,
 			k = s.MessageChannel,
 			C = s.String,
-			_ = 0,
-			E = {};
+			E = 0,
+			_ = {};
 		h(function () {
 			r = s.location;
 		});
 		var T = function (t) {
-				if (f(E, t)) {
-					var e = E[t];
-					delete E[t], e();
+				if (f(_, t)) {
+					var e = _[t];
+					delete _[t], e();
 				}
 			},
 			M = function (t) {
@@ -15370,15 +15370,15 @@ More info at: http://icanhazjs.com
 				var e = c(t) ? t : A(t),
 					n = p(arguments, 1);
 				return (
-					(E[++_] = function () {
+					(_[++E] = function () {
 						u(e, void 0, n);
 					}),
-					i(_),
-					_
+					i(E),
+					E
 				);
 			}),
 			(x = function (t) {
-				delete E[t];
+				delete _[t];
 			}),
 			y
 				? (i = function (t) {
@@ -16108,8 +16108,8 @@ More info at: http://icanhazjs.com
 			A = n(21),
 			k = n(27),
 			C = n(56),
-			_ = n(64),
-			E = n(119),
+			E = n(64),
+			_ = n(119),
 			T = n(95),
 			M = n(133),
 			I = n(145),
@@ -16271,9 +16271,9 @@ More info at: http://icanhazjs.com
 					l = this.entries,
 					c = T(t);
 				if (c)
-					for (n = (e = E(t, c)).next; !(r = s(n, e)).done; ) {
+					for (n = (e = _(t, c)).next; !(r = s(n, e)).done; ) {
 						if (
-							((a = (i = E(w(r.value))).next),
+							((a = (i = _(w(r.value))).next),
 							(o = s(a, i)).done || (u = s(a, i)).done || !s(a, i).done)
 						)
 							throw new V('Expected sequence with length 2');
@@ -16442,7 +16442,7 @@ More info at: http://icanhazjs.com
 										'content-type',
 										'application/x-www-form-urlencoded;charset=UTF-8'
 									),
-								C(t, { body: _(0, k(n)), headers: _(0, e) })
+								C(t, { body: E(0, k(n)), headers: E(0, e) })
 							);
 					}
 					return t;
@@ -17260,19 +17260,17 @@ More info at: http://icanhazjs.com
 																		this.$allElements.push(
 																			this.parent
 																		),
-																	(this.advancedMode = !1),
 																	this.bindElementHighlight(),
 																	this.bindElementSelection(),
 																	this.bindKeyboardSelectionManipulations(),
-																	(e.next = 9),
+																	(e.next = 8),
 																	this.attachToolbar()
 																);
-															case 9:
+															case 8:
 																this.bindMatchingModeDropdown(),
-																	this.bindAdvancedModeToggle(),
 																	this.bindMoveImagesToTop(),
 																	g.a.translatePage();
-															case 13:
+															case 11:
 															case 'end':
 																return e.stop();
 														}
@@ -17287,64 +17285,20 @@ More info at: http://icanhazjs.com
 									}),
 							},
 							{
-								key: 'bindAdvancedModeToggle',
-								value: function () {
-									t('#-selector-toolbar [name=advancedMode]').change(
-										function (e) {
-											(this.advancedMode = t(e.currentTarget).is(':checked')),
-												this.advancedMode
-													? t(
-															'#-selector-toolbar .advanced-mode-hint'
-													  ).removeClass('hide')
-													: t(
-															'#-selector-toolbar .advanced-mode-hint'
-													  ).addClass('hide'),
-												this.unbindElementSelection(),
-												this.bindElementSelection();
-										}.bind(this)
-									);
-								},
-							},
-							{
-								key: 'unbindAdvancedModeToggle',
-								value: function () {
-									t('#-selector-toolbar [name=advancedMode]').unbind('change');
-								},
-							},
-							{
 								key: 'bindElementSelection',
 								value: function () {
-									var t = this,
-										e = this.$allElements.toArray();
-									(this._documentClickHandler = function (n) {
-										if (!t.advancedMode || n.altKey) {
-											for (
-												var r = n.target, i = null;
-												r && r !== document;
-
-											) {
-												if (-1 !== e.indexOf(r)) {
-													i = r;
-													break;
-												}
-												r = r.parentNode;
-											}
-											return i
-												? (-1 === t.selectedElements.indexOf(i) &&
-														t.selectedElements.push(i),
-												  t.highlightSelectedElements(),
-												  n.preventDefault(),
-												  n.stopPropagation(),
-												  n.stopImmediatePropagation(),
-												  !1)
-												: void 0;
-										}
-									}),
-										document.addEventListener(
-											'mousedown',
-											this._documentClickHandler,
-											!0
-										);
+									this.$allElements.bind(
+										'click.elementSelector',
+										function (t) {
+											var e = t.currentTarget;
+											return (
+												-1 === this.selectedElements.indexOf(e) &&
+													this.selectedElements.push(e),
+												this.highlightSelectedElements(),
+												!1
+											);
+										}.bind(this)
+									);
 								},
 							},
 							{
@@ -17352,7 +17306,8 @@ More info at: http://icanhazjs.com
 								value: function () {
 									var t = this.mouseOverElement;
 									t &&
-										(this.selectedElements.push(t),
+										(-1 === this.selectedElements.indexOf(t) &&
+											this.selectedElements.push(t),
 										this.highlightSelectedElements());
 								},
 							},
@@ -17572,14 +17527,7 @@ More info at: http://icanhazjs.com
 							{
 								key: 'unbindElementSelection',
 								value: function () {
-									this._documentClickHandler &&
-										(document.removeEventListener(
-											'mousedown',
-											this._documentClickHandler,
-											!0
-										),
-										(this._documentClickHandler = null)),
-										t(this.$allElements).unbind('click.elementSelector'),
+									t(this.$allElements).unbind('click.elementSelector'),
 										this.unbindElementSelectionHighlight();
 								},
 							},
@@ -17621,7 +17569,6 @@ More info at: http://icanhazjs.com
 										this.unbindElementHighlight(),
 										this.unbindKeyboardSelectionMaipulatios(),
 										this.unbindMatchingModeDropdown(),
-										this.unbindAdvancedModeToggle(),
 										this.unbindMoveImagesToTop(),
 										this.removeToolbar();
 								},
@@ -17741,16 +17688,16 @@ More info at: http://icanhazjs.com
 			A = n(129),
 			k = n(171),
 			C = n(35),
-			_ = n(77),
-			E = n(86),
+			E = n(77),
+			_ = n(86),
 			T = n(87),
-			M = E.CONSTRUCTOR,
-			I = E.REJECTION_EVENT,
-			O = E.SUBCLASSING,
+			M = _.CONSTRUCTOR,
+			I = _.REJECTION_EVENT,
+			O = _.SUBCLASSING,
 			R = C.getterFor('Promise'),
 			D = C.set,
-			N = _ && _.prototype,
-			P = _,
+			N = E && E.prototype,
+			P = E,
 			L = N,
 			j = l.TypeError,
 			$ = l.document,
@@ -17909,7 +17856,7 @@ More info at: http://icanhazjs.com
 				function (t) {
 					return t === P || void 0 === t ? new i(t) : U(t);
 				}),
-			!s && v(_) && N !== Object.prototype)
+			!s && v(E) && N !== Object.prototype)
 		) {
 			(a = N.then),
 				O ||
@@ -18306,20 +18253,20 @@ More info at: http://icanhazjs.com
 							A = void 0 === r ? 4294967295 : r >>> 0;
 						if (0 === A) return [];
 						if (0 === s.length) return null === p(S, s) ? [s] : [];
-						for (var k = 0, C = 0, _ = []; C < s.length; ) {
+						for (var k = 0, C = 0, E = []; C < s.length; ) {
 							S.lastIndex = m ? 0 : C;
-							var E,
+							var _,
 								T = p(S, m ? x(s, C) : s);
-							if (null === T || (E = y(f(S.lastIndex + (m ? C : 0)), s.length)) === k)
+							if (null === T || (_ = y(f(S.lastIndex + (m ? C : 0)), s.length)) === k)
 								C = c(s, C, g);
 							else {
-								if ((b(_, x(s, k, C)), _.length === A)) return _;
+								if ((b(E, x(s, k, C)), E.length === A)) return E;
 								for (var M = 1; M <= T.length - 1; M++)
-									if ((b(_, T[M]), _.length === A)) return _;
-								C = k = E;
+									if ((b(E, T[M]), E.length === A)) return E;
+								C = k = _;
 							}
 						}
-						return b(_, x(s, k)), _;
+						return b(E, x(s, k)), E;
 					},
 				];
 			},
@@ -18429,10 +18376,10 @@ More info at: http://icanhazjs.com
 			)
 				(A = n.getConstructor(e, t, y, x)), u.enable();
 			else if (o(t, !0)) {
-				var _ = new A(),
-					E = _[x](b ? {} : -0, 1) !== _,
+				var E = new A(),
+					_ = E[x](b ? {} : -0, 1) !== E,
 					T = p(function () {
-						_.has(1);
+						E.has(1);
 					}),
 					M = g(function (t) {
 						new S(t);
@@ -18451,7 +18398,7 @@ More info at: http://icanhazjs.com
 					})).prototype = w),
 					(w.constructor = A)),
 					(T || I) && (C('delete'), C('has'), y && C('get')),
-					(I || E) && C(x),
+					(I || _) && C(x),
 					b && w.clear && delete w.clear;
 			}
 			return (
@@ -19133,21 +19080,21 @@ More info at: http://icanhazjs.com
 					} else for (var o in t) n.set(o, t[o]);
 					return n;
 				});
-			function _(t) {
+			function E(t) {
 				return '__proto__' == (t += '') || '\0' === t[0] ? '\0' + t : t;
 			}
-			function E(t) {
+			function _(t) {
 				return '\0' === (t += '')[0] ? t.slice(1) : t;
 			}
 			function T(t) {
-				return _(t) in this._;
+				return E(t) in this._;
 			}
 			function M(t) {
-				return (t = _(t)) in this._ && delete this._[t];
+				return (t = E(t)) in this._ && delete this._[t];
 			}
 			function I() {
 				var t = [];
-				for (var e in this._) t.push(E(e));
+				for (var e in this._) t.push(_(e));
 				return t;
 			}
 			function O() {
@@ -19182,10 +19129,10 @@ More info at: http://icanhazjs.com
 			k(C, {
 				has: T,
 				get: function (t) {
-					return this._[_(t)];
+					return this._[E(t)];
 				},
 				set: function (t, e) {
-					return (this._[_(t)] = e);
+					return (this._[E(t)] = e);
 				},
 				remove: M,
 				keys: I,
@@ -19196,13 +19143,13 @@ More info at: http://icanhazjs.com
 				},
 				entries: function () {
 					var t = [];
-					for (var e in this._) t.push({ key: E(e), value: this._[e] });
+					for (var e in this._) t.push({ key: _(e), value: this._[e] });
 					return t;
 				},
 				size: O,
 				empty: R,
 				forEach: function (t) {
-					for (var e in this._) t.call(this, E(e), this._[e]);
+					for (var e in this._) t.call(this, _(e), this._[e]);
 				},
 			}),
 				(a.nest = function () {
@@ -19277,14 +19224,14 @@ More info at: http://icanhazjs.com
 				k(D, {
 					has: T,
 					add: function (t) {
-						return (this._[_((t += ''))] = !0), t;
+						return (this._[E((t += ''))] = !0), t;
 					},
 					remove: M,
 					values: I,
 					size: O,
 					empty: R,
 					forEach: function (t) {
-						for (var e in this._) t.call(this, E(e));
+						for (var e in this._) t.call(this, _(e));
 					},
 				}),
 				(a.behavior = {}),
@@ -19988,10 +19935,10 @@ More info at: http://icanhazjs.com
 				};
 			}
 			a.mouse = function (t) {
-				return _t(t, V());
+				return Et(t, V());
 			};
 			var Ct = this.navigator && /WebKit/.test(this.navigator.userAgent) ? -1 : 0;
-			function _t(t, e) {
+			function Et(t, e) {
 				e.changedTouches && (e = e.changedTouches[0]);
 				var n = t.ownerSVGElement || t;
 				if (n.createSVGPoint) {
@@ -20026,19 +19973,19 @@ More info at: http://icanhazjs.com
 				var s = t.getBoundingClientRect();
 				return [e.clientX - s.left - t.clientLeft, e.clientY - s.top - t.clientTop];
 			}
-			function Et() {
+			function _t() {
 				return a.event.changedTouches[0].identifier;
 			}
 			(a.touch = function (t, e, n) {
 				if ((arguments.length < 3 && ((n = e), (e = V().changedTouches)), e))
 					for (var r, i = 0, a = e.length; i < a; ++i)
-						if ((r = e[i]).identifier === n) return _t(t, r);
+						if ((r = e[i]).identifier === n) return Et(t, r);
 			}),
 				(a.behavior.drag = function () {
 					var t = H(i, 'drag', 'dragstart', 'dragend'),
 						e = null,
 						n = o($, a.mouse, c, 'mousemove', 'mouseup'),
-						r = o(Et, a.touch, N, 'touchmove', 'touchend');
+						r = o(_t, a.touch, N, 'touchmove', 'touchend');
 					function i() {
 						this.on('mousedown.drag', n).on('touchstart.drag', r);
 					}
@@ -20097,7 +20044,7 @@ More info at: http://icanhazjs.com
 						arguments.length < 2 && (e = V().touches),
 						e
 							? s(e).map(function (e) {
-									var n = _t(t, e);
+									var n = Et(t, e);
 									return (n.identifier = e.identifier), n;
 							  })
 							: []
@@ -20208,7 +20155,7 @@ More info at: http://icanhazjs.com
 							(h.x += t[0] - e[0]),
 							(h.y += t[1] - e[1]);
 					}
-					function _(t, n, r, i) {
+					function E(t, n, r, i) {
 						(t.__chart__ = { x: h.x, y: h.y, k: h.k }),
 							k(Math.pow(2, i)),
 							C((e = n), r),
@@ -20216,7 +20163,7 @@ More info at: http://icanhazjs.com
 							g > 0 && (t = t.transition().duration(g)),
 							t.call(w.event);
 					}
-					function E() {
+					function _() {
 						s &&
 							s.domain(
 								o
@@ -20240,7 +20187,7 @@ More info at: http://icanhazjs.com
 						v++ || t({ type: 'zoomstart' });
 					}
 					function M(t) {
-						E(), t({ type: 'zoom', scale: h.k, translate: [h.x, h.y] });
+						_(), t({ type: 'zoom', scale: h.k, translate: [h.x, h.y] });
 					}
 					function I(t) {
 						--v || (t({ type: 'zoomend' }), (e = null));
@@ -20292,7 +20239,7 @@ More info at: http://icanhazjs.com
 							if (1 === d.length) {
 								if (g - i < 500) {
 									var m = d[0];
-									_(
+									E(
 										e,
 										m,
 										r[m.identifier],
@@ -20360,7 +20307,7 @@ More info at: http://icanhazjs.com
 					function N() {
 						var t = a.mouse(this),
 							e = Math.log(h.k) / Math.LN2;
-						_(this, t, A(t), a.event.shiftKey ? Math.ceil(e) - 1 : Math.floor(e) + 1);
+						E(this, t, A(t), a.event.shiftKey ? Math.ceil(e) - 1 : Math.floor(e) + 1);
 					}
 					return (
 						zt ||
@@ -20418,12 +20365,12 @@ More info at: http://icanhazjs.com
 						}),
 						(w.translate = function (t) {
 							return arguments.length
-								? ((h = { x: +t[0], y: +t[1], k: h.k }), E(), w)
+								? ((h = { x: +t[0], y: +t[1], k: h.k }), _(), w)
 								: [h.x, h.y];
 						}),
 						(w.scale = function (t) {
 							return arguments.length
-								? ((h = { x: h.x, y: h.y, k: null }), k(+t), E(), w)
+								? ((h = { x: h.x, y: h.y, k: null }), k(+t), _(), w)
 								: h.k;
 						}),
 						(w.scaleExtent = function (t) {
@@ -21148,7 +21095,7 @@ More info at: http://icanhazjs.com
 					function (t) {
 						setTimeout(t, 17);
 					};
-			function _e(t, e, n) {
+			function Ee(t, e, n) {
 				var r = arguments.length;
 				r < 2 && (e = 0), r < 3 && (n = Date.now());
 				var i = n + e,
@@ -21156,16 +21103,16 @@ More info at: http://icanhazjs.com
 				return (
 					we ? (we.n = a) : (Se = a),
 					(we = a),
-					Ae || ((ke = clearTimeout(ke)), (Ae = 1), Ce(Ee)),
+					Ae || ((ke = clearTimeout(ke)), (Ae = 1), Ce(_e)),
 					a
 				);
 			}
-			function Ee() {
+			function _e() {
 				var t = Te(),
 					e = Me() - t;
 				e > 24
-					? (isFinite(e) && (clearTimeout(ke), (ke = setTimeout(Ee, e))), (Ae = 0))
-					: ((Ae = 1), Ce(Ee));
+					? (isFinite(e) && (clearTimeout(ke), (ke = setTimeout(_e, e))), (Ae = 0))
+					: ((Ae = 1), Ce(_e));
 			}
 			function Te() {
 				for (var t = Date.now(), e = Se; e; )
@@ -21183,7 +21130,7 @@ More info at: http://icanhazjs.com
 				return e - (t ? Math.ceil(Math.log(t) / Math.LN10) : 1);
 			}
 			(a.timer = function () {
-				_e.apply(this, arguments);
+				Ee.apply(this, arguments);
 			}),
 				(a.timer.flush = function () {
 					Te(), Me();
@@ -21315,18 +21262,18 @@ More info at: http://icanhazjs.com
 						} else (S = t.substring(0, A)), (w = e + t.substring(A + 1));
 						!c && h && (S = o(S, 1 / 0));
 						var C = v.length + S.length + w.length + (x ? 0 : i.length),
-							_ = C < f ? new Array((C = f - C + 1)).join(r) : '';
+							E = C < f ? new Array((C = f - C + 1)).join(r) : '';
 						return (
-							x && (S = o(_ + S, _.length ? f - w.length : 1 / 0)),
+							x && (S = o(E + S, E.length ? f - w.length : 1 / 0)),
 							(i += v),
 							(t = S + w),
 							('<' === s
-								? i + t + _
+								? i + t + E
 								: '>' === s
-								? _ + i + t
+								? E + i + t
 								: '^' === s
-								? _.substring(0, (C >>= 1)) + i + t + _.substring(C)
-								: i + (x ? t : _ + t)) + n
+								? E.substring(0, (C >>= 1)) + i + t + E.substring(C)
+								: i + (x ? t : E + t)) + n
 						);
 					};
 				};
@@ -22021,8 +21968,8 @@ More info at: http://icanhazjs.com
 				An,
 				kn,
 				Cn,
-				_n,
 				En,
+				_n,
 				Tn,
 				Mn,
 				In,
@@ -22233,16 +22180,16 @@ More info at: http://icanhazjs.com
 				};
 			})()),
 				(a.geo.centroid = function (t) {
-					(wn = An = kn = Cn = _n = En = Tn = Mn = In = On = Rn = 0), a.geo.stream(t, zn);
+					(wn = An = kn = Cn = En = _n = Tn = Mn = In = On = Rn = 0), a.geo.stream(t, zn);
 					var e = In,
 						n = On,
 						r = Rn,
 						i = e * e + n * n + r * r;
 					return i < Mt &&
-						((e = En),
+						((e = _n),
 						(n = Tn),
 						(r = Mn),
-						An < Tt && ((e = kn), (n = Cn), (r = _n)),
+						An < Tt && ((e = kn), (n = Cn), (r = En)),
 						(i = e * e + n * n + r * r) < Mt)
 						? [NaN, NaN]
 						: [Math.atan2(n, e) * Pt, Bt(r / Math.sqrt(i)) * Pt];
@@ -22265,7 +22212,7 @@ More info at: http://icanhazjs.com
 				Wn(n * Math.cos(t), n * Math.sin(t), Math.sin(e));
 			}
 			function Wn(t, e, n) {
-				++wn, (kn += (t - kn) / wn), (Cn += (e - Cn) / wn), (_n += (n - _n) / wn);
+				++wn, (kn += (t - kn) / wn), (Cn += (e - Cn) / wn), (En += (n - En) / wn);
 			}
 			function Gn() {
 				var t, e, n;
@@ -22284,7 +22231,7 @@ More info at: http://icanhazjs.com
 							t * o + e * s + n * u
 						);
 					(An += l),
-						(En += l * (t + (t = o))),
+						(_n += l * (t + (t = o))),
 						(Tn += l * (e + (e = s))),
 						(Mn += l * (n + (n = u))),
 						Wn(t, e, n);
@@ -22321,7 +22268,7 @@ More info at: http://icanhazjs.com
 						(On += p * c),
 						(Rn += p * f),
 						(An += g),
-						(En += g * (n + (n = o))),
+						(_n += g * (n + (n = o))),
 						(Tn += g * (r + (r = s))),
 						(Mn += g * (i + (i = u))),
 						Wn(n, r, i);
@@ -22480,12 +22427,12 @@ More info at: http://icanhazjs.com
 													(a += k ? S + w * Ot : S),
 													k ^ (h >= n) ^ (m >= n))
 												) {
-													var _ = $n(Ln(f), Ln(t));
-													Un(_);
-													var E = $n(i, _);
+													var E = $n(Ln(f), Ln(t));
 													Un(E);
-													var T = (k ^ (S >= 0) ? -1 : 1) * Bt(E[2]);
-													(r > T || (r === T && (_[0] || _[1]))) &&
+													var _ = $n(i, E);
+													Un(_);
+													var T = (k ^ (S >= 0) ? -1 : 1) * Bt(_[2]);
+													(r > T || (r === T && (E[0] || E[1]))) &&
 														(o += k ^ (S >= 0) ? 1 : -1);
 												}
 												if (!v++) break;
@@ -22767,17 +22714,17 @@ More info at: http://icanhazjs.com
 							k = n[1];
 						S < x && ((b = x), (x = S), (S = b));
 						var C = S - x,
-							_ = w(C - It) < Tt;
+							E = w(C - It) < Tt;
 						if (
-							(!_ && k < A && ((b = A), (A = k), (k = b)),
-							_ || C < Tt
-								? _
+							(!E && k < A && ((b = A), (A = k), (k = b)),
+							E || C < Tt
+								? E
 									? (A + k > 0) ^ (y[1] < (w(y[0] - x) < Tt ? A : k))
 									: A <= y[1] && y[1] <= k
 								: (C > It) ^ (x <= y[0] && y[0] <= S))
 						) {
-							var E = Fn(d, (-p + m) / g);
-							return Bn(E, h), [y, Vn(E)];
+							var _ = Fn(d, (-p + m) / g);
+							return Bn(_, h), [y, Vn(_)];
 						}
 					}
 				}
@@ -22862,14 +22809,14 @@ More info at: http://icanhazjs.com
 						S = rr(),
 						w = sr(t, e, n, r),
 						A = {
-							point: _,
+							point: E,
 							lineStart: function () {
-								(A.point = E), c && c.push((f = []));
+								(A.point = _), c && c.push((f = []));
 								(y = !0), (m = !1), (g = v = NaN);
 							},
 							lineEnd: function () {
-								l && (E(h, d), p && m && S.rejoin(), l.push(S.buffer()));
-								(A.point = _), m && u.lineEnd();
+								l && (_(h, d), p && m && S.rejoin(), l.push(S.buffer()));
+								(A.point = E), m && u.lineEnd();
 							},
 							polygonStart: function () {
 								(u = S), (l = []), (c = []), (b = !0);
@@ -22912,10 +22859,10 @@ More info at: http://icanhazjs.com
 					function C(i, a) {
 						return t <= i && i <= n && e <= a && a <= r;
 					}
-					function _(t, e) {
+					function E(t, e) {
 						C(t, e) && u.point(t, e);
 					}
-					function E(t, e) {
+					function _(t, e) {
 						var n = C(
 							(t = Math.max(-1e9, Math.min(1e9, t))),
 							(e = Math.max(-1e9, Math.min(1e9, e)))
@@ -23265,16 +23212,16 @@ More info at: http://icanhazjs.com
 				Ar = {
 					point: kr,
 					lineStart: Cr,
-					lineEnd: _r,
+					lineEnd: Er,
 					polygonStart: function () {
-						Ar.lineStart = Er;
+						Ar.lineStart = _r;
 					},
 					polygonEnd: function () {
-						(Ar.point = kr), (Ar.lineStart = Cr), (Ar.lineEnd = _r);
+						(Ar.point = kr), (Ar.lineStart = Cr), (Ar.lineEnd = Er);
 					},
 				};
 			function kr(t, e) {
-				(kn += t), (Cn += e), ++_n;
+				(kn += t), (Cn += e), ++En;
 			}
 			function Cr() {
 				var t, e;
@@ -23282,7 +23229,7 @@ More info at: http://icanhazjs.com
 					var i = n - t,
 						a = r - e,
 						o = Math.sqrt(i * i + a * a);
-					(En += (o * (t + n)) / 2),
+					(_n += (o * (t + n)) / 2),
 						(Tn += (o * (e + r)) / 2),
 						(Mn += o),
 						kr((t = n), (e = r));
@@ -23291,16 +23238,16 @@ More info at: http://icanhazjs.com
 					(Ar.point = n), kr((t = r), (e = i));
 				};
 			}
-			function _r() {
+			function Er() {
 				Ar.point = kr;
 			}
-			function Er() {
+			function _r() {
 				var t, e, n, r;
 				function i(t, e) {
 					var i = t - n,
 						a = e - r,
 						o = Math.sqrt(i * i + a * a);
-					(En += (o * (n + t)) / 2),
+					(_n += (o * (n + t)) / 2),
 						(Tn += (o * (r + e)) / 2),
 						(Mn += o),
 						(In += (o = r * t - n * e) * (n + t)),
@@ -23437,9 +23384,9 @@ More info at: http://icanhazjs.com
 							A = u + p,
 							k = l + g,
 							C = Math.sqrt(S * S + A * A + k * k),
-							_ = Math.asin((k /= C)),
-							E = w(w(k) - 1) < Tt || w(a - h) < Tt ? (a + h) / 2 : Math.atan2(A, S),
-							T = t(E, _),
+							E = Math.asin((k /= C)),
+							_ = w(w(k) - 1) < Tt || w(a - h) < Tt ? (a + h) / 2 : Math.atan2(A, S),
+							T = t(_, E),
 							M = T[0],
 							I = T[1],
 							O = M - r,
@@ -23448,9 +23395,9 @@ More info at: http://icanhazjs.com
 						((D * D) / x > e ||
 							w((y * O + b * R) / x - 0.5) > 0.3 ||
 							o * d + u * p + l * g < n) &&
-							(s(r, i, a, o, u, l, M, I, E, (S /= C), (A /= C), k, v, m),
+							(s(r, i, a, o, u, l, M, I, _, (S /= C), (A /= C), k, v, m),
 							m.point(M, I),
-							s(M, I, E, S, A, k, c, f, h, d, p, g, v, m));
+							s(M, I, _, S, A, k, c, f, h, d, p, g, v, m));
 					}
 				}
 				return (
@@ -23684,14 +23631,14 @@ More info at: http://icanhazjs.com
 					}),
 					(s.centroid = function (t) {
 						return (
-							(kn = Cn = _n = En = Tn = Mn = In = On = Rn = 0),
+							(kn = Cn = En = _n = Tn = Mn = In = On = Rn = 0),
 							a.geo.stream(t, n(Ar)),
 							Rn
 								? [In / Rn, On / Rn]
 								: Mn
-								? [En / Mn, Tn / Mn]
-								: _n
-								? [kn / _n, Cn / _n]
+								? [_n / Mn, Tn / Mn]
+								: En
+								? [kn / En, Cn / En]
 								: [NaN, NaN]
 						);
 					}),
@@ -24380,9 +24327,9 @@ More info at: http://icanhazjs.com
 			}
 			function Ci(t) {
 				for (var e, n, r, i, a = t.x, o = t.y, s = vi._; s; )
-					if ((r = _i(s, o) - a) > Tt) s = s.L;
+					if ((r = Ei(s, o) - a) > Tt) s = s.L;
 					else {
-						if (!((i = a - Ei(s, o)) > Tt)) {
+						if (!((i = a - _i(s, o)) > Tt)) {
 							r > -Tt
 								? ((e = s.P), (n = s))
 								: i > -Tt
@@ -24429,7 +24376,7 @@ More info at: http://icanhazjs.com
 					} else u.edge = Pi(e.site, u.site);
 				}
 			}
-			function _i(t, e) {
+			function Ei(t, e) {
 				var n = t.site,
 					r = n.x,
 					i = n.y,
@@ -24453,9 +24400,9 @@ More info at: http://icanhazjs.com
 							r
 					: (r + s) / 2;
 			}
-			function Ei(t, e) {
+			function _i(t, e) {
 				var n = t.N;
-				if (n) return _i(n, e);
+				if (n) return Ei(n, e);
 				var r = t.site;
 				return r.y === e ? r.x : 1 / 0;
 			}
@@ -25172,27 +25119,27 @@ More info at: http://icanhazjs.com
 								);
 						}
 						S > A ? (v = p + S) : (g = d + A);
-						var _ = {
+						var E = {
 							leaf: !0,
 							nodes: [],
 							point: null,
 							x: null,
 							y: null,
 							add: function (t) {
-								k(_, t, +m(t, ++f), +y(t, f), d, p, g, v);
+								k(E, t, +m(t, ++f), +y(t, f), d, p, g, v);
 							},
 							visit: function (t) {
-								Yi(t, _, d, p, g, v);
+								Yi(t, E, d, p, g, v);
 							},
 							find: function (t) {
-								return Zi(_, t[0], t[1], d, p, g, v);
+								return Zi(E, t[0], t[1], d, p, g, v);
 							},
 						};
 						if (((f = -1), null == e)) {
-							for (; ++f < h; ) k(_, t[f], l[f], c[f], d, p, g, v);
+							for (; ++f < h; ) k(E, t[f], l[f], c[f], d, p, g, v);
 							--f;
-						} else t.forEach(_.add);
-						return (l = c = t = u = null), _;
+						} else t.forEach(E.add);
+						return (l = c = t = u = null), E;
 					}
 					return (
 						(u.x = function (t) {
@@ -25543,7 +25490,7 @@ More info at: http://icanhazjs.com
 					}
 				);
 			}
-			function _a(t, e) {
+			function Ea(t, e) {
 				return (
 					(e = (e -= t = +t) || 1 / e),
 					function (n) {
@@ -25551,7 +25498,7 @@ More info at: http://icanhazjs.com
 					}
 				);
 			}
-			function Ea(t) {
+			function _a(t) {
 				for (
 					var e = t.source,
 						n = t.target,
@@ -25593,7 +25540,7 @@ More info at: http://icanhazjs.com
 				(a.layout = {}),
 				(a.layout.bundle = function () {
 					return function (t) {
-						for (var e = [], n = -1, r = t.length; ++n < r; ) e.push(Ea(t[n]));
+						for (var e = [], n = -1, r = t.length; ++n < r; ) e.push(_a(t[n]));
 						return e;
 					};
 				}),
@@ -25867,7 +25814,7 @@ More info at: http://icanhazjs.com
 											  u.end({ type: 'end', alpha: (n = 0) }))
 										: e > 0 &&
 										  (u.start({ type: 'start', alpha: (n = e) }),
-										  (t = _e(s.tick))),
+										  (t = Ee(s.tick))),
 								  s)
 								: n;
 						}),
@@ -27001,10 +26948,10 @@ More info at: http://icanhazjs.com
 					return o[n](i[n](e));
 				};
 			}
-			function _o(t, e) {
+			function Eo(t, e) {
 				return a.rebind(t, e, 'range', 'rangeRound', 'interpolate', 'clamp');
 			}
-			function Eo(t, e) {
+			function _o(t, e) {
 				return wo(t, Ao(To(t, e)[2])), wo(t, Ao(To(t, e)[2])), t;
 			}
 			function To(t, e) {
@@ -27057,7 +27004,7 @@ More info at: http://icanhazjs.com
 					var a, o;
 					function s() {
 						var t = Math.min(e.length, n.length) > 2 ? Co : So,
-							s = i ? _a : Ca;
+							s = i ? Ea : Ca;
 						return (a = t(e, n, s, r)), (o = t(n, e, s, ra)), u;
 					}
 					function u(t) {
@@ -27089,7 +27036,7 @@ More info at: http://icanhazjs.com
 							return Io(e, t, n);
 						}),
 						(u.nice = function (t) {
-							return Eo(e, t), s();
+							return _o(e, t), s();
 						}),
 						(u.copy = function () {
 							return t(e, n, r, i);
@@ -27166,7 +27113,7 @@ More info at: http://icanhazjs.com
 						(u.copy = function () {
 							return t(e.copy(), n, r, i);
 						}),
-						_o(u, e)
+						Eo(u, e)
 					);
 				})(a.scale.linear().domain([0, 1]), 10, !0, [1, 10]);
 			};
@@ -27205,7 +27152,7 @@ More info at: http://icanhazjs.com
 							return Io(r, t, e);
 						}),
 						(o.nice = function (t) {
-							return o.domain(Eo(r, t));
+							return o.domain(_o(r, t));
 						}),
 						(o.exponent = function (t) {
 							return arguments.length
@@ -27215,7 +27162,7 @@ More info at: http://icanhazjs.com
 						(o.copy = function () {
 							return t(e.copy(), n, r);
 						}),
-						_o(o, e)
+						Eo(o, e)
 					);
 				})(a.scale.linear(), 1, [0, 1]);
 			}),
@@ -27498,8 +27445,8 @@ More info at: http://icanhazjs.com
 							A,
 							k,
 							C,
-							_ = 0,
 							E = 0,
+							_ = 0,
 							T = [];
 						if (
 							((m = (+o.apply(this, arguments) || 0) / 2) &&
@@ -27507,28 +27454,28 @@ More info at: http://icanhazjs.com
 									r === Uo
 										? Math.sqrt(s * s + l * l)
 										: +r.apply(this, arguments)),
-								d || (E *= -1),
-								l && (E = Bt((v / l) * Math.sin(m))),
-								s && (_ = Bt((v / s) * Math.sin(m)))),
+								d || (_ *= -1),
+								l && (_ = Bt((v / l) * Math.sin(m))),
+								s && (E = Bt((v / s) * Math.sin(m)))),
 							l)
 						) {
-							(y = l * Math.cos(c + E)),
-								(b = l * Math.sin(c + E)),
-								(x = l * Math.cos(f - E)),
-								(S = l * Math.sin(f - E));
-							var M = Math.abs(f - c - 2 * E) <= It ? 0 : 1;
-							if (E && (Go(y, b, x, S) === d) ^ M) {
+							(y = l * Math.cos(c + _)),
+								(b = l * Math.sin(c + _)),
+								(x = l * Math.cos(f - _)),
+								(S = l * Math.sin(f - _));
+							var M = Math.abs(f - c - 2 * _) <= It ? 0 : 1;
+							if (_ && (Go(y, b, x, S) === d) ^ M) {
 								var I = (c + f) / 2;
 								(y = l * Math.cos(I)), (b = l * Math.sin(I)), (x = S = null);
 							}
 						} else y = b = 0;
 						if (s) {
-							(w = s * Math.cos(f - _)),
-								(A = s * Math.sin(f - _)),
-								(k = s * Math.cos(c + _)),
-								(C = s * Math.sin(c + _));
-							var O = Math.abs(c - f + 2 * _) <= It ? 0 : 1;
-							if (_ && (Go(w, A, k, C) === 1 - d) ^ O) {
+							(w = s * Math.cos(f - E)),
+								(A = s * Math.sin(f - E)),
+								(k = s * Math.cos(c + E)),
+								(C = s * Math.sin(c + E));
+							var O = Math.abs(c - f + 2 * E) <= It ? 0 : 1;
+							if (E && (Go(w, A, k, C) === 1 - d) ^ O) {
 								var R = (c + f) / 2;
 								(w = s * Math.cos(R)), (A = s * Math.sin(R)), (k = C = null);
 							}
@@ -27740,12 +27687,12 @@ More info at: http://icanhazjs.com
 					A = (-x * v - m * S) / y,
 					k = (x * m + v * S) / y,
 					C = (-x * v + m * S) / y,
-					_ = w - p,
-					E = A - g,
+					E = w - p,
+					_ = A - g,
 					T = k - p,
 					M = C - g;
 				return (
-					_ * _ + E * E > T * T + M * M && ((w = k), (A = C)),
+					E * E + _ * _ > T * T + M * M && ((w = k), (A = C)),
 					[
 						[w - u, A - l],
 						[(w * n) / b, (A * n) / b],
@@ -28409,7 +28356,7 @@ More info at: http://icanhazjs.com
 				for (
 					var e,
 						n,
-						r = ks || ++Es,
+						r = ks || ++_s,
 						i = Is(t),
 						a = [],
 						o = Cs || { time: Date.now(), ease: da, delay: 0, duration: 250 },
@@ -28441,12 +28388,12 @@ More info at: http://icanhazjs.com
 				};
 			}
 			function As(t, e, n) {
-				return q(t, _s), (t.namespace = e), (t.id = n), t;
+				return q(t, Es), (t.namespace = e), (t.id = n), t;
 			}
 			var ks,
 				Cs,
-				_s = [],
-				Es = 0;
+				Es = [],
+				_s = 0;
 			function Ts(t, e, n, r) {
 				var i = t.id,
 					a = t.namespace;
@@ -28496,7 +28443,7 @@ More info at: http://icanhazjs.com
 							(g.timer.c = null), (g.timer.t = NaN), --c.count, delete c[p];
 						}
 					(o.c = d),
-						_e(
+						Ee(
 							function () {
 								return o.c && d(n || 1) && ((o.c = null), (o.t = NaN)), 1;
 							},
@@ -28523,7 +28470,7 @@ More info at: http://icanhazjs.com
 				}
 				f ||
 					((a = i.time),
-					(o = _e(
+					(o = Ee(
 						function (t) {
 							var e = f.delay;
 							if (((o.t = e + a), e <= t)) return h(t - e);
@@ -28545,10 +28492,10 @@ More info at: http://icanhazjs.com
 					(i = null),
 					++c.count);
 			}
-			(_s.call = Z.call),
-				(_s.empty = Z.empty),
-				(_s.node = Z.node),
-				(_s.size = Z.size),
+			(Es.call = Z.call),
+				(Es.empty = Z.empty),
+				(Es.node = Z.node),
+				(Es.size = Z.size),
 				(a.transition = function (t, e) {
 					return t && t.transition
 						? ks
@@ -28556,8 +28503,8 @@ More info at: http://icanhazjs.com
 							: t
 						: a.selection().transition(t);
 				}),
-				(a.transition.prototype = _s),
-				(_s.select = function (t) {
+				(a.transition.prototype = Es),
+				(Es.select = function (t) {
 					var e,
 						n,
 						r,
@@ -28576,7 +28523,7 @@ More info at: http://icanhazjs.com
 					}
 					return As(o, a, i);
 				}),
-				(_s.selectAll = function (t) {
+				(Es.selectAll = function (t) {
 					var e,
 						n,
 						r,
@@ -28595,7 +28542,7 @@ More info at: http://icanhazjs.com
 							}
 					return As(u, s, o);
 				}),
-				(_s.filter = function (t) {
+				(Es.filter = function (t) {
 					var e,
 						n,
 						r = [];
@@ -28607,7 +28554,7 @@ More info at: http://icanhazjs.com
 					}
 					return As(r, this.namespace, this.id);
 				}),
-				(_s.tween = function (t, e) {
+				(Es.tween = function (t, e) {
 					var n = this.id,
 						r = this.namespace;
 					return arguments.length < 2
@@ -28623,7 +28570,7 @@ More info at: http://icanhazjs.com
 									  }
 						  );
 				}),
-				(_s.attr = function (t, e) {
+				(Es.attr = function (t, e) {
 					if (arguments.length < 2) {
 						for (e in t) this.attr(e, t[e]);
 						return this;
@@ -28670,7 +28617,7 @@ More info at: http://icanhazjs.com
 					}
 					return Ts(this, 'attr.' + t, e, r.local ? u : s);
 				}),
-				(_s.attrTween = function (t, e) {
+				(Es.attrTween = function (t, e) {
 					var n = a.ns.qualify(t);
 					return this.tween(
 						'attr.' + t,
@@ -28700,7 +28647,7 @@ More info at: http://icanhazjs.com
 							  }
 					);
 				}),
-				(_s.style = function (t, e, n) {
+				(Es.style = function (t, e, n) {
 					var r = arguments.length;
 					if (r < 3) {
 						if ('string' != typeof t) {
@@ -28732,7 +28679,7 @@ More info at: http://icanhazjs.com
 					}
 					return Ts(this, 'style.' + t, e, a);
 				}),
-				(_s.styleTween = function (t, e, n) {
+				(Es.styleTween = function (t, e, n) {
 					function r(r, i) {
 						var a = e.call(
 							this,
@@ -28749,17 +28696,17 @@ More info at: http://icanhazjs.com
 					}
 					return arguments.length < 3 && (n = ''), this.tween('style.' + t, r);
 				}),
-				(_s.text = function (t) {
+				(Es.text = function (t) {
 					return Ts(this, 'text', t, Ms);
 				}),
-				(_s.remove = function () {
+				(Es.remove = function () {
 					var t = this.namespace;
 					return this.each('end.transition', function () {
 						var e;
 						this[t].count < 2 && (e = this.parentNode) && e.removeChild(this);
 					});
 				}),
-				(_s.ease = function (t) {
+				(Es.ease = function (t) {
 					var e = this.id,
 						n = this.namespace;
 					return arguments.length < 1
@@ -28769,7 +28716,7 @@ More info at: http://icanhazjs.com
 								r[n][e].ease = t;
 						  }));
 				}),
-				(_s.delay = function (t) {
+				(Es.delay = function (t) {
 					var e = this.id,
 						n = this.namespace;
 					return arguments.length < 1
@@ -28786,7 +28733,7 @@ More info at: http://icanhazjs.com
 									  })
 						  );
 				}),
-				(_s.duration = function (t) {
+				(Es.duration = function (t) {
 					var e = this.id,
 						n = this.namespace;
 					return arguments.length < 1
@@ -28806,7 +28753,7 @@ More info at: http://icanhazjs.com
 									  })
 						  );
 				}),
-				(_s.each = function (t, e) {
+				(Es.each = function (t, e) {
 					var n = this.id,
 						r = this.namespace;
 					if (arguments.length < 2) {
@@ -28830,13 +28777,13 @@ More info at: http://icanhazjs.com
 						});
 					return this;
 				}),
-				(_s.transition = function () {
+				(Es.transition = function () {
 					for (
 						var t,
 							e,
 							n,
 							r = this.id,
-							i = ++Es,
+							i = ++_s,
 							a = this.namespace,
 							o = [],
 							s = 0,
@@ -28892,8 +28839,8 @@ More info at: http://icanhazjs.com
 							var A,
 								k,
 								C,
-								_,
-								E = v.select('line'),
+								E,
+								_ = v.select('line'),
 								T = y.select('line'),
 								M = g.select('text').text(p),
 								I = v.select('text'),
@@ -28905,7 +28852,7 @@ More info at: http://icanhazjs.com
 									  (A = 'x'),
 									  (C = 'y'),
 									  (k = 'x2'),
-									  (_ = 'y2'),
+									  (E = 'y2'),
 									  M.attr('dy', R < 0 ? '0em' : '.71em').style(
 											'text-anchor',
 											'middle'
@@ -28918,7 +28865,7 @@ More info at: http://icanhazjs.com
 									  (A = 'y'),
 									  (C = 'x'),
 									  (k = 'y2'),
-									  (_ = 'x2'),
+									  (E = 'x2'),
 									  M.attr('dy', '.32em').style(
 											'text-anchor',
 											R < 0 ? 'end' : 'start'
@@ -28927,9 +28874,9 @@ More info at: http://icanhazjs.com
 											'd',
 											'M' + R * i + ',' + x[0] + 'H0V' + x[1] + 'H' + R * i
 									  )),
-								E.attr(_, R * r),
+								_.attr(E, R * r),
 								I.attr(C, R * b),
-								T.attr(k, 0).attr(_, R * r),
+								T.attr(k, 0).attr(E, R * r),
 								O.attr(A, 0).attr(C, R * b),
 								h.rangeBand)
 							) {
@@ -29079,29 +29026,29 @@ More info at: http://icanhazjs.com
 						A = !/^(e|w)$/.test(S) && i,
 						k = y.classed('extent'),
 						C = kt(m),
-						_ = a.mouse(m),
-						E = a.select(c(m)).on('keydown.brush', I).on('keyup.brush', O);
+						E = a.mouse(m),
+						_ = a.select(c(m)).on('keydown.brush', I).on('keyup.brush', O);
 					if (
 						(a.event.changedTouches
-							? E.on('touchmove.brush', R).on('touchend.brush', N)
-							: E.on('mousemove.brush', R).on('mouseup.brush', N),
+							? _.on('touchmove.brush', R).on('touchend.brush', N)
+							: _.on('mousemove.brush', R).on('mouseup.brush', N),
 						x.interrupt().selectAll('*').interrupt(),
 						k)
 					)
-						(_[0] = o[0] - _[0]), (_[1] = s[0] - _[1]);
+						(E[0] = o[0] - E[0]), (E[1] = s[0] - E[1]);
 					else if (S) {
 						var T = +/w$/.test(S),
 							M = +/^n/.test(S);
-						(v = [o[1 - T] - _[0], s[1 - M] - _[1]]), (_[0] = o[T]), (_[1] = s[M]);
-					} else a.event.altKey && (f = _.slice());
+						(v = [o[1 - T] - E[0], s[1 - M] - E[1]]), (E[0] = o[T]), (E[1] = s[M]);
+					} else a.event.altKey && (f = E.slice());
 					function I() {
 						32 == a.event.keyCode &&
-							(k || ((f = null), (_[0] -= o[1]), (_[1] -= s[1]), (k = 2)), U());
+							(k || ((f = null), (E[0] -= o[1]), (E[1] -= s[1]), (k = 2)), U());
 					}
 					function O() {
 						32 == a.event.keyCode &&
 							2 == k &&
-							((_[0] += o[1]), (_[1] += s[1]), (k = 0), U());
+							((E[0] += o[1]), (E[1] += s[1]), (k = 0), U());
 					}
 					function R() {
 						var t = a.mouse(m),
@@ -29110,8 +29057,8 @@ More info at: http://icanhazjs.com
 							k ||
 								(a.event.altKey
 									? (f || (f = [(o[0] + o[1]) / 2, (s[0] + s[1]) / 2]),
-									  (_[0] = o[+(t[0] < f[0])]),
-									  (_[1] = s[+(t[1] < f[1])]))
+									  (E[0] = o[+(t[0] < f[0])]),
+									  (E[1] = s[+(t[1] < f[1])]))
 									: (f = null)),
 							w && D(t, r, 0) && (p(x), (e = !0)),
 							A && D(t, i, 1) && (g(x), (e = !0)),
@@ -29123,7 +29070,7 @@ More info at: http://icanhazjs.com
 							h = xo(r),
 							d = h[0],
 							p = h[1],
-							g = _[i],
+							g = E[i],
 							v = i ? s : o,
 							m = v[1] - v[0];
 						if (
@@ -29144,7 +29091,7 @@ More info at: http://icanhazjs.com
 								.selectAll('.resize')
 								.style('display', h.empty() ? 'none' : null),
 							a.select('body').style('cursor', null),
-							E.on('mousemove.brush', null)
+							_.on('mousemove.brush', null)
 								.on('mouseup.brush', null)
 								.on('touchmove.brush', null)
 								.on('touchend.brush', null)
@@ -29365,7 +29312,7 @@ More info at: http://icanhazjs.com
 					(r.copy = function () {
 						return Vs(t.copy(), e, n);
 					}),
-					_o(r, t)
+					Eo(r, t)
 				);
 			}
 			function Hs(t) {
@@ -29758,9 +29705,9 @@ More info at: http://icanhazjs.com
 						return M(this, e, n);
 					case 'utf8':
 					case 'utf-8':
-						return _(this, e, n);
-					case 'ascii':
 						return E(this, e, n);
+					case 'ascii':
+						return _(this, e, n);
 					case 'latin1':
 					case 'binary':
 						return T(this, e, n);
@@ -29896,7 +29843,7 @@ More info at: http://icanhazjs.com
 		function C(t, e, n) {
 			return 0 === e && n === t.length ? r.fromByteArray(t) : r.fromByteArray(t.slice(e, n));
 		}
-		function _(t, e, n) {
+		function E(t, e, n) {
 			n = Math.min(t.length, n);
 			for (var r = [], i = e; i < n; ) {
 				var a,
@@ -30094,7 +30041,7 @@ More info at: http://icanhazjs.com
 				return 0 === t
 					? ''
 					: 0 === arguments.length
-					? _(this, 0, t)
+					? E(this, 0, t)
 					: g.apply(this, arguments);
 			}),
 			(u.prototype.equals = function (t) {
@@ -30197,7 +30144,7 @@ More info at: http://icanhazjs.com
 			(u.prototype.toJSON = function () {
 				return { type: 'Buffer', data: Array.prototype.slice.call(this._arr || this, 0) };
 			});
-		function E(t, e, n) {
+		function _(t, e, n) {
 			var r = '';
 			n = Math.min(t.length, n);
 			for (var i = e; i < n; ++i) r += String.fromCharCode(127 & t[i]);
@@ -30863,14 +30810,14 @@ More info at: http://icanhazjs.com
 				k = A && A(A(D([])));
 			k && k !== a && o.call(k, l) && (w = k);
 			var C = (S.prototype = b.prototype = Object.create(w));
-			function _(t) {
+			function E(t) {
 				['next', 'throw', 'return'].forEach(function (e) {
 					h(t, e, function (t) {
 						return this._invoke(e, t);
 					});
 				});
 			}
-			function E(t, e) {
+			function _(t, e) {
 				function n(i, a, s, u) {
 					var l = p(t[i], t, a);
 					if ('throw' !== l.type) {
@@ -31024,21 +30971,21 @@ More info at: http://icanhazjs.com
 				(n.awrap = function (t) {
 					return { __await: t };
 				}),
-				_(E.prototype),
-				h(E.prototype, c, function () {
+				E(_.prototype),
+				h(_.prototype, c, function () {
 					return this;
 				}),
-				(n.AsyncIterator = E),
+				(n.AsyncIterator = _),
 				(n.async = function (t, e, r, i, a) {
 					void 0 === a && (a = Promise);
-					var o = new E(d(t, e, r, i), a);
+					var o = new _(d(t, e, r, i), a);
 					return n.isGeneratorFunction(e)
 						? o
 						: o.next().then(function (t) {
 								return t.done ? t.value : o.next();
 						  });
 				}),
-				_(C),
+				E(C),
 				h(C, f, 'Generator'),
 				h(C, l, function () {
 					return this;
@@ -31313,8 +31260,8 @@ More info at: http://icanhazjs.com
 			A = n(78),
 			k = n(32),
 			C = n(189),
-			_ = n(112),
-			E = n(28),
+			E = n(112),
+			_ = n(28),
 			T = n(58),
 			M = n(71),
 			I = n(104),
@@ -31339,7 +31286,7 @@ More info at: http://icanhazjs.com
 			Y = A.f,
 			Z = k.f,
 			J = S.f,
-			X = _.f,
+			X = E.f,
 			Q = o([].push),
 			tt = M('symbols'),
 			et = M('op-symbols'),
@@ -31434,7 +31381,7 @@ More info at: http://icanhazjs.com
 				);
 			};
 		l ||
-			(E(
+			(_(
 				(q = (z = function () {
 					if (h(q, this)) throw new G('Symbol is not a constructor');
 					var t = arguments.length && void 0 !== arguments[0] ? v(arguments[0]) : void 0,
@@ -31457,10 +31404,10 @@ More info at: http://icanhazjs.com
 					return V(this).tag;
 				}
 			),
-			E(z, 'withoutSetter', function (t) {
+			_(z, 'withoutSetter', function (t) {
 				return ot(R(t), t);
 			}),
-			(_.f = lt),
+			(E.f = lt),
 			(k.f = st),
 			(C.f = ut),
 			(A.f = ct),
@@ -31476,7 +31423,7 @@ More info at: http://icanhazjs.com
 						return V(this).description;
 					},
 				}),
-				s || E(H, 'propertyIsEnumerable', lt, { unsafe: !0 }))),
+				s || _(H, 'propertyIsEnumerable', lt, { unsafe: !0 }))),
 			r({ global: !0, constructor: !0, wrap: !0, forced: !l, sham: !l }, { Symbol: z }),
 			B(b(nt), function (t) {
 				P(t);
@@ -31620,7 +31567,7 @@ More info at: http://icanhazjs.com
 			C = u(function () {
 				return '"\\udf06\\ud834"' !== g('\udf06\ud834') || '"\\udead"' !== g('\udead');
 			}),
-			_ = function (t, e) {
+			E = function (t, e) {
 				var n = f(arguments),
 					r = h(e);
 				if (l(r) || (void 0 !== t && !c(t)))
@@ -31631,7 +31578,7 @@ More info at: http://icanhazjs.com
 						a(g, null, n)
 					);
 			},
-			E = function (t, e, n) {
+			_ = function (t, e, n) {
 				var r = m(n, e - 1),
 					i = m(n, e + 1);
 				return (v(w, t) && !v(A, i)) || (v(A, t) && !v(w, r)) ? '\\u' + x(y(t, 0), 16) : t;
@@ -31642,8 +31589,8 @@ More info at: http://icanhazjs.com
 				{
 					stringify: function (t, e, n) {
 						var r = f(arguments),
-							i = a(k ? _ : g, null, r);
-						return C && 'string' == typeof i ? b(i, S, E) : i;
+							i = a(k ? E : g, null, r);
+						return C && 'string' == typeof i ? b(i, S, _) : i;
 					},
 				}
 			);
@@ -31754,8 +31701,8 @@ More info at: http://icanhazjs.com
 			A = n(35),
 			k = A.set,
 			C = A.getterFor('URL'),
-			_ = w.URLSearchParams,
-			E = w.getState,
+			E = w.URLSearchParams,
+			_ = w.getState,
 			T = s.URL,
 			M = s.TypeError,
 			I = s.parseInt,
@@ -31868,8 +31815,8 @@ More info at: http://icanhazjs.com
 			At = {},
 			kt = {},
 			Ct = {},
-			_t = {},
 			Et = {},
+			_t = {},
 			Tt = {},
 			Mt = {},
 			It = {},
@@ -31887,7 +31834,7 @@ More info at: http://icanhazjs.com
 				} else {
 					if ((void 0 !== n && (r = new Nt(n, !0)), (i = this.parse(o, null, r))))
 						throw new M(i);
-					(a = E(new _())).bindURL(this), (this.searchParams = a);
+					(a = _(new E())).bindURL(this), (this.searchParams = a);
 				}
 			};
 		Nt.prototype = {
@@ -31957,7 +31904,7 @@ More info at: http://icanhazjs.com
 									);
 								(h = ''),
 									'file' === l.scheme
-										? (c = _t)
+										? (c = Et)
 										: l.isSpecial() && n && n.scheme === l.scheme
 										? (c = vt)
 										: l.isSpecial()
@@ -31978,7 +31925,7 @@ More info at: http://icanhazjs.com
 									(c = Dt);
 								break;
 							}
-							c = 'file' === n.scheme ? _t : yt;
+							c = 'file' === n.scheme ? Et : yt;
 							continue;
 						case vt:
 							if ('/' !== a || '/' !== i[f + 1]) {
@@ -32133,8 +32080,8 @@ More info at: http://icanhazjs.com
 							}
 							h += a;
 							break;
-						case _t:
-							if (((l.scheme = 'file'), '/' === a || '\\' === a)) c = Et;
+						case Et:
+							if (((l.scheme = 'file'), '/' === a || '\\' === a)) c = _t;
 							else {
 								if (!n || 'file' !== n.scheme) {
 									c = It;
@@ -32169,7 +32116,7 @@ More info at: http://icanhazjs.com
 								}
 							}
 							break;
-						case Et:
+						case _t:
 							if ('/' === a || '\\' === a) {
 								c = Tt;
 								break;
@@ -32926,8 +32873,8 @@ More info at: http://icanhazjs.com
 			A = n(56),
 			k = n(51),
 			C = n(85),
-			_ = n(82).f,
-			E = n(303),
+			E = n(82).f,
+			_ = n(303),
 			T = n(38).forEach,
 			M = n(118),
 			I = n(58),
@@ -33034,7 +32981,7 @@ More info at: http://icanhazjs.com
 													: new d(e)
 												: Y(e)
 												? D(y, e)
-												: a(E, y, e)
+												: a(_, y, e)
 											: new d(g(e)),
 										t,
 										y
@@ -33042,7 +32989,7 @@ More info at: http://icanhazjs.com
 								);
 						  })),
 						  C && C(y, G),
-						  T(_(d), function (t) {
+						  T(E(d), function (t) {
 								t in y || h(y, t, d[t]);
 						  }),
 						  (y.prototype = b))
@@ -33054,7 +33001,7 @@ More info at: http://icanhazjs.com
 									l = 0,
 									f = 0;
 								if (S(e)) {
-									if (!J(e)) return Y(e) ? D(y, e) : a(E, y, e);
+									if (!J(e)) return Y(e) ? D(y, e) : a(_, y, e);
 									(i = e), (f = v(n, o));
 									var h = e.byteLength;
 									if (void 0 === r) {
@@ -33138,8 +33085,8 @@ More info at: http://icanhazjs.com
 			A = n(141),
 			k = n(57),
 			C = n(35),
-			_ = s.PROPER,
-			E = s.CONFIGURABLE,
+			E = s.PROPER,
+			_ = s.CONFIGURABLE,
 			T = C.getterFor('ArrayBuffer'),
 			M = C.getterFor('DataView'),
 			I = C.set,
@@ -33201,7 +33148,7 @@ More info at: http://icanhazjs.com
 					c[f + h] = u[l ? h : e - h - 1];
 			};
 		if (o) {
-			var X = _ && 'ArrayBuffer' !== O.name;
+			var X = E && 'ArrayBuffer' !== O.name;
 			f(function () {
 				O(1);
 			}) &&
@@ -33209,9 +33156,9 @@ More info at: http://icanhazjs.com
 				new O(-1);
 			}) &&
 			!f(function () {
-				return new O(), new O(1.5), new O(NaN), 1 !== O.length || (X && !E);
+				return new O(), new O(1.5), new O(NaN), 1 !== O.length || (X && !_);
 			})
-				? X && E && u(O, 'name', 'ArrayBuffer')
+				? X && _ && u(O, 'name', 'ArrayBuffer')
 				: (((R = function (t) {
 						return h(this, D), w(new O(g(t)), this, R);
 				  }).prototype = D),
@@ -34150,24 +34097,24 @@ More info at: http://icanhazjs.com
 					b = T('boolean', i[0]),
 					x = T('number', i[1]),
 					S = T('string', i[2]),
-					w = E(i[3]),
-					A = E(i[4]),
-					k = E(i[5]),
-					C = E(i[6]);
-				function _(t, e, n) {
+					w = _(i[3]),
+					A = _(i[4]),
+					k = _(i[5]),
+					C = _(i[6]);
+				function E(t, e, n) {
 					return (n || M(t)) === '[object ' + e + ']';
 				}
-				function E(t) {
+				function _(t) {
 					var e =
 						('Array' === t && Array.isArray) ||
 						function (e, n) {
-							return _(e, t, n);
+							return E(e, t, n);
 						};
 					return (m[t] = e), e;
 				}
 				function T(t, e) {
 					var n = function (n) {
-						return j(n) ? _(n, e) : typeof n === t;
+						return j(n) ? E(n, e) : typeof n === t;
 					};
 					return (m[e] = n), n;
 				}
@@ -34628,7 +34575,7 @@ More info at: http://icanhazjs.com
 							'2000-01-01T00:00:00.000Z' === At.toISOString()
 					);
 				var Ct = !('0' in [].concat(void 0).concat());
-				function _t(t, e) {
+				function Et(t, e) {
 					if ($(t));
 					else {
 						if (k(t))
@@ -34665,7 +34612,7 @@ More info at: http://icanhazjs.com
 									if (!j(r)) return !1;
 									for (o in t)
 										if (
-											((n[o] = n[o] || _t(t[o], e)),
+											((n[o] = n[o] || Et(t[o], e)),
 											!1 === n[o].call(a, r[o], i, a))
 										)
 											return !1;
@@ -34693,7 +34640,7 @@ More info at: http://icanhazjs.com
 							: t[e]
 						: t;
 				}
-				function Et(t, e, n, r) {
+				function _t(t, e, n, r) {
 					var i,
 						a,
 						o = +t.length;
@@ -34712,7 +34659,7 @@ More info at: http://icanhazjs.com
 						a = [];
 					for (i in t) Mt(t, i) && i >= n && a.push(parseInt(i));
 					return (
-						Et(a.sort(), function (n) {
+						_t(a.sort(), function (n) {
 							return e.call(t, t[n], n, t);
 						}),
 						t
@@ -34731,8 +34678,8 @@ More info at: http://icanhazjs.com
 					var o, s, u;
 					return (
 						t.length > 0 &&
-							((u = _t(e)),
-							Et(
+							((u = Et(e)),
+							_t(
 								t,
 								function (e, n) {
 									if (u.call(a, e, n, t)) return (o = e), (s = n), !1;
@@ -34748,8 +34695,8 @@ More info at: http://icanhazjs.com
 						a = [];
 					return (
 						t.length > 0 &&
-							((i = _t(e)),
-							Et(
+							((i = Et(e)),
+							_t(
 								t,
 								function (t, e, n) {
 									i(t, e, n) && a.push(t);
@@ -34768,14 +34715,14 @@ More info at: http://icanhazjs.com
 					);
 				}
 				function Dt(t, e) {
-					for (var n = 0, r = _t(e); n < t.length; ) r(t[n], n, t) ? t.splice(n, 1) : n++;
+					for (var n = 0, r = Et(e); n < t.length; ) r(t[n], n, t) ? t.splice(n, 1) : n++;
 				}
 				function Nt(t, e) {
 					var n,
 						r = [],
 						i = {};
 					return (
-						Et(t, function (a, o) {
+						_t(t, function (a, o) {
 							(n = e ? mt(a, e, t, [a, o, t]) : a), qt(i, n) || r.push(a);
 						}),
 						r
@@ -34785,10 +34732,10 @@ More info at: http://icanhazjs.com
 					var r = [],
 						i = {};
 					return (
-						Et(e, function (t) {
+						_t(e, function (t) {
 							qt(i, t);
 						}),
-						Et(t, function (t) {
+						_t(t, function (t) {
 							var e = ht(t),
 								a = !pt(t);
 							zt(i, e, t, a) !== n &&
@@ -34809,7 +34756,7 @@ More info at: http://icanhazjs.com
 					(e = e || 1 / 0), (n = n || 0);
 					var r = [];
 					return (
-						Et(t, function (t) {
+						_t(t, function (t) {
 							w(t) && n < e ? (r = Vt(r, Lt(t, e, n + 1))) : r.push(t);
 						}),
 						r
@@ -34819,7 +34766,7 @@ More info at: http://icanhazjs.com
 					var r,
 						i = {};
 					return (
-						Et(t, function (n, a) {
+						_t(t, function (n, a) {
 							(r = mt(n, e, t, [n, a, t])), i[r] || (i[r] = []), i[r].push(n);
 						}),
 						n && h(i, n),
@@ -34839,7 +34786,7 @@ More info at: http://icanhazjs.com
 				function Bt(t, e) {
 					var n = [];
 					return (
-						Et(t, function (t, r) {
+						_t(t, function (t, r) {
 							e && t
 								? n.push(t)
 								: e || null == t || t.valueOf() != t.valueOf() || n.push(t);
@@ -34965,7 +34912,7 @@ More info at: http://icanhazjs.com
 									o,
 									s = yt(t);
 								return (
-									e || (o = _t(n, !0)),
+									e || (o = Et(n, !0)),
 									(a = r.call(
 										s,
 										function (r) {
@@ -35190,7 +35137,7 @@ More info at: http://icanhazjs.com
 							return arguments.length > 0 ? e.slice(0, t) : e[0];
 						},
 						each: function (t, e, n) {
-							return Et(this, t, e, n), this;
+							return _t(this, t, e, n), this;
 						},
 						add: function (t, e) {
 							return Rt(this, t, e);
@@ -35228,7 +35175,7 @@ More info at: http://icanhazjs.com
 						function (t, e) {
 							var n = Array.prototype[e];
 							t[e] = function (t) {
-								var e = _t(t);
+								var e = Et(t);
 								return n.call(this, function (t, n, r) {
 									return e(t, n, r);
 								});
@@ -35265,9 +35212,9 @@ More info at: http://icanhazjs.com
 								})
 								.join('');
 						var t = {};
-						Et('AÁÀÂÃÄ,CÇ,EÉÈÊË,IÍÌİÎÏ,OÓÒÔÕÖ,Sß,UÚÙÛÜ'.split(','), function (e) {
+						_t('AÁÀÂÃÄ,CÇ,EÉÈÊË,IÍÌİÎÏ,OÓÒÔÕÖ,Sß,UÚÙÛÜ'.split(','), function (e) {
 							var n = e.charAt(0);
-							Et(e.slice(1).split(''), function (e) {
+							_t(e.slice(1).split(''), function (e) {
 								(t[e] = n), (t[e.toLowerCase()] = n.toLowerCase());
 							});
 						}),
@@ -35346,7 +35293,7 @@ More info at: http://icanhazjs.com
 						throw new TypeError('Invalid locale.');
 					return n || oe;
 				}
-				function _e(t, e, n, r) {
+				function Ee(t, e, n, r) {
 					t.compiledFormats.unshift({
 						variant: !!r,
 						locale: t,
@@ -35354,7 +35301,7 @@ More info at: http://icanhazjs.com
 						to: n,
 					});
 				}
-				function Ee(t) {
+				function _e(t) {
 					return t.slice(0, 1).toUpperCase() + t.slice(1);
 				}
 				function Te(t) {
@@ -35733,7 +35680,7 @@ More info at: http://icanhazjs.com
 						var r = ct(t, 'Month');
 						return Ce(n).months[r + 12 * e];
 					};
-					Xe(t, r, n), Xe(Ee(t), r, n, 1);
+					Xe(t, r, n), Xe(_e(t), r, n, 1);
 				}
 				function Xe(t, e, n, r) {
 					Se[t] = function (t, i) {
@@ -36065,7 +36012,7 @@ More info at: http://icanhazjs.com
 							? u.call(this, a, o, s, e)
 							: ((i = this.plural && 1 !== a ? 1 : 0),
 							  (r = this.units[8 * i + o] || this.units[o]),
-							  this.capitalizeUnit && (r = Ee(r)),
+							  this.capitalizeUnit && (r = _e(r)),
 							  (n = this.modifiers.filter(function (t) {
 									return 'sign' == t.name && t.value == (s > 0 ? 1 : -1);
 							  })[0]),
@@ -36127,8 +36074,8 @@ More info at: http://icanhazjs.com
 								? ((a = an(me, l, i)),
 								  (o = ['t', '[\\s\\u3000]'].concat(l.get('timeMarker'))),
 								  (s = t.match(/\\d\{\d,\d\}\)+\??$/)),
-								  _e(l, '(?:' + a + ')[,\\s\\u3000]+?' + t, ve.concat(u), r),
-								  _e(
+								  Ee(l, '(?:' + a + ')[,\\s\\u3000]+?' + t, ve.concat(u), r),
+								  Ee(
 										l,
 										t +
 											'(?:[,\\s]*(?:' +
@@ -36140,7 +36087,7 @@ More info at: http://icanhazjs.com
 										u.concat(ve),
 										r
 								  ))
-								: _e(l, t, u, r);
+								: Ee(l, t, u, r);
 					},
 				}),
 					s(
@@ -36300,7 +36247,7 @@ More info at: http://icanhazjs.com
 								return t ? Ce(t, !1) : oe;
 							},
 							addFormat: function (t, e, n) {
-								_e(Ce(n), t, e);
+								Ee(Ce(n), t, e);
 							},
 						},
 						!1
@@ -36471,7 +36418,7 @@ More info at: http://icanhazjs.com
 						var r,
 							i,
 							a = e.name,
-							o = Ee(a);
+							o = _e(a);
 						function u(t, e) {
 							var n = {};
 							return (n[a] = t), $e(this, [n, e]);
@@ -36686,7 +36633,7 @@ More info at: http://icanhazjs.com
 					(pe = ae.weekdays.slice(0, 7)),
 					(ge = ae.months.slice(0, 12)),
 					I(Date, de.concat(pe).concat(ge), function (t, e) {
-						t['is' + Ee(e)] = function (t) {
+						t['is' + _e(e)] = function (t) {
 							return en(this, e, 0, t);
 						};
 					}),
@@ -36811,10 +36758,10 @@ More info at: http://icanhazjs.com
 				function Cn(t, e, n) {
 					S(e) && kn(xn, e), kn(xn, n), t.unshift({ rule: e, replacement: n });
 				}
-				function _n(t, e) {
+				function En(t, e) {
 					return t == e || 'all' == t || !t;
 				}
-				function En(t, e) {
+				function _n(t, e) {
 					return qr((t = S(t) ? t.toString() : '')) ||
 						(function (t) {
 							return xn.some(function (e) {
@@ -36934,11 +36881,11 @@ More info at: http://icanhazjs.com
 							Sn.unshift({ rule: t, replacement: e });
 						},
 						clear: function (t) {
-							_n(t, 'singulars') && (bn = []),
-								_n(t, 'plurals') && (yn = []),
-								_n(t, 'uncountables') && (xn = []),
-								_n(t, 'humans') && (Sn = []),
-								_n(t, 'acronyms') && (wn = {});
+							En(t, 'singulars') && (bn = []),
+								En(t, 'plurals') && (yn = []),
+								En(t, 'uncountables') && (xn = []),
+								En(t, 'humans') && (Sn = []),
+								En(t, 'acronyms') && (wn = {});
 						},
 					}).plural(/$/, 's'),
 					gn.plural(/s$/gi, 's'),
@@ -37099,10 +37046,10 @@ More info at: http://icanhazjs.com
 					}),
 					s(String, {
 						pluralize: function () {
-							return En(this, !0);
+							return _n(this, !0);
 						},
 						singularize: function () {
-							return En(this, !1);
+							return _n(this, !1);
 						},
 						humanize: function () {
 							return In(this);
@@ -37778,11 +37725,11 @@ More info at: http://icanhazjs.com
 				function br(t) {
 					var e, n, r, i, a, o;
 					return (e = t.match(sr))
-						? _r(e[1], e[2])
+						? Er(e[1], e[2])
 						: ((e = t.match(lr)) && ((r = e[1]), (n = e[2])),
 						  (e = t.match(cr)) && ((n = e[1]), (r = e[2])),
 						  n && r && (o = Ar((a = mr(n)), (i = wr(r))[0], i[1])),
-						  _r(a, o));
+						  Er(a, o));
 				}
 				function xr(t) {
 					return A(t) ? new Date(t.getTime()) : pr(t);
@@ -37921,7 +37868,7 @@ More info at: http://icanhazjs.com
 				var Cr = function (t, e) {
 						return new hr(t, e);
 					},
-					_r = function (t, e) {
+					Er = function (t, e) {
 						if (yr()) {
 							if (1 === arguments.length && S(t)) return br(t);
 							(t = mr(t)), (e = mr(e));
@@ -37930,7 +37877,7 @@ More info at: http://icanhazjs.com
 					};
 				kr(Number, Cr),
 					kr(String, Cr),
-					kr(Date, _r),
+					kr(Date, Er),
 					s(Number, {
 						upto: function (t, e, n) {
 							return new hr(this, t).every(n, e);
@@ -37978,7 +37925,7 @@ More info at: http://icanhazjs.com
 							return RegExp(this.source, ut(this).replace(t, ''));
 						},
 					});
-				var Er,
+				var _r,
 					Tr,
 					Mr = /&#(x)?([\w\d]{0,5});/i,
 					Ir = [
@@ -38242,7 +38189,7 @@ More info at: http://icanhazjs.com
 							var t;
 						},
 						encodeBase64: function () {
-							return Er(this);
+							return _r(this);
 						},
 						decodeBase64: function () {
 							return Tr(this);
@@ -38461,7 +38408,7 @@ More info at: http://icanhazjs.com
 						}
 						if (void 0 !== t)
 							return (
-								(Er = function (e) {
+								(_r = function (e) {
 									return new t(e).toString('base64');
 								}),
 								void (Tr = function (e) {
@@ -38524,7 +38471,7 @@ More info at: http://icanhazjs.com
 									return l;
 								});
 						}
-						(Er = function (t) {
+						(_r = function (t) {
 							return n(unescape(encodeURIComponent(t)));
 						}),
 							(Tr = function (t) {
@@ -42425,25 +42372,25 @@ License: MIT
 								if (!o) return W();
 								if (t.header && !h) {
 									var C = o.split(r)[0].split(n),
-										_ = [],
-										E = {},
+										E = [],
+										_ = {},
 										T = !1;
 									for (var M in C) {
 										var I = C[M];
 										S(t.transformHeader) && (I = t.transformHeader(I, M));
 										var O = I,
-											R = E[I] || 0;
+											R = _[I] || 0;
 										for (
-											0 < R && ((T = !0), (O = I + '_' + R)), E[I] = R + 1;
-											_.includes(O);
+											0 < R && ((T = !0), (O = I + '_' + R)), _[I] = R + 1;
+											E.includes(O);
 
 										)
 											O = O + '_' + R;
-										_.push(O);
+										E.push(O);
 									}
 									if (T) {
 										var D = o.split(r);
-										(D[0] = _.join(n)), (o = D.join(r));
+										(D[0] = E.join(n)), (o = D.join(r));
 									}
 								}
 								if (u || (!1 !== u && -1 === o.indexOf(e))) {
@@ -43094,13 +43041,13 @@ License: MIT
 			A = n(353),
 			k = (n(335), n(369), n(370), n(371), n(372), n(257)),
 			C = n(50),
-			_ = (n(250), n(254)),
-			E = (function () {
+			E = (n(250), n(254)),
+			_ = (function () {
 				return v()(
 					function t(e) {
 						p()(this, t),
 							(this.sitemap = e),
-							(this.diagonal = _.svg.diagonal().projection(function (t) {
+							(this.diagonal = E.svg.diagonal().projection(function (t) {
 								return [t.y, t.x];
 							}));
 					},
@@ -43108,7 +43055,7 @@ License: MIT
 						{
 							key: 'initTree',
 							value: function (t, e) {
-								(this.tree = _.layout.tree().size([e, t])),
+								(this.tree = E.layout.tree().size([e, t])),
 									this.tree.children(this.getSelectorVisibleChildren.bind(this));
 							},
 						},
@@ -43148,7 +43095,7 @@ License: MIT
 								var r = [20, 120, 20, 120];
 								(e = e - r[1] - r[3]), (n = n - r[0] - r[2]);
 								this.initTree(e, n),
-									(this.svg = _.select(t)
+									(this.svg = E.select(t)
 										.append('svg:svg')
 										.attr('width', e + r[1] + r[3])
 										.attr('height', n + r[0] + r[2])
@@ -45430,7 +45377,7 @@ License: MIT
 									e = x.SitemapSelectorGraph();
 								b('#viewport').html(e);
 								var n = b('#selector-graph')[0];
-								return new E(t).draw(n, b(document).width(), 200), !0;
+								return new _(t).draw(n, b(document).width(), 200), !0;
 							},
 						},
 						{
@@ -46068,8 +46015,8 @@ License: MIT
 									A = b('#edit-selector [name=parentSelectors]').val(),
 									k = [],
 									C = b('#edit-selector .column-header'),
-									_ = b('#edit-selector .column-name'),
-									E = b('#edit-selector .column-extract'),
+									E = b('#edit-selector .column-name'),
+									_ = b('#edit-selector .column-extract'),
 									M = {
 										replaceString: b(
 											'#edit-selector [name=replaceString]'
@@ -46097,8 +46044,8 @@ License: MIT
 									O = b('#edit-selector [name=uuid]').val();
 								C.each(function (t) {
 									var e = b(C[t]).val(),
-										n = b(_[t]).val(),
-										r = b(E[t]).is(':checked');
+										n = b(E[t]).val(),
+										r = b(_[t]).is(':checked');
 									k.push({ header: e, name: n, extract: r });
 								});
 								var R = {
@@ -47055,7 +47002,7 @@ License: MIT
 						{
 							key: 'selectSelector',
 							value:
-								((_ = c()(
+								((E = c()(
 									y.a.mark(function t(e) {
 										var n, r, i, a, o, s, u;
 										return y.a.wrap(
@@ -47124,7 +47071,7 @@ License: MIT
 									})
 								)),
 								function (t) {
-									return _.apply(this, arguments);
+									return E.apply(this, arguments);
 								}),
 						},
 						{
@@ -48091,7 +48038,7 @@ License: MIT
 					d,
 					g,
 					m,
-					_,
+					E,
 					j,
 					$,
 					V,

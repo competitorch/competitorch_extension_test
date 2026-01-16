@@ -133,77 +133,28 @@ export default class ContentSelector {
 			this.$allElements.push(this.parent);
 		}
 
-		this.advancedMode = false;
 		this.bindElementHighlight();
 		this.bindElementSelection();
 		this.bindKeyboardSelectionManipulations();
 		await this.attachToolbar();
 		this.bindMatchingModeDropdown();
-		this.bindAdvancedModeToggle();
 		this.bindMoveImagesToTop();
 		Translator.translatePage();
 	}
 
-	bindAdvancedModeToggle() {
-		$('#-selector-toolbar [name=advancedMode]').change(
-			function (e) {
-				this.advancedMode = $(e.currentTarget).is(':checked');
-				if (this.advancedMode) {
-					$('#-selector-toolbar .advanced-mode-hint').removeClass('hide');
-				} else {
-					$('#-selector-toolbar .advanced-mode-hint').addClass('hide');
-				}
-				// Rebind element selection with new mode
-				this.unbindElementSelection();
-				this.bindElementSelection();
-			}.bind(this)
-		);
-	}
-
-	unbindAdvancedModeToggle() {
-		$('#-selector-toolbar [name=advancedMode]').unbind('change');
-	}
-
 	bindElementSelection() {
-		// Use a single document-level listener with capture:true to intercept events
-		// before the website's JavaScript can handle them
-		const allElementsArray = this.$allElements.toArray();
-
-		this._documentClickHandler = e => {
-			// In Advanced Mode, only select when Alt is pressed
-			if (this.advancedMode && !e.altKey) {
-				return; // Let the click pass through normally
-			}
-
-			// Find the most specific allowed element that was clicked
-			let targetElement = e.target;
-			let selectedElement = null;
-
-			// Walk up the DOM tree to find if clicked element or any parent is in our allowed list
-			while (targetElement && targetElement !== document) {
-				if (allElementsArray.indexOf(targetElement) !== -1) {
-					selectedElement = targetElement;
-					break; // Take the most specific (deepest) match
-				}
-				targetElement = targetElement.parentNode;
-			}
-
-			if (selectedElement) {
-				if (this.selectedElements.indexOf(selectedElement) === -1) {
-					this.selectedElements.push(selectedElement);
+		// Simple jQuery click binding
+		this.$allElements.bind(
+			'click.elementSelector',
+			function (e) {
+				const element = e.currentTarget;
+				if (this.selectedElements.indexOf(element) === -1) {
+					this.selectedElements.push(element);
 				}
 				this.highlightSelectedElements();
-
-				// Stop the event from reaching the website's handlers
-				e.preventDefault();
-				e.stopPropagation();
-				e.stopImmediatePropagation();
 				return false;
-			}
-		};
-
-		// Use mousedown - it fires before click and is harder to intercept
-		document.addEventListener('mousedown', this._documentClickHandler, true);
+			}.bind(this)
+		);
 	}
 
 	/**
@@ -212,7 +163,9 @@ export default class ContentSelector {
 	selectMouseOverElement() {
 		const element = this.mouseOverElement;
 		if (element) {
-			this.selectedElements.push(element);
+			if (this.selectedElements.indexOf(element) === -1) {
+				this.selectedElements.push(element);
+			}
 			this.highlightSelectedElements();
 		}
 	}
@@ -383,14 +336,7 @@ export default class ContentSelector {
 	}
 
 	unbindElementSelection() {
-		// Remove document-level mousedown listener
-		if (this._documentClickHandler) {
-			document.removeEventListener('mousedown', this._documentClickHandler, true);
-			this._documentClickHandler = null;
-		}
-		// Fallback: also try jQuery unbind for backwards compatibility
 		$(this.$allElements).unbind('click.elementSelector');
-		// remove highlighted element classes
 		this.unbindElementSelectionHighlight();
 	}
 
@@ -421,7 +367,6 @@ export default class ContentSelector {
 		this.unbindElementHighlight();
 		this.unbindKeyboardSelectionMaipulatios();
 		this.unbindMatchingModeDropdown();
-		this.unbindAdvancedModeToggle();
 		this.unbindMoveImagesToTop();
 		this.removeToolbar();
 	}

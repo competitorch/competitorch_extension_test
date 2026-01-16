@@ -16911,19 +16911,17 @@
 																		this.$allElements.push(
 																			this.parent
 																		),
-																	(this.advancedMode = !1),
 																	this.bindElementHighlight(),
 																	this.bindElementSelection(),
 																	this.bindKeyboardSelectionManipulations(),
-																	(t.next = 9),
+																	(t.next = 8),
 																	this.attachToolbar()
 																);
-															case 9:
+															case 8:
 																this.bindMatchingModeDropdown(),
-																	this.bindAdvancedModeToggle(),
 																	this.bindMoveImagesToTop(),
 																	g.a.translatePage();
-															case 13:
+															case 11:
 															case 'end':
 																return t.stop();
 														}
@@ -16938,64 +16936,20 @@
 									}),
 							},
 							{
-								key: 'bindAdvancedModeToggle',
-								value: function () {
-									e('#-selector-toolbar [name=advancedMode]').change(
-										function (t) {
-											(this.advancedMode = e(t.currentTarget).is(':checked')),
-												this.advancedMode
-													? e(
-															'#-selector-toolbar .advanced-mode-hint'
-													  ).removeClass('hide')
-													: e(
-															'#-selector-toolbar .advanced-mode-hint'
-													  ).addClass('hide'),
-												this.unbindElementSelection(),
-												this.bindElementSelection();
-										}.bind(this)
-									);
-								},
-							},
-							{
-								key: 'unbindAdvancedModeToggle',
-								value: function () {
-									e('#-selector-toolbar [name=advancedMode]').unbind('change');
-								},
-							},
-							{
 								key: 'bindElementSelection',
 								value: function () {
-									var e = this,
-										t = this.$allElements.toArray();
-									(this._documentClickHandler = function (n) {
-										if (!e.advancedMode || n.altKey) {
-											for (
-												var r = n.target, i = null;
-												r && r !== document;
-
-											) {
-												if (-1 !== t.indexOf(r)) {
-													i = r;
-													break;
-												}
-												r = r.parentNode;
-											}
-											return i
-												? (-1 === e.selectedElements.indexOf(i) &&
-														e.selectedElements.push(i),
-												  e.highlightSelectedElements(),
-												  n.preventDefault(),
-												  n.stopPropagation(),
-												  n.stopImmediatePropagation(),
-												  !1)
-												: void 0;
-										}
-									}),
-										document.addEventListener(
-											'mousedown',
-											this._documentClickHandler,
-											!0
-										);
+									this.$allElements.bind(
+										'click.elementSelector',
+										function (e) {
+											var t = e.currentTarget;
+											return (
+												-1 === this.selectedElements.indexOf(t) &&
+													this.selectedElements.push(t),
+												this.highlightSelectedElements(),
+												!1
+											);
+										}.bind(this)
+									);
 								},
 							},
 							{
@@ -17003,7 +16957,8 @@
 								value: function () {
 									var e = this.mouseOverElement;
 									e &&
-										(this.selectedElements.push(e),
+										(-1 === this.selectedElements.indexOf(e) &&
+											this.selectedElements.push(e),
 										this.highlightSelectedElements());
 								},
 							},
@@ -17223,14 +17178,7 @@
 							{
 								key: 'unbindElementSelection',
 								value: function () {
-									this._documentClickHandler &&
-										(document.removeEventListener(
-											'mousedown',
-											this._documentClickHandler,
-											!0
-										),
-										(this._documentClickHandler = null)),
-										e(this.$allElements).unbind('click.elementSelector'),
+									e(this.$allElements).unbind('click.elementSelector'),
 										this.unbindElementSelectionHighlight();
 								},
 							},
@@ -17272,7 +17220,6 @@
 										this.unbindElementHighlight(),
 										this.unbindKeyboardSelectionMaipulatios(),
 										this.unbindMatchingModeDropdown(),
-										this.unbindAdvancedModeToggle(),
 										this.unbindMoveImagesToTop(),
 										this.removeToolbar();
 								},
